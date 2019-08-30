@@ -65,7 +65,31 @@ export default new Vuex.Store({
       ]
     },
     workshops: {},
-    endpoints: {},
+    endpoints: {
+      items: [
+        {
+          name: "Instituto Inmaculada",
+          description: "Talleres hechos en Instituto Inmaculada de Castelar"
+        },
+        {
+          name: "ITBA",
+          description:
+            "Talleres hechos en el Instituto Tecnologico de Buenos Aires"
+        },
+        {
+          name: "ITBA Postgrado",
+          description: "Talleres hechos en ITBA Postgrado"
+        },
+        {
+          name: "ORT",
+          description: "Talleres hechos en la escuela ORT"
+        },
+        {
+          name: "UBA",
+          description: "Talleres hechos en la UBA"
+        }
+      ]
+    },
     users: {},
     forms: {},
     windowWidth: 0,
