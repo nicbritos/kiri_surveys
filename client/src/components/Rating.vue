@@ -26,12 +26,12 @@
       <transition name="slide-fade">
         <div class="input" v-if="selected">
           <v-textarea
-            outline
+            outlined
             name="comment"
             label="Comentarios extra (opcional)"
             v-model="comment"
           ></v-textarea>
-          <v-btn color="primary" @click="rate">Enviar</v-btn>
+          <v-btn color="primary" @click="rate" v-blur>Enviar</v-btn>
         </div>
       </transition>
     </v-card>

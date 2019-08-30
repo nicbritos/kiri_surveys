@@ -2,34 +2,22 @@
   <v-app :dark="theme == 'dark' ? true : false">
     <Loader :loading="loading" />
     <Rating @rate="rate" :visible="ratingVisibility" />
-    <v-bottom-nav
-      app
-      :active.sync="bottomNav"
-      :value="true"
+    <v-navigation-drawer
+      :expand-on-hover="expandOnHover"
+      value="true"
+      permanent="true"
       fixed
-      v-if="minWidth(991)"
+      app
+      touchless
+      dark
     >
-      <v-btn
-        v-for="(item, i) in items"
-        :key="i"
-        exact
-        color="primary"
-        flat
-        :to="item.to"
-        replace
-      >
-        <span>{{ item.title }}</span>
-        <v-icon>{{ item.icon }}</v-icon>
-      </v-btn>
-    </v-bottom-nav>
-    <v-navigation-drawer :value="drawer" fixed app touchless>
       <v-list class="list-title">
-        <v-list-tile>
-          APLICACIÓN
-        </v-list-tile>
+        <v-list-item>
+          Icon
+        </v-list-item>
       </v-list>
       <v-list>
-        <v-list-tile
+        <v-list-item
           v-for="(item, i) in items"
           :key="i"
           router
@@ -37,12 +25,12 @@
           exact
           ripple
         >
-          <v-list-tile-action>
+          <v-list-item-action>
             <v-icon v-html="item.icon" />
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title" />
-          </v-list-tile-content>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title v-text="item.title" />
+          </v-list-item-content>
           <v-spacer />
           <v-chip
             disabled
@@ -51,67 +39,69 @@
             v-if="item.chip"
             >{{ item.chip }}</v-chip
           >
-        </v-list-tile>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
-    <v-toolbar fixed app dark class="grey darken-3">
-      <v-toolbar-side-icon @click="drawer = !drawer" v-if="maxWidth(991)" />
+    <v-app-bar elevate-on-scroll app dark class="grey darken-3" dense>
       <img id="logo" src="@/assets/logo.png" alt="logo castelar bus" />
       <v-spacer />
-      <v-toolbar-items>
-        <v-tooltip bottom>
-          <template v-slot:activator="{ on }">
-            <v-btn
-              icon
-              @click="
-                theme == 'light'
-                  ? $store.dispatch('setTheme', 'dark')
-                  : $store.dispatch('setTheme', 'light')
-              "
-              v-on="on"
-            >
-              <v-icon>{{
-                theme == "light" ? "brightness_3" : "brightness_5"
-              }}</v-icon>
-            </v-btn>
-          </template>
-          <span>{{
-            theme == "light"
-              ? "Cambiar al modo oscuro"
-              : "Cambiar al modo claro"
-          }}</span>
-        </v-tooltip>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on }">
+          <v-btn
+            icon
+            @click="
+              theme == 'light'
+                ? $store.dispatch('setTheme', 'dark')
+                : $store.dispatch('setTheme', 'light')
+            "
+            v-blur
+            v-on="on"
+          >
+            <v-icon>{{
+              theme == "light" ? "brightness_3" : "brightness_5"
+            }}</v-icon>
+          </v-btn>
+        </template>
+        <span>{{
+          theme == "light" ? "Cambiar al modo oscuro" : "Cambiar al modo claro"
+        }}</span>
+      </v-tooltip>
 
-        <v-btn to="/login" light class="nav-btn" v-if="!loggedIn"
-          ><v-icon left>exit_to_app</v-icon> CONECTARME</v-btn
-        >
-        <v-btn to="/register" class="nav-btn" color="primary" v-if="!loggedIn"
-          ><v-icon left>person_add</v-icon> REGISTRARME</v-btn
-        >
-        <v-menu absolute v-if="loggedIn">
-          <template v-slot:activator="{ on }">
-            <v-btn id="profile-btn" :icon="mobile" flat v-on="on">
-              <v-icon large :left="!mobile">
-                account_circle
-              </v-icon>
-              <span v-if="!mobile">{{ displayName }} {{ stringID }}</span>
-            </v-btn>
-          </template>
+      <v-btn to="/login" light class="nav-btn" v-if="!loggedIn" v-blur>
+        <v-icon left>exit_to_app</v-icon>
+        CONECTARME
+      </v-btn>
+      <v-btn
+        to="/register"
+        class="nav-btn"
+        color="primary"
+        v-if="!loggedIn"
+        v-blur
+        ><v-icon left>person_add</v-icon> REGISTRARME</v-btn
+      >
+      <v-menu absolute v-if="loggedIn">
+        <template v-slot:activator="{ on }">
+          <v-btn id="profile-btn" :icon="mobile" text v-on="on" v-blur>
+            <v-icon large :left="!mobile">
+              account_circle
+            </v-icon>
+            <span v-if="!mobile">{{ displayName }} {{ stringID }}</span>
+          </v-btn>
+        </template>
 
-          <v-list>
-            <v-list-tile ripple @click="">
-              <v-icon v-html="'settings'" />
-              <v-list-tile-title v-text="'Configuración'" />
-            </v-list-tile>
-            <v-list-tile ripple @click="logOut">
-              <v-icon v-html="'power_settings_new'" />
-              <v-list-tile-title v-text="'Cerrar sesión'" />
-            </v-list-tile>
-          </v-list>
-        </v-menu>
-      </v-toolbar-items>
-    </v-toolbar>
+        <v-list>
+          <v-list-item ripple @click="">
+            <v-icon v-html="'settings'" />
+            <v-list-item-title v-text="'Configuración'" />
+          </v-list-item>
+          <v-list-item ripple @click="logOut">
+            <v-icon v-html="'power_settings_new'" />
+            <v-list-item-title v-text="'Cerrar sesión'" />
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-app-bar>
 
     <v-content>
       {{ rating.rate }}
@@ -136,14 +126,17 @@ export default {
   data: () => ({
     fixed: false,
     items: [
-      { icon: "home", title: "Inicio", to: "/", chip: "nuevo" },
-      { icon: "help", title: "About", to: "/about" },
+      { icon: "home", title: "Home", to: "/" },
+      { icon: "school", title: "Data", to: "/endpoints" },
+      { icon: "question_answer", title: "Questions", to: "/questions" },
+      { icon: "view_list", title: "Forms", to: "/forms" },
+      { icon: "group", title: "Users", to: "/users" },
       { icon: "exit_to_app", title: "Ingresar", to: "/login" },
-      { icon: "person_add", title: "Registrarme", to: "/register" }
+      { icon: "person_add", title: "Registrarme", to: "/register" },
+      { icon: "help", title: "About", to: "/about" }
     ],
-    title: "Castelar Bus",
-    rating: {},
-    drawer: false
+    title: "KIRI Surveys",
+    rating: {}
   }),
   computed: {
     ...mapGetters([
@@ -156,6 +149,9 @@ export default {
       "ratingVisibility",
       "theme"
     ]),
+    expandOnHover() {
+      return this.minWidth(991);
+    },
     mobile() {
       return this.minWidth(575);
     }

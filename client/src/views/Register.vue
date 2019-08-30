@@ -89,6 +89,7 @@
               type="submit"
               color="primary"
               form="register"
+              v-blur
             >
               <v-icon left>person_add</v-icon>
               REGISTRARME

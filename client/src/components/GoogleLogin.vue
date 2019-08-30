@@ -6,7 +6,7 @@
       <div class="line"></div>
     </div>
     <div class="google-btn__container">
-      <v-btn class="google-btn" @click="googleLogin"
+      <v-btn class="google-btn" @click="googleLogin" v-blur
         ><img class="google-logo" src="@/assets/google-logo.svg" alt="" />
         CONECTARME CON GOOGLE</v-btn
       >

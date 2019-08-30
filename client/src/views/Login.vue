@@ -64,6 +64,7 @@
               type="submit"
               color="primary"
               form="login"
+              v-blur
             >
               <v-icon left>exit_to_app</v-icon>
               CONECTARME

@@ -10,7 +10,10 @@
       ></div>
     </div>
     <div class="google-btn__container">
-      <v-btn class="google-btn grey lighten-4 black--text" @click="googleLogin"
+      <v-btn
+        class="google-btn grey lighten-4 black--text"
+        @click="googleLogin"
+        v-blur
         ><img class="google-logo" src="@/assets/google-logo.svg" alt="" />
         CONECTARME CON GOOGLE</v-btn
       >

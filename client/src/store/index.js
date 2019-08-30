@@ -11,91 +11,63 @@ export default new Vuex.Store({
   // App global-access state for views and components.
   state: {
     loading: true,
-    headers: [
-      {
-        text: "Dessert (100g serving)",
-        align: "left",
-        sortable: false,
-        value: "name"
-      },
-      { text: "Calories", value: "calories" },
-      { text: "Fat (g)", value: "fat" },
-      { text: "Carbs (g)", value: "carbs" },
-      { text: "Protein (g)", value: "protein" },
-      { text: "Actions", value: "action" }
-    ],
-    desserts: [
-      {
-        name: "Frozen Yogurt",
-        calories: 159,
-        fat: 6.0,
-        carbs: 24,
-        protein: 4.0
-      },
-      {
-        name: "Ice cream sandwich",
-        calories: 237,
-        fat: 9.0,
-        carbs: 37,
-        protein: 4.3
-      },
-      {
-        name: "Eclair",
-        calories: 262,
-        fat: 16.0,
-        carbs: 23,
-        protein: 6.0
-      },
-      {
-        name: "Cupcake",
-        calories: 310,
-        fat: 3.7,
-        carbs: 67,
-        protein: 4.3
-      },
-      {
-        name: "Gingerbread",
-        calories: 356,
-        fat: 16.0,
-        carbs: 49,
-        protein: 3.9
-      },
-      {
-        name: "Jelly bean",
-        calories: 375,
-        fat: 0.0,
-        carbs: 94,
-        protein: 0.0
-      },
-      {
-        name: "Lollipop",
-        calories: 392,
-        fat: 0.2,
-        carbs: 98,
-        protein: 0
-      },
-      {
-        name: "Honeycomb",
-        calories: 408,
-        fat: 3.2,
-        carbs: 87,
-        protein: 6.5
-      },
-      {
-        name: "Donut",
-        calories: 452,
-        fat: 25.0,
-        carbs: 51,
-        protein: 4.9
-      },
-      {
-        name: "KitKat",
-        calories: 518,
-        fat: 26.0,
-        carbs: 65,
-        protein: 7
-      }
-    ],
+    questions: {
+      headers: [
+        { text: "Name", align: "left", value: "name", sortable: true },
+        { text: "Measurable", value: "measurable", sortable: false },
+        { text: "Feedback", value: "feedback", sortable: false },
+        { text: "Answered", value: "answered", sortable: false },
+        { text: "Actions", value: "action", sortable: false }
+      ],
+      selected: [],
+      items: [
+        {
+          name: "Que piensa sobre el CC?",
+          measurable: true,
+          feedback: true,
+          answered: true,
+          values: [
+            {
+              value: 1,
+              description: "Poco"
+            },
+            {
+              value: 2,
+              description: "Medio"
+            },
+            {
+              value: 3,
+              description: "Mucho"
+            }
+          ]
+        },
+        {
+          name: "Aguante Peron",
+          measurable: true,
+          feedback: true,
+          answered: true,
+          values: []
+        },
+        {
+          name: "Tu vieja? Si, tu vieja.",
+          measurable: false,
+          feedback: false,
+          answered: false,
+          values: []
+        }
+      ]
+    },
+    questionValues: {
+      headers: [
+        { text: "Value", align: "left", value: "value", sortable: true },
+        { text: "Description", value: "description", sortable: false },
+        { text: "Actions", value: "action", sortable: false }
+      ]
+    },
+    workshops: {},
+    endpoints: {},
+    users: {},
+    forms: {},
     windowWidth: 0,
     ratingVisibility: false,
     theme: "light"
@@ -135,12 +107,6 @@ export default new Vuex.Store({
       localStorage.userPreferences = JSON.stringify(userPreferences);
 
       commit("SET_THEME", theme);
-    },
-    setStops({ commit }, stops) {
-      console.log(stops);
-    },
-    setDefaultTrips({ commit }, trips) {
-      console.log(trips);
     }
   },
   // Getters act as computed properties.

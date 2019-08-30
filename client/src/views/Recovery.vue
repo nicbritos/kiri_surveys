@@ -46,6 +46,7 @@
               type="submit"
               color="primary"
               form="login"
+              v-blur
             >
               <v-icon left>outlined_flag</v-icon>
               RECUPERAR

@@ -1,11 +1,15 @@
 import Vue from "vue";
 import Router from "vue-router";
+import store from "./store/index";
 import Home from "./views/Home.vue";
-import About from "./views/About.vue";
+import Forms from "./views/Forms.vue";
+import Users from "./views/Users.vue";
 import Login from "./views/Login.vue";
+import About from "./views/About.vue";
 import Register from "./views/Register.vue";
 import Recovery from "./views/Recovery.vue";
-import store from "./store/index";
+import Questions from "./views/Questions.vue";
+import Endpoints from "./views/Endpoints.vue";
 
 Vue.use(Router);
 
@@ -19,12 +23,36 @@ const router = new Router({
       component: Home
     },
     {
-      path: "/about",
-      name: "about",
+      path: "/questions",
+      name: "questions",
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       },
-      component: About
+      component: Questions
+    },
+    {
+      path: "/endpoints",
+      name: "endpoints",
+      meta: {
+        requiresAuth: false
+      },
+      component: Endpoints
+    },
+    {
+      path: "/users",
+      name: "users",
+      meta: {
+        requiresAuth: false
+      },
+      component: Users
+    },
+    {
+      path: "/forms",
+      name: "forms",
+      meta: {
+        requiresAuth: false
+      },
+      component: Forms
     },
     {
       path: "/register",
@@ -49,6 +77,14 @@ const router = new Router({
         requiresUnAuth: true
       },
       component: Recovery
+    },
+    {
+      path: "/about",
+      name: "about",
+      meta: {
+        requiresUnAuth: true
+      },
+      component: About
     }
   ]
 });

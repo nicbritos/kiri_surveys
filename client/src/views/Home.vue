@@ -1,6 +1,7 @@
 <template>
   <v-container grid-list-md>
     <v-btn @click="$store.dispatch('toggleRating')"
+           v-blur
       >Toggle rating component</v-btn
     >
     <!-- TABLE COMPONENT -->
@@ -10,7 +11,8 @@
       <v-spacer></v-spacer>
       <v-dialog v-model="dialog" max-width="500px">
         <template v-slot:activator="{ on }">
-          <v-btn color="primary" dark class="mb-2" v-on="on">NUEVO ITEM</v-btn>
+          <v-btn color="primary" dark class="mb-2" v-on="on"
+                 v-blur>NUEVO ITEM</v-btn>
         </template>
         <v-card>
           <v-card-title>
@@ -56,8 +58,8 @@
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" flat @click="close">Cancelar</v-btn>
-            <v-btn color="blue darken-1" flat @click="save">Guardar</v-btn>
+            <v-btn color="blue darken-1" text @click="close">Cancelar</v-btn>
+            <v-btn color="blue darken-1" text @click="save">Guardar</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -93,10 +95,10 @@
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" flat @click="close"
+                <v-btn color="blue darken-1" text @click="close"
                   >CANCELAR</v-btn
                 >
-                <v-btn color="error" flat @click="deleteItem">ELIMINAR</v-btn>
+                <v-btn color="error" text @click="deleteItem">ELIMINAR</v-btn>
               </v-card-actions>
             </v-card>
           </v-dialog>
@@ -141,7 +143,7 @@
     <v-snackbar v-model="snackbar" top left color="success" :timeout="6000">
       <v-icon left color="white">accessibility</v-icon> Soy una snackbar
       deliciosa
-      <v-btn flat icon @click="snackbar = false">
+      <v-btn text icon @click="snackbar = false">
         <v-icon>close</v-icon>
       </v-btn>
     </v-snackbar>
@@ -187,7 +189,7 @@
             Continuar
           </v-btn>
 
-          <v-btn flat>Cancelar</v-btn>
+          <v-btn text>Cancelar</v-btn>
         </v-stepper-content>
 
         <v-stepper-content step="2">
@@ -206,7 +208,7 @@
             Continuar
           </v-btn>
 
-          <v-btn flat @click="step = 1">Atrás</v-btn>
+          <v-btn text @click="step = 1">Atrás</v-btn>
         </v-stepper-content>
 
         <v-stepper-content step="3">
@@ -217,7 +219,7 @@
             Continuar
           </v-btn>
 
-          <v-btn flat @click="step = 2">Atrás</v-btn>
+          <v-btn text @click="step = 2">Atrás</v-btn>
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
