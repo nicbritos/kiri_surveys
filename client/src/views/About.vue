@@ -2,7 +2,9 @@
   ><v-container grid-list-md>
     <v-card>
       <v-card-title>
-        About
+        <h2>
+          About
+        </h2>
       </v-card-title>
       <v-card-text>
         This website allows managing data from surveys made on workshops about
