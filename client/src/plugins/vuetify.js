@@ -12,7 +12,7 @@ export default new Vuetify({
   theme: {
     themes: {
       light: {
-        primary: colors.red.darken1, // #E53935
+        primary: colors.blue.darken1, // #E53935
         secondary: "#37474F", // #FFCDD2
         accent: colors.indigo.base, // #3F51B5
         blue: colors.blue.darken1,
