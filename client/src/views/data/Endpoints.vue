@@ -24,14 +24,17 @@
           <Endpoint
             :value="item.name"
             :description="item.description"
+            :quantity="item.quantity"
+            :endpoint-id="item.id"
           ></Endpoint>
         </v-col>
       </v-row>
-    </v-container> </v-container
+    </v-container>
+  </v-container
 ></template>
 
 <script>
-import Endpoint from "../components/Endpoint";
+import Endpoint from "../../components/Endpoint";
 export default {
   name: "Endpoints",
   components: { Endpoint },

@@ -69,24 +69,34 @@ export default new Vuex.Store({
       items: [
         {
           name: "Instituto Inmaculada",
-          description: "Talleres hechos en Instituto Inmaculada de Castelar"
+          description: "Talleres hechos en Instituto Inmaculada de Castelar",
+          quantity: 4,
+          id: "asdkfhaskld"
         },
         {
           name: "ITBA",
           description:
-            "Talleres hechos en el Instituto Tecnologico de Buenos Aires"
+            "Talleres hechos en el Instituto Tecnologico de Buenos Aires",
+          quantity: 12,
+          id: "asdkfhaskladsd"
         },
         {
           name: "ITBA Postgrado",
-          description: "Talleres hechos en ITBA Postgrado"
+          description: "Talleres hechos en ITBA Postgrado",
+          quantity: 3,
+          id: "asdkfhaskassadfasdld"
         },
         {
           name: "ORT",
-          description: "Talleres hechos en la escuela ORT"
+          description: "Talleres hechos en la escuela ORT",
+          quantity: 2,
+          id: "asdkfhasksddddld"
         },
         {
           name: "UBA",
-          description: "Talleres hechos en la UBA"
+          description: "Talleres hechos en la UBA",
+          quantity: 0,
+          id: "1231asdf"
         }
       ]
     },

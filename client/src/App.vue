@@ -5,7 +5,7 @@
     <v-navigation-drawer
       :expand-on-hover="expandOnHover"
       value="true"
-      permanent="true"
+      permanent
       fixed
       app
       touchless

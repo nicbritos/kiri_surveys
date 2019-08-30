@@ -9,7 +9,8 @@ import About from "./views/About.vue";
 import Register from "./views/Register.vue";
 import Recovery from "./views/Recovery.vue";
 import Questions from "./views/Questions.vue";
-import Endpoints from "./views/Endpoints.vue";
+import Endpoints from "./views/data/Endpoints.vue";
+import Workshops from "./views/data/Workshops.vue";
 
 Vue.use(Router);
 
@@ -37,6 +38,14 @@ const router = new Router({
         requiresAuth: false
       },
       component: Endpoints
+    },
+    {
+      path: "/endpoints/:id",
+      name: "endpoint",
+      meta: {
+        requiresAuth: false
+      },
+      component: Workshops
     },
     {
       path: "/users",
