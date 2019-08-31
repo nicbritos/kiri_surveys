@@ -1,11 +1,6 @@
 <template>
   <v-container grid-list-md>
-    <!-- TABLE COMPONENT -->
-
-    <v-row>
-      <v-spacer></v-spacer>
-    </v-row>
-    <v-toolbar elevation="0" style="background-color: transparent">
+    <v-toolbar flat style="background-color: transparent">
       <v-toolbar-title>
         <h2>
           Questions
@@ -17,11 +12,9 @@
         single-line
         class="ml-3"
         placeholder="Start typing to Search"
-        v-model="search"
+        v-model="filters.search"
+        clearable
       ></v-text-field>
-      <v-btn icon v-blur v-if="search.length > 0" @click="search = ''">
-        <v-icon>cancel</v-icon>
-      </v-btn>
       <v-btn color="primary" dark class="ml-3 mb-2" v-on="on" v-blur
         >NEW QUESTION</v-btn
       >
@@ -73,17 +66,37 @@
       </v-dialog>
     </v-toolbar>
 
+    <v-container fluid>
+      <v-row dense>
+        <v-col>
+          <v-select
+            dense
+            chips
+            label="Add Filters"
+            multiple
+            solo
+            :items="filterChips"
+            clearable
+            deletable-chips
+            @change="itemAdded"
+          >
+          </v-select>
+        </v-col>
+      </v-row>
+    </v-container>
+
     <v-data-table
       v-model="this.$store.state.questions.selected"
       :headers="headers"
       :items="items"
-      :search="search"
+      :search="filters.search"
       item-key="id"
       no-data-text="No Questions created so far."
       no-results-text="No Questions found."
       show-select
       show-expand
       must-sort
+      class="elevation-1"
       :sort-by="['name']"
     >
       <template v-slot:item.data-table-expand="{ item, isExpanded, expand }">
@@ -127,7 +140,7 @@
 
       <template v-slot:item.actions="props">
         <v-btn icon v-blur>
-          <v-icon @click="editItem(props.item)">
+          <v-icon color="primary" @click="editItem(props.item)">
             edit
           </v-icon>
         </v-btn>
@@ -136,7 +149,7 @@
         <v-dialog v-model="deleteDialog" max-width="300px">
           <template v-slot:activator="{ on }">
             <v-btn icon v-blur>
-              <v-icon v-on="on" @click="setDialog(props.item)">
+              <v-icon color="error" v-on="on" @click="setDialog(props.item)">
                 delete
               </v-icon>
             </v-btn>
@@ -222,30 +235,67 @@
         </td>
       </template>
     </v-data-table>
-
-    <hr class="mb-5" />
   </v-container>
 </template>
 
 <script>
 export default {
   data: () => ({
-    search: "",
+    filters: {
+      search: "",
+      measurable: undefined,
+      feedback: undefined,
+      answered: undefined
+    },
     shown: true,
     snackbar: false,
     dialog: false,
     deleteDialog: false,
     deletingItem: {},
     editedIndex: -1,
+    filterChips: [
+      {
+        text: "Measurable",
+        value: "m",
+        disabled: false
+      },
+      {
+        text: "Non measurable",
+        value: "nm",
+        disabled: false
+      },
+      {
+        text: "Feedback",
+        value: "f",
+        disabled: false
+      },
+      {
+        text: "Non feedback",
+        value: "nf",
+        disabled: false
+      },
+      {
+        text: "Answered",
+        value: "a",
+        disabled: false
+      },
+      {
+        text: "Not answered",
+        value: "na",
+        disabled: false
+      }
+    ],
     editedItem: {
       name: "",
       measurable: false,
-      feedback: false
+      feedback: false,
+      answered: false
     },
     defaultItem: {
       name: "",
       measurable: false,
-      feedback: false
+      feedback: false,
+      answered: false
     }
   }),
   computed: {
@@ -253,7 +303,42 @@ export default {
       return this.$store.state.questionValues.headers;
     },
     headers() {
-      return this.$store.state.questions.headers;
+      return [
+        {
+          text: "Name",
+          align: "left",
+          value: "name",
+          sortable: true
+        },
+        {
+          text: "Measurable",
+          value: "measurable",
+          sortable: false,
+          filter: value => {
+            if (this.filters.measurable == null) return true;
+            return value === this.filters.measurable;
+          }
+        },
+        {
+          text: "Feedback",
+          value: "feedback",
+          sortable: false,
+          filter: value => {
+            if (this.filters.feedback == null) return true;
+            return value === this.filters.feedback;
+          }
+        },
+        {
+          text: "Answered",
+          value: "answered",
+          sortable: false,
+          filter: value => {
+            if (this.filters.answered == null) return true;
+            return value === this.filters.answered;
+          }
+        },
+        { text: "Actions", value: "actions", sortable: false }
+      ];
     },
     items() {
       return this.$store.state.questions.items;
@@ -276,18 +361,15 @@ export default {
       this.editedItem = item;
       this.dialog = true;
     },
-
     deleteItem() {
       const index = this.questions.indexOf(this.deletingItem);
 
       this.questions.splice(index, 1);
       this.close();
     },
-
     setDialog(item) {
       this.deletingItem = item;
     },
-
     close() {
       this.dialog = false;
       this.deleteDialog = false;
@@ -296,7 +378,6 @@ export default {
         this.editedIndex = -1;
       }, 300);
     },
-
     save() {
       if (this.editedIndex > -1) {
         Object.assign(this.questions[this.editedIndex], this.editedItem);
@@ -304,6 +385,58 @@ export default {
         this.questions.push(this.editedItem);
       }
       this.close();
+    },
+    itemAdded(items) {
+      var otherWasSelected = false;
+      if (items.indexOf("m") !== -1) {
+        if (!this.filterChips[1].disabled) this.filterChips[1].disabled = true;
+        if (!this.filters.measurable) this.filters.measurable = true;
+        otherWasSelected = true;
+      } else {
+        if (this.filterChips[1].disabled) this.filterChips[1].disabled = false;
+      }
+      if (items.indexOf("nm") !== -1) {
+        if (!this.filterChips[0].disabled) this.filterChips[0].disabled = true;
+        if (this.filters.measurable !== false) this.filters.measurable = false;
+      } else {
+        if (this.filterChips[0].disabled) this.filterChips[0].disabled = false;
+        if (!otherWasSelected && this.filters.measurable !== undefined)
+          this.filters.measurable = undefined;
+      }
+
+      otherWasSelected = false;
+      if (items.indexOf("f") !== -1) {
+        if (!this.filterChips[3].disabled) this.filterChips[3].disabled = true;
+        if (!this.filters.feedback) this.filters.feedback = true;
+        otherWasSelected = true;
+      } else {
+        if (this.filterChips[3].disabled) this.filterChips[3].disabled = false;
+      }
+      if (items.indexOf("nf") !== -1) {
+        if (!this.filterChips[2].disabled) this.filterChips[2].disabled = true;
+        if (this.filters.feedback !== false) this.filters.feedback = false;
+      } else {
+        if (this.filterChips[2].disabled) this.filterChips[2].disabled = false;
+        if (!otherWasSelected && this.filters.feedback !== undefined)
+          this.filters.feedback = undefined;
+      }
+
+      otherWasSelected = false;
+      if (items.indexOf("a") !== -1) {
+        if (!this.filterChips[5].disabled) this.filterChips[5].disabled = true;
+        if (!this.filters.answered) this.filters.answered = true;
+        otherWasSelected = true;
+      } else {
+        if (this.filterChips[5].disabled) this.filterChips[5].disabled = false;
+      }
+      if (items.indexOf("na") !== -1) {
+        if (!this.filterChips[4].disabled) this.filterChips[4].disabled = true;
+        if (this.filters.answered !== false) this.filters.answered = false;
+      } else {
+        if (this.filterChips[4].disabled) this.filterChips[4].disabled = false;
+        if (!otherWasSelected && this.filters.answered !== undefined)
+          this.filters.answered = undefined;
+      }
     }
   }
 };

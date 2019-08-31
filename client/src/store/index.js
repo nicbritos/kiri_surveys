@@ -114,13 +114,6 @@ export default new Vuex.Store({
   state: {
     loading: true,
     questions: {
-      headers: [
-        { text: "Name", align: "left", value: "name", sortable: true },
-        { text: "Measurable", value: "measurable", sortable: false },
-        { text: "Feedback", value: "feedback", sortable: false },
-        { text: "Answered", value: "answered", sortable: false },
-        { text: "Actions", value: "actions", sortable: false }
-      ],
       selected: [],
       items: questions
     },
