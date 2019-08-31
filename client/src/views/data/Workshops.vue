@@ -53,7 +53,7 @@ export default {
   computed: {
     filteredItems: function() {
       return this.items.filter(endpoint => {
-        return endpoint.name.match(this.search);
+        return endpoint.name.toUpperCase().match(this.search.trim().toUpperCase());
       });
     }
   }

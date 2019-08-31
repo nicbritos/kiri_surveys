@@ -29,8 +29,7 @@
           ></Endpoint>
         </v-col>
       </v-row>
-    </v-container>
-  </v-container
+    </v-container> </v-container
 ></template>
 
 <script>
@@ -40,17 +39,16 @@ export default {
   components: { Endpoint },
   data() {
     return {
-      items: [],
       search: ""
     };
   },
   created() {
-    this.items = this.$store.state.endpoints.items;
+    this.items = this.$store.state.endpoints;
   },
   computed: {
     filteredItems: function() {
       return this.items.filter(endpoint => {
-        return endpoint.name.match(this.search);
+        return endpoint.name.toUpperCase().match(this.search.trim().toUpperCase());
       });
     }
   }
