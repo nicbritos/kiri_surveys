@@ -1,21 +1,34 @@
 <template>
   <v-container grid-list-md>
     <!-- TABLE COMPONENT -->
-    <h1>Questions</h1>
-    <v-toolbar>
-      <v-toolbar-title>Questions</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-dialog v-model="dialog" max-width="500px">
-        <template v-slot:activator="{ on }">
-          <v-btn color="primary" dark class="mb-2" v-on="on" v-blur
-            >NEW QUESTION</v-btn
-          >
-        </template>
-        <v-card>
-          <v-card-title>
-            <span class="headline">{{ formTitle }}</span>
-          </v-card-title>
 
+    <v-row>
+      <v-spacer></v-spacer>
+    </v-row>
+    <v-toolbar elevation="0" style="background-color: transparent">
+      <v-toolbar-title>
+        <h2>
+          Questions
+        </h2>
+      </v-toolbar-title>
+      <v-text-field
+        hide-details
+        prepend-icon="search"
+        single-line
+        class="ml-3"
+        placeholder="Start typing to Search"
+        v-model="search"
+      ></v-text-field>
+      <v-btn icon v-blur v-if="search.length > 0" @click="search = ''">
+        <v-icon>cancel</v-icon>
+      </v-btn>
+      <v-btn color="primary" dark class="ml-3 mb-2" v-on="on" v-blur
+        >NEW QUESTION</v-btn
+      >
+
+      <v-dialog v-model="dialog" max-width="500px">
+        <template v-slot:activator="{ on }"> </template>
+        <v-card>
           <v-card-text>
             <v-container grid-list-md>
               <v-layout wrap>
@@ -35,14 +48,14 @@
                   <v-checkbox
                     v-model="editedItem.measurable"
                     label="Measurable"
-                    disabled="editedItem.answered"
+                    :disabled="editedItem.answered"
                   ></v-checkbox>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
                   <v-checkbox
                     v-model="editedItem.answered"
                     label="Answered"
-                    disabled="true"
+                    :disabled="true"
                   ></v-checkbox>
                 </v-flex>
               </v-layout>
@@ -64,12 +77,14 @@
       v-model="this.$store.state.questions.selected"
       :headers="headers"
       :items="items"
-      item-key="name"
+      :search="search"
+      item-key="id"
       no-data-text="No Questions created so far."
       no-results-text="No Questions found."
       show-select
       show-expand
       must-sort
+      :sort-by="['name']"
     >
       <template v-slot:item.data-table-expand="{ item, isExpanded, expand }">
         <v-btn icon v-blur v-if="!isExpanded && item.measurable"
@@ -79,72 +94,78 @@
           ><v-icon @click="expand(false)">expand_less</v-icon></v-btn
         >
       </template>
-      <template v-slot:items="props">
-        <tr>
-          <td>{{ props.item.name }}</td>
-          <td>
-            <v-checkbox
-              primary
-              hide-details
-              :input-value="props.item.feedback"
-              :disabled="true"
-            ></v-checkbox>
-          </td>
-          <td>
-            <v-checkbox
-              primary
-              hide-details
-              :input-value="props.item.measurable"
-              :disabled="true"
-            ></v-checkbox>
-          </td>
-          <td>
-            <v-checkbox
-              primary
-              hide-details
-              :input-value="props.item.answered"
-              :disabled="true"
-            ></v-checkbox>
-          </td>
-          <td>
-            <v-icon class="mr-2" @click="editItem(props.item)">
+
+      <template v-slot:item.feedback="props">
+          <v-checkbox
+            primary
+            hide-details
+            :input-value="props.item.feedback"
+            :disabled="true"
+            class="mb-4"
+          ></v-checkbox>
+      </template>
+
+      <template v-slot:item.measurable="props">
+          <v-checkbox
+            primary
+            hide-details
+            :input-value="props.item.measurable"
+            :disabled="true"
+            class="mb-4"
+          ></v-checkbox>
+      </template>
+
+      <template v-slot:item.answered="props">
+          <v-checkbox
+            primary
+            hide-details
+            :input-value="props.item.answered"
+            :disabled="true"
+            class="mb-4"
+          ></v-checkbox>
+      </template>
+
+      <template v-slot:item.actions="props">
+          <v-btn icon v-blur>
+            <v-icon @click="editItem(props.item)">
               edit
             </v-icon>
-            <!-- TODO: Sacar dialog box del loop. -->
-            <v-dialog v-model="deleteDialog" max-width="300px">
-              <template v-slot:activator="{ on }">
+          </v-btn>
+
+          <!-- TODO: Sacar dialog box del loop. -->
+          <v-dialog v-model="deleteDialog" max-width="300px">
+            <template v-slot:activator="{ on }">
+              <v-btn icon v-blur>
                 <v-icon v-on="on" @click="setDialog(props.item)">
                   delete
                 </v-icon>
-              </template>
+              </v-btn>
+            </template>
 
-              <v-card>
-                <v-card-title>
-                  <span class="headline"
-                    >Are you sure you want to delete
-                    <span class="red--text">{{ deletingItem.name }}</span
-                    >?</span
-                  >
-                </v-card-title>
+            <v-card>
+              <v-card-title>
+                <span class="headline"
+                  >Are you sure you want to delete
+                  <span class="red--text">{{ deletingItem.name }}</span
+                  >?</span
+                >
+              </v-card-title>
 
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="close" v-blur
-                    >CANCEL</v-btn
-                  >
-                  <v-btn color="error" text @click="deleteItem" v-blur
-                    >DELETE</v-btn
-                  >
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-          </td>
-        </tr>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="blue darken-1" text @click="close" v-blur
+                  >CANCEL</v-btn
+                >
+                <v-btn color="error" text @click="deleteItem" v-blur
+                  >DELETE</v-btn
+                >
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
       </template>
 
       <template v-slot:expanded-item="props">
-        <td :colspan="4 * headers.length">
-          <v-sheet>
+        <td :colspan="4 * headers.length" class="pa-0">
             <v-data-table
               :headers="questionValueHeaders"
               :items="props.item.values"
@@ -153,9 +174,10 @@
               must-sort
               disable-pagination
               items-per-page="-1"
-              class="elevation-1 mb-5"
+              class="elevation-0"
+              hide-default-footer
             >
-              <template v-slot:items="props">
+              <template v-slot:item="props">
                 <tr>
                   <td>{{ props.item.value }}</td>
                   <td>{{ props.item.description }}</td>
@@ -203,7 +225,6 @@
                 </tr>
               </template>
             </v-data-table>
-          </v-sheet>
         </td>
       </template>
     </v-data-table>
