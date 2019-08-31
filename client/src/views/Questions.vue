@@ -195,15 +195,20 @@
                 <td>{{ props.item.value }}</td>
                 <td>{{ props.item.description }}</td>
                 <td>
-                  <v-icon color="primary" class="mr-2" @click="editItem(props.item)">
-                    edit
-                  </v-icon>
+                  <v-btn icon v-blur flat>
+                    <v-icon color="primary" @click="editItem(props.item)">
+                      edit
+                    </v-icon>
+                  </v-btn>
                   <!-- TODO: Sacar dialog box del loop. -->
                   <v-dialog v-model="deleteDialog" max-width="300px">
                     <template v-slot:activator="{ on }">
-                      <v-icon color="error" v-on="on" @click="setDialog(props.item)">
+
+                      <v-btn icon v-blur flat>
+                        <v-icon color="error" v-on="on" @click="setDialog(props.item)">
                         delete
                       </v-icon>
+                      </v-btn>
                     </template>
 
                     <v-card>
