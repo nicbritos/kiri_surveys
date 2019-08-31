@@ -96,135 +96,129 @@
       </template>
 
       <template v-slot:item.feedback="props">
-          <v-checkbox
-            primary
-            hide-details
-            :input-value="props.item.feedback"
-            :disabled="true"
-            class="mb-4"
-          ></v-checkbox>
+        <v-checkbox
+          primary
+          hide-details
+          :input-value="props.item.feedback"
+          :disabled="true"
+          class="mb-4"
+        ></v-checkbox>
       </template>
 
       <template v-slot:item.measurable="props">
-          <v-checkbox
-            primary
-            hide-details
-            :input-value="props.item.measurable"
-            :disabled="true"
-            class="mb-4"
-          ></v-checkbox>
+        <v-checkbox
+          primary
+          hide-details
+          :input-value="props.item.measurable"
+          :disabled="true"
+          class="mb-4"
+        ></v-checkbox>
       </template>
 
       <template v-slot:item.answered="props">
-          <v-checkbox
-            primary
-            hide-details
-            :input-value="props.item.answered"
-            :disabled="true"
-            class="mb-4"
-          ></v-checkbox>
+        <v-checkbox
+          primary
+          hide-details
+          :input-value="props.item.answered"
+          :disabled="true"
+          class="mb-4"
+        ></v-checkbox>
       </template>
 
       <template v-slot:item.actions="props">
-          <v-btn icon v-blur>
-            <v-icon @click="editItem(props.item)">
-              edit
-            </v-icon>
-          </v-btn>
+        <v-btn icon v-blur>
+          <v-icon @click="editItem(props.item)">
+            edit
+          </v-icon>
+        </v-btn>
 
-          <!-- TODO: Sacar dialog box del loop. -->
-          <v-dialog v-model="deleteDialog" max-width="300px">
-            <template v-slot:activator="{ on }">
-              <v-btn icon v-blur>
-                <v-icon v-on="on" @click="setDialog(props.item)">
-                  delete
-                </v-icon>
-              </v-btn>
-            </template>
+        <!-- TODO: Sacar dialog box del loop. -->
+        <v-dialog v-model="deleteDialog" max-width="300px">
+          <template v-slot:activator="{ on }">
+            <v-btn icon v-blur>
+              <v-icon v-on="on" @click="setDialog(props.item)">
+                delete
+              </v-icon>
+            </v-btn>
+          </template>
 
-            <v-card>
-              <v-card-title>
-                <span class="headline"
-                  >Are you sure you want to delete
-                  <span class="red--text">{{ deletingItem.name }}</span
-                  >?</span
-                >
-              </v-card-title>
+          <v-card>
+            <v-card-title>
+              <span class="headline"
+                >Are you sure you want to delete
+                <span class="red--text">{{ deletingItem.name }}</span
+                >?</span
+              >
+            </v-card-title>
 
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="close" v-blur
-                  >CANCEL</v-btn
-                >
-                <v-btn color="error" text @click="deleteItem" v-blur
-                  >DELETE</v-btn
-                >
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="blue darken-1" text @click="close" v-blur
+                >CANCEL</v-btn
+              >
+              <v-btn color="error" text @click="deleteItem" v-blur
+                >DELETE</v-btn
+              >
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </template>
 
       <template v-slot:expanded-item="props">
         <td :colspan="4 * headers.length" class="pa-0">
-            <v-data-table
-              :headers="questionValueHeaders"
-              :items="props.item.values"
-              item-key="value"
-              no-data-text="No Values created so far."
-              must-sort
-              disable-pagination
-              items-per-page="-1"
-              class="elevation-0"
-              hide-default-footer
-            >
-              <template v-slot:item="props">
-                <tr>
-                  <td>{{ props.item.value }}</td>
-                  <td>{{ props.item.description }}</td>
-                  <td>
-                    <v-icon class="mr-2" @click="editItem(props.item)">
-                      edit
-                    </v-icon>
-                    <!-- TODO: Sacar dialog box del loop. -->
-                    <v-dialog v-model="deleteDialog" max-width="300px">
-                      <template v-slot:activator="{ on }">
-                        <v-icon v-on="on" @click="setDialog(props.item)">
-                          delete
-                        </v-icon>
-                      </template>
+          <v-data-table
+            :headers="questionValueHeaders"
+            :items="props.item.values"
+            item-key="value"
+            no-data-text="No Values created so far."
+            must-sort
+            disable-pagination
+            items-per-page="-1"
+            class="elevation-0"
+            hide-default-footer
+          >
+            <template v-slot:item="props">
+              <tr>
+                <td>{{ props.item.value }}</td>
+                <td>{{ props.item.description }}</td>
+                <td>
+                  <v-icon class="mr-2" @click="editItem(props.item)">
+                    edit
+                  </v-icon>
+                  <!-- TODO: Sacar dialog box del loop. -->
+                  <v-dialog v-model="deleteDialog" max-width="300px">
+                    <template v-slot:activator="{ on }">
+                      <v-icon v-on="on" @click="setDialog(props.item)">
+                        delete
+                      </v-icon>
+                    </template>
 
-                      <v-card>
-                        <v-card-title>
-                          <span class="headline"
-                            >Are you sure you want to delete
-                            <span class="red--text">{{
-                              deletingItem.value +
-                                ": " +
-                                defaultItem.description
-                            }}</span
-                            >?</span
-                          >
-                        </v-card-title>
+                    <v-card>
+                      <v-card-title>
+                        <span class="headline"
+                          >Are you sure you want to delete
+                          <span class="red--text">{{
+                            deletingItem.value + ": " + defaultItem.description
+                          }}</span
+                          >?</span
+                        >
+                      </v-card-title>
 
-                        <v-card-actions>
-                          <v-spacer></v-spacer>
-                          <v-btn
-                            color="blue darken-1"
-                            text
-                            @click="close"
-                            v-blur
-                            >CANCEL</v-btn
-                          >
-                          <v-btn color="error" text @click="deleteItem" v-blur
-                            >DELETE</v-btn
-                          >
-                        </v-card-actions>
-                      </v-card>
-                    </v-dialog>
-                  </td>
-                </tr>
-              </template>
-            </v-data-table>
+                      <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn color="blue darken-1" text @click="close" v-blur
+                          >CANCEL</v-btn
+                        >
+                        <v-btn color="error" text @click="deleteItem" v-blur
+                          >DELETE</v-btn
+                        >
+                      </v-card-actions>
+                    </v-card>
+                  </v-dialog>
+                </td>
+              </tr>
+            </template>
+          </v-data-table>
         </td>
       </template>
     </v-data-table>
