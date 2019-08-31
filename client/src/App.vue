@@ -44,6 +44,12 @@
     </v-navigation-drawer>
 
     <v-app-bar elevate-on-scroll app dark class="grey darken-3" dense>
+      <v-app-bar-nav-icon
+        v-if="!this.noBackButtonRoutes.includes(this.$router.currentRoute.name)"
+        @click="this.upOneLevel"
+      >
+        <v-icon>arrow_back</v-icon>
+      </v-app-bar-nav-icon>
       <img id="logo" src="@/assets/logo.png" alt="logo castelar bus" />
       <v-spacer />
       <v-tooltip bottom>
@@ -125,6 +131,16 @@ export default {
   },
   data: () => ({
     fixed: false,
+    noBackButtonRoutes: [
+      "home",
+      "endpoints",
+      "questions",
+      "forms",
+      "users",
+      "login",
+      "register",
+      "about"
+    ],
     items: [
       { icon: "home", title: "Home", to: "/" },
       { icon: "school", title: "Data", to: "/endpoints" },
@@ -213,6 +229,17 @@ export default {
     },
     rate(payload) {
       this.rating = payload;
+    },
+    upOneLevel() {
+      let path = this.$router.currentRoute.path.substring(
+        0,
+        this.$router.currentRoute.path.lastIndexOf(
+          "/",
+          this.$router.currentRoute.path.length - 2
+        )
+      );
+      if (path.length > 0) this.$router.push(path);
+      else this.$router.push("/");
     }
   }
 };

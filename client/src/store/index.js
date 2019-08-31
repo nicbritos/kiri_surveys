@@ -64,39 +64,74 @@ export default new Vuex.Store({
         { text: "Actions", value: "action", sortable: false }
       ]
     },
-    workshops: {},
+    workshops: {
+      def: [
+        {
+          id: "w1",
+          quantity: 400,
+          name: "ITBA1",
+          date: undefined,
+          responses: [
+            {
+              MN2: {
+                PRE: {
+                  question: "",
+                  value: 1
+                },
+                POST: {
+                  question: "",
+                  value: 2
+                }
+              }
+            }
+          ]
+        }
+      ],
+      ghi: [
+
+      ],
+      jkl: [
+
+      ],
+      mno: [
+
+      ],
+      abc: [
+
+      ]
+    },
     endpoints: {
       items: [
         {
           name: "Instituto Inmaculada",
           description: "Talleres hechos en Instituto Inmaculada de Castelar",
           quantity: 4,
-          id: "asdkfhaskld"
+          id: "def"
         },
         {
           name: "ITBA",
           description:
             "Talleres hechos en el Instituto Tecnologico de Buenos Aires",
           quantity: 12,
-          id: "asdkfhaskladsd"
+          id: "ghi"
         },
         {
           name: "ITBA Postgrado",
           description: "Talleres hechos en ITBA Postgrado",
           quantity: 3,
-          id: "asdkfhaskassadfasdld"
+          id: "jkl"
         },
         {
           name: "ORT",
           description: "Talleres hechos en la escuela ORT",
           quantity: 2,
-          id: "asdkfhasksddddld"
+          id: "mno"
         },
         {
           name: "UBA",
           description: "Talleres hechos en la UBA",
           quantity: 0,
-          id: "1231asdf"
+          id: "abc"
         }
       ]
     },

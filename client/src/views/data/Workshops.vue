@@ -3,7 +3,7 @@
     <v-toolbar flat color="transparent">
       <v-toolbar-title>
         <h2>
-          Endpoints
+          Workshops
         </h2>
       </v-toolbar-title>
       <v-text-field
@@ -20,24 +20,23 @@
     </v-toolbar>
     <v-container fluid>
       <v-row>
-        <v-col cols="4" v-for="item in filteredItems" :key="item.name">
-          <Endpoint
+        <v-col cols="4" v-for="item in filteredItems" :key="item.id">
+          <Workshop
             :value="item.name"
-            :description="item.description"
+            :date="item.date"
             :quantity="item.quantity"
-            :endpoint-id="item.id"
-          ></Endpoint>
+            :workshopId="item.id"
+          ></Workshop>
         </v-col>
       </v-row>
-    </v-container>
-  </v-container
+    </v-container> </v-container
 ></template>
 
 <script>
-import Endpoint from "../../components/Endpoint";
+import Workshop from "../../components/Workshop";
 export default {
-  name: "Endpoints",
-  components: { Endpoint },
+  name: "Workshops",
+  components: { Workshop },
   data() {
     return {
       items: [],
@@ -45,7 +44,11 @@ export default {
     };
   },
   created() {
-    this.items = this.$store.state.endpoints.items;
+    let endpointId = this.$router.currentRoute.params.eid;
+    if (this.$store.state.workshops[endpointId] == null)
+      this.$store.state.workshops[endpointId] = [];
+
+    this.items = this.$store.state.workshops[endpointId];
   },
   computed: {
     filteredItems: function() {

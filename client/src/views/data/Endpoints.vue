@@ -20,12 +20,12 @@
     </v-toolbar>
     <v-container fluid>
       <v-row>
-        <v-col cols="4" v-for="item in filteredItems" :key="item.name">
+        <v-col cols="4" v-for="item in filteredItems" :key="item.id">
           <Endpoint
             :value="item.name"
             :description="item.description"
             :quantity="item.quantity"
-            :endpoint-id="item.id"
+            :endpointId="item.id"
           ></Endpoint>
         </v-col>
       </v-row>

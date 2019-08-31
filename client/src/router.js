@@ -11,6 +11,7 @@ import Recovery from "./views/Recovery.vue";
 import Questions from "./views/Questions.vue";
 import Endpoints from "./views/data/Endpoints.vue";
 import Workshops from "./views/data/Workshops.vue";
+import Responses from "./views/data/Responses.vue";
 
 Vue.use(Router);
 
@@ -40,12 +41,20 @@ const router = new Router({
       component: Endpoints
     },
     {
-      path: "/endpoints/:id",
-      name: "endpoint",
+      path: "/endpoints/:eid",
+      name: "workshops",
       meta: {
         requiresAuth: false
       },
       component: Workshops
+    },
+    {
+      path: "/endpoints/:eid/:wid",
+      name: "responses",
+      meta: {
+        requiresAuth: false
+      },
+      component: Responses
     },
     {
       path: "/users",
