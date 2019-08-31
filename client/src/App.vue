@@ -45,6 +45,7 @@
 
     <v-app-bar elevate-on-scroll app dark class="grey darken-3" dense>
       <v-app-bar-nav-icon
+        v-blur
         v-if="!this.noBackButtonRoutes.includes(this.$router.currentRoute.name)"
         @click="this.upOneLevel"
       >
