@@ -10,7 +10,7 @@ let questions = [
     name: "Que piensa sobre el CC?",
     measurable: true,
     feedback: true,
-    answered: true,
+    answered: false,
     values: [
       {
         value: 1,
@@ -31,7 +31,7 @@ let questions = [
     name: "Aguante Peron",
     measurable: true,
     feedback: true,
-    answered: true,
+    answered: false,
     values: []
   },
   {
@@ -113,17 +113,7 @@ export default new Vuex.Store({
   // App global-access state for views and components.
   state: {
     loading: true,
-    questions: {
-      selected: [],
-      items: questions
-    },
-    questionValues: {
-      headers: [
-        { text: "Value", align: "left", value: "value", sortable: true },
-        { text: "Description", value: "description", sortable: false },
-        { text: "Actions", value: "action", sortable: false }
-      ]
-    },
+    questions: questions,
     workshops: workshops,
     endpoints: endpoints,
     users: users,
