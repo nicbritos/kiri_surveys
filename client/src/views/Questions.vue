@@ -15,6 +15,7 @@
                 <v-text-field
                   v-model="newItem.name"
                   label="Name"
+                  :error-messages="questionNameErrors"
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -87,6 +88,7 @@
                   min="1"
                   v-model="newItem.value"
                   label="Value"
+                  @input="verifyValueValueInput"
                 ></v-text-field>
               </v-col>
               <v-col>
@@ -542,6 +544,8 @@
 </template>
 
 <script>
+// import { required, integer, minLength, maxLength } from "vuelidate/lib/validators";
+  
 export default {
   data: () => ({
     snackbar: false,
@@ -575,7 +579,7 @@ export default {
     },
     defaultValue: {
       question: "",
-      value: 1,
+      value: "",
       description: ""
     },
     selectedItems: [],
@@ -612,6 +616,10 @@ export default {
       }
     ]
   }),
+  // validations: {
+  //   [this.defaultValue.value]: { required, integer },
+  //   [this.defaultValue.description]: { required, minLength: minLength(3), maxLength: maxLength(30) }
+  // },
   computed: {
     questionValueHeaders() {
       return [
@@ -668,7 +676,15 @@ export default {
     },
     items() {
       return this.$store.state.questions;
-    }
+    },
+
+    questionNameErrors() {
+      const errors = [];
+      // if (!newItem)
+      // if (!this.defaultValue.value.$dirty) return errors;
+      // !this.defaultValue.value.required && errors.push("Este campo es obligatorio");
+      return errors;
+    },
   },
   watch: {
     dialog(val) {
