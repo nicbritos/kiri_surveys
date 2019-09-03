@@ -1,7 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
 import store from "./store/index";
-import Home from "./views/Home.vue";
 import Forms from "./views/Forms.vue";
 import Users from "./views/Users.vue";
 import Login from "./views/Login.vue";
@@ -12,6 +11,7 @@ import Questions from "./views/Questions.vue";
 import Endpoints from "./views/data/Endpoints.vue";
 import Workshops from "./views/data/Workshops.vue";
 import Responses from "./views/data/Responses.vue";
+import PageNotFound from "./views/PageNotFound.vue";
 
 Vue.use(Router);
 
@@ -21,8 +21,7 @@ const router = new Router({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: Home
+      redirect: "/endpoints"
     },
     {
       path: "/questions",
@@ -103,6 +102,15 @@ const router = new Router({
         requiresUnAuth: true
       },
       component: About
+    },
+    {
+      path: "/page-not-found",
+      name: "page-not-found",
+      component: PageNotFound
+    },
+    {
+      path: "*",
+      redirect: "/page-not-found"
     }
   ]
 });

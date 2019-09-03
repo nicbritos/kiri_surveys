@@ -133,7 +133,6 @@ export default {
   data: () => ({
     fixed: false,
     noBackButtonRoutes: [
-      "home",
       "endpoints",
       "questions",
       "forms",
@@ -143,7 +142,6 @@ export default {
       "about"
     ],
     items: [
-      { icon: "home", title: "Home", to: "/" },
       { icon: "school", title: "Data", to: "/endpoints" },
       { icon: "question_answer", title: "Questions", to: "/questions" },
       { icon: "view_list", title: "Forms", to: "/forms" },
