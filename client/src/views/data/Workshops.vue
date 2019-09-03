@@ -1,6 +1,6 @@
 <template>
   <v-container grid-list-md>
-    <Breadcrumbs :items="breadcrumbs"> </Breadcrumbs>
+    <Breadcrumbs :items="breadcrumbs"></Breadcrumbs>
     <v-toolbar flat color="transparent">
       <v-toolbar-title>
         <h2>
