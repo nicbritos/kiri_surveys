@@ -250,6 +250,34 @@
       </v-card>
     </v-dialog>
 
+    <v-dialog v-model="dialogs.selected.delete" max-width="700px">
+      <v-card>
+        <v-card-text>
+          <v-card-title>
+            <span class="headline"
+            >Are you sure you want to delete
+              <span class="red--text">{{ selectedItems.length }}</span
+              > questions?</span
+            >
+          </v-card-title>
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+                  text
+                  color="primary"
+                  v-blur
+                  @click="closeDialog(dialogs.selected, 'delete')"
+          >
+            CANCEL
+          </v-btn>
+          <v-btn text color="error" v-blur @click="deleteSelectedClose">
+            Delete
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     <v-dialog v-model="dialogs.questions.delete" max-width="700px">
       <v-card>
         <v-card-text>
@@ -355,7 +383,7 @@
           <v-spacer></v-spacer>
         </v-col>
         <v-col cols="auto" :hidden="selectedItems.length === 0">
-          <v-btn class="error">DELETE SELECTED</v-btn>
+          <v-btn class="error" @click="deleteSelectedOpen">DELETE SELECTED</v-btn>
         </v-col>
       </v-row>
     </v-container>
@@ -372,7 +400,7 @@
       show-select
       show-expand
       must-sort
-      class="elevation-1"
+      class="elevation-1 ml-4 mr-4"
       :sort-by="['name']"
     >
       <template v-slot:header.data-table-expand="props">
@@ -529,7 +557,7 @@
       </template>
     </v-data-table>
 
-    <v-container fluid>
+    <v-container fluid class="ml-4">
       <v-row>
         <h4 class="text--secondary mr-2">
           Note:
@@ -545,7 +573,7 @@
 
 <script>
 // import { required, integer, minLength, maxLength } from "vuelidate/lib/validators";
-  
+
 export default {
   data: () => ({
     snackbar: false,
@@ -565,6 +593,9 @@ export default {
       values: {
         new: false,
         edit: false,
+        delete: false
+      },
+      selected: {
         delete: false
       }
     },
@@ -731,6 +762,9 @@ export default {
       this.closeDialog(this.dialogs.values, "edit");
     },
 
+    deleteSelectedOpen() {
+      this.openDialog(this.dialogs.selected, "delete");
+    },
     deleteQuestionOpen(item) {
       this.deletingItem = item;
       this.openDialog(this.dialogs.questions, "delete");
@@ -739,6 +773,10 @@ export default {
       this.deletingItem = item;
       this.deletingItem.question = question;
       this.openDialog(this.dialogs.values, "delete");
+    },
+    deleteSelectedClose() {
+      this.selectedItems = [];
+      this.closeDialog(this.dialogs.selected, "delete");
     },
     deleteQuestionClose() {
       // Save to DB
