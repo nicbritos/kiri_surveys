@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuelidate from "vuelidate";
 import App from "./App.vue";
-import router from "./router";
+import router from "./router/router";
 import store from "./store/index";
 import "./registerServiceWorker";
 import database from "@/database";

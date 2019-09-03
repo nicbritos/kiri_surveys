@@ -11,20 +11,11 @@ let questions = [
     measurable: true,
     feedback: true,
     answered: false,
-    values: [
-      {
-        value: 1,
-        description: "Poco"
-      },
-      {
-        value: 2,
-        description: "Medio"
-      },
-      {
-        value: 3,
-        description: "Mucho"
-      }
-    ]
+    values: {
+      1: "Poco",
+      2: "Medio",
+      3: "Mucho"
+    }
   },
   {
     id: "def",
@@ -43,6 +34,7 @@ let questions = [
     values: []
   }
 ];
+
 let workshops = {
   def: [
     {
@@ -52,16 +44,16 @@ let workshops = {
       date: undefined,
       responses: [
         {
-          MN2: {
-            PRE: {
-              question: "abc",
-              value: 1
-            },
-            POST: {
-              question: "abc",
-              value: 2
-            }
-          }
+          person: "MN2",
+          type: "PRE",
+          question: "abc",
+          value: 1
+        },
+        {
+          person: "MN2",
+          type: "PRE",
+          question: "abc",
+          value: 1
         }
       ]
     }

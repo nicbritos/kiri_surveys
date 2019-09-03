@@ -1,29 +1,18 @@
-import Vue from "vue";
-import Router from "vue-router";
-import store from "./store/index";
-import Forms from "./views/Forms.vue";
-import Users from "./views/Users.vue";
-import Login from "./views/Login.vue";
-import About from "./views/About.vue";
-import Register from "./views/Register.vue";
-import Recovery from "./views/Recovery.vue";
-import Questions from "./views/Questions.vue";
-import Endpoints from "./views/data/Endpoints.vue";
-import Workshops from "./views/data/Workshops.vue";
-import Responses from "./views/data/Responses.vue";
-import PageNotFound from "./views/PageNotFound.vue";
+import Forms from "../views/Forms.vue";
+import Users from "../views/Users.vue";
+import Login from "../views/Login.vue";
+import About from "../views/About.vue";
+import Register from "../views/Register.vue";
+import Recovery from "../views/Recovery.vue";
+import Questions from "../views/Questions.vue";
+import Endpoints from "../views/data/Endpoints.vue";
+import Workshops from "../views/data/Workshops.vue";
+import Responses from "../views/data/Responses.vue";
+import PageNotFound from "../views/PageNotFound.vue";
 
-Vue.use(Router);
-
-const router = new Router({
-  mode: "history",
-  base: process.env.BASE_URL,
-  routes: [
-    {
-      path: "/",
-      redirect: "/endpoints"
-    },
-    {
+const routes = {
+  router: {
+    questions: {
       path: "/questions",
       name: "questions",
       meta: {
@@ -31,7 +20,7 @@ const router = new Router({
       },
       component: Questions
     },
-    {
+    endpoints: {
       path: "/endpoints",
       name: "endpoints",
       meta: {
@@ -39,7 +28,7 @@ const router = new Router({
       },
       component: Endpoints
     },
-    {
+    workshops: {
       path: "/endpoints/:eid",
       name: "workshops",
       meta: {
@@ -47,7 +36,7 @@ const router = new Router({
       },
       component: Workshops
     },
-    {
+    responses: {
       path: "/endpoints/:eid/:wid",
       name: "responses",
       meta: {
@@ -55,7 +44,7 @@ const router = new Router({
       },
       component: Responses
     },
-    {
+    users: {
       path: "/users",
       name: "users",
       meta: {
@@ -63,7 +52,7 @@ const router = new Router({
       },
       component: Users
     },
-    {
+    forms: {
       path: "/forms",
       name: "forms",
       meta: {
@@ -71,7 +60,7 @@ const router = new Router({
       },
       component: Forms
     },
-    {
+    register: {
       path: "/register",
       name: "register",
       meta: {
@@ -79,7 +68,7 @@ const router = new Router({
       },
       component: Register
     },
-    {
+    login: {
       path: "/login",
       name: "login",
       meta: {
@@ -87,7 +76,7 @@ const router = new Router({
       },
       component: Login
     },
-    {
+    recovery: {
       path: "/recovery",
       name: "recovery",
       meta: {
@@ -95,7 +84,7 @@ const router = new Router({
       },
       component: Recovery
     },
-    {
+    about: {
       path: "/about",
       name: "about",
       meta: {
@@ -103,36 +92,25 @@ const router = new Router({
       },
       component: About
     },
-    {
+    "page-not-found": {
       path: "/page-not-found",
       name: "page-not-found",
       component: PageNotFound
-    },
-    {
-      path: "*",
-      redirect: "/page-not-found"
     }
-  ]
-});
+  },
+  breadcrumbs: {
+      questions: {
+          href: "/questions",
+          text: "Questions",
+          disabled: false
+      },
+      endpoints: {
+          href: "/endpoints",
+          text: "Endpoints",
+          disabled: false
+      },
 
-router.beforeEach((to, from, next) => {
-  if (store.getters.loggedIn != null) {
-    if (to.matched.some(record => record.meta.requiresAuth)) {
-      if (!store.getters.loggedIn) {
-        next("/login");
-      } else {
-        next();
-      }
-    } else if (to.matched.some(record => record.meta.requiresUnAuth)) {
-      if (store.getters.loggedIn) {
-        next("/");
-      } else {
-        next();
-      }
-    } else {
-      next();
-    }
   }
-});
+};
 
-export default router;
+export default routes;
