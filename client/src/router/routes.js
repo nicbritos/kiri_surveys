@@ -99,17 +99,41 @@ const routes = {
     }
   },
   breadcrumbs: {
-      questions: {
-          href: "/questions",
-          text: "Questions",
-          disabled: false
-      },
-      endpoints: {
-          href: "/endpoints",
-          text: "Endpoints",
-          disabled: false
-      },
-
+    questions: {
+      href: "/questions",
+      text: "Questions",
+      disabled: false
+    },
+    endpoints: {
+      href: "/endpoints",
+      text: "Endpoints",
+      disabled: false
+    },
+    about: {
+      href: "/about",
+      text: "About",
+      disabled: false
+    },
+    recovery: {
+      href: "/recovery",
+      text: "Recovery",
+      disabled: false
+    },
+    login: {
+      href: "/login",
+      text: "Login",
+      disabled: false
+    },
+    register: {
+      href: "/register",
+      text: "Register",
+      disabled: false
+    },
+    forms: {
+      href: "/forms",
+      text: "Forms",
+      disabled: false
+    }
   }
 };
 
