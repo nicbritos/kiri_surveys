@@ -1,10 +1,6 @@
 <template>
   <v-container grid-list-md>
-    <v-breadcrumbs class="pl-4 pb-0" large :items="breadcrumbs">
-      <template v-slot:divider>
-        <v-icon>chevron_right</v-icon>
-      </template>
-    </v-breadcrumbs>
+    <Breadcrumbs :items="breadcrumbs"> </Breadcrumbs>
     <v-toolbar flat color="transparent">
       <v-toolbar-title>
         <h2>
@@ -40,12 +36,13 @@
 ></template>
 
 <script>
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Workshop from "@/components/Workshop";
 import routes from "@/router/routes";
 
 export default {
   name: "Workshops",
-  components: { Workshop },
+  components: { Workshop, Breadcrumbs },
   data() {
     return {
       items: [],
