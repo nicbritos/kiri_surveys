@@ -255,9 +255,9 @@
         <v-card-text>
           <v-card-title>
             <span class="headline"
-            >Are you sure you want to delete
-              <span class="red--text">{{ selectedItems.length }}</span
-              > questions?</span
+              >Are you sure you want to delete
+              <span class="red--text">{{ selectedItems.length }}</span>
+              questions?</span
             >
           </v-card-title>
         </v-card-text>
@@ -265,10 +265,10 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
-                  text
-                  color="primary"
-                  v-blur
-                  @click="closeDialog(dialogs.selected, 'delete')"
+            text
+            color="primary"
+            v-blur
+            @click="closeDialog(dialogs.selected, 'delete')"
           >
             CANCEL
           </v-btn>
@@ -383,7 +383,9 @@
           <v-spacer></v-spacer>
         </v-col>
         <v-col cols="auto" :hidden="selectedItems.length === 0">
-          <v-btn class="error" @click="deleteSelectedOpen">DELETE SELECTED</v-btn>
+          <v-btn class="error" @click="deleteSelectedOpen"
+            >DELETE SELECTED</v-btn
+          >
         </v-col>
       </v-row>
     </v-container>
@@ -715,7 +717,7 @@ export default {
       // if (!this.defaultValue.value.$dirty) return errors;
       // !this.defaultValue.value.required && errors.push("Este campo es obligatorio");
       return errors;
-    },
+    }
   },
   watch: {
     dialog(val) {
