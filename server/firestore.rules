@@ -1,64 +1,63 @@
-
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
   	function isAuthenticated() {
-    	return request.auth.uid != null && request.auth.token.email_verified && 'tier' in request.auth.token;
+      return request.auth.uid != null && request.auth.token.email_verified && 'tier' in request.auth.token;
     }
     
     function isTierZero() {
-    	return true;
+      return true;
     }
     
     function isTierOne() {
-    	return isAuthenticated() && request.auth.token.tier >= 1;
+      return isAuthenticated() && request.auth.token.tier >= 1;
     }
     
     function isTierTwo() {
-    	return isAuthenticated() && request.auth.token.tier >= 2;
+      return isAuthenticated() && request.auth.token.tier >= 2;
     }
     
     function isTierThree() {
-    	return isAuthenticated() && request.auth.token.tier >= 3;
+      return isAuthenticated() && request.auth.token.tier >= 3;
     }
     
     function isTierFour() {
-    	return isAuthenticated() && request.auth.token.tier >= 4;
+      return isAuthenticated() && request.auth.token.tier >= 4;
     }
     
     function hasAccessToResource(field) {
-    	return isAuthenticated() && resource.data[field][request.auth.uid];
+      return isAuthenticated() && resource.data[field][request.auth.uid];
     }
   
   	// Write every rule here
     match /e/{document=**} {
-    	allow read: if isTierThree() || (isTierOne() && hasAccessToResource('u'));
-    	allow create, update: if isTierThree();
+      allow read: if isTierThree() || (isTierOne() && hasAccessToResource('u'));
+      allow create, update: if isTierThree();
       allow delete: if isTierThree() && resource.data.w == 0;
     }
     
     match /w/{document=**} {
-    	allow read: if isTierThree() || (isTierOne() && hasAccessToResource('u'));
-    	allow create, update: if isTierThree() || (isTierTwo() && hasAccessToResource('u'));
-      
+      allow read: if isTierThree() || (isTierOne() && hasAccessToResource('u'));
+      allow create, update: if isTierThree() || (isTierTwo() && hasAccessToResource('u'));
+
       match /a/{personId} {
         allow delete: if isTierThree() || (isTierTwo() && get(/databases/$(database)/documents/w/document).data.u[request.auth.uid]);
       }
     }
     
     match /w/{workshopId} {
-    	allow delete: if (isTierThree() || (isTierTwo() && hasAccessToResource('u'))) && resource.data.answers == 0;
+      allow delete: if (isTierThree() || (isTierTwo() && hasAccessToResource('u'))) && resource.data.answers == 0);
     }
     
     match /q/{document=**} {
-    	allow read: if isTierOne();
+      allow read: if isTierOne();
       allow create: if isTierTwo();
       allow update: if isTierTwo() && (resource.data.a == 0 || (!('m' in request.resource.data) && !('v' in request.resource.data)));
       allow delete: if resource.data.a == 0;
     }
     
     match /u/{userId} {
-    	allow read: if isTierThree() || request.auth.uid == userId;
+      allow read: if isTierThree() || request.auth.uid == userId;
       allow write: if request.auth.uid == userId || (isTierThree() && resource.data.tier <= 3) || isTierFour();
     }
   }
