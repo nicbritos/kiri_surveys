@@ -1,5 +1,6 @@
 <template>
   <v-container grid-list-md>
+    <Breadcrumbs class="mb-4" :items="breadcrumbs"></Breadcrumbs>
     <v-toolbar flat color="transparent">
       <v-toolbar-title>
         <h2>
@@ -13,10 +14,59 @@
         class="ml-3"
         placeholder="Start typing to Search"
         v-model="search"
+        clearable
       ></v-text-field>
-      <v-btn icon v-blur v-if="search.length > 0" @click="search = ''">
-        <v-icon>cancel</v-icon>
-      </v-btn>
+
+
+      <v-btn color="primary" dark class="ml-3 mb-2" v-on="on" v-blur
+      >NEW ENDPOINT</v-btn
+      >
+
+<!--      <v-dialog v-model="dialog" max-width="500px">-->
+<!--        <template v-slot:activator="{ on }"> </template>-->
+<!--        <v-card>-->
+<!--          <v-card-text>-->
+<!--            <v-container grid-list-md>-->
+<!--              <v-layout wrap>-->
+<!--                <v-flex xs12 sm6 md4>-->
+<!--                  <v-text-field-->
+<!--                          v-model="editedItemCopy.name"-->
+<!--                          label="Name"-->
+<!--                  ></v-text-field>-->
+<!--                </v-flex>-->
+<!--                <v-flex xs12 sm6 md4>-->
+<!--                  <v-checkbox-->
+<!--                          v-model="editedItemCopy.feedback"-->
+<!--                          label="Feedback"-->
+<!--                  ></v-checkbox>-->
+<!--                </v-flex>-->
+<!--                <v-flex xs12 sm6 md4>-->
+<!--                  <v-checkbox-->
+<!--                          v-model="editedItemCopy.measurable"-->
+<!--                          label="Measurable"-->
+<!--                          :disabled="editedItemCopy.answered"-->
+<!--                  ></v-checkbox>-->
+<!--                </v-flex>-->
+<!--                <v-flex xs12 sm6 md4>-->
+<!--                  <v-checkbox-->
+<!--                          v-model="editedItemCopy.answered"-->
+<!--                          label="Answered"-->
+<!--                          :disabled="true"-->
+<!--                  ></v-checkbox>-->
+<!--                </v-flex>-->
+<!--              </v-layout>-->
+<!--            </v-container>-->
+<!--          </v-card-text>-->
+
+<!--          <v-card-actions>-->
+<!--            <v-spacer></v-spacer>-->
+<!--            <v-btn color="blue darken-1" text @click="close" v-blur-->
+<!--            >Cancel</v-btn-->
+<!--            >-->
+<!--            <v-btn color="blue darken-1" text @click="save" v-blur>Save</v-btn>-->
+<!--          </v-card-actions>-->
+<!--        </v-card>-->
+<!--      </v-dialog>-->
     </v-toolbar>
     <v-container fluid>
       <v-row>
@@ -39,11 +89,9 @@ export default {
   components: { Endpoint },
   data() {
     return {
-      search: ""
+      search: "",
+      items: this.$store.state.dataStore.getEndpoints()
     };
-  },
-  created() {
-    this.items = this.$store.state.endpoints;
   },
   computed: {
     filteredItems: function() {

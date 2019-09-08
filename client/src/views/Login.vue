@@ -78,7 +78,6 @@
 </template>
 
 <script>
-import database from "@/database";
 import SocialLogin from "@/components/SocialLogin";
 import { required, email, minLength } from "vuelidate/lib/validators";
 import { mapGetters } from "vuex";
@@ -119,16 +118,16 @@ export default {
 
       this.loading = true;
 
-      database
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then(() => {
-          this.loading = false;
-          this.$router.push("/");
-        })
-        .catch(err => {
-          this.loading = false;
-          console.log(err);
-        });
+      // database
+      //   .signInWithEmailAndPassword(this.email, this.password)
+      //   .then(() => {
+      //     this.loading = false;
+      //     this.$router.push("/");
+      //   })
+      //   .catch(err => {
+      //     this.loading = false;
+      //     console.log(err);
+      //   });
     }
   }
 };

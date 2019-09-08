@@ -103,7 +103,6 @@
 </template>
 
 <script>
-import database from "@/database";
 import SocialLogin from "@/components/SocialLogin";
 import {
   required,
@@ -145,12 +144,12 @@ export default {
 
       this.loading = true;
 
-      database
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then(() => {
-          this.loading = false;
-          this.$router.push("/login");
-        });
+      // database
+      //   .createUserWithEmailAndPassword(this.email, this.password)
+      //   .then(() => {
+      //     this.loading = false;
+      //     this.$router.push("/login");
+      //   });
     }
   },
   computed: {

@@ -1,254 +1,460 @@
 <template>
   <v-container grid-list-md>
-    <v-row>
-      <v-card-title>
+    <Breadcrumbs :items="breadcrumbs"></Breadcrumbs>
+    <v-dialog v-model="dialogs.responses.new" max-width="700px">
+      <v-card>
+        <v-card-text>
+          <v-container fluid>
+            <v-row>
+              <v-col>
+                <h1 style="color: black">New Response</h1>
+              </v-col>
+            </v-row>
+
+            <v-row>
+              <v-col>
+                <v-text-field
+                  v-model="newResponse.name"
+                  label="Name"
+                  :error-messages="responseNameErrors"
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-checkbox
+                  v-model="newResponse.measurable"
+                  label="Measurable"
+                  color="primary"
+                ></v-checkbox>
+              </v-col>
+
+              <v-col>
+                <v-checkbox
+                  v-model="newResponse.feedback"
+                  label="Feedback"
+                  color="primary"
+                ></v-checkbox>
+              </v-col>
+
+              <v-col>
+                <v-checkbox
+                  v-model="newResponse.answered"
+                  label="Answered"
+                  :disabled="true"
+                  color="primary"
+                ></v-checkbox>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="blue darken-1"
+            text
+            @click="closeDialog(dialogs.responses, 'new')"
+            v-blur
+            >Cancel</v-btn
+          >
+          <v-btn color="blue darken-1" text @click="newResponseClose" v-blur
+            >Save</v-btn
+          >
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <v-dialog v-model="dialogs.responses.edit" max-width="700px">
+      <v-card>
+        <v-card-text>
+          <v-container fluid>
+            <v-row>
+              <v-col>
+                <h1 style="color: black">Edit Response</h1>
+              </v-col>
+            </v-row>
+
+            <v-row>
+              <v-col>
+                <v-text-field
+                  v-model="editedResponseCopy.name"
+                  label="Name"
+                  clearable
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-tooltip bottom :open-on-hover="editedResponseCopy.answered">
+                  <template v-slot:activator="{ on }">
+                    <div v-on="on">
+                      <v-checkbox
+                        v-model="editedResponseCopy.measurable"
+                        label="Measurable"
+                        color="primary"
+                        :disabled="editedResponseCopy.answered"
+                      ></v-checkbox>
+                    </div>
+                  </template>
+                  <span
+                    >Cannot change Response type if it has already been
+                    answered</span
+                  >
+                </v-tooltip>
+              </v-col>
+
+              <v-col>
+                <v-checkbox
+                  v-model="editedResponseCopy.feedback"
+                  label="Feedback"
+                  color="primary"
+                ></v-checkbox>
+              </v-col>
+
+              <v-col>
+                <v-checkbox
+                  v-model="editedResponseCopy.answered"
+                  label="Answered"
+                  :disabled="true"
+                  color="primary"
+                ></v-checkbox>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="blue darken-1"
+            text
+            @click="closeDialog(dialogs.responses, 'edit')"
+            v-blur
+            >Cancel</v-btn
+          >
+          <v-btn color="blue darken-1" text @click="editResponseClose" v-blur
+            >Save</v-btn
+          >
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <v-dialog v-model="dialogs.selected.delete" max-width="700px">
+      <v-card>
+        <v-card-text>
+          <v-card-title>
+            <span class="headline"
+              >Are you sure you want to delete
+              <span class="red--text">{{ selectedResponses.length }}</span>
+              responses?</span
+            >
+          </v-card-title>
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            text
+            color="primary"
+            v-blur
+            @click="closeDialog(dialogs.selected, 'delete')"
+          >
+            CANCEL
+          </v-btn>
+          <v-btn text color="error" v-blur @click="deleteSelectedClose">
+            Delete
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog v-model="dialogs.responses.delete" max-width="700px">
+      <v-card>
+        <v-card-text>
+          <v-card-title>
+            <span class="headline"
+              >Are you sure you want to delete
+              <span class="red--text">{{ deletingResponse.name }}</span
+              >?</span
+            >
+          </v-card-title>
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            text
+            color="primary"
+            v-blur
+            @click="closeDialog(dialogs.responses, 'delete')"
+          >
+            CANCEL
+          </v-btn>
+          <v-btn text color="error" v-blur @click="deleteResponseClose">
+            Delete
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <v-toolbar flat style="background-color: transparent">
+      <v-toolbar-title>
         <h2>
           Responses
         </h2>
-      </v-card-title>
-      <v-spacer></v-spacer>
-
-      <v-btn color="primary" dark class="mb-2" v-on="on" v-blur
+      </v-toolbar-title>
+      <v-text-field
+        hide-details
+        prepend-icon="search"
+        single-line
+        class="ml-3"
+        placeholder="Start typing to Search"
+        v-model="filters.search"
+        clearable
+      ></v-text-field>
+      <v-btn
+        @click="newResponseOpen"
+        color="primary"
+        class="ml-3 mb-2"
+        v-on="on"
+        v-blur
         >NEW RESPONSE</v-btn
       >
-    </v-row>
-    <v-toolbar>
-      <v-dialog v-model="dialog" max-width="500px">
-        <template v-slot:activator="{ on }"> </template>
-        <v-card>
-          <v-card-title>
-            <span class="headline">{{ formTitle }}</span>
-          </v-card-title>
-
-          <v-card-text>
-            <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field
-                    v-model="editedItem.name"
-                    label="Name"
-                  ></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-checkbox
-                    v-model="editedItem.feedback"
-                    label="Feedback"
-                  ></v-checkbox>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-checkbox
-                    v-model="editedItem.measurable"
-                    label="Measurable"
-                    disabled="editedItem.answered"
-                  ></v-checkbox>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-checkbox
-                    v-model="editedItem.answered"
-                    label="Answered"
-                    disabled="true"
-                  ></v-checkbox>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-card-text>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" text @click="close" v-blur
-              >Cancel</v-btn
-            >
-            <v-btn color="blue darken-1" text @click="save" v-blur>Save</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
     </v-toolbar>
 
+    <v-container fluid dense>
+      <v-row dense class="mb-n8">
+        <v-col>
+          <v-select
+            dense
+            chips
+            label="Add Filters"
+            multiple
+            solo
+            :items="filterChips"
+            clearable
+            deletable-chips
+            @change="chipFilterAdded"
+          >
+          </v-select>
+        </v-col>
+      </v-row>
+      <v-row dense>
+        <v-col>
+          <v-spacer></v-spacer>
+        </v-col>
+        <v-col cols="auto" :hidden="selectedResponses.length === 0">
+          <v-btn class="error" @click="deleteSelectedOpen"
+            >DELETE SELECTED</v-btn
+          >
+        </v-col>
+      </v-row>
+    </v-container>
+
     <v-data-table
-      v-model="this.$store.state.questions.selected"
-      :headers="headers"
+      v-model="selectedResponses"
+      :headers="responseHeaders"
       :items="items"
-      item-key="name"
-      no-data-text="No Questions created so far."
-      no-results-text="No Questions found."
+      :search="filters.search"
+      show-fist-last-page
+      item-key="id"
+      no-data-text="No Responses created so far."
+      no-results-text="No Responses found."
       show-select
-      show-expand
       must-sort
+      class="elevation-1 ml-4 mr-4"
+      :sort-by="['name']"
     >
-      <template v-slot:item.data-table-expand="{ item, isExpanded, expand }">
-        <v-btn icon v-blur v-if="!isExpanded && item.measurable"
-          ><v-icon @click="expand(true)">expand_more</v-icon></v-btn
-        >
-        <v-btn icon v-blur v-if="isExpanded && item.measurable"
-          ><v-icon @click="expand(false)">expand_less</v-icon></v-btn
-        >
-      </template>
-      <template v-slot:items="props">
-        <tr>
-          <td>{{ props.item.name }}</td>
-          <td>
-            <v-checkbox
-              primary
-              hide-details
-              :input-value="props.item.feedback"
-              :disabled="true"
-            ></v-checkbox>
-          </td>
-          <td>
-            <v-checkbox
-              primary
-              hide-details
-              :input-value="props.item.measurable"
-              :disabled="true"
-            ></v-checkbox>
-          </td>
-          <td>
-            <v-checkbox
-              primary
-              hide-details
-              :input-value="props.item.answered"
-              :disabled="true"
-            ></v-checkbox>
-          </td>
-          <td>
-            <v-icon class="mr-2" @click="editItem(props.item)">
-              edit
-            </v-icon>
-            <!-- TODO: Sacar dialog box del loop. -->
-            <v-dialog v-model="deleteDialog" max-width="300px">
-              <template v-slot:activator="{ on }">
-                <v-icon v-on="on" @click="setDialog(props.item)">
-                  delete
-                </v-icon>
-              </template>
-
-              <v-card>
-                <v-card-title>
-                  <span class="headline"
-                    >Are you sure you want to delete
-                    <span class="red--text">{{ deletingItem.name }}</span
-                    >?</span
-                  >
-                </v-card-title>
-
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="close" v-blur
-                    >CANCEL</v-btn
-                  >
-                  <v-btn color="error" text @click="deleteItem" v-blur
-                    >DELETE</v-btn
-                  >
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-          </td>
-        </tr>
+      <template v-slot:header.data-table-expand="props">
+        Values
       </template>
 
-      <template v-slot:expanded-item="props">
-        <td :colspan="4 * headers.length">
-          <v-sheet>
-            <v-data-table
-              :headers="questionValueHeaders"
-              :items="props.item.values"
-              item-key="value"
-              no-data-text="No Values created so far."
-              must-sort
-              disable-pagination
-              items-per-page="-1"
-              class="elevation-1 mb-5"
-            >
-              <template v-slot:items="props">
-                <tr>
-                  <td>{{ props.item.value }}</td>
-                  <td>{{ props.item.description }}</td>
-                  <td>
-                    <v-icon class="mr-2" @click="editItem(props.item)">
-                      edit
-                    </v-icon>
-                    <!-- TODO: Sacar dialog box del loop. -->
-                    <v-dialog v-model="deleteDialog" max-width="300px">
-                      <template v-slot:activator="{ on }">
-                        <v-icon v-on="on" @click="setDialog(props.item)">
-                          delete
-                        </v-icon>
-                      </template>
+      <template v-slot:item.feedback="props">
+        <v-checkbox
+          primary
+          hide-details
+          :input-value="props.item.feedback"
+          :disabled="true"
+          class="mb-4"
+        ></v-checkbox>
+      </template>
 
-                      <v-card>
-                        <v-card-title>
-                          <span class="headline"
-                            >Are you sure you want to delete
-                            <span class="red--text">{{
-                              deletingItem.value +
-                                ": " +
-                                defaultItem.description
-                            }}</span
-                            >?</span
-                          >
-                        </v-card-title>
+      <template v-slot:item.measurable="props">
+        <v-checkbox
+          primary
+          hide-details
+          :input-value="props.item.measurable"
+          :disabled="true"
+          class="mb-4"
+        ></v-checkbox>
+      </template>
 
-                        <v-card-actions>
-                          <v-spacer></v-spacer>
-                          <v-btn
-                            color="blue darken-1"
-                            text
-                            @click="close"
-                            v-blur
-                            >CANCEL</v-btn
-                          >
-                          <v-btn color="error" text @click="deleteItem" v-blur
-                            >DELETE</v-btn
-                          >
-                        </v-card-actions>
-                      </v-card>
-                    </v-dialog>
-                  </td>
-                </tr>
-              </template>
-            </v-data-table>
-          </v-sheet>
-        </td>
+      <template v-slot:item.answered="props">
+        <v-checkbox
+          primary
+          hide-details
+          :input-value="props.item.answered"
+          :disabled="true"
+          class="mb-4"
+        ></v-checkbox>
+      </template>
+
+      <template v-slot:item.actions="props">
+        <v-btn
+          small
+          class="ml-n1"
+          icon
+          v-blur
+          @click="editResponseOpen(props.item)"
+        >
+          <v-icon color="primary">
+            edit
+          </v-icon>
+        </v-btn>
+
+        <v-btn small icon v-blur @click="deleteResponseOpen(props.item)">
+          <v-icon color="error" v-on="on">
+            delete
+          </v-icon>
+        </v-btn>
       </template>
     </v-data-table>
-
-    <hr class="mb-5" />
   </v-container>
 </template>
 
 <script>
+// import { required, integer, minLength, maxLength } from "vuelidate/lib/validators";
+
 export default {
   data: () => ({
-    search: "",
-    shown: true,
     snackbar: false,
-    dialog: false,
-    deleteDialog: false,
-    deletingItem: {},
-    editedIndex: -1,
-    editedItem: {
-      name: "",
-      measurable: false,
-      feedback: false
+    shown: true,
+    filters: {
+      search: "",
+      type: undefined
     },
-    defaultItem: {
+    dialogs: {
+      responses: {
+        new: false,
+        edit: false,
+        delete: false
+      },
+      selected: {
+        delete: false
+      }
+    },
+    newResponse: {},
+    editedResponseCopy: {},
+    deletingResponse: {},
+    defaultResponse: {
       name: "",
       measurable: false,
-      feedback: false
-    }
+      feedback: false,
+      answered: false
+    },
+    selectedResponses: [],
+    filterChips: [
+      {
+        text: "PRE",
+        value: "e",
+        disabled: false
+      },
+      {
+        text: "POST",
+        value: "o",
+        disabled: false
+      },
+      {
+        text: "Measurable",
+        value: "m",
+        disabled: false
+      },
+      {
+        text: "Non measurable",
+        value: "nm",
+        disabled: false
+      },
+      {
+        text: "Feedback",
+        value: "f",
+        disabled: false
+      },
+      {
+        text: "Non feedback",
+        value: "nf",
+        disabled: false
+      }
+    ]
   }),
   computed: {
-    questionValueHeaders() {
-      return this.$store.state.questionValues.headers;
-    },
-    headers() {
-      return this.$store.state.questions.headers;
+    responseHeaders() {
+      return [
+        {
+          text: "Person",
+          value: "person",
+          sortable: true
+        },
+        {
+          text: "Question",
+          value: "question",
+          sortable: true
+        },
+        {
+          text: "Type",
+          value: "type",
+          sortable: true,
+          width: "2",
+          filter: value => {
+            if (this.filters.type == null) return true;
+            return value.toUpperCase.match(this.filters.type);
+          }
+        },
+        {
+          text: "Feedback",
+          value: "feedback",
+          sortable: false,
+          width: "1",
+          filter: value => {
+            if (this.filters.feedback == null) return true;
+            return value === this.filters.feedback;
+          }
+        },
+        {
+          text: "Measurable",
+          value: "measurable",
+          sortable: false,
+          width: "1",
+          filter: value => {
+            if (this.filters.measurable == null) return true;
+            return value === this.filters.measurable;
+          }
+        },
+        {
+          text: "Answer",
+          value: "answer",
+          sortable: false
+        },
+        { text: "Actions", value: "actions", width: "110", sortable: false }
+      ];
     },
     items() {
-      return this.$store.state.questions.items;
+      let endpointId = this.$router.currentRoute.params.eid;
+      let workshops = this.$store.state.__database__.workshops[endpointId];
+      if (workshops == null) return []; // TODO: Specify error
+
+      let workshopId = this.$router.currentRoute.params.wid;
+      let workshop = workshops[workshopId];
+      if (workshop == null) return []; // TODO: Specify error
+
+      return workshop.responses;
     },
-    formTitle() {
-      return this.editedIndex === -1 ? "New Question" : "Edit Question";
+
+    responseNameErrors() {
+      const errors = [];
+      // if (!newResponse)
+      // if (!this.defaultValue.value.$dirty) return errors;
+      // !this.defaultValue.value.required && errors.push("Este campo es obligatorio");
+      return errors;
     }
   },
   watch: {
@@ -260,39 +466,100 @@ export default {
     }
   },
   methods: {
-    editItem(item) {
-      this.editedIndex = this.questions.indexOf(item);
-      this.editedItem = item;
-      this.dialog = true;
+    newResponseOpen() {
+      this.newResponse = Object.assign({}, this.defaultResponse);
+      this.openDialog(this.dialogs.responses, "new");
+    },
+    newResponseClose() {
+      // Save to DB
+      this.closeDialog(this.dialogs.responses, "new");
     },
 
-    deleteItem() {
-      const index = this.questions.indexOf(this.deletingItem);
-
-      this.questions.splice(index, 1);
-      this.close();
+    editResponseOpen(item) {
+      this.editedResponseCopy = Object.assign({}, item);
+      this.openDialog(this.dialogs.responses, "edit");
+    },
+    editResponseClose() {
+      // Save to DB
+      this.closeDialog(this.dialogs.responses, "edit");
     },
 
-    setDialog(item) {
-      this.deletingItem = item;
+    deleteSelectedOpen() {
+      this.openDialog(this.dialogs.selected, "delete");
+    },
+    deleteResponseOpen(item) {
+      this.deletingResponse = item;
+      this.openDialog(this.dialogs.responses, "delete");
+    },
+    deleteSelectedClose() {
+      this.selectedResponses = [];
+      this.closeDialog(this.dialogs.selected, "delete");
+    },
+    deleteResponseClose() {
+      // Save to DB
+      this.closeDialog(this.dialogs.responses, "delete");
     },
 
-    close() {
-      this.dialog = false;
-      this.deleteDialog = false;
-      setTimeout(() => {
-        this.editedItem = this.defaultItem;
-        this.editedIndex = -1;
-      }, 300);
-    },
-
-    save() {
-      if (this.editedIndex > -1) {
-        Object.assign(this.questions[this.editedIndex], this.editedItem);
+    chipFilterAdded(items) {
+      var otherWasSelected = false;
+      if (items.indexOf("e") !== -1) {
+        if (!this.filterChips[1].disabled) this.filterChips[1].disabled = true;
+        if (this.filters.type !== "PRE") this.filters.type = "PRE";
+        otherWasSelected = true;
       } else {
-        this.questions.push(this.editedItem);
+        if (this.filterChips[1].disabled) this.filterChips[1].disabled = false;
       }
-      this.close();
+      if (items.indexOf("o") !== -1) {
+        if (!this.filterChips[0].disabled) this.filterChips[0].disabled = true;
+        if (this.filters.type !== "POST") this.filters.answered = "POST";
+      } else {
+        if (this.filterChips[0].disabled) this.filterChips[0].disabled = false;
+        if (!otherWasSelected && this.filters.type !== undefined)
+          this.filters.type = undefined;
+      }
+
+      otherWasSelected = false;
+      if (items.indexOf("m") !== -1) {
+        if (!this.filterChips[3].disabled) this.filterChips[3].disabled = true;
+        if (!this.filters.measurable) this.filters.measurable = true;
+        otherWasSelected = true;
+      } else {
+        if (this.filterChips[3].disabled) this.filterChips[3].disabled = false;
+      }
+      if (items.indexOf("nm") !== -1) {
+        if (!this.filterChips[2].disabled) this.filterChips[2].disabled = true;
+        if (this.filters.measurable !== false) this.filters.measurable = false;
+      } else {
+        if (this.filterChips[2].disabled) this.filterChips[2].disabled = false;
+        if (!otherWasSelected && this.filters.measurable !== undefined)
+          this.filters.measurable = undefined;
+      }
+
+      otherWasSelected = false;
+      if (items.indexOf("f") !== -1) {
+        if (!this.filterChips[5].disabled) this.filterChips[5].disabled = true;
+        if (!this.filters.feedback) this.filters.feedback = true;
+        otherWasSelected = true;
+      } else {
+        if (this.filterChips[5].disabled) this.filterChips[5].disabled = false;
+      }
+      if (items.indexOf("nf") !== -1) {
+        if (!this.filterChips[4].disabled) this.filterChips[4].disabled = true;
+        if (this.filters.feedback !== false) this.filters.feedback = false;
+      } else {
+        if (this.filterChips[4].disabled) this.filterChips[4].disabled = false;
+        if (!otherWasSelected && this.filters.feedback !== undefined)
+          this.filters.feedback = undefined;
+      }
+    },
+
+    openDialog(item, type) {
+      if (item == null || type == null || item[type] == null) return;
+      if (!item[type]) item[type] = true;
+    },
+    closeDialog(item, type) {
+      if (item == null || type == null || item[type] == null) return;
+      if (item[type]) item[type] = false;
     }
   }
 };

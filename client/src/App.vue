@@ -119,7 +119,6 @@
 </template>
 
 <script>
-import database from "@/database";
 import Loader from "@/components/Loader";
 import Rating from "@/components/Rating";
 import { mapGetters } from "vuex";
@@ -185,18 +184,18 @@ export default {
     this.$store.dispatch("setWindowWidth");
     this.$store.state.loading = false;
 
-    database.onAuthStateChanged(async user => {
-      if (user) {
-        localStorage.loggedIn = true;
-        const userData = await database.getUserInformation();
-        this.$store.dispatch("setUserData", userData);
-        this.$store.state.loading = false;
-      } else {
-        localStorage.loggedIn = false;
-        this.$store.dispatch("resetUserData");
-        this.$store.state.loading = false;
-      }
-    });
+    // database.onAuthStateChanged(async user => {
+    //   if (user) {
+    //     localStorage.loggedIn = true;
+    //     const userData = await database.getUserInformation();
+    //     this.$store.dispatch("setUserData", userData);
+    //     this.$store.state.loading = false;
+    //   } else {
+    //     localStorage.loggedIn = false;
+    //     this.$store.dispatch("resetUserData");
+    //     this.$store.state.loading = false;
+    //   }
+    // });
 
     // database
     //   .getStops()

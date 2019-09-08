@@ -22,7 +22,6 @@
 </template>
 
 <script>
-import database from "@/database";
 import { mapGetters } from "vuex";
 
 export default {
@@ -31,10 +30,10 @@ export default {
   },
   methods: {
     googleLogin() {
-      database.prepareGoogleSignIn().then(() => {
-        this.$store.state.loading = true;
-        this.$router.push("/");
-      });
+      // database.prepareGoogleSignIn().then(() => {
+      //   this.$store.state.loading = true;
+      //   this.$router.push("/");
+      // });
     }
   }
 };

@@ -15,13 +15,11 @@
 </template>
 
 <script>
-import database from "@/database";
-
 export default {
   methods: {
-    googleLogin() {
-      database.prepareGoogleSignIn();
-    }
+    // googleLogin() {
+    //   database.prepareGoogleSignIn();
+    // }
   }
 };
 </script>
