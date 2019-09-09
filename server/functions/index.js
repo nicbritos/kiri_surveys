@@ -137,3 +137,16 @@ exports.onWorkshopCreate = functions.firestore
       )
       .save("{}", { resumable: false });
   });
+
+// This method listens for any delete operation on the workshops' collection.
+exports.onWorkshopDelete = functions.firestore
+  .document(COLLECTIONS.WORKSHOPS.collection + "/{workshopId}")
+  .onDelete(async (snapshot, context) => {
+    await storage
+      .file(
+        snapshot.data()[COLLECTIONS.WORKSHOPS.document.endpointId] +
+          "/" +
+          context.params.workshopId
+      )
+      .delete();
+  });
