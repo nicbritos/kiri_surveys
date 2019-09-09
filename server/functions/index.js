@@ -2,9 +2,10 @@ let functions = require("firebase-functions");
 let admin = require("firebase-admin");
 
 admin.initializeApp();
-let db = admin.firestore();
-let storage = admin.storage();
+const db = admin.firestore();
+const storage = admin.storage().bucket();
 
+const FILE_EXTENSION = ".json";
 const COLLECTIONS = {
   USERS: {
     collection: "u",
@@ -39,7 +40,8 @@ const COLLECTIONS = {
   WORKSHOPS: {
     collection: "w",
     document: {
-      name: "e",
+      endpointId: "e",
+      name: "n",
       date: "d",
       permissions: "u"
     }
@@ -58,8 +60,7 @@ const COLLECTIONS = {
     }
   }
 };
-
-let ERRORS = {
+const ERRORS = {
   AUTH: "This method is only available to authenticated users",
   ARGS: "Invalid arguments. May be of the wrong type or unspecified",
   UNKNOWN: "Unknown error. Please, try again later",
@@ -123,81 +124,16 @@ exports.onUserCreate = functions.auth.user().onCreate(async user => {
   await admin.auth().setCustomUserClaims(user.uid, customClaims);
 });
 
-// This method handles an export request.
-exports.exportData = functions.https.onCall(async (data, context) => {
-  if (context.auth.uid == null) return formatError(ERRORS.AUTH);
-  if (context.auth.token.tier === 0) return formatError(ERRORS.PERMISSIONS);
-  if (
-    typeof data.w != "object" &&
-    typeof data.e != "object" &&
-    typeof data.e != "string"
-  )
-    return formatError(ERRORS.ARGS);
-
-  if (typeof data.e == "object" && data.e.length != null && data.e.length > 0) {
-    let urls = [];
-    for (let endpointId of data.e) {
-      if (context.auth.token.tier < 3) {
-        if (
-          !(await hasPermission(
-            context.auth.uid,
-            db.collection(COLLECTIONS.ENDPOINTS.collection).doc(endpointId),
-            COLLECTIONS.ENDPOINTS.document.permissions
-          ))
-        ) {
-          return formatError(ERRORS.PERMISSIONS);
-        }
-      }
-
-      let reference = storage.ref(
-        COLLECTIONS.ENDPOINTS.collection + "/" + endpointId
-      );
-      let list = await reference.list();
-      for (let wRef of list.items()) {
-        try {
-          urls.push(await wRef.getDownloadURL());
-        } catch (e) {
-          console.error(e);
-          return formatError(ERRORS.DOC_NOT_FOUND);
-        }
-      }
-    }
-
-    return formatData({ u: urls });
-  }
-
-  if (typeof data.e == "string" && data.w.length != null && data.w.length > 0) {
-    let urls = [];
-    for (let workshopId of data.w) {
-      if (context.auth.token.tier < 3) {
-        if (
-          !(await hasPermission(
-            context.auth.uid,
-            db
-              .collection(COLLECTIONS.ENDPOINTS.collection)
-              .doc(data.e)
-              .collection(COLLECTIONS.WORKSHOPS.collection)
-              .doc(workshopId),
-            COLLECTIONS.WORKSHOPS.document.permissions
-          ))
-        ) {
-          return formatError(ERRORS.PERMISSIONS);
-        }
-      }
-      let reference = storage.ref(
-        COLLECTIONS.ENDPOINTS.collection + "/" + data.e + "/" + workshopId
-      );
-      try {
-        urls.push(await reference.getDownloadURL());
-      } catch (e) {
-        console.error(e);
-        return formatError(ERRORS.DOC_NOT_FOUND);
-      }
-
-      return formatData({ u: urls });
-    }
-  }
-
-  return formatError(ERRORS.ARGS);
-});
-
+// This method listens for any create operation on the workshops' collection.
+exports.onWorkshopCreate = functions.firestore
+  .document(COLLECTIONS.WORKSHOPS.collection + "/{workshopId}")
+  .onCreate(async (snapshot, context) => {
+    await storage
+      .file(
+        snapshot.data()[COLLECTIONS.WORKSHOPS.document.endpointId] +
+          "/" +
+          context.params.workshopId +
+          FILE_EXTENSION
+      )
+      .save("{}", { resumable: false });
+  });
