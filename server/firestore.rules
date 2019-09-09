@@ -46,7 +46,7 @@ service cloud.firestore {
     }
     
     match /w/{workshopId} {
-      allow delete: if (isTierThree() || (isTierTwo() && hasAccessToResource('u'))) && resource.data.answers == 0);
+      allow delete: if (isTierThree() || (isTierTwo() && hasAccessToResource('u'))) && resource.data.answers == 0;
     }
     
     match /q/{document=**} {
