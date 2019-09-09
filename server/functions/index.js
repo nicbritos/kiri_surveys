@@ -107,6 +107,12 @@ async function hasPermission(uid, reference, field) {
   }
 }
 
+function formatWorkshopFileName(context) {
+  return (
+    context.params.endpointId + "/" + context.params.workshopId + FILE_EXTENSION
+  );
+}
+
 // ---------------- Main methods ----------------
 // Whenever a new user is created, we need to add him/her to the Users collection
 // and setup basic data
@@ -126,27 +132,53 @@ exports.onUserCreate = functions.auth.user().onCreate(async user => {
 
 // This method listens for any create operation on the workshops' collection.
 exports.onWorkshopCreate = functions.firestore
-  .document(COLLECTIONS.WORKSHOPS.collection + "/{workshopId}")
+  .document(
+    COLLECTIONS.ENDPOINTS.collection +
+      "/{endpointId}/" +
+      COLLECTIONS.WORKSHOPS.collection +
+      "/{workshopId}"
+  )
   .onCreate(async (snapshot, context) => {
     await storage
-      .file(
-        snapshot.data()[COLLECTIONS.WORKSHOPS.document.endpointId] +
-          "/" +
-          context.params.workshopId +
-          FILE_EXTENSION
-      )
+      .file(formatWorkshopFileName(context))
       .save("{}", { resumable: false });
   });
 
 // This method listens for any delete operation on the workshops' collection.
 exports.onWorkshopDelete = functions.firestore
-  .document(COLLECTIONS.WORKSHOPS.collection + "/{workshopId}")
+  .document(
+    COLLECTIONS.ENDPOINTS.collection +
+      "/{endpointId}/" +
+      COLLECTIONS.WORKSHOPS.collection +
+      "/{workshopId}"
+  )
   .onDelete(async (snapshot, context) => {
-    await storage
-      .file(
-        snapshot.data()[COLLECTIONS.WORKSHOPS.document.endpointId] +
-          "/" +
-          context.params.workshopId
-      )
-      .delete();
+    await storage.file(formatWorkshopFileName(context)).delete();
+  });
+
+// This method listens for any write operation on every workshop response.
+exports.onResponseWrite = functions.firestore
+  .document(
+    COLLECTIONS.ENDPOINTS.collection +
+      "/{endpointId}/" +
+      COLLECTIONS.WORKSHOPS.collection +
+      "/{workshopId}/" +
+      COLLECTIONS.RESPONSES.collection +
+      "/{personId}"
+  )
+  .onWrite(async (change, context) => {
+    let file = storage.file(formatWorkshopFileName(context));
+    let workshop = JSON.parse(String((await file.download())[0]));
+
+    if (change.before.exists && !change.after.exists) {
+      // DELETE
+      delete workshop[context.params.personId];
+    } else {
+      // CREATE OR UPDATE
+      workshop[context.params.personId] = change.after.data()[
+        COLLECTIONS.RESPONSES.document.answers.field
+      ];
+    }
+
+    await file.save(workshop, { resumable: false });
   });
