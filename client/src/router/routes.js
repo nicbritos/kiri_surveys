@@ -16,7 +16,7 @@ const routes = {
       path: "/questions",
       name: "questions",
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       },
       component: Questions
     },
@@ -24,7 +24,7 @@ const routes = {
       path: "/endpoints",
       name: "endpoints",
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       },
       component: Endpoints
     },
@@ -32,7 +32,7 @@ const routes = {
       path: "/endpoints/:eid",
       name: "workshops",
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       },
       component: Workshops
     },
@@ -40,7 +40,7 @@ const routes = {
       path: "/endpoints/:eid/:wid",
       name: "responses",
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       },
       component: Responses
     },
@@ -48,7 +48,7 @@ const routes = {
       path: "/users",
       name: "users",
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       },
       component: Users
     },
@@ -56,7 +56,7 @@ const routes = {
       path: "/forms",
       name: "forms",
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       },
       component: Forms
     },
@@ -87,9 +87,6 @@ const routes = {
     about: {
       path: "/about",
       name: "about",
-      meta: {
-        requiresUnAuth: true
-      },
       component: About
     },
     "page-not-found": {

@@ -1,7 +1,6 @@
 <template>
-  <v-app :dark="theme == 'dark' ? true : false">
+  <v-app>
     <Loader :loading="loading" />
-    <Rating @rate="rate" :visible="ratingVisibility" />
     <v-navigation-drawer
       :expand-on-hover="expandOnHover"
       value="true"
@@ -51,29 +50,9 @@
       >
         <v-icon>arrow_back</v-icon>
       </v-app-bar-nav-icon>
-      <img id="logo" src="@/assets/logo.png" alt="logo castelar bus" />
+      <div>Equipo KIRI</div>
+      <!--      <img id="logo" src="@/assets/logo.png" alt="logo castelar bus" />-->
       <v-spacer />
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on }">
-          <v-btn
-            icon
-            @click="
-              theme == 'light'
-                ? $store.dispatch('setTheme', 'dark')
-                : $store.dispatch('setTheme', 'light')
-            "
-            v-blur
-            v-on="on"
-          >
-            <v-icon>{{
-              theme == "light" ? "brightness_3" : "brightness_5"
-            }}</v-icon>
-          </v-btn>
-        </template>
-        <span>{{
-          theme == "light" ? "Cambiar al modo oscuro" : "Cambiar al modo claro"
-        }}</span>
-      </v-tooltip>
 
       <v-btn to="/login" light class="nav-btn" v-if="!loggedIn" v-blur>
         <v-icon left>exit_to_app</v-icon>
@@ -110,24 +89,19 @@
       </v-menu>
     </v-app-bar>
 
-    <v-content>
-      {{ rating.rate }}
-      {{ rating.comment }}
-      <router-view />
-    </v-content>
+    <router-view />
   </v-app>
 </template>
 
 <script>
 import Loader from "@/components/Loader";
-import Rating from "@/components/Rating";
 import { mapGetters } from "vuex";
+import database from "@/data/database";
 
 export default {
   name: "App",
   components: {
-    Loader,
-    Rating
+    Loader
   },
   data: () => ({
     fixed: false,
@@ -140,15 +114,6 @@ export default {
       "register",
       "about"
     ],
-    items: [
-      { icon: "school", title: "Data", to: "/endpoints" },
-      { icon: "question_answer", title: "Questions", to: "/questions" },
-      { icon: "view_list", title: "Forms", to: "/forms" },
-      { icon: "group", title: "Users", to: "/users" },
-      { icon: "exit_to_app", title: "Ingresar", to: "/login" },
-      { icon: "person_add", title: "Registrarme", to: "/register" },
-      { icon: "help", title: "About", to: "/about" }
-    ],
     title: "KIRI Surveys",
     rating: {}
   }),
@@ -159,15 +124,29 @@ export default {
       "displayName",
       "stringID",
       "minWidth",
-      "maxWidth",
-      "ratingVisibility",
-      "theme"
+      "maxWidth"
     ]),
     expandOnHover() {
       return this.minWidth(991);
     },
     mobile() {
       return this.minWidth(575);
+    },
+    items() {
+      let authItems = [
+        { icon: "school", title: "Data", to: "/endpoints" },
+        { icon: "question_answer", title: "Questions", to: "/questions" },
+        { icon: "view_list", title: "Forms", to: "/forms" },
+        { icon: "group", title: "Users", to: "/users" },
+        { icon: "help", title: "About", to: "/about" }
+      ];
+      let unAuthItems = [
+        { icon: "exit_to_app", title: "Ingresar", to: "/login" },
+        { icon: "person_add", title: "Registrarme", to: "/register" },
+        { icon: "help", title: "About", to: "/about" }
+      ];
+
+      return localStorage.loggedIn ? authItems : unAuthItems;
     }
   },
   created() {
@@ -179,33 +158,21 @@ export default {
       });
     }
 
-    const { theme } = JSON.parse(localStorage.userPreferences);
-    this.$store.dispatch("setTheme", theme);
     this.$store.dispatch("setWindowWidth");
     this.$store.state.loading = false;
 
-    // database.onAuthStateChanged(async user => {
-    //   if (user) {
-    //     localStorage.loggedIn = true;
-    //     const userData = await database.getUserInformation();
-    //     this.$store.dispatch("setUserData", userData);
-    //     this.$store.state.loading = false;
-    //   } else {
-    //     localStorage.loggedIn = false;
-    //     this.$store.dispatch("resetUserData");
-    //     this.$store.state.loading = false;
-    //   }
-    // });
-
-    // database
-    //   .getStops()
-    //   .then(stops => this.$store.dispatch("setStops", stops))
-    //   .catch(err => console.error(err));
-
-    // database
-    //   .getDefaultTrips()
-    //   .then(trips => this.$store.dispatch("setDefaultTrips", trips))
-    //   .catch(err => alert("No tenés suficiente permisos"));
+    database.onAuthStateChanged(async user => {
+      if (user) {
+        localStorage.loggedIn = true;
+        // const userData = await database.getUserInformation();
+        await this.$store.dispatch("setUserData", {});
+        this.$store.state.loading = false;
+      } else {
+        localStorage.loggedIn = false;
+        await this.$store.dispatch("resetUserData");
+        this.$store.state.loading = false;
+      }
+    });
   },
   mounted() {
     this.$store.watch(
@@ -221,12 +188,6 @@ export default {
         this.$router.push("/");
         location.reload();
       });
-    },
-    showLoader() {
-      this.$store.state.loading = true;
-    },
-    rate(payload) {
-      this.rating = payload;
     },
     upOneLevel() {
       let path = this.$router.currentRoute.path.substring(

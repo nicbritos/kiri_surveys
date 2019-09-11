@@ -708,7 +708,7 @@ export default {
       ];
     },
     items() {
-      return this.$store.state.questions;
+      return this.$store.state.dataStore.getQuestions();
     },
 
     questionNameErrors() {
@@ -718,6 +718,9 @@ export default {
       // !this.defaultValue.value.required && errors.push("Este campo es obligatorio");
       return errors;
     }
+  },
+  mounted() {
+    if (this.$store.getters.loggedIn) this.$store.state.dataStore.loadQuestions();
   },
   watch: {
     dialog(val) {

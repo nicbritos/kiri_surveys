@@ -11,19 +11,30 @@ class DataStore {
     this._questionsMap = {};
     this._responsesMap = {};
     this._usersMap = {};
+
+    this._endpointsLoaded = false;
+    this._questionsLoaded = false;
+    this._workshopsLoaded = {};
+    this._responsesLoaded = {};
   }
 
   async loadEndpoints() {
     // TODO: Handle errors
+    if (this._endpointsLoaded === true) return;
+
     let endpoints = await this._database.loadEndpoints();
     for (let endpoint of endpoints) {
       this.endpoints.push(endpoint);
       this._endpointsMap[endpoint.id] = endpoint;
     }
+
+    this._endpointsLoaded = true;
   }
 
   async loadWorkshops(endpointId) {
     // TODO: Handle errors
+    if (this._workshopsLoaded[endpointId] === true) return;
+
     let workshops = await this._database.loadWorkshops(endpointId);
 
     let workshopsMapObject = (this._workshopsMap[endpointId] = {});
@@ -34,19 +45,32 @@ class DataStore {
       workshopsMapObject[workshop.id] = workshop;
       responsesMapObject[workshop.id] = {};
     }
+
+    this._workshopsLoaded[endpointId] = true;
+    this._responsesLoaded[endpointId] = {};
   }
 
   async loadQuestions() {
     // TODO: Handle errors
+    if (this._questionsLoaded === true) return;
+
     let questions = await this._database.loadQuestions();
     for (let question of questions) {
       this.questions.push(question);
       this._questionsMap[question.id] = question;
     }
+
+    this._questionsLoaded = true;
   }
 
   async loadResponses(endpointId, workshopId) {
     // TODO: Handle errors
+    if (
+      this._responsesLoaded[endpointId] != null &&
+      this._responsesLoaded[endpointId][workshopId] === true
+    )
+      return;
+
     let allResponses = await this._database.loadResponses(
       endpointId,
       workshopId
@@ -61,6 +85,12 @@ class DataStore {
       for (let response of personResponses) {
         workshopsEndpointWorkshop.responses.push(response);
       }
+    }
+
+    if (this._responsesLoaded[endpointId] == null) {
+      this._responsesLoaded[endpointId] = { workshopId: true };
+    } else {
+      this._responsesLoaded[endpointId][workshopId] = true;
     }
   }
 

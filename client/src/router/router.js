@@ -24,6 +24,7 @@ router.beforeEach((to, from, next) => {
   if (store.getters.loggedIn != null) {
     if (to.matched.some(record => record.meta.requiresAuth)) {
       if (!store.getters.loggedIn) {
+        console.log("LOGIN");
         next("/login");
       } else {
         next();

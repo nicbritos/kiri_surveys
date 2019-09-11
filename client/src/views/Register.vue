@@ -112,6 +112,7 @@ import {
   sameAs
 } from "vuelidate/lib/validators";
 import { mapGetters } from "vuex";
+import database from "@/data/database";
 
 export default {
   components: {
@@ -139,17 +140,17 @@ export default {
   methods: {
     submitForm() {
       this.$v.$touch();
-      console.log("test");
       if (this.$v.$invalid) return;
-
       this.loading = true;
-
-      // database
-      //   .createUserWithEmailAndPassword(this.email, this.password)
-      //   .then(() => {
-      //     this.loading = false;
-      //     this.$router.push("/login");
-      //   });
+      database
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then(() => {
+          this.loading = false;
+          this.$router.push("/login");
+        }).catch(reason => {
+        this.loading = false;
+          console.error(reason);
+      });
     }
   },
   computed: {

@@ -3,16 +3,19 @@ require("firebase/firestore");
 require("firebase/auth");
 
 export default {
+  loadQuestions: loadQuestions,
   loadEndpoints: loadEndpoints,
-  loadQuestions: loadQuestions
+  loadWorkshops: loadWorkshops,
+  loadResponses: loadResponses,
 
-  // onAuthStateChanged: onAuthStateChanged,
-  // signInWithEmailAndPassword: signInWithEmailAndPassword,
-  // createUserWithEmailAndPassword: createUserWithEmailAndPassword,
-  // prepareGoogleSignIn: prepareGoogleSignIn,
-  // sendEmailVerification: sendEmailVerification,
-  // // forceReLogin: forceReLogin,
-  // signOut: signOut,
+  onAuthStateChanged: onAuthStateChanged,
+  signInWithEmailAndPassword: signInWithEmailAndPassword,
+  createUserWithEmailAndPassword: createUserWithEmailAndPassword,
+  prepareGoogleSignIn: prepareGoogleSignIn,
+  sendEmailVerification: sendEmailVerification,
+  // forceReLogin: forceReLogin,
+  signOut: signOut
+
   //
   // getUserInformation: getUserInformation
 };
@@ -54,14 +57,17 @@ const COLLECTIONS = {
     collection: "e",
     document: {
       name: "e",
-      description: "d"
+      description: "d",
+      permissions: "u"
     }
   },
   WORKSHOPS: {
     collection: "w",
     document: {
-      name: "e",
-      date: "d"
+      endpointId: "e",
+      name: "n",
+      date: "d",
+      permissions: "u"
     }
   },
   RESPONSES: {
@@ -83,69 +89,93 @@ firebase.initializeApp(config);
 let db = firebase.firestore();
 
 // -------- AUTH --------
-// // Observer must be a function receiving a user. If user != null then it is signed in.
-// // Returns the function that de-registers it
-// function onAuthStateChanged(observer) {
-//   return firebase.auth().onAuthStateChanged(observer);
-// }
-//
-// // Returns a promise
-// function signInWithEmailAndPassword(email, password) {
-//   return firebase.auth().signInWithEmailAndPassword(email, password);
-// }
-//
-// // Returns a promise
-// function createUserWithEmailAndPassword(email, password) {
-//   return new Promise(function(resolve, reject) {
-//     firebase
-//       .auth()
-//       .createUserWithEmailAndPassword(email, password)
-//       .then(function() {
-//         sendEmailVerification()
-//           .then(resolve)
-//           .catch(reject);
-//       })
-//       .catch(reject);
-//   });
-// }
-//
-// // Returns a promise
-// function prepareGoogleSignIn() {
-//   let provider = new firebase.auth.GoogleAuthProvider();
-//   return firebase.auth().signInWithPopup(provider);
-// }
-//
-// // Returns a promise.
-// // Automatically called after a successful createUserWithEmailAndPassword
-// // Token should be refreshed after verification completed. TODO: Test
-// function sendEmailVerification() {
-//   return new Promise(function(resolve, reject) {
-//     if (firebase.auth().currentUser != null) {
-//       firebase
-//         .auth()
-//         .currentUser.sendEmailVerification()
-//         .then(resolve)
-//         .catch(reject);
-//     } else {
-//       reject(
-//         new Error(
-//           "Cannot send verification email if user is not authenticated."
-//         )
-//       );
-//     }
-//   });
-// }
-//
-// // Returns a promise
-// function signOut() {
-//   return firebase.auth().signOut();
-// }
-//
-// // -----------------------
-//
-// function getUserInformation(username) {
-//
-// }
+// Observer must be a function receiving a user. If user != null then it is signed in.
+// Returns the function that de-registers it
+function onAuthStateChanged(observer) {
+  return firebase.auth().onAuthStateChanged(observer);
+}
+
+// Returns a promise
+function signInWithEmailAndPassword(email, password) {
+  return firebase.auth().signInWithEmailAndPassword(email, password);
+}
+
+// Returns a promise
+async function createUserWithEmailAndPassword(email, password) {
+  await firebase.auth().createUserWithEmailAndPassword(email, password);
+
+  return sendEmailVerification();
+}
+
+// Returns a promise
+function prepareGoogleSignIn() {
+  return firebase
+    .auth()
+    .signInWithPopup(new firebase.auth.GoogleAuthProvider());
+}
+
+// Returns a promise.
+// Automatically called after a successful createUserWithEmailAndPassword
+// Token should be refreshed after verification completed.
+function sendEmailVerification() {
+  if (firebase.auth().currentUser != null) {
+    return firebase.auth().currentUser.sendEmailVerification();
+  } else {
+    throw new Error(
+      "Cannot send verification email if user is not authenticated."
+    );
+  }
+}
+
+// Returns a promise
+function signOut() {
+  return firebase.auth().signOut();
+}
+
+// -----------------------
+
+function getUserInformation(username) {}
+
+async function loadQuestions() {
+  // return [
+  //   {
+  //     id: "abc",
+  //     name: "Que piensa sobre el CC?",
+  //     measurable: true,
+  //     feedback: true,
+  //     answered: false,
+  //     values: {
+  //       1: "Poco",
+  //       2: "Medio",
+  //       3: "Mucho"
+  //     }
+  //   },
+  //   {
+  //     id: "def",
+  //     name: "Aguante Peron",
+  //     measurable: true,
+  //     feedback: true,
+  //     answered: false,
+  //     values: []
+  //   },
+  //   {
+  //     id: "ghi",
+  //     name: "Tu vieja? Si, tu vieja.",
+  //     measurable: false,
+  //     feedback: false,
+  //     answered: false,
+  //     values: []
+  //   }
+  // ];
+  // let reference = db.collection(COLLECTIONS.QUESTIONS.collection);
+  // let questions = [];
+  // (await reference.get()).forEach(doc => {
+  //   let data = doc.data();
+  //   data.id = doc.id;
+  //   questions.push(data);
+  // });
+  // return questions;
+}
 
 async function loadEndpoints() {
   return [
@@ -181,43 +211,43 @@ async function loadEndpoints() {
       quantity: 0
     }
   ];
+
+  // let reference = db.collection(COLLECTIONS.ENDPOINTS.collection);
+  // let endpoints = [];
+  // (await reference.get()).forEach(doc => {
+  //   let data = doc.data();
+  //   data.id = doc.id;
+  //   endpoints.push(data);
+  // });
+  // return endpoints;
 }
 
-async function loadQuestions() {
-  return [
-    {
-      id: "abc",
-      name: "Que piensa sobre el CC?",
-      measurable: true,
-      feedback: true,
-      answered: false,
-      values: {
-        1: "Poco",
-        2: "Medio",
-        3: "Mucho"
-      }
-    },
-    {
-      id: "def",
-      name: "Aguante Peron",
-      measurable: true,
-      feedback: true,
-      answered: false,
-      values: []
-    },
-    {
-      id: "ghi",
-      name: "Tu vieja? Si, tu vieja.",
-      measurable: false,
-      feedback: false,
-      answered: false,
-      values: []
-    }
-  ];
+async function loadWorkshops(endpointId) {
+  // let reference = db
+  //   .collection(COLLECTIONS.ENDPOINTS.collection)
+  //   .doc(endpointId)
+  //   .collection(COLLECTIONS.WORKSHOPS.collection);
+  // let workshops = [];
+  // (await reference.get()).forEach(doc => {
+  //   let data = doc.data();
+  //   data.id = doc.id;
+  //   workshops.push(data);
+  // });
+  // return workshops;
 }
 
-// init();
-// signInWithEmailAndPassword('hola@hotmail.com', 'example');
-// onAuthStateChanged(function (user) {
-//     getUserInformation();
-// });
+async function loadResponses(endpointId, workshopId) {
+  // let reference = db
+  //   .collection(COLLECTIONS.ENDPOINTS.collection)
+  //   .doc(endpointId)
+  //   .collection(COLLECTIONS.WORKSHOPS.collection)
+  //   .doc(workshopId)
+  //   .collection(COLLECTIONS.RESPONSES.collection);
+  // let responses = [];
+  // (await reference.get()).forEach(doc => {
+  //   let data = doc.data();
+  //   data.id = doc.id;
+  //   responses.push(data);
+  // });
+  // return responses;
+}

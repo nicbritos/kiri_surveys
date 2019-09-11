@@ -6,7 +6,7 @@ service cloud.firestore {
     }
     
     function isTierZero() {
-      return true;
+      return isAuthenticated();
     }
     
     function isTierOne() {
