@@ -42,7 +42,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar elevate-on-scroll app dark class="grey darken-3" dense>
+    <v-app-bar fixed elevate-on-scroll app dark class="grey darken-3" dense>
       <v-app-bar-nav-icon
         v-blur
         v-if="!this.noBackButtonRoutes.includes(this.$router.currentRoute.name)"
@@ -89,7 +89,9 @@
       </v-menu>
     </v-app-bar>
 
-    <router-view />
+    <v-content>
+      <router-view />
+    </v-content>
   </v-app>
 </template>
 
