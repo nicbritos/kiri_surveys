@@ -1,5 +1,5 @@
 <template>
-  <h4 class="no-bold" v-if="!search">Add a new {{ type }}</h4>
+  <h4 class="no-bold" v-if="!isSearch">Add a new {{ type }}</h4>
   <h4 class="no-bold" v-else>No results found</h4>
 </template>
 
@@ -11,7 +11,7 @@ export default {
       type: String,
       required: true
     },
-    search: {
+    isSearch: {
       type: Boolean,
       required: false
     }
