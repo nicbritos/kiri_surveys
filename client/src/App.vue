@@ -117,7 +117,20 @@ export default {
       "about"
     ],
     title: "KIRI Surveys",
-    rating: {}
+    rating: {},
+    items: [],
+    authItems: [
+      { icon: "school", title: "Data", to: "/endpoints" },
+      { icon: "question_answer", title: "Questions", to: "/questions" },
+      { icon: "view_list", title: "Forms", to: "/forms" },
+      { icon: "group", title: "Users", to: "/users" },
+      { icon: "help", title: "About", to: "/about" }
+    ],
+    unAuthItems: [
+      { icon: "exit_to_app", title: "Ingresar", to: "/login" },
+      { icon: "person_add", title: "Registrarme", to: "/register" },
+      { icon: "help", title: "About", to: "/about" }
+    ]
   }),
   computed: {
     ...mapGetters([
@@ -133,22 +146,6 @@ export default {
     },
     mobile() {
       return this.minWidth(575);
-    },
-    items() {
-      let authItems = [
-        { icon: "school", title: "Data", to: "/endpoints" },
-        { icon: "question_answer", title: "Questions", to: "/questions" },
-        { icon: "view_list", title: "Forms", to: "/forms" },
-        { icon: "group", title: "Users", to: "/users" },
-        { icon: "help", title: "About", to: "/about" }
-      ];
-      let unAuthItems = [
-        { icon: "exit_to_app", title: "Ingresar", to: "/login" },
-        { icon: "person_add", title: "Registrarme", to: "/register" },
-        { icon: "help", title: "About", to: "/about" }
-      ];
-
-      return localStorage.loggedIn ? authItems : unAuthItems;
     }
   },
   created() {
@@ -166,12 +163,13 @@ export default {
     database.onAuthStateChanged(async user => {
       if (user) {
         localStorage.loggedIn = true;
-        // const userData = await database.getUserInformation();
         await this.$store.dispatch("setUserData", {});
+        this.items = this.authItems;
         this.$store.state.loading = false;
       } else {
         localStorage.loggedIn = false;
         await this.$store.dispatch("resetUserData");
+        this.items = this.unAuthItems;
         this.$store.state.loading = false;
       }
     });

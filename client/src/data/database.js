@@ -13,6 +13,7 @@ export default {
   createUserWithEmailAndPassword: createUserWithEmailAndPassword,
   prepareGoogleSignIn: prepareGoogleSignIn,
   sendEmailVerification: sendEmailVerification,
+  isLoggedIn: isLoggedIn,
   // forceReLogin: forceReLogin,
   signOut: signOut
 
@@ -125,6 +126,10 @@ function sendEmailVerification() {
       "Cannot send verification email if user is not authenticated."
     );
   }
+}
+
+function isLoggedIn() {
+  return firebase.auth().currentUser != null;
 }
 
 // Returns a promise

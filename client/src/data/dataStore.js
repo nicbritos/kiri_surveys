@@ -96,6 +96,8 @@ class DataStore {
 
   async loadUsers() {
     // TODO: Handle errors
+    // TODO: Add usersLoaded
+    // TODO: Add live listeners
     let users = await this._database.loadUsers();
     for (let user of users) {
       this.users.push(user);
