@@ -145,31 +145,40 @@ async function loadQuestions() {
   return [
     {
       id: "abc",
-      name: "Que piensa sobre el CC?",
-      measurable: true,
-      feedback: true,
-      answered: false,
-      values: {
-        1: "Poco",
-        2: "Medio",
-        3: "Mucho"
-      }
+      n: "Que piensa sobre el CC?",
+      m: true,
+      f: true,
+      a: false,
+      v: [
+        {
+          v: 1,
+          d: "Poco"
+        },
+        {
+          v: 2,
+          d: "Medio"
+        },
+        {
+          v: 3,
+          d: "Mucho"
+        }
+      ]
     },
     {
       id: "def",
-      name: "Aguante Peron",
-      measurable: true,
-      feedback: true,
-      answered: false,
-      values: []
+      n: "Aguante Peron",
+      m: true,
+      f: true,
+      a: false,
+      v: []
     },
     {
       id: "ghi",
-      name: "Tu vieja? Si, tu vieja.",
-      measurable: false,
-      feedback: false,
-      answered: false,
-      values: []
+      n: "Tu vieja? Si, tu vieja.",
+      m: false,
+      f: false,
+      a: false,
+      v: []
     }
   ];
   // let reference = db.collection(COLLECTIONS.QUESTIONS.collection);
@@ -186,39 +195,38 @@ async function loadEndpoints() {
   return [
     {
       id: "def",
-      name: "Instituto Inmaculada",
-      description: "Talleres hechos en Instituto Inmaculada de Castelar",
-      quantity: 4,
-      workshops: []
+      n: "Instituto Inmaculada",
+      d: "Talleres hechos en Instituto Inmaculada de Castelar",
+      q: 4,
+      w: []
     },
     {
       id: "ghi",
-      name: "ITBA",
-      description:
-        "Talleres hechos en el Instituto Tecnologico de Buenos Aires",
-      quantity: 12,
-      workshops: []
+      n: "ITBA",
+      d: "Talleres hechos en el Instituto Tecnologico de Buenos Aires",
+      q: 12,
+      w: []
     },
     {
       id: "jkl",
-      name: "ITBA Postgrado",
-      description: "Talleres hechos en ITBA Postgrado",
-      quantity: 3,
-      workshops: []
+      n: "ITBA Postgrado",
+      d: "Talleres hechos en ITBA Postgrado",
+      q: 3,
+      w: []
     },
     {
       id: "mno",
-      name: "ORT",
-      description: "Talleres hechos en la escuela ORT",
-      quantity: 2,
-      workshops: []
+      n: "ORT",
+      d: "Talleres hechos en la escuela ORT",
+      q: 2,
+      w: []
     },
     {
       id: "abc",
-      name: "UBA",
-      description: "Talleres hechos en la UBA",
-      quantity: 0,
-      workshops: []
+      n: "UBA",
+      d: "Talleres hechos en la UBA",
+      q: 0,
+      w: []
     }
   ];
 
@@ -247,10 +255,10 @@ async function loadWorkshops(endpointId) {
   return [
     {
       id: "w1",
-      quantity: 400,
-      name: "ITBA1",
-      date: undefined,
-      responses: []
+      q: 400,
+      n: "ITBA1",
+      d: undefined,
+      r: []
     }
   ];
 }
@@ -272,11 +280,11 @@ async function loadResponses(endpointId, workshopId) {
   return {
     NB1: [
       {
-          id: "abcdef",
-        person: "NB1",
+        id: "abcdef",
+        p: "NB1",
         q: "abc",
         t: "PRE",
-        v: "asas"
+        v: 1
       }
     ]
   };

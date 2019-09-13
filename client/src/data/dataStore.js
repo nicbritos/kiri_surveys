@@ -6,9 +6,10 @@ class DataStore {
     this.questions = [];
     this.users = [];
 
+    this._questionsMap = {};
+    this._questionsValueMap = {};
     this._endpointsMap = {};
     this._workshopsMap = {};
-    this._questionsMap = {};
     this._responsesMap = {};
     this._usersMap = {};
 
@@ -26,6 +27,12 @@ class DataStore {
     for (let question of questions) {
       this.questions.push(question);
       this._questionsMap[question.id] = question;
+      let valueMap = (this._questionsValueMap[question.id] = {});
+      if (question.m) {
+        for (let value of question.v) {
+          valueMap[value.v] = value.d;
+        }
+      }
     }
 
     this._questionsLoaded = true;
@@ -52,7 +59,7 @@ class DataStore {
 
     let workshopsMapObject = (this._workshopsMap[endpointId] = {});
     let responsesMapObject = (this._responsesMap[endpointId] = {});
-    let workshopsArray = this._endpointsMap[endpointId].workshops;
+    let workshopsArray = this._endpointsMap[endpointId].w;
     for (let workshop of workshops) {
       workshopsArray.push(workshop);
       workshopsMapObject[workshop.id] = workshop;
@@ -79,13 +86,13 @@ class DataStore {
     // Forma: { person: [ { person: person, question: questionId, type: type, value: value } ] }
     let responsesEndpointWorkshop = this._responsesMap[endpointId][workshopId];
     let workshopsEndpointWorkshop = this._workshopsMap[endpointId][workshopId];
-    workshopsEndpointWorkshop.responses = [];
+    workshopsEndpointWorkshop.r = [];
     for (let person of Object.keys(allResponses)) {
       let personResponses = allResponses[person];
       responsesEndpointWorkshop[person] = personResponses;
 
       for (let response of personResponses) {
-        workshopsEndpointWorkshop.responses.push(response);
+        workshopsEndpointWorkshop.r.push(response);
       }
     }
 
@@ -116,7 +123,7 @@ class DataStore {
   }
 
   getWorkshops(endpointId) {
-    return this._endpointsMap[endpointId].workshops;
+    return this._endpointsMap[endpointId].w;
   }
 
   getWorkshopByID(endpointId, workshopId) {
@@ -132,8 +139,13 @@ class DataStore {
     return this._questionsMap[questionId];
   }
 
+  getQuestionValueDescriptionByID(questionId, value) {
+    let questionValues = this._questionsValueMap[questionId];
+    return questionValues != null ? questionValues[value] : undefined;
+  }
+
   getResponses(endpointId, workshopId) {
-    return this._workshopsMap[endpointId][workshopId].responses;
+    return this._workshopsMap[endpointId][workshopId].r;
   }
 
   getUsers() {
