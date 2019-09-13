@@ -142,36 +142,36 @@ function signOut() {
 function getUserInformation(username) {}
 
 async function loadQuestions() {
-  // return [
-  //   {
-  //     id: "abc",
-  //     name: "Que piensa sobre el CC?",
-  //     measurable: true,
-  //     feedback: true,
-  //     answered: false,
-  //     values: {
-  //       1: "Poco",
-  //       2: "Medio",
-  //       3: "Mucho"
-  //     }
-  //   },
-  //   {
-  //     id: "def",
-  //     name: "Aguante Peron",
-  //     measurable: true,
-  //     feedback: true,
-  //     answered: false,
-  //     values: []
-  //   },
-  //   {
-  //     id: "ghi",
-  //     name: "Tu vieja? Si, tu vieja.",
-  //     measurable: false,
-  //     feedback: false,
-  //     answered: false,
-  //     values: []
-  //   }
-  // ];
+  return [
+    {
+      id: "abc",
+      name: "Que piensa sobre el CC?",
+      measurable: true,
+      feedback: true,
+      answered: false,
+      values: {
+        1: "Poco",
+        2: "Medio",
+        3: "Mucho"
+      }
+    },
+    {
+      id: "def",
+      name: "Aguante Peron",
+      measurable: true,
+      feedback: true,
+      answered: false,
+      values: []
+    },
+    {
+      id: "ghi",
+      name: "Tu vieja? Si, tu vieja.",
+      measurable: false,
+      feedback: false,
+      answered: false,
+      values: []
+    }
+  ];
   // let reference = db.collection(COLLECTIONS.QUESTIONS.collection);
   // let questions = [];
   // (await reference.get()).forEach(doc => {
@@ -188,32 +188,37 @@ async function loadEndpoints() {
       id: "def",
       name: "Instituto Inmaculada",
       description: "Talleres hechos en Instituto Inmaculada de Castelar",
-      quantity: 4
+      quantity: 4,
+      workshops: []
     },
     {
       id: "ghi",
       name: "ITBA",
       description:
         "Talleres hechos en el Instituto Tecnologico de Buenos Aires",
-      quantity: 12
+      quantity: 12,
+      workshops: []
     },
     {
       id: "jkl",
       name: "ITBA Postgrado",
       description: "Talleres hechos en ITBA Postgrado",
-      quantity: 3
+      quantity: 3,
+      workshops: []
     },
     {
       id: "mno",
       name: "ORT",
       description: "Talleres hechos en la escuela ORT",
-      quantity: 2
+      quantity: 2,
+      workshops: []
     },
     {
       id: "abc",
       name: "UBA",
       description: "Talleres hechos en la UBA",
-      quantity: 0
+      quantity: 0,
+      workshops: []
     }
   ];
 
@@ -239,6 +244,28 @@ async function loadWorkshops(endpointId) {
   //   workshops.push(data);
   // });
   // return workshops;
+  return [
+    {
+      id: "w1",
+      quantity: 400,
+      name: "ITBA1",
+      date: undefined,
+      responses: [
+        {
+          person: "MN2",
+          type: "PRE",
+          question: "abc",
+          value: 1
+        },
+        {
+          person: "MN2",
+          type: "PRE",
+          question: "abc",
+          value: 1
+        }
+      ]
+    }
+  ];
 }
 
 async function loadResponses(endpointId, workshopId) {
@@ -255,4 +282,14 @@ async function loadResponses(endpointId, workshopId) {
   //   responses.push(data);
   // });
   // return responses;
+  return {
+    NB1: [
+      {
+        person: "NB1",
+        q: "abc",
+        t: "PRE",
+        v: "asas"
+      }
+    ]
+  };
 }
