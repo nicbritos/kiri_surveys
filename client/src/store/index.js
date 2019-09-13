@@ -6,7 +6,6 @@ import database from "@/data/database";
 
 Vue.use(Vuex);
 
-
 let workshops = {
   def: [
     {
