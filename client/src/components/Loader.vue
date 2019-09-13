@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+<!--  <transition name="fade">-->
     <div class="full" v-show="loading">
       <div class="overlay"></div>
       <div class="loader">
@@ -9,10 +9,10 @@
           color="white"
           indeterminate
         ></v-progress-circular>
-        <!-- <p class="white--text display-1 mt-5">Cargando...</p> -->
+        <p class="white--text display-1 mt-5">Loading...</p>
       </div>
     </div>
-  </transition>
+<!--  </transition>-->
 </template>
 
 <script>
@@ -31,7 +31,7 @@ export default {
   z-index: 99999;
 
   .overlay {
-    background-color: #d32f2f;
+    background-color: #1e88e5;
     position: absolute;
     min-height: 100vh;
     width: 100%;
