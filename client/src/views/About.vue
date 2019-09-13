@@ -1,7 +1,6 @@
 <template
   ><v-container grid-list-md>
-  <Breadcrumbs class="mb-4" :items="breadcrumbs"></Breadcrumbs>
-  <v-card>
+    <v-card>
       <v-card-title>
         <h2>
           About
@@ -27,20 +26,11 @@
 </template>
 
 <script>
-  import Breadcrumbs from "@/components/Breadcrumbs";
-  import routes from "@/router/routes";
-  export default {
-    name: "About",
-    components: { Breadcrumbs },
-    data: () => ({
-      snackbar: false,
-      loading: false,
-      breadcrumbs: [
-              Object.assign({}, routes.breadcrumbs.about)
-              ]
-    }),
-    mounted() {
-      this.breadcrumbs[0].disabled = true;
-    }
-  };
+export default {
+  name: "About",
+  data: () => ({
+    snackbar: false,
+    loading: false
+  })
+};
 </script>
