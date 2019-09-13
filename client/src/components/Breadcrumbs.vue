@@ -5,10 +5,12 @@
     </template>
 
     <v-breadcrumbs-item
-            slot="item"
-            slot-scope="{ item }"
-            exact
-            :to="item.to">
+      slot="item"
+      slot-scope="{ item }"
+      exact
+      :disabled="item.disabled"
+      :to="item.to"
+    >
       {{ item.text }}
     </v-breadcrumbs-item>
   </v-breadcrumbs>
