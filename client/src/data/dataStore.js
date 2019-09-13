@@ -128,6 +128,10 @@ class DataStore {
     return this.questions;
   }
 
+  getQuestionByID(questionId) {
+    return this._questionsMap[questionId];
+  }
+
   getResponses(endpointId, workshopId) {
     return this._workshopsMap[endpointId][workshopId].responses;
   }
