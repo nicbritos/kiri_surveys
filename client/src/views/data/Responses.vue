@@ -324,11 +324,16 @@
 
 <script>
 // import { required, integer, minLength, maxLength } from "vuelidate/lib/validators";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import routes from "@/router/routes";
 
 export default {
+  components: { Breadcrumbs },
   data: () => ({
     snackbar: false,
+    breadcrumbs: [Object.assign({}, routes.breadcrumbs.endpoints)],
     shown: true,
+    items: [],
     filters: {
       search: "",
       type: undefined
@@ -437,17 +442,6 @@ export default {
         { text: "Actions", value: "actions", width: "110", sortable: false }
       ];
     },
-    items() {
-      let endpointId = this.$router.currentRoute.params.eid;
-      let workshops = this.$store.state.__database__.workshops[endpointId];
-      if (workshops == null) return []; // TODO: Specify error
-
-      let workshopId = this.$router.currentRoute.params.wid;
-      let workshop = workshops[workshopId];
-      if (workshop == null) return []; // TODO: Specify error
-
-      return workshop.responses;
-    },
 
     responseNameErrors() {
       const errors = [];
@@ -456,6 +450,38 @@ export default {
       // !this.defaultValue.value.required && errors.push("Este campo es obligatorio");
       return errors;
     }
+  },
+  async created() {
+    this.$store.state.loading = true;
+
+    let endpointId = this.$router.currentRoute.params.eid;
+    await this.$store.state.dataStore.loadEndpoints();
+    let endpointBreadcrumb = Object.assign({}, routes.breadcrumbs.sample);
+    endpointBreadcrumb.text = this.$store.state.dataStore.getEndpointByID(
+      endpointId
+    ).name;
+    endpointBreadcrumb.disabled = false;
+    endpointBreadcrumb.to = routes.router.endpoints.path + "/" + endpointId;
+    this.breadcrumbs.push(endpointBreadcrumb);
+
+    let workshopId = this.$router.currentRoute.params.wid;
+    await this.$store.state.dataStore.loadWorkshops(endpointId);
+    let workshopBreadcrumb = Object.assign({}, routes.breadcrumbs.sample);
+    workshopBreadcrumb.text = this.$store.state.dataStore.getWorkshopByID(
+      endpointId,
+      workshopId
+    ).name;
+    this.breadcrumbs.push(workshopBreadcrumb);
+
+    await this.$store.state.dataStore.loadResponses(endpointId, workshopId);
+    let responses = this.$store.state.dataStore.getResponses(
+      endpointId,
+      workshopId
+    );
+    this.$store.state.loading = false;
+    if (responses == null) return; // TODO: Specify error
+
+    this.items = responses;
   },
   watch: {
     dialog(val) {

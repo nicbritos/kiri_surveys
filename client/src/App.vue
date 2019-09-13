@@ -120,7 +120,7 @@ export default {
     rating: {},
     items: [],
     authItems: [
-      { icon: "school", title: "Data", to: "/endpoints" },
+      { icon: "school", title: "Endpoints", to: "/endpoints" },
       { icon: "question_answer", title: "Questions", to: "/questions" },
       { icon: "view_list", title: "Forms", to: "/forms" },
       { icon: "group", title: "Users", to: "/users" },

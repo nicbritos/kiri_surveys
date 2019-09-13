@@ -31,49 +31,71 @@
             :workshopId="item.id"
           ></Workshop>
         </v-col>
+        <v-col v-if="filteredItems.length === 0">
+          <v-row align="center" justify="center">
+            <NoItemsComponent
+              type="Workshop"
+              :isSearch="search !== ''"
+            ></NoItemsComponent>
+          </v-row>
+        </v-col>
       </v-row>
     </v-container> </v-container
 ></template>
 
 <script>
+import NoItemsComponent from "@/components/NoItemsComponent";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Workshop from "@/components/Workshop";
 import routes from "@/router/routes";
 
 export default {
   name: "Workshops",
-  components: { Workshop, Breadcrumbs },
+  components: { Workshop, Breadcrumbs, NoItemsComponent },
   data() {
     return {
-      items: [],
       search: "",
       breadcrumbs: [Object.assign({}, routes.breadcrumbs.endpoints)]
     };
   },
-  created() {
-    let endpointId = this.$router.currentRoute.params.eid;
-    let text;
-    if (this.$store.state.workshops[endpointId] == null) {
-      this.$store.state.workshops[endpointId] = [];
-      text = "";
-    } else {
-      text = this.$store.state.__database__.endpoints[endpointId].name;
-    }
+  async created() {
+    this.$store.state.loading = true;
 
-    this.breadcrumbs.push({
-      href: this.$router.currentRoute.path,
-      text: text,
-      disabled: true
-    });
-    this.items = this.$store.state.workshops[endpointId];
+    await this.$store.state.dataStore.loadEndpoints();
+    let endpoint = this.$store.state.dataStore.getEndpointByID(
+      this.$router.currentRoute.params.eid
+    );
+    await this.$store.state.dataStore.loadWorkshops(endpoint.id);
+
+    let thisBreadcrumb = Object.assign({}, routes.breadcrumbs.sample);
+    thisBreadcrumb.disabled = true;
+    thisBreadcrumb.text = endpoint.name;
+    this.breadcrumbs.push(thisBreadcrumb);
+
+    this.$store.state.loading = false;
   },
   computed: {
-    filteredItems: function() {
+    filteredItems() {
       return this.items.filter(endpoint => {
         return endpoint.name
           .toUpperCase()
           .match(this.search.trim().toUpperCase());
       });
+    },
+    items() {
+      let endpoint = this.$store.state.dataStore.getEndpointByID(
+        this.$router.currentRoute.params.eid
+      );
+
+      if (endpoint != null) {
+        let workshops = this.$store.state.dataStore.getWorkshops(endpoint.id);
+        if (workshops == null) {
+          return [];
+        }
+        return workshops;
+      }
+
+      return [];
     }
   }
 };
