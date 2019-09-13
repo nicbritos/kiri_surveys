@@ -130,6 +130,11 @@ const routes = {
       to: "/forms",
       text: "Forms",
       disabled: false
+    },
+    sample: {
+      to: "/",
+      text: "Sample",
+      disabled: true
     }
   }
 };
