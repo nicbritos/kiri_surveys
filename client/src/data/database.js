@@ -250,20 +250,7 @@ async function loadWorkshops(endpointId) {
       quantity: 400,
       name: "ITBA1",
       date: undefined,
-      responses: [
-        {
-          person: "MN2",
-          type: "PRE",
-          question: "abc",
-          value: 1
-        },
-        {
-          person: "MN2",
-          type: "PRE",
-          question: "abc",
-          value: 1
-        }
-      ]
+      responses: []
     }
   ];
 }
@@ -285,6 +272,7 @@ async function loadResponses(endpointId, workshopId) {
   return {
     NB1: [
       {
+          id: "abcdef",
         person: "NB1",
         q: "abc",
         t: "PRE",
