@@ -1,6 +1,5 @@
 <template>
   <v-container grid-list-md>
-    <Breadcrumbs class="mb-4" :items="breadcrumbs"></Breadcrumbs>
     <v-toolbar flat color="transparent">
       <v-toolbar-title>
         <h2>
@@ -72,9 +71,9 @@
       <v-row>
         <v-col cols="4" v-for="item in filteredItems" :key="item.id">
           <Endpoint
-            :value="item.name"
-            :description="item.description"
-            :quantity="item.quantity"
+            :value="item.n"
+            :description="item.d"
+            :quantity="item.q"
             :endpointId="item.id"
           ></Endpoint>
         </v-col>
@@ -83,7 +82,7 @@
 ></template>
 
 <script>
-import Endpoint from "../../components/Endpoint";
+import Endpoint from "@/components/Endpoint";
 export default {
   name: "Endpoints",
   components: { Endpoint },
@@ -96,7 +95,7 @@ export default {
   computed: {
     filteredItems: function() {
       return this.items.filter(endpoint => {
-        return endpoint.name.toUpperCase().match(this.search.trim().toUpperCase());
+        return endpoint.n.toUpperCase().match(this.search.trim().toUpperCase());
       });
     }
   }

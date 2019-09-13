@@ -223,6 +223,16 @@
     </v-toolbar>
 
     <v-container fluid dense>
+      <v-row dense class="mt-n4">
+        <v-col>
+          <v-spacer></v-spacer>
+        </v-col>
+        <v-col cols="auto" :hidden="selectedResponses.length === 0">
+          <v-btn class="error" @click="deleteSelectedOpen"
+            >DELETE SELECTED</v-btn
+          >
+        </v-col>
+      </v-row>
       <v-row dense class="mb-n8">
         <v-col>
           <v-select
@@ -239,16 +249,6 @@
           </v-select>
         </v-col>
       </v-row>
-      <v-row dense>
-        <v-col>
-          <v-spacer></v-spacer>
-        </v-col>
-        <v-col cols="auto" :hidden="selectedResponses.length === 0">
-          <v-btn class="error" @click="deleteSelectedOpen"
-            >DELETE SELECTED</v-btn
-          >
-        </v-col>
-      </v-row>
     </v-container>
 
     <v-data-table
@@ -262,41 +262,42 @@
       no-results-text="No Responses found."
       show-select
       must-sort
+      calculate-widths
       class="elevation-1 ml-4 mr-4"
       :sort-by="['name']"
     >
-      <template v-slot:header.data-table-expand="props">
-        Values
+      <template v-slot:item.q="props">
+        {{ getQuestion(props.item.q).n }}
       </template>
 
-      <template v-slot:item.feedback="props">
+      <template v-slot:item.f="props">
         <v-checkbox
           primary
           hide-details
-          :input-value="props.item.feedback"
+          :input-value="getQuestion(props.item.q).f"
           :disabled="true"
           class="mb-4"
         ></v-checkbox>
       </template>
 
-      <template v-slot:item.measurable="props">
+      <template v-slot:item.m="props">
         <v-checkbox
           primary
           hide-details
-          :input-value="props.item.measurable"
+          :input-value="getQuestion(props.item.q).m"
           :disabled="true"
           class="mb-4"
         ></v-checkbox>
       </template>
 
-      <template v-slot:item.answered="props">
-        <v-checkbox
-          primary
-          hide-details
-          :input-value="props.item.answered"
-          :disabled="true"
-          class="mb-4"
-        ></v-checkbox>
+      <template v-slot:item.v="props">
+        <v-tooltip left v-if="getQuestion(props.item.q).m">
+          <template v-slot:activator="{ on }">
+            <div v-on="on">{{ props.item.v }}</div>
+          </template>
+          <span> {{ getQuestionValueDescription(props.item.q, props.item.v) }}</span>
+        </v-tooltip>
+        <div v-else>{{ props.item.v }} </div>
       </template>
 
       <template v-slot:item.actions="props">
@@ -396,19 +397,25 @@ export default {
       return [
         {
           text: "Person",
-          value: "person",
+          value: "p",
+          width: "110",
           sortable: true
         },
         {
           text: "Question",
-          value: "question",
+          value: "q",
           sortable: true
         },
         {
+          text: "Answer",
+          value: "v",
+          sortable: false
+        },
+        {
           text: "Type",
-          value: "type",
+          value: "t",
           sortable: true,
-          width: "2",
+          width: "77",
           filter: value => {
             if (this.filters.type == null) return true;
             return value.toUpperCase.match(this.filters.type);
@@ -416,7 +423,7 @@ export default {
         },
         {
           text: "Feedback",
-          value: "feedback",
+          value: "f",
           sortable: false,
           width: "1",
           filter: value => {
@@ -426,18 +433,13 @@ export default {
         },
         {
           text: "Measurable",
-          value: "measurable",
+          value: "m",
           sortable: false,
           width: "1",
           filter: value => {
             if (this.filters.measurable == null) return true;
             return value === this.filters.measurable;
           }
-        },
-        {
-          text: "Answer",
-          value: "answer",
-          sortable: false
         },
         { text: "Actions", value: "actions", width: "110", sortable: false }
       ];
@@ -459,7 +461,7 @@ export default {
     let endpointBreadcrumb = Object.assign({}, routes.breadcrumbs.sample);
     endpointBreadcrumb.text = this.$store.state.dataStore.getEndpointByID(
       endpointId
-    ).name;
+    ).n;
     endpointBreadcrumb.disabled = false;
     endpointBreadcrumb.to = routes.router.endpoints.path + "/" + endpointId;
     this.breadcrumbs.push(endpointBreadcrumb);
@@ -470,9 +472,10 @@ export default {
     workshopBreadcrumb.text = this.$store.state.dataStore.getWorkshopByID(
       endpointId,
       workshopId
-    ).name;
+    ).n;
     this.breadcrumbs.push(workshopBreadcrumb);
 
+    await this.$store.state.dataStore.loadQuestions();
     await this.$store.state.dataStore.loadResponses(endpointId, workshopId);
     let responses = this.$store.state.dataStore.getResponses(
       endpointId,
@@ -586,6 +589,17 @@ export default {
     closeDialog(item, type) {
       if (item == null || type == null || item[type] == null) return;
       if (item[type]) item[type] = false;
+    },
+
+    getQuestion(questionId) {
+      return this.$store.state.dataStore.getQuestionByID(questionId);
+    },
+
+    getQuestionValueDescription(questionId, value) {
+      return this.$store.state.dataStore.getQuestionValueDescriptionByID(
+        questionId,
+        value
+      );
     }
   }
 };

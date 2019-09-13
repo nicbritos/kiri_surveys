@@ -25,9 +25,9 @@
       <v-row>
         <v-col cols="4" v-for="item in filteredItems" :key="item.id">
           <Workshop
-            :value="item.name"
-            :date="item.date"
-            :quantity="item.quantity"
+            :value="item.n"
+            :date="item.d"
+            :quantity="item.q"
             :workshopId="item.id"
           ></Workshop>
         </v-col>
@@ -69,15 +69,15 @@ export default {
 
     let thisBreadcrumb = Object.assign({}, routes.breadcrumbs.sample);
     thisBreadcrumb.disabled = true;
-    thisBreadcrumb.text = endpoint.name;
+    thisBreadcrumb.text = endpoint.n;
     this.breadcrumbs.push(thisBreadcrumb);
 
     this.$store.state.loading = false;
   },
   computed: {
     filteredItems() {
-      return this.items.filter(endpoint => {
-        return endpoint.name
+      return this.items.filter(workshop => {
+        return workshop.n
           .toUpperCase()
           .match(this.search.trim().toUpperCase());
       });
