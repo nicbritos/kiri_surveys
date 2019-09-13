@@ -362,6 +362,16 @@
     </v-toolbar>
 
     <v-container fluid dense>
+      <v-row dense class="mt-n4">
+        <v-col>
+          <v-spacer></v-spacer>
+        </v-col>
+        <v-col cols="auto" :hidden="selectedItems.length === 0">
+          <v-btn class="error" @click="deleteSelectedOpen"
+            >DELETE SELECTED</v-btn
+          >
+        </v-col>
+      </v-row>
       <v-row dense class="mb-n8">
         <v-col>
           <v-select
@@ -376,16 +386,6 @@
             @change="chipFilterAdded"
           >
           </v-select>
-        </v-col>
-      </v-row>
-      <v-row dense>
-        <v-col>
-          <v-spacer></v-spacer>
-        </v-col>
-        <v-col cols="auto" :hidden="selectedItems.length === 0">
-          <v-btn class="error" @click="deleteSelectedOpen"
-            >DELETE SELECTED</v-btn
-          >
         </v-col>
       </v-row>
     </v-container>
@@ -403,54 +403,48 @@
       show-expand
       must-sort
       class="elevation-1 ml-4 mr-4"
-      :sort-by="['name']"
+      :sort-by="['n']"
     >
       <template v-slot:header.data-table-expand="props">
         Values
       </template>
 
       <template v-slot:item.data-table-expand="{ item, isExpanded, expand }">
-        <v-btn
-          @click="expand(true)"
-          icon
-          v-blur
-          v-if="!isExpanded && item.measurable"
+        <v-btn @click="expand(true)" icon v-blur v-if="!isExpanded && item.m"
           ><v-icon>expand_more</v-icon></v-btn
         >
-        <v-btn
-          @click="expand(false)"
-          icon
-          v-blur
-          v-if="isExpanded && item.measurable"
+        <v-btn @click="expand(false)" icon v-blur v-if="isExpanded && item.m"
           ><v-icon>expand_less</v-icon></v-btn
         >
       </template>
 
-      <template v-slot:item.feedback="props">
+      <template v-slot:item.f="props">
         <v-checkbox
           primary
           hide-details
-          :input-value="props.item.feedback"
+          :input-value="props.item.f"
           :disabled="true"
+          class="mb-4"
+          v-blur
+        ></v-checkbox>
+      </template>
+
+      <template v-slot:item.m="props">
+        <v-checkbox
+          primary
+          hide-details
+          :input-value="props.item.m"
+          :disabled="true"
+          v-blur
           class="mb-4"
         ></v-checkbox>
       </template>
 
-      <template v-slot:item.measurable="props">
+      <template v-slot:item.a="props">
         <v-checkbox
           primary
           hide-details
-          :input-value="props.item.measurable"
-          :disabled="true"
-          class="mb-4"
-        ></v-checkbox>
-      </template>
-
-      <template v-slot:item.answered="props">
-        <v-checkbox
-          primary
-          hide-details
-          :input-value="props.item.answered"
+          :input-value="props.item.a"
           :disabled="true"
           class="mb-4"
         ></v-checkbox>
@@ -469,7 +463,13 @@
           </v-icon>
         </v-btn>
 
-        <v-btn small icon v-blur @click="deleteQuestionOpen(props.item)">
+        <v-btn
+          :disabled="props.item.a"
+          small
+          icon
+          v-blur
+          @click="deleteQuestionOpen(props.item)"
+        >
           <v-icon color="error" v-on="on">
             delete
           </v-icon>
@@ -480,7 +480,7 @@
         <td :colspan="4 * headers.length" class="pa-0">
           <v-data-table
             :headers="questionValueHeaders"
-            :items="props.item.values"
+            :items="props.item.v"
             :header-props="props.item"
             item-key="value"
             no-data-text="No Values created so far."
@@ -489,10 +489,10 @@
             :items-per-page="-1"
             class="elevation-0"
             hide-default-footer
-            :sort-by="['value']"
+            :sort-by="['v']"
           >
             <template v-slot:header.action_new="">
-              <v-tooltip bottom :open-on-hover="props.item.answered">
+              <v-tooltip bottom :open-on-hover="props.item.a">
                 <template v-slot:activator="{ on }">
                   <div v-on="on">
                     <v-btn
@@ -511,8 +511,8 @@
 
             <template v-slot:item="{ item }">
               <tr>
-                <td>{{ item.value }}</td>
-                <td>{{ item.description }}</td>
+                <td>{{ item.v }}</td>
+                <td>{{ item.d }}</td>
                 <td>
                   <v-row class="ml-n1">
                     <v-btn
@@ -526,11 +526,11 @@
                         edit
                       </v-icon>
                     </v-btn>
-                    <v-tooltip bottom :open-on-hover="props.item.answered">
+                    <v-tooltip bottom :open-on-hover="props.item.a">
                       <template v-slot:activator="{ on }">
                         <div v-on="on">
                           <v-btn
-                            :disabled="props.item.answered"
+                            :disabled="props.item.a"
                             small
                             icon
                             v-blur
@@ -656,10 +656,10 @@ export default {
   computed: {
     questionValueHeaders() {
       return [
-        { text: "Value", value: "value", width: "1", sortable: true },
+        { text: "Value", value: "v", width: "100", sortable: true },
         {
           text: "Description",
-          value: "description",
+          value: "d",
           width: "auto",
           sortable: false
         },
@@ -671,12 +671,12 @@ export default {
       return [
         {
           text: "Name",
-          value: "name",
+          value: "n",
           sortable: true
         },
         {
           text: "Measurable",
-          value: "measurable",
+          value: "m",
           sortable: false,
           width: "1",
           filter: value => {
@@ -686,7 +686,7 @@ export default {
         },
         {
           text: "Feedback",
-          value: "feedback",
+          value: "f",
           sortable: false,
           width: "1",
           filter: value => {
@@ -696,7 +696,7 @@ export default {
         },
         {
           text: "Answered",
-          value: "answered",
+          value: "a",
           sortable: false,
           width: "1",
           filter: value => {
@@ -720,7 +720,7 @@ export default {
     }
   },
   mounted() {
-    if (this.$store.getters.loggedIn) this.$store.state.dataStore.loadQuestions();
+    this.$store.state.dataStore.loadQuestions();
   },
   watch: {
     dialog(val) {
