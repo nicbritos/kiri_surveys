@@ -16,18 +16,19 @@
       </v-card-text>
       <v-card-text>
         Created by: Nicolas Ignacio Britos. Contact at:
-        <a href="mailto:nicbritos@hotmail.com"> nicbritos@hotmail.com</a> or
-        <a href="mailto:nbritos@itba.edu.ar">
-          nbritos@itba.edu.ar
-        </a>
+        <Email email="nicbritos@hotmail.com"></Email>
+        or
+        <Email email="nbritos@itba.edu.ar"></Email>
       </v-card-text>
     </v-card>
   </v-container>
 </template>
 
 <script>
+import Email from "@/components/Email";
 export default {
   name: "About",
+  components: { Email },
   data: () => ({
     snackbar: false,
     loading: false
