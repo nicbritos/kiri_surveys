@@ -2,17 +2,18 @@ class DataStore {
   constructor(database) {
     this._database = database;
 
+    this.users = [];
     this.endpoints = [];
     this.questions = [];
-    this.users = [];
 
+    this._usersMap = {};
     this._questionsMap = {};
     this._questionsValueMap = {};
     this._endpointsMap = {};
     this._workshopsMap = {};
     this._responsesMap = {};
-    this._usersMap = {};
 
+    this._usersLoaded = false;
     this._endpointsLoaded = false;
     this._questionsLoaded = false;
     this._workshopsLoaded = {};
@@ -105,13 +106,16 @@ class DataStore {
 
   async loadUsers() {
     // TODO: Handle errors
-    // TODO: Add usersLoaded
     // TODO: Add live listeners
+    if (this._usersLoaded === true) return;
+
     let users = await this._database.loadUsers();
     for (let user of users) {
       this.users.push(user);
       this._usersMap[user.id] = user;
     }
+
+    this._usersLoaded = true;
   }
 
   getEndpoints() {

@@ -3,6 +3,7 @@ require("firebase/firestore");
 require("firebase/auth");
 
 export default {
+  loadUsers: loadUsers,
   loadQuestions: loadQuestions,
   loadEndpoints: loadEndpoints,
   loadWorkshops: loadWorkshops,
@@ -85,6 +86,14 @@ const COLLECTIONS = {
     }
   }
 };
+const TIER_DESCRIPTIONS = {
+  0: "Unauthorized user",
+  1: "Can view all questions, specific endpoints and specific workshop's response",
+  2: "Tier 1 + Can edit all questions, specific endpoints and specific workshops. Can add/edit/delete specific workshop's response",
+  3: "Tier 2 + Can delete questions, specific endpoints and workshop's",
+  4: "Tier 3 + Can manage all endpoints, workshops and same-or-lower-tier users",
+  5: "Tier 4 + Can manage all users"
+};
 
 firebase.initializeApp(config);
 let db = firebase.firestore();
@@ -139,7 +148,16 @@ function signOut() {
 
 // -----------------------
 
-function getUserInformation(username) {}
+async function loadUsers() {
+  return [
+    {
+      id: "asdasdsa",
+      n: "Nicolas Britos",
+      e: "nbritos@itba.edu.ar",
+      t: 5
+    }
+  ];
+}
 
 async function loadQuestions() {
   return [
