@@ -1,21 +1,25 @@
 <template>
-  <v-card class="mx-auto" max-width="344">
+  <v-card class="mx-auto" max-width="544" height="100%">
+    <v-row justify="center">
+      <v-progress-circular color="primary" :value="100" :size="35">
+        <v-avatar color="grey lighten-4" :tile="false" :size="31">
+          <h5 class="text--secondary">{{ getInitials() }}</h5>
+        </v-avatar></v-progress-circular
+      >
+    </v-row>
+    <div class="display-1 text-center align-center">
+        {{ name }}
+    </div>
     <v-card-text>
       <v-row justify="center">
-
-      <v-avatar color="grey lighten-4" :tile="false" :size="100">
-        <h1>{{ getInitials() }}</h1>
-      </v-avatar>
-      <p class="display-1 text--primary">
-        {{ name }}
-      </p>
-      <div class="text--primary">{{ email }}<br /></div>
-      <div class="text--secondary">Tier level: {{ tier }}</div>
+        <Email :email="email"></Email>
+      </v-row>
+      <v-row justify="center">
+        <div class="text--secondary">Tier level: {{ tier }}</div>
       </v-row>
     </v-card-text>
     <v-divider></v-divider>
     <v-card-actions>
-      <v-spacer></v-spacer>
       <v-btn text color="primary">
         Edit
       </v-btn>
@@ -27,8 +31,13 @@
 </template>
 
 <script>
+import Email from "@/components/Email";
+
 export default {
   name: "User",
+  components: {
+    Email
+  },
   props: {
     name: {
       type: String,

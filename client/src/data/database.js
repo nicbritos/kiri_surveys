@@ -2,26 +2,6 @@ import firebase from "firebase/app";
 require("firebase/firestore");
 require("firebase/auth");
 
-export default {
-  loadUsers: loadUsers,
-  loadQuestions: loadQuestions,
-  loadEndpoints: loadEndpoints,
-  loadWorkshops: loadWorkshops,
-  loadResponses: loadResponses,
-
-  onAuthStateChanged: onAuthStateChanged,
-  signInWithEmailAndPassword: signInWithEmailAndPassword,
-  createUserWithEmailAndPassword: createUserWithEmailAndPassword,
-  prepareGoogleSignIn: prepareGoogleSignIn,
-  sendEmailVerification: sendEmailVerification,
-  isLoggedIn: isLoggedIn,
-  // forceReLogin: forceReLogin,
-  signOut: signOut
-
-  //
-  // getUserInformation: getUserInformation
-};
-
 let config = {
   apiKey: "AIzaSyDi-HAD6aS6swA8mHMtpsCXRuDVGQ95J00",
   authDomain: "kiri-team-fracassi.firebaseapp.com",
@@ -86,13 +66,13 @@ const COLLECTIONS = {
     }
   }
 };
-const TIER_DESCRIPTIONS = {
+const TIERS = {
   0: "Unauthorized user",
   1: "Can view all questions, specific endpoints and specific workshop's response",
   2: "Tier 1 + Can edit all questions, specific endpoints and specific workshops. Can add/edit/delete specific workshop's response",
   3: "Tier 2 + Can delete questions, specific endpoints and workshop's",
   4: "Tier 3 + Can manage all endpoints, workshops and same-or-lower-tier users",
-  5: "Tier 4 + Can manage all users"
+  5: "Tier 4 + Can manage all users",
 };
 
 firebase.initializeApp(config);
@@ -155,6 +135,36 @@ async function loadUsers() {
       n: "Nicolas Britos",
       e: "nbritos@itba.edu.ar",
       t: 5
+    },
+    {
+      id: "asdasdsa",
+      n: "Juan Perez",
+      e: "jperez@itba.edu.ar",
+      t: 4
+    },
+    {
+      id: "JuanaPerez",
+      n: "Juana Perez",
+      e: "japerez@itba.edu.ar",
+      t: 3
+    },
+    {
+      id: "testt",
+      n: "Test",
+      e: "test@example.com",
+      t: 2
+    },
+    {
+      id: "Example",
+      n: "This is an Example",
+      e: "example@example.com",
+      t: 1
+    },
+    {
+      id: "newUser",
+      n: "New User",
+      e: "nuser@example.com",
+      t: 0
     }
   ];
 }
@@ -307,3 +317,23 @@ async function loadResponses(endpointId, workshopId) {
     ]
   };
 }
+
+export default {
+  loadUsers: loadUsers,
+  loadQuestions: loadQuestions,
+  loadEndpoints: loadEndpoints,
+  loadWorkshops: loadWorkshops,
+  loadResponses: loadResponses,
+
+  onAuthStateChanged: onAuthStateChanged,
+  signInWithEmailAndPassword: signInWithEmailAndPassword,
+  createUserWithEmailAndPassword: createUserWithEmailAndPassword,
+  prepareGoogleSignIn: prepareGoogleSignIn,
+  sendEmailVerification: sendEmailVerification,
+  isLoggedIn: isLoggedIn,
+  // forceReLogin: forceReLogin,
+  signOut: signOut,
+
+  COLLECTIONS: COLLECTIONS,
+  TIERS: TIERS
+};

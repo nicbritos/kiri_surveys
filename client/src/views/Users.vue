@@ -17,13 +17,25 @@
       ></v-text-field>
     </v-toolbar>
     <v-container fluid>
+<!--      <v-row>-->
+<!--        <v-col cols="auto">-->
+<!--          <v-tooltip right>-->
+<!--            <template v-slot:activator="{ on }">-->
+<!--              <div v-on="on">-->
+<!--                <a style="cursor: default">-->
+<!--                What is "Tier level"?</a>-->
+<!--              </div>-->
+<!--            </template>-->
+<!--            <span><p>-->
+<!--             {{ tierInformation }}-->
+<!--            </p>-->
+<!--              </span>-->
+<!--          </v-tooltip>-->
+<!--        </v-col>-->
+<!--      </v-row>-->
       <v-row>
         <v-col cols="4" v-for="item in filteredItems" :key="item.id">
-          <User
-            :name="item.n"
-            :email="item.d"
-            :tier="item.t"
-          ></User>
+          <User :name="item.n" :email="item.e" :tier="item.t"></User>
         </v-col>
       </v-row>
     </v-container> </v-container
@@ -31,6 +43,8 @@
 
 <script>
 import User from "@/components/User";
+import database from "@/data/database";
+
 export default {
   name: "Users",
   components: { User },
@@ -48,10 +62,17 @@ export default {
     this.$store.state.loading = false;
   },
   computed: {
-    filteredItems: function() {
+    filteredItems() {
       return this.items.filter(endpoint => {
         return endpoint.n.toUpperCase().match(this.search.trim().toUpperCase());
       });
+    },
+    tierInformation() {
+      let tiersDescription = [];
+      for (let tier of Object.values(database.TIERS)) {
+        tiersDescription.push(tier.description);
+      }
+      return tiersDescription.join("\n");
     }
   }
 };
