@@ -10,12 +10,18 @@
     </v-card-text>
     <v-divider></v-divider>
     <v-card-actions>
+      <v-checkbox
+        color="primary"
+        @change="onChange($event)"
+        :input-value="selected"
+        hide-details
+        dense
+        class="ml-2 mt-n1"
+      >
+      </v-checkbox>
       <v-spacer></v-spacer>
       <v-btn text color="primary">
         Edit
-      </v-btn>
-      <v-btn text color="red">
-        Delete
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -24,6 +30,9 @@
 <script>
 export default {
   name: "Endpoint",
+  model: {
+    event: "update"
+  },
   props: {
     value: {
       type: String,
@@ -39,6 +48,10 @@ export default {
     },
     endpointId: {
       type: String,
+      required: true
+    },
+    selected: {
+      type: Boolean,
       required: true
     }
   },
@@ -56,6 +69,9 @@ export default {
     },
     getRoute() {
       return this.$router.currentRoute.path + "/" + this.endpointId;
+    },
+    onChange(value) {
+      this.$emit("update", value);
     }
   }
 };

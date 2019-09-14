@@ -67,6 +67,37 @@
 <!--        </v-card>-->
 <!--      </v-dialog>-->
     </v-toolbar>
+
+    <v-container fluid dense>
+      <v-row dense class="mt-n4">
+        <v-col>
+          <v-spacer></v-spacer>
+        </v-col>
+        <v-col cols="auto" :hidden="selectedItems.length === 0">
+          <v-btn class="error" @click="deleteSelectedOpen"
+          >DELETE SELECTED</v-btn
+          >
+        </v-col>
+      </v-row>
+      <v-row dense class="mb-n8">
+        <v-col>
+          <v-select
+                  dense
+                  chips
+                  label="Add Filters"
+                  multiple
+                  solo
+                  :items="filterChips"
+                  clearable
+                  deletable-chips
+                  @change="chipFilterAdded"
+          >
+          </v-select>
+        </v-col>
+      </v-row>
+    </v-container>
+
+
     <v-container fluid>
       <v-row>
         <v-col cols="4" v-for="item in filteredItems" :key="item.id">
@@ -75,6 +106,8 @@
             :description="item.d"
             :quantity="item.q"
             :endpointId="item.id"
+            :selected="selectedItems.includes(item)"
+            @update="processSelection(item, $event)"
           ></Endpoint>
         </v-col>
       </v-row>
@@ -89,7 +122,8 @@ export default {
   data() {
     return {
       search: "",
-      items: this.$store.state.dataStore.getEndpoints()
+      items: [],
+      selectedItems: []
     };
   },
   computed: {
@@ -97,6 +131,20 @@ export default {
       return this.items.filter(endpoint => {
         return endpoint.n.toUpperCase().match(this.search.trim().toUpperCase());
       });
+    }
+  },
+  async created() {
+    this.$store.state.loading = true;
+
+    await this.$store.state.dataStore.loadEndpoints();
+    this.items = this.$store.state.dataStore.getEndpoints();
+
+    this.$store.state.loading = false;
+  },
+  methods: {
+    processSelection(item, isSelected) {
+      if (isSelected) this.selectedItems.push(item);
+      else this.selectedItems = this.selectedItems.filter(i => i !== item);
     }
   }
 };
