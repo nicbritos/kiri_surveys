@@ -1,0 +1,248 @@
+[
+  {
+    "f": false,
+    "id": 0,
+    "n": "¿Qué sabe usted sobre el Cambio Climático?",
+    "t": "t",
+    "v": null
+  },
+  {
+    "f": false,
+    "id": 1,
+    "n": "¿Cómo valoraría usted su conocimiento personal sobre el proceso de Cambio Climático?",
+    "t": "c",
+    "v": {
+      "1": "1. Desconoce.",
+      "2": "2. Pobre. Algunas referencias en medios.",
+      "3": "3. Medio. Conoce el tema y ha leído algún artículo sobre el tema",
+      "4": "4. Avanzado. Ha leído libros y estudiado el tema.",
+      "5": "5. Muy avanzado. Experto en el tema."
+    }
+  },
+  {
+    "f": false,
+    "id": 2,
+    "n": "¿Qué opina usted sobre el Cambio climático?",
+    "t": "t",
+    "v": null
+  },
+  {
+    "f": false,
+    "id": 3,
+    "n": "¿Cómo valoraría usted la relevancia del Cambio Climático?",
+    "t": "c",
+    "v": {
+      "1": "1. Es irrelevante, no tiene impacto alguno.",
+      "2": "2. Algún impacto mínimo",
+      "3": "3. Impacto Mediano",
+      "4": "4. Importante impacto.",
+      "5": "5. Impacto muy importante"
+    }
+  },
+  {
+    "f": false,
+    "id": 4,
+    "n": "¿Cree Usted que la humanidad enfrenta un escenario de Vida o Muerte frente al Cambio Climático?",
+    "t": "c",
+    "v": {
+      "1": "1. No, la humanidad puede seguir como hasta ahora en forma indefinida.",
+      "2": "2. No lo sé.",
+      "3": "3. Tengo mis dudas, pero todo parece que está bien.",
+      "4": "4. Sí, la humanidad enfrenta un desafío de \"vida o muerte\"."
+    }
+  },
+  {
+    "f": false,
+    "id": 5,
+    "n": "¿Cuánto tiempo cree Usted que queda para mitigar los efectos del Cambio Climático?",
+    "t": "c",
+    "v": {
+      "1": "1. No es necesario mitigar el cambio climático.",
+      "2": "2. 200 años, o hasta que se termine de consumir todo el gas y el petróleo.",
+      "3": "3. 100 años, más o menos.",
+      "4": "4. 30 a 50 años, aproximadamente.",
+      "5": "5. 5 a 25 años.",
+      "6": "6. No lo sé."
+    }
+  },
+  {
+    "f": false,
+    "id": 6,
+    "n": "¿Cuánto estima usted que hay que reducir las emisiones de CO2 globales durante todo el siglo XXI?",
+    "t": "c",
+    "v": {
+      "1": "1. Haber reducido del 0 al 20 % de las emisiones de CO2 actuales",
+      "2": "2. Haber reducido del 21 al 40 % de las emisiones de CO2 actuales",
+      "3": "3. Haber reducido del 41 al 60 % de las emisiones de CO2 actuales",
+      "4": "4. Haber reducido del 61 al 80 % de las emisiones de CO2 actuales",
+      "5": "5. Haber reducido del 81 al 100% de las emisiones de CO2 actuales"
+    }
+  },
+  {
+    "f": false,
+    "id": 7,
+    "n": "¿Cuánto estima usted que hay que reducir CADA AÑO las emisiones de CO2 globales durante todo el siglo XXI?",
+    "t": "c",
+    "v": {
+      "1": "1. Reduciendo 60 al 90 % de las emisiones de CO2 año a año hasta el 2050",
+      "2": "2. Reduciendo 30 al 50 % de las emisiones de CO2 año a año hasta el 2050",
+      "3": "3. Reduciendo 20 al 30 % de las emisiones de CO2 año a año hasta el 2050",
+      "4": "4. Reduciendo 10 % de las emisiones de CO2 año a año hasta el 2050",
+      "5": "5. Reduciendo 1 al 5 % de las emisiones de CO2 año a año hasta el 2050"
+    }
+  },
+  {
+    "f": false,
+    "id": 8,
+    "n": "¿Vió Usted la película de Al Gore, \"An Inconvenient Truth\" / \"Una verdad incómoda\"? En caso afirmativo, ¿Qué le pareció?",
+    "t": "t",
+    "v": null
+  },
+  {
+    "f": false,
+    "id": 9,
+    "n": "Describa en qué medida comprende que: “A los niveles actuales de emisión los niveles de CO2 en al atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que se sacan de la atmósfera.”",
+    "t": "c",
+    "v": {
+      "1": "1.Totalmente incomprensible.",
+      "2": "2. Algo comprensible.",
+      "3": "3. Comprensible.",
+      "4": "4. Muy comprensible.",
+      "5": "5. Evidente."
+    }
+  },
+  {
+    "f": false,
+    "id": 10,
+    "n": "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La solución al problema del Cambio Climático solo depende del esfuerzo de las grandes potencias.”",
+    "t": "c",
+    "v": {
+      "1": "1. Totalmente en desacuerdo.",
+      "2": "2. Algo en desacuerdo.",
+      "3": "3. Ni de acuerdo ni en desacuerdo.",
+      "4": "4. De acuerdo.",
+      "5": "5. Totalmente de acuerdo."
+    }
+  },
+  {
+    "f": false,
+    "id": 11,
+    "n": "Describa en qué medida está de acuerdo en la siguiente afirmación: “Una intervención de alto apalancamiento es la rápida reducción de las emisiones en los países en desarrollo.”",
+    "t": "c",
+    "v": {
+      "1": "1. Totalmente en desacuerdo.",
+      "2": "2. Algo en desacuerdo.",
+      "3": "3. Ni de acuerdo ni en desacuerdo.",
+      "4": "4. De acuerdo.",
+      "5": "5. Totalmente de acuerdo."
+    }
+  },
+  {
+    "f": false,
+    "id": 12,
+    "n": "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La ayuda internacional de los países más desarrollados podría favorecer la rápida disminución de las emisiones en los países menos desarrollados.”",
+    "t": "c",
+    "v": {
+      "1": "1. Totalmente en desacuerdo.",
+      "2": "2. Algo en desacuerdo.",
+      "3": "3. Ni de acuerdo ni en desacuerdo.",
+      "4": "4. De acuerdo.",
+      "5": "5. Totalmente de acuerdo."
+    }
+  },
+  {
+    "f": false,
+    "id": 13,
+    "n": "¿Cree usted que todas las regiones deben contribuir en la mitigación del Cambio Climático?",
+    "t": "c",
+    "v": {
+      "1": "1. Totalmente en desacuerdo.",
+      "2": "2. Algo en desacuerdo.",
+      "3": "3. Ni de acuerdo ni en desacuerdo.",
+      "4": "4. De acuerdo.",
+      "5": "5. Totalmente de acuerdo."
+    }
+  },
+  {
+    "f": false,
+    "id": 14,
+    "n": "¿En qué grado cree que este taller reproduce con precisión la dinámica real de las negociaciones en la ONU para encontrar una solución para mitigar el Cambio Climático?",
+    "t": "c",
+    "v": {
+      "1": "1. Totalmente de acuerdo",
+      "2": "2. De acuerdo.",
+      "3": "3. Ni de acuerdo ni en desacuerdo.",
+      "4": "4. Algo en desacuerdo.",
+      "5": "5. Totalmente en desacuerdo."
+    }
+  },
+  {
+    "f": false,
+    "id": 15,
+    "n": "Describa en qué medida comprende que: \"A los niveles actuales de emisión los niveles de CO2 en la atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que saca de la atmósfera. El nivel de CO2 en la atmósfera varía según esta diferencia entre lo que ingresa y lo que sale y que es necesario actuar entre ambas\"",
+    "t": "c",
+    "v": {
+      "1": "1. Totalmente incomprensible",
+      "2": "2. Algo comprensible",
+      "3": "3. Comprensible",
+      "4": "4. Muy comprensible",
+      "5": "5. Es evidente"
+    }
+  },
+  {
+    "f": false,
+    "id": 16,
+    "n": "Luego del taller, ¿En qué puntos cambió usted su opinión sobre el Cambio Climático?",
+    "t": "t",
+    "v": null
+  },
+  {
+    "f": false,
+    "id": 17,
+    "n": "¿Cuál es la región a la cuál debería haberse influido más para lograr mejores resultados de mitigación?",
+    "t": [
+      "m"
+    ],
+    "v": [
+      "1. USA",
+      "2.Unión Europea",
+      "3.China",
+      "4. India",
+      "5. Otros desarrollados",
+      "6. Otros en desarrollo",
+      "7. No sé"
+    ]
+  },
+  {
+    "f": true,
+    "id": 18,
+    "n": "¿Qué cosas le gustaron más del workshop?",
+    "t": "t",
+    "v": null
+  },
+  {
+    "f": true,
+    "id": 19,
+    "n": "¿Cuán entretenido resultó el taller?",
+    "t": "c",
+    "v": {
+      "1": "1. Bastante aburrido",
+      "2": "2. Aburrido",
+      "3": "3. Bueno",
+      "4": "4. Muy bueno",
+      "5": "5. Excelente"
+    }
+  },
+  {
+    "f": true,
+    "id": 20,
+    "n": "Evaluación general del taller",
+    "t": "c",
+    "v": {
+      "1": "1. Malo",
+      "2": "2. Regular",
+      "3": "3. Bueno",
+      "5": "5. Excelente"
+    }
+  }
+]

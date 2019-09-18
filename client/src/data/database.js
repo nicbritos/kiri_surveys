@@ -12,6 +12,7 @@ let config = {
   appId: "1:692507051582:web:c150b943842bd9a2"
 };
 
+// TODO: Questions must be a dict
 const COLLECTIONS = {
   USERS: {
     collection: "u",
@@ -72,7 +73,7 @@ const TIERS = {
   2: "Tier 1 + Can edit all questions, specific endpoints and specific workshops. Can add/edit/delete specific workshop's response",
   3: "Tier 2 + Can delete questions, specific endpoints and workshop's",
   4: "Tier 3 + Can manage all endpoints, workshops and same-or-lower-tier users",
-  5: "Tier 4 + Can manage all users",
+  5: "Tier 4 + Can manage all users"
 };
 
 firebase.initializeApp(config);
@@ -170,45 +171,8 @@ async function loadUsers() {
 }
 
 async function loadQuestions() {
-  return [
-    {
-      id: "abc",
-      n: "Que piensa sobre el CC?",
-      m: true,
-      f: true,
-      a: false,
-      v: [
-        {
-          v: 1,
-          d: "Poco"
-        },
-        {
-          v: 2,
-          d: "Medio"
-        },
-        {
-          v: 3,
-          d: "Mucho"
-        }
-      ]
-    },
-    {
-      id: "def",
-      n: "Aguante Peron",
-      m: true,
-      f: true,
-      a: false,
-      v: []
-    },
-    {
-      id: "ghi",
-      n: "Tu vieja? Si, tu vieja.",
-      m: false,
-      f: false,
-      a: false,
-      v: []
-    }
-  ];
+  let file = await fetch("/out_q.json");
+  return await file.json();
   // let reference = db.collection(COLLECTIONS.QUESTIONS.collection);
   // let questions = [];
   // (await reference.get()).forEach(doc => {
