@@ -1,54 +1,69 @@
 <template>
   <v-card hover style="cursor: default" class="mx-auto" max-width="344">
+    <v-img
+      v-ripple
+      style="cursor: pointer"
+      @click="goToRoute"
+      class="white--text"
+      src="@/assets/workshop_back_blue.png"
+    >
+      <v-card-title class="align-end fill-height">{{ value }}</v-card-title>
+    </v-img>
+
     <v-card-text v-ripple style="cursor: pointer" @click="goToRoute">
-      <div>Workshop</div>
-      <p class="display-1 text--primary">
-        {{ value }}
-      </p>
-      <div class="text--primary">
-        {{ date != null ? date : "No date set" }}<br />
-      </div>
-      <div class="text--secondary">{{ responsesQuantityString }}</div>
+      <div class="text--primary">{{ dateString }}<br /></div>
     </v-card-text>
     <v-divider></v-divider>
     <v-card-actions>
+      <v-checkbox
+        color="primary"
+        @change="onChange($event)"
+        :input-value="selected"
+        hide-details
+        dense
+        class="ml-2 mt-n1"
+      >
+      </v-checkbox>
       <v-spacer></v-spacer>
       <v-btn text color="primary">
         Edit
-      </v-btn>
-      <v-btn text color="red">
-        Delete
       </v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
+import moment from "moment";
+
 export default {
   name: "Workshop",
+  model: {
+    event: "update"
+  },
   props: {
     value: {
       type: String,
       required: true
     },
     date: {
-      type: String,
-      required: true
-    },
-    quantity: {
-      type: String,
-      required: true
+      type: Object,
+      required: false
     },
     workshopId: {
       type: String,
       required: true
+    },
+    selected: {
+      type: Boolean,
+      required: true
     }
   },
   computed: {
-    responsesQuantityString() {
-      return (
-        (this.quantity == 0 ? "No" : this.quantity) +
-        (this.quantity == 1 ? " response" : " responses")
+    dateString() {
+      if (this.date == null) return "No date set";
+      // moment.locale("en");
+      return moment(new Date(this.date.y, this.date.m, this.date.d)).format(
+        "dddd, MMMM Do YYYY"
       );
     }
   },
@@ -58,6 +73,9 @@ export default {
     },
     getRoute() {
       return this.$router.currentRoute.path + "/" + this.workshopId;
+    },
+    onChange(value) {
+      this.$emit("update", value);
     }
   }
 };

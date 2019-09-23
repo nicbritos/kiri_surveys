@@ -27,9 +27,9 @@ class DataStore {
     let questions = await this._database.loadQuestions();
     for (let question of questions) {
       this.questions.push(question);
-      this._questionsMap[question.id] = question;
-      let valueMap = (this._questionsValueMap[question.id] = {});
-      if (question.m) {
+      this._questionsMap[String(question.id)] = question;
+      let valueMap = (this._questionsValueMap[String(question.id)] = {});
+      if (question.t === "c") {
         for (let value of question.v) {
           valueMap[value.v] = value.d;
         }
@@ -46,7 +46,7 @@ class DataStore {
     let endpoints = await this._database.loadEndpoints();
     for (let endpoint of endpoints) {
       this.endpoints.push(endpoint);
-      this._endpointsMap[endpoint.id] = endpoint;
+      this._endpointsMap[String(endpoint.id)] = endpoint;
     }
 
     this._endpointsLoaded = true;
@@ -63,8 +63,8 @@ class DataStore {
     let workshopsArray = this._endpointsMap[endpointId].w;
     for (let workshop of workshops) {
       workshopsArray.push(workshop);
-      workshopsMapObject[workshop.id] = workshop;
-      responsesMapObject[workshop.id] = {};
+      workshopsMapObject[String(workshop.id)] = workshop;
+      responsesMapObject[String(workshop.id)] = {};
     }
 
     this._workshopsLoaded[endpointId] = true;
@@ -84,16 +84,39 @@ class DataStore {
       workshopId
     );
 
-    // Forma: { person: [ { person: person, question: questionId, type: type, value: value } ] }
+    // Forma In: { person: { question: { type: value } } }
+    // Forma Out: [ { person: person, responses: [ { question: { type: value } } ] } }
     let responsesEndpointWorkshop = this._responsesMap[endpointId][workshopId];
     let workshopsEndpointWorkshop = this._workshopsMap[endpointId][workshopId];
     workshopsEndpointWorkshop.r = [];
-    for (let person of Object.keys(allResponses)) {
-      let personResponses = allResponses[person];
-      responsesEndpointWorkshop[person] = personResponses;
+    for (let personId of Object.keys(allResponses)) {
+      let output = {
+        p: personId,
+        r: []
+      };
+      workshopsEndpointWorkshop.r.push(output);
 
-      for (let response of personResponses) {
-        workshopsEndpointWorkshop.r.push(response);
+      let personResponses = allResponses[personId];
+      responsesEndpointWorkshop[personId] = personResponses;
+
+      for (let questionId of Object.keys(personResponses)) {
+        let responses = personResponses[questionId];
+
+        let outputPre = {
+          q: questionId,
+          t: "PRE",
+          v: responses["PRE"],
+          id: questionId + "PRE"
+        };
+        let outputPost = {
+          q: questionId,
+          t: "POST",
+          v: responses["POST"],
+          id: questionId + "POST"
+        };
+
+        output.r.push(outputPre);
+        output.r.push(outputPost);
       }
     }
 
@@ -112,7 +135,7 @@ class DataStore {
     let users = await this._database.loadUsers();
     for (let user of users) {
       this.users.push(user);
-      this._usersMap[user.id] = user;
+      this._usersMap[String(user.id)] = user;
     }
 
     this._usersLoaded = true;

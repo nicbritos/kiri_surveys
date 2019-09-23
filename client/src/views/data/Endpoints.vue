@@ -16,95 +16,80 @@
         clearable
       ></v-text-field>
 
-
       <v-btn color="primary" dark class="ml-3 mb-2" v-on="on" v-blur
-      >NEW ENDPOINT</v-btn
+        >NEW ENDPOINT</v-btn
       >
 
-<!--      <v-dialog v-model="dialog" max-width="500px">-->
-<!--        <template v-slot:activator="{ on }"> </template>-->
-<!--        <v-card>-->
-<!--          <v-card-text>-->
-<!--            <v-container grid-list-md>-->
-<!--              <v-layout wrap>-->
-<!--                <v-flex xs12 sm6 md4>-->
-<!--                  <v-text-field-->
-<!--                          v-model="editedItemCopy.name"-->
-<!--                          label="Name"-->
-<!--                  ></v-text-field>-->
-<!--                </v-flex>-->
-<!--                <v-flex xs12 sm6 md4>-->
-<!--                  <v-checkbox-->
-<!--                          v-model="editedItemCopy.feedback"-->
-<!--                          label="Feedback"-->
-<!--                  ></v-checkbox>-->
-<!--                </v-flex>-->
-<!--                <v-flex xs12 sm6 md4>-->
-<!--                  <v-checkbox-->
-<!--                          v-model="editedItemCopy.measurable"-->
-<!--                          label="Measurable"-->
-<!--                          :disabled="editedItemCopy.answered"-->
-<!--                  ></v-checkbox>-->
-<!--                </v-flex>-->
-<!--                <v-flex xs12 sm6 md4>-->
-<!--                  <v-checkbox-->
-<!--                          v-model="editedItemCopy.answered"-->
-<!--                          label="Answered"-->
-<!--                          :disabled="true"-->
-<!--                  ></v-checkbox>-->
-<!--                </v-flex>-->
-<!--              </v-layout>-->
-<!--            </v-container>-->
-<!--          </v-card-text>-->
+      <!--      <v-dialog v-model="dialog" max-width="500px">-->
+      <!--        <template v-slot:activator="{ on }"> </template>-->
+      <!--        <v-card>-->
+      <!--          <v-card-text>-->
+      <!--            <v-container grid-list-md>-->
+      <!--              <v-layout wrap>-->
+      <!--                <v-flex xs12 sm6 md4>-->
+      <!--                  <v-text-field-->
+      <!--                          v-model="editedItemCopy.name"-->
+      <!--                          label="Name"-->
+      <!--                  ></v-text-field>-->
+      <!--                </v-flex>-->
+      <!--                <v-flex xs12 sm6 md4>-->
+      <!--                  <v-checkbox-->
+      <!--                          v-model="editedItemCopy.feedback"-->
+      <!--                          label="Feedback"-->
+      <!--                  ></v-checkbox>-->
+      <!--                </v-flex>-->
+      <!--                <v-flex xs12 sm6 md4>-->
+      <!--                  <v-checkbox-->
+      <!--                          v-model="editedItemCopy.measurable"-->
+      <!--                          label="Measurable"-->
+      <!--                          :disabled="editedItemCopy.answered"-->
+      <!--                  ></v-checkbox>-->
+      <!--                </v-flex>-->
+      <!--                <v-flex xs12 sm6 md4>-->
+      <!--                  <v-checkbox-->
+      <!--                          v-model="editedItemCopy.answered"-->
+      <!--                          label="Answered"-->
+      <!--                          :disabled="true"-->
+      <!--                  ></v-checkbox>-->
+      <!--                </v-flex>-->
+      <!--              </v-layout>-->
+      <!--            </v-container>-->
+      <!--          </v-card-text>-->
 
-<!--          <v-card-actions>-->
-<!--            <v-spacer></v-spacer>-->
-<!--            <v-btn color="blue darken-1" text @click="close" v-blur-->
-<!--            >Cancel</v-btn-->
-<!--            >-->
-<!--            <v-btn color="blue darken-1" text @click="save" v-blur>Save</v-btn>-->
-<!--          </v-card-actions>-->
-<!--        </v-card>-->
-<!--      </v-dialog>-->
+      <!--          <v-card-actions>-->
+      <!--            <v-spacer></v-spacer>-->
+      <!--            <v-btn color="blue darken-1" text @click="close" v-blur-->
+      <!--            >Cancel</v-btn-->
+      <!--            >-->
+      <!--            <v-btn color="blue darken-1" text @click="save" v-blur>Save</v-btn>-->
+      <!--          </v-card-actions>-->
+      <!--        </v-card>-->
+      <!--      </v-dialog>-->
     </v-toolbar>
 
-    <v-container fluid dense>
-      <v-row dense class="mt-n4">
+    <v-container fluid dense v-if="selectedItems.length !== 0">
+      <v-row dense class="mt-n4 mb-n7">
         <v-col>
           <v-spacer></v-spacer>
         </v-col>
-        <v-col cols="auto" :hidden="selectedItems.length === 0">
-          <v-btn class="error" @click="deleteSelectedOpen"
-          >DELETE SELECTED</v-btn
+        <v-col cols="auto">
+          <v-btn class="primary" @click="exportSelectedOpen"
+            >EXPORT SELECTED</v-btn
           >
         </v-col>
-      </v-row>
-      <v-row dense class="mb-n8">
-        <v-col>
-          <v-select
-                  dense
-                  chips
-                  label="Add Filters"
-                  multiple
-                  solo
-                  :items="filterChips"
-                  clearable
-                  deletable-chips
-                  @change="chipFilterAdded"
+        <v-col cols="auto">
+          <v-btn class="error" @click="deleteSelectedOpen"
+            >DELETE SELECTED</v-btn
           >
-          </v-select>
         </v-col>
       </v-row>
     </v-container>
-
-
     <v-container fluid>
       <v-row>
         <v-col cols="4" v-for="item in filteredItems" :key="item.id">
           <Endpoint
             :value="item.n"
             :description="item.d"
-            :quantity="item.q"
             :endpointId="item.id"
             :selected="selectedItems.includes(item)"
             @update="processSelection(item, $event)"

@@ -21,14 +21,34 @@
         >NEW WORKSHOP</v-btn
       >
     </v-toolbar>
+
+    <v-container fluid dense v-if="selectedItems.length !== 0">
+      <v-row dense class="mt-n4 mb-n7">
+        <v-col>
+          <v-spacer></v-spacer>
+        </v-col>
+        <v-col cols="auto" >
+          <v-btn class="primary" @click="exportSelectedOpen"
+          >EXPORT SELECTED</v-btn
+          >
+        </v-col>
+        <v-col cols="auto">
+          <v-btn class="error" @click="deleteSelectedOpen"
+          >DELETE SELECTED</v-btn
+          >
+        </v-col>
+      </v-row>
+    </v-container>
+
     <v-container fluid>
       <v-row>
         <v-col cols="4" v-for="item in filteredItems" :key="item.id">
           <Workshop
             :value="item.n"
             :date="item.d"
-            :quantity="item.q"
             :workshopId="item.id"
+            :selected="selectedItems.includes(item)"
+            @update="processSelection(item, $event)"
           ></Workshop>
         </v-col>
         <v-col v-if="filteredItems.length === 0">
@@ -55,6 +75,7 @@ export default {
   data() {
     return {
       search: "",
+      selectedItems: [],
       breadcrumbs: [Object.assign({}, routes.breadcrumbs.endpoints)]
     };
   },
@@ -77,9 +98,7 @@ export default {
   computed: {
     filteredItems() {
       return this.items.filter(workshop => {
-        return workshop.n
-          .toUpperCase()
-          .match(this.search.trim().toUpperCase());
+        return workshop.n.toUpperCase().match(this.search.trim().toUpperCase());
       });
     },
     items() {
@@ -96,6 +115,12 @@ export default {
       }
 
       return [];
+    }
+  },
+  methods: {
+    processSelection(item, isSelected) {
+      if (isSelected) this.selectedItems.push(item);
+      else this.selectedItems = this.selectedItems.filter(i => i !== item);
     }
   }
 };

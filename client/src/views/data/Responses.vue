@@ -253,53 +253,19 @@
 
     <v-data-table
       v-model="selectedResponses"
-      :headers="responseHeaders"
+      :headers="personResponseHeaders"
       :items="items"
-      :search="filters.search"
       show-fist-last-page
-      item-key="id"
+      item-key="p"
       no-data-text="No Responses created so far."
       no-results-text="No Responses found."
       show-select
       must-sort
       calculate-widths
+      show-expand
       class="elevation-1 ml-4 mr-4"
-      :sort-by="['name']"
+      :sort-by="['p']"
     >
-      <template v-slot:item.q="props">
-        {{ getQuestion(props.item.q).n }}
-      </template>
-
-      <template v-slot:item.f="props">
-        <v-checkbox
-          primary
-          hide-details
-          :input-value="getQuestion(props.item.q).f"
-          :disabled="true"
-          class="mb-4"
-        ></v-checkbox>
-      </template>
-
-      <template v-slot:item.m="props">
-        <v-checkbox
-          primary
-          hide-details
-          :input-value="getQuestion(props.item.q).m"
-          :disabled="true"
-          class="mb-4"
-        ></v-checkbox>
-      </template>
-
-      <template v-slot:item.v="props">
-        <v-tooltip left v-if="getQuestion(props.item.q).m">
-          <template v-slot:activator="{ on }">
-            <div v-on="on">{{ props.item.v }}</div>
-          </template>
-          <span> {{ getQuestionValueDescription(props.item.q, props.item.v) }}</span>
-        </v-tooltip>
-        <div v-else>{{ props.item.v }} </div>
-      </template>
-
       <template v-slot:item.actions="props">
         <v-btn
           small
@@ -318,6 +284,87 @@
             delete
           </v-icon>
         </v-btn>
+      </template>
+
+      <template v-slot:expanded-item="props">
+        <td :colspan="4 * personResponseHeaders.length" class="pa-0">
+          <v-data-table
+            :headers="responseHeaders"
+            :items="props.item.r"
+            :search="filters.search"
+            :header-props="props.item"
+            item-key="id"
+            no-data-text="No Responses created so far."
+            no-results-text="No Responses found."
+            must-sort
+            show-select
+            class="elevation-2"
+            :sort-by="['q']"
+          >
+            <template v-slot:item.q="{ item }">
+              {{ getQuestion(item.q).n }}
+            </template>
+
+            <template v-slot:item.f="{ item }">
+              <v-checkbox
+                primary
+                hide-details
+                :input-value="getQuestion(item.q).f"
+                :disabled="true"
+                class="mb-4"
+              ></v-checkbox>
+            </template>
+
+            <template v-slot:item.m="{ item }">
+              <v-checkbox
+                primary
+                hide-details
+                :input-value="getQuestion(item.q).t === 'c'"
+                :disabled="true"
+                class="mb-4"
+              ></v-checkbox>
+            </template>
+
+            <template v-slot:item.v="{ item }"
+              ><v-tooltip left v-if="getQuestion(item.q).t === 'c'">
+                <template v-slot:activator="{ on }">
+                  <div v-on="on">{{ item.v }}</div>
+                </template>
+                <span> {{ getQuestionValueDescription(item.q, item.v) }}</span>
+              </v-tooltip>
+              <div v-else>
+                {{ item.v == null || item.v.length === 0 ? "N/A" : item.v }}
+              </div>
+            </template>
+
+            <template v-slot:item.actions="props">
+              <v-btn
+                small
+                icon
+                v-blur
+                text
+                class="ml-n1"
+                @click="editValueOpen(item, props.item)"
+              >
+                <v-icon color="primary">
+                  edit
+                </v-icon>
+              </v-btn>
+              <v-btn
+                :disabled="props.item.a"
+                small
+                icon
+                v-blur
+                flat
+                @click="deleteValueOpen(item, props.item)"
+              >
+                <v-icon color="error" v-on="on">
+                  delete
+                </v-icon>
+              </v-btn>
+            </template>
+          </v-data-table>
+        </td>
       </template>
     </v-data-table>
   </v-container>
@@ -393,14 +440,17 @@ export default {
     ]
   }),
   computed: {
-    responseHeaders() {
+    personResponseHeaders() {
       return [
         {
           text: "Person",
           value: "p",
-          width: "110",
           sortable: true
-        },
+        }
+      ];
+    },
+    responseHeaders() {
+      return [
         {
           text: "Question",
           value: "q",
@@ -418,7 +468,7 @@ export default {
           width: "77",
           filter: value => {
             if (this.filters.type == null) return true;
-            return value.toUpperCase.match(this.filters.type);
+            return value.toUpperCase().match(this.filters.type);
           }
         },
         {
@@ -540,7 +590,7 @@ export default {
       }
       if (items.indexOf("o") !== -1) {
         if (!this.filterChips[0].disabled) this.filterChips[0].disabled = true;
-        if (this.filters.type !== "POST") this.filters.answered = "POST";
+        if (this.filters.type !== "POST") this.filters.type = "POST";
       } else {
         if (this.filterChips[0].disabled) this.filterChips[0].disabled = false;
         if (!otherWasSelected && this.filters.type !== undefined)
@@ -594,7 +644,6 @@ export default {
     getQuestion(questionId) {
       return this.$store.state.dataStore.getQuestionByID(questionId);
     },
-
     getQuestionValueDescription(questionId, value) {
       return this.$store.state.dataStore.getQuestionValueDescriptionByID(
         questionId,

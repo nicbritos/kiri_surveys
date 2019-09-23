@@ -410,10 +410,10 @@
       </template>
 
       <template v-slot:item.data-table-expand="{ item, isExpanded, expand }">
-        <v-btn @click="expand(true)" icon v-blur v-if="!isExpanded && item.m"
+        <v-btn @click="expand(true)" icon v-blur v-if="!isExpanded && item.t !== 't'"
           ><v-icon>expand_more</v-icon></v-btn
         >
-        <v-btn @click="expand(false)" icon v-blur v-if="isExpanded && item.m"
+        <v-btn @click="expand(false)" icon v-blur v-if="isExpanded && item.t !== 't'"
           ><v-icon>expand_less</v-icon></v-btn
         >
       </template>
@@ -433,7 +433,7 @@
         <v-checkbox
           primary
           hide-details
-          :input-value="props.item.m"
+          :input-value="props.item.t !== 't'"
           :disabled="true"
           v-blur
           class="mb-4"
@@ -496,7 +496,7 @@
                 <template v-slot:activator="{ on }">
                   <div v-on="on">
                     <v-btn
-                      :disabled="props.item.answered"
+                      :disabled="props.item.a"
                       color="primary"
                       v-on="on"
                       v-blur
@@ -511,7 +511,7 @@
 
             <template v-slot:item="{ item }">
               <tr>
-                <td>{{ item.v }}</td>
+                <td>{{ props.item.t === "c" ? item.v : "-" }}</td>
                 <td>{{ item.d }}</td>
                 <td>
                   <v-row class="ml-n1">

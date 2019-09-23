@@ -1,12 +1,16 @@
 <template>
   <v-card hover style="cursor: default" class="mx-auto" max-width="344">
+    <v-img
+      v-ripple
+      style="cursor: pointer"
+      @click="goToRoute"
+      class="white--text"
+      src="@/assets/endpoint_back_blue.png"
+    >
+      <v-card-title class="align-end fill-height">{{ value }}</v-card-title>
+    </v-img>
     <v-card-text v-ripple style="cursor: pointer" @click="goToRoute">
-      <div>Endpoint</div>
-      <p class="display-1 text--primary">
-        {{ value }}
-      </p>
       <div class="text--primary">{{ description }}<br /></div>
-      <div class="text--secondary">{{ workshopsQuantityString }}</div>
     </v-card-text>
     <v-divider></v-divider>
     <v-card-actions>
@@ -42,10 +46,6 @@ export default {
       type: String,
       required: true
     },
-    quantity: {
-      type: String,
-      required: true
-    },
     endpointId: {
       type: String,
       required: true
@@ -53,14 +53,6 @@ export default {
     selected: {
       type: Boolean,
       required: true
-    }
-  },
-  computed: {
-    workshopsQuantityString() {
-      return (
-        (this.quantity == 0 ? "No" : this.quantity) +
-        (this.quantity == 1 ? " workshop" : " workshops")
-      );
     }
   },
   methods: {

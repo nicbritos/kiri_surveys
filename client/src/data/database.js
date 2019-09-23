@@ -184,44 +184,43 @@ async function loadQuestions() {
 }
 
 async function loadEndpoints() {
-  return [
-    {
-      id: "def",
-      n: "Instituto Inmaculada",
-      d: "Talleres hechos en Instituto Inmaculada de Castelar",
-      q: 4,
-      w: []
-    },
-    {
-      id: "ghi",
-      n: "ITBA",
-      d: "Talleres hechos en el Instituto Tecnologico de Buenos Aires",
-      q: 12,
-      w: []
-    },
-    {
-      id: "jkl",
-      n: "ITBA Postgrado",
-      d: "Talleres hechos en ITBA Postgrado",
-      q: 3,
-      w: []
-    },
-    {
-      id: "mno",
-      n: "ORT",
-      d: "Talleres hechos en la escuela ORT",
-      q: 2,
-      w: []
-    },
-    {
-      id: "abc",
-      n: "UBA",
-      d: "Talleres hechos en la UBA",
-      q: 0,
-      w: []
-    }
-  ];
-
+  // return [
+  //   //   {
+  //   //     id: "def",
+  //   //     n: "Instituto Inmaculada",
+  //   //     d: "Talleres hechos en Instituto Inmaculada de Castelar",
+  //   //     q: 4,
+  //   //     w: []
+  //   //   },
+  //   //   {
+  //   //     id: "ghi",
+  //   //     n: "ITBA",
+  //   //     d: "Talleres hechos en el Instituto Tecnologico de Buenos Aires",
+  //   //     q: 12,
+  //   //     w: []
+  //   //   },
+  //   //   {
+  //   //     id: "jkl",
+  //   //     n: "ITBA Postgrado",
+  //   //     d: "Talleres hechos en ITBA Postgrado",
+  //   //     q: 3,
+  //   //     w: []
+  //   //   },
+  //   //   {
+  //   //     id: "mno",
+  //   //     n: "ORT",
+  //   //     d: "Talleres hechos en la escuela ORT",
+  //   //     q: 2,
+  //   //     w: []
+  //   //   },
+  //   //   {
+  //   //     id: "abc",
+  //   //     n: "UBA",
+  //   //     d: "Talleres hechos en la UBA",
+  //   //     q: 0,
+  //   //     w: []
+  //   //   }
+  //   // ];
   // let reference = db.collection(COLLECTIONS.ENDPOINTS.collection);
   // let endpoints = [];
   // (await reference.get()).forEach(doc => {
@@ -230,6 +229,20 @@ async function loadEndpoints() {
   //   endpoints.push(data);
   // });
   // return endpoints;
+  return [
+    {
+      id: "def",
+      n: "Instituto Inmaculada",
+      d: "Talleres hechos en Instituto Inmaculada de Castelar",
+      w: []
+    },
+    {
+      id: "abc",
+      n: "ITBA",
+      d: "Talleres hechos en el Instituto Tecnologico de Buenos Aires",
+      w: []
+    }
+  ];
 }
 
 async function loadWorkshops(endpointId) {
@@ -244,15 +257,12 @@ async function loadWorkshops(endpointId) {
   //   workshops.push(data);
   // });
   // return workshops;
-  return [
-    {
-      id: "w1",
-      q: 400,
-      n: "ITBA1",
-      d: undefined,
-      r: []
-    }
-  ];
+  if (endpointId === "abc") {
+    let file = await fetch("/out_w_wce.json");
+    return await file.json();
+  } else {
+    return [];
+  }
 }
 
 async function loadResponses(endpointId, workshopId) {
@@ -269,17 +279,24 @@ async function loadResponses(endpointId, workshopId) {
   //   responses.push(data);
   // });
   // return responses;
-  return {
-    NB1: [
-      {
-        id: "abcdef",
-        p: "NB1",
-        q: "abc",
-        t: "PRE",
-        v: 1
-      }
-    ]
-  };
+  // return {
+  //   NB1: [
+  //     {
+  //       id: "abcdef",
+  //       p: "NB1",
+  //       q: "abc",
+  //       t: "PRE",
+  //       v: 1
+  //     }
+  //   ]
+  // };
+
+  if (endpointId === "abc" && workshopId === "0") {
+    let file = await fetch("/out_w_wce.json");
+    return (await file.json())[0].a;
+  } else {
+    return [];
+  }
 }
 
 export default {
