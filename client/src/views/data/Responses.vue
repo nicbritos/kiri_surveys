@@ -507,9 +507,8 @@ export default {
     this.$store.state.loading = true;
 
     let endpointId = this.$router.currentRoute.params.eid;
-    await this.$store.state.dataStore.loadEndpoints();
     let endpointBreadcrumb = Object.assign({}, routes.breadcrumbs.sample);
-    endpointBreadcrumb.text = this.$store.state.dataStore.getEndpointByID(
+    endpointBreadcrumb.text = await this.$store.state.dataStore.getEndpointByID(
       endpointId
     ).n;
     endpointBreadcrumb.disabled = false;
@@ -517,17 +516,14 @@ export default {
     this.breadcrumbs.push(endpointBreadcrumb);
 
     let workshopId = this.$router.currentRoute.params.wid;
-    await this.$store.state.dataStore.loadWorkshops(endpointId);
     let workshopBreadcrumb = Object.assign({}, routes.breadcrumbs.sample);
-    workshopBreadcrumb.text = this.$store.state.dataStore.getWorkshopByID(
+    workshopBreadcrumb.text = await this.$store.state.dataStore.getWorkshopByID(
       endpointId,
       workshopId
     ).n;
     this.breadcrumbs.push(workshopBreadcrumb);
 
-    await this.$store.state.dataStore.loadQuestions();
-    await this.$store.state.dataStore.loadResponses(endpointId, workshopId);
-    let responses = this.$store.state.dataStore.getResponses(
+    let responses = await this.$store.state.dataStore.getResponses(
       endpointId,
       workshopId
     );
@@ -641,11 +637,11 @@ export default {
       if (item[type]) item[type] = false;
     },
 
-    getQuestion(questionId) {
-      return this.$store.state.dataStore.getQuestionByID(questionId);
+    async getQuestion(questionId) {
+      return await this.$store.state.dataStore.getQuestionByID(questionId);
     },
-    getQuestionValueDescription(questionId, value) {
-      return this.$store.state.dataStore.getQuestionValueDescriptionByID(
+    async getQuestionValueDescription(questionId, value) {
+      return await this.$store.state.dataStore.getQuestionValueDescriptionByID(
         questionId,
         value
       );

@@ -51,13 +51,13 @@ export default {
   data() {
     return {
       search: "",
-      items: this.$store.state.dataStore.getUsers()
+      items: []
     };
   },
   async created() {
     this.$store.state.loading = true;
 
-    await this.$store.state.dataStore.loadUsers();
+    this.items = await this.$store.state.dataStore.getUsers();
 
     this.$store.state.loading = false;
   },

@@ -27,14 +27,14 @@
         <v-col>
           <v-spacer></v-spacer>
         </v-col>
-        <v-col cols="auto" >
+        <v-col cols="auto">
           <v-btn class="primary" @click="exportSelectedOpen"
-          >EXPORT SELECTED</v-btn
+            >EXPORT SELECTED</v-btn
           >
         </v-col>
         <v-col cols="auto">
           <v-btn class="error" @click="deleteSelectedOpen"
-          >DELETE SELECTED</v-btn
+            >DELETE SELECTED</v-btn
           >
         </v-col>
       </v-row>
@@ -75,6 +75,7 @@ export default {
   data() {
     return {
       search: "",
+      items: [],
       selectedItems: [],
       breadcrumbs: [Object.assign({}, routes.breadcrumbs.endpoints)]
     };
@@ -82,11 +83,18 @@ export default {
   async created() {
     this.$store.state.loading = true;
 
-    await this.$store.state.dataStore.loadEndpoints();
-    let endpoint = this.$store.state.dataStore.getEndpointByID(
+    let endpoint = await this.$store.state.dataStore.getEndpointByID(
       this.$router.currentRoute.params.eid
     );
-    await this.$store.state.dataStore.loadWorkshops(endpoint.id);
+    if (endpoint != null) {
+      let workshops = await this.$store.state.dataStore.getWorkshops(
+        endpoint.id
+      );
+      if (workshops == null) {
+        return [];
+      }
+      return workshops;
+    }
 
     let thisBreadcrumb = Object.assign({}, routes.breadcrumbs.sample);
     thisBreadcrumb.disabled = true;
@@ -102,18 +110,6 @@ export default {
       });
     },
     items() {
-      let endpoint = this.$store.state.dataStore.getEndpointByID(
-        this.$router.currentRoute.params.eid
-      );
-
-      if (endpoint != null) {
-        let workshops = this.$store.state.dataStore.getWorkshops(endpoint.id);
-        if (workshops == null) {
-          return [];
-        }
-        return workshops;
-      }
-
       return [];
     }
   },

@@ -1,3 +1,5 @@
+import Excel from "exceljs/modern.browser";
+
 class DataStore {
   constructor(database) {
     this._database = database;
@@ -20,7 +22,7 @@ class DataStore {
     this._responsesLoaded = {};
   }
 
-  async loadQuestions() {
+  async _loadQuestions() {
     // TODO: Handle errors
     if (this._questionsLoaded === true) return;
 
@@ -39,7 +41,7 @@ class DataStore {
     this._questionsLoaded = true;
   }
 
-  async loadEndpoints() {
+  async _loadEndpoints() {
     // TODO: Handle errors
     if (this._endpointsLoaded === true) return;
 
@@ -52,7 +54,7 @@ class DataStore {
     this._endpointsLoaded = true;
   }
 
-  async loadWorkshops(endpointId) {
+  async _loadWorkshops(endpointId) {
     // TODO: Handle errors
     if (this._workshopsLoaded[endpointId] === true) return;
 
@@ -71,7 +73,7 @@ class DataStore {
     this._responsesLoaded[endpointId] = {};
   }
 
-  async loadResponses(endpointId, workshopId) {
+  async _loadResponses(endpointId, workshopId) {
     // TODO: Handle errors
     if (
       this._responsesLoaded[endpointId] != null &&
@@ -127,7 +129,7 @@ class DataStore {
     }
   }
 
-  async loadUsers() {
+  async _loadUsers() {
     // TODO: Handle errors
     // TODO: Add live listeners
     if (this._usersLoaded === true) return;
@@ -141,45 +143,89 @@ class DataStore {
     this._usersLoaded = true;
   }
 
-  getEndpoints() {
+  async exportEndpoints(options, endpointIds) {
+    let workshops = [];
+    for (let endpointId of endpointIds) {
+      for (let workshop of await this.getWorkshops(endpointId)) {
+        workshops.push(workshop);
+        await this._loadResponses(endpointId, workshop.id);
+      }
+    }
+
+    return await this._exportWorkshops(options, workshops);
+  }
+
+  async exportWorkshops(options, endpointId, workshopIds) {
+    let workshops = [];
+    for (let workshopId of workshopIds) {
+      workshops.push(await this.getWorkshopByID(endpointId, workshopId));
+      await this._loadResponses(endpointId, workshopId);
+    }
+
+    return await this._exportWorkshops(options, workshops);
+  }
+
+  async _exportWorkshops(options, workshops) {
+    if (
+      typeof options !== "object" ||
+      options.sheets == null ||
+      options.sheets.length === 0
+    ) {
+      throw new Error("Invalid options provided");
+    }
+
+    let workbook = new Excel.Workbook();
+  }
+
+  async getEndpoints() {
+    await this._loadEndpoints();
     return this.endpoints;
   }
 
-  getEndpointByID(endpointId) {
+  async getEndpointByID(endpointId) {
+    await this._loadEndpoints();
     return this._endpointsMap[endpointId];
   }
 
-  getWorkshops(endpointId) {
+  async getWorkshops(endpointId) {
+    await this._loadWorkshops(endpointId);
     return this._endpointsMap[endpointId].w;
   }
 
-  getWorkshopByID(endpointId, workshopId) {
+  async getWorkshopByID(endpointId, workshopId) {
+    await this._loadWorkshops(endpointId);
     let workshopMap = this._workshopsMap[endpointId];
     return workshopMap != null ? workshopMap[workshopId] : undefined;
   }
 
-  getQuestions() {
+  async getQuestions() {
+    await this._loadQuestions();
     return this.questions;
   }
 
-  getQuestionByID(questionId) {
+  async getQuestionByID(questionId) {
+    await this._loadQuestions();
     return this._questionsMap[questionId];
   }
 
-  getQuestionValueDescriptionByID(questionId, value) {
+  async getQuestionValueDescriptionByID(questionId, value) {
+    await this._loadQuestions();
     let questionValues = this._questionsValueMap[questionId];
     return questionValues != null ? questionValues[value] : undefined;
   }
 
-  getResponses(endpointId, workshopId) {
+  async getResponses(endpointId, workshopId) {
+    await this._loadResponses(endpointId, workshopId);
     return this._workshopsMap[endpointId][workshopId].r;
   }
 
-  getUsers() {
+  async getUsers() {
+    await this._loadUsers();
     return this.users;
   }
 
-  getUser(userId) {
+  async getUser(userId) {
+    await this._loadUsers();
     return this._usersMap[userId];
   }
 }

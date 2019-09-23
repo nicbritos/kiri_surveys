@@ -580,6 +580,7 @@ export default {
   data: () => ({
     snackbar: false,
     shown: true,
+    items: [],
     filters: {
       search: "",
       measurable: undefined,
@@ -653,6 +654,9 @@ export default {
   //   [this.defaultValue.value]: { required, integer },
   //   [this.defaultValue.description]: { required, minLength: minLength(3), maxLength: maxLength(30) }
   // },
+  async created() {
+    this.items = await this.$store.state.dataStore.getQuestions();
+  },
   computed: {
     questionValueHeaders() {
       return [
@@ -707,9 +711,6 @@ export default {
         { text: "Actions", value: "actions", width: "110", sortable: false }
       ];
     },
-    items() {
-      return this.$store.state.dataStore.getQuestions();
-    },
 
     questionNameErrors() {
       const errors = [];
@@ -718,9 +719,6 @@ export default {
       // !this.defaultValue.value.required && errors.push("Este campo es obligatorio");
       return errors;
     }
-  },
-  mounted() {
-    this.$store.state.dataStore.loadQuestions();
   },
   watch: {
     dialog(val) {

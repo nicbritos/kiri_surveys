@@ -101,6 +101,7 @@
 
 <script>
 import Endpoint from "@/components/Endpoint";
+
 export default {
   name: "Endpoints",
   components: { Endpoint },
@@ -121,8 +122,7 @@ export default {
   async created() {
     this.$store.state.loading = true;
 
-    await this.$store.state.dataStore.loadEndpoints();
-    this.items = this.$store.state.dataStore.getEndpoints();
+    this.items = await this.$store.state.dataStore.getEndpoints();
 
     this.$store.state.loading = false;
   },
@@ -130,6 +130,16 @@ export default {
     processSelection(item, isSelected) {
       if (isSelected) this.selectedItems.push(item);
       else this.selectedItems = this.selectedItems.filter(i => i !== item);
+    },
+
+    exportSelectedOpen() {
+      this.$store.state.dataStore.exportEndpoints(
+        {
+          sheets: ["rdata", "graphs", "workshop", "workshops"]
+        },
+        this.selectedItems
+      );
+      this.selectedItems = [];
     }
   }
 };

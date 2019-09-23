@@ -7,9 +7,6 @@ import "@/data/registerServiceWorker";
 import vuetify from "@/plugins/vuetify";
 
 Vue.use(Vuelidate);
-store.state.dataStore.loadEndpoints();
-// store.state.dataStore.loadWorkshops();
-// store.state.dataStore.loadResponses();
 
 Vue.config.productionTip = false;
 
