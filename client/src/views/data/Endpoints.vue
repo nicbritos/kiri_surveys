@@ -132,12 +132,18 @@ export default {
       else this.selectedItems = this.selectedItems.filter(i => i !== item);
     },
 
-    exportSelectedOpen() {
-      this.$store.state.dataStore.exportEndpoints(
+    async exportSelectedOpen() {
+      let endpointIds = [];
+      for (let item of this.selectedItems) {
+        endpointIds.push(item.id);
+      }
+
+      await this.$store.state.dataStore.exportEndpoints(
         {
           sheets: ["rdata", "graphs", "workshop", "workshops"]
         },
-        this.selectedItems
+        await this.$store.state.dataStore.getQuestions(),
+        endpointIds
       );
       this.selectedItems = [];
     }

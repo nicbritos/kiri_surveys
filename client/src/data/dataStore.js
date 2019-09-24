@@ -1,4 +1,5 @@
-import Excel from "exceljs/modern.browser";
+import excelExport from "./excelExport";
+import FileSaver from "file-saver";
 
 class DataStore {
   constructor(database) {
@@ -56,6 +57,7 @@ class DataStore {
 
   async _loadWorkshops(endpointId) {
     // TODO: Handle errors
+    await this._loadEndpoints();
     if (this._workshopsLoaded[endpointId] === true) return;
 
     let workshops = await this._database.loadWorkshops(endpointId);
@@ -75,6 +77,8 @@ class DataStore {
 
   async _loadResponses(endpointId, workshopId) {
     // TODO: Handle errors
+    await this._loadEndpoints();
+    await this._loadWorkshops(endpointId);
     if (
       this._responsesLoaded[endpointId] != null &&
       this._responsesLoaded[endpointId][workshopId] === true
@@ -108,13 +112,13 @@ class DataStore {
           q: questionId,
           t: "PRE",
           v: responses["PRE"],
-          id: questionId + "PRE"
+          id: personId + "PRE" + questionId
         };
         let outputPost = {
           q: questionId,
           t: "POST",
           v: responses["POST"],
-          id: questionId + "POST"
+          id: personId + "POST" + questionId
         };
 
         output.r.push(outputPre);
@@ -143,7 +147,7 @@ class DataStore {
     this._usersLoaded = true;
   }
 
-  async exportEndpoints(options, endpointIds) {
+  async exportEndpoints(options, questions, endpointIds) {
     let workshops = [];
     for (let endpointId of endpointIds) {
       for (let workshop of await this.getWorkshops(endpointId)) {
@@ -152,29 +156,31 @@ class DataStore {
       }
     }
 
-    return await this._exportWorkshops(options, workshops);
+    let blob = new Blob(
+      [await excelExport.exportWorkshops(options, questions, workshops)],
+      {
+        type:
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      }
+    );
+    FileSaver.saveAs(blob, "kiri_export.xlsx");
   }
 
-  async exportWorkshops(options, endpointId, workshopIds) {
+  async exportWorkshops(options, questions, endpointId, workshopIds) {
     let workshops = [];
     for (let workshopId of workshopIds) {
       workshops.push(await this.getWorkshopByID(endpointId, workshopId));
       await this._loadResponses(endpointId, workshopId);
     }
 
-    return await this._exportWorkshops(options, workshops);
-  }
-
-  async _exportWorkshops(options, workshops) {
-    if (
-      typeof options !== "object" ||
-      options.sheets == null ||
-      options.sheets.length === 0
-    ) {
-      throw new Error("Invalid options provided");
-    }
-
-    let workbook = new Excel.Workbook();
+    let blob = new Blob(
+      [await excelExport.exportWorkshops(options, questions, workshops)],
+      {
+        type:
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      }
+    );
+    FileSaver.saveAs(blob, "kiri_export.xlsx");
   }
 
   async getEndpoints() {
