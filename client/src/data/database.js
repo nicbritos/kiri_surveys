@@ -259,7 +259,11 @@ async function loadWorkshops(endpointId) {
   // return workshops;
   if (endpointId === "abc") {
     let file = await fetch("/out_w_wce.json");
-    return await file.json();
+    let data = await file.json();
+    for (let workshop of data) {
+      workshop.r = [];
+    }
+    return data;
   } else {
     return [];
   }
@@ -293,7 +297,7 @@ async function loadResponses(endpointId, workshopId) {
 
   if (endpointId === "abc" && workshopId === "0") {
     let file = await fetch("/out_w_wce.json");
-    return (await file.json())[0].a;
+    return (await file.json())[0].r;
   } else {
     return [];
   }

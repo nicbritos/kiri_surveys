@@ -91,9 +91,9 @@ export default {
         endpoint.id
       );
       if (workshops == null) {
-        return [];
+        this.items = [];
       }
-      return workshops;
+      this.items = workshops;
     }
 
     let thisBreadcrumb = Object.assign({}, routes.breadcrumbs.sample);
@@ -108,9 +108,6 @@ export default {
       return this.items.filter(workshop => {
         return workshop.n.toUpperCase().match(this.search.trim().toUpperCase());
       });
-    },
-    items() {
-      return [];
     }
   },
   methods: {

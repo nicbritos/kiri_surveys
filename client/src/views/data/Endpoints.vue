@@ -73,7 +73,7 @@
           <v-spacer></v-spacer>
         </v-col>
         <v-col cols="auto">
-          <v-btn class="primary" @click="exportSelectedOpen"
+          <v-btn class="primary" @click="exportSelectedOpen" :loading="loadingExport"
             >EXPORT SELECTED</v-btn
           >
         </v-col>
@@ -109,7 +109,8 @@ export default {
     return {
       search: "",
       items: [],
-      selectedItems: []
+      selectedItems: [],
+      loadingExport: false
     };
   },
   computed: {
@@ -133,6 +134,8 @@ export default {
     },
 
     async exportSelectedOpen() {
+      this.loadingExport = true;
+
       let endpointIds = [];
       for (let item of this.selectedItems) {
         endpointIds.push(item.id);
@@ -146,6 +149,8 @@ export default {
         endpointIds
       );
       this.selectedItems = [];
+
+      this.loadingExport = false;
     }
   }
 };

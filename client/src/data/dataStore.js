@@ -1,5 +1,6 @@
 import excelExport from "./excelExport";
 import FileSaver from "file-saver";
+import moment from "moment";
 
 class DataStore {
   constructor(database) {
@@ -148,39 +149,54 @@ class DataStore {
   }
 
   async exportEndpoints(options, questions, endpointIds) {
-    let workshops = [];
+    let output = [];
+
     for (let endpointId of endpointIds) {
+      let outputEndpoint = {
+        n: (await this.getEndpointByID(endpointId)).n,
+        workshops: []
+      };
       for (let workshop of await this.getWorkshops(endpointId)) {
-        workshops.push(workshop);
+        outputEndpoint.workshops.push(workshop);
         await this._loadResponses(endpointId, workshop.id);
       }
+
+      output.push(outputEndpoint);
     }
 
-    let blob = new Blob(
-      [await excelExport.exportWorkshops(options, questions, workshops)],
-      {
-        type:
-          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-      }
-    );
-    FileSaver.saveAs(blob, "kiri_export.xlsx");
+    await this._exportEndpoints(options, questions, output);
   }
 
   async exportWorkshops(options, questions, endpointId, workshopIds) {
-    let workshops = [];
+    let output = [];
+
+    let outputEndpoint = {
+      n: (await this.getEndpointByID(endpointId)).n,
+      workshops: []
+    };
     for (let workshopId of workshopIds) {
-      workshops.push(await this.getWorkshopByID(endpointId, workshopId));
+      outputEndpoint.workshops.push(
+        await this.getWorkshopByID(endpointId, workshopId)
+      );
       await this._loadResponses(endpointId, workshopId);
     }
 
+    output.push(outputEndpoint);
+    await this._exportEndpoints(options, questions, output);
+  }
+
+  async _exportEndpoints(options, questions, endpoints) {
     let blob = new Blob(
-      [await excelExport.exportWorkshops(options, questions, workshops)],
+      [await excelExport.exportEndpoints(options, questions, endpoints)],
       {
         type:
           "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
       }
     );
-    FileSaver.saveAs(blob, "kiri_export.xlsx");
+    FileSaver.saveAs(
+      blob,
+      "kiri_export" + moment().format("[_]YYYY-MM-DD[1T]HH-mm-ss.SSS") + ".xlsx"
+    );
   }
 
   async getEndpoints() {
