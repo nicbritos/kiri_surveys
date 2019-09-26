@@ -168,8 +168,12 @@ export default {
       e: "Average:"
     };
     sheet.addRow(averageRowData);
+    let medianRowData = {
+      e: "Median:"
+    };
+    sheet.addRow(medianRowData);
 
-    let rows = 2;
+    let rows = 3;
     let endpointRows = [];
     let workshopRows = [];
     for (let endpoint of endpoints) {
@@ -210,13 +214,13 @@ export default {
         endpointRows.push(endpointRowRange);
     }
 
-    // Calculate average
+    // Calculate average and median
     for (let questionId of savedQuestionIds) {
       for (let type of ["pre_", "post_"]) {
         let data = [];
 
         sheet.getColumn(type + questionId).eachCell((cell, rowNumber) => {
-          if (rowNumber > 2) {
+          if (rowNumber >= 4) {
             try {
               data.push(Number(cell.value));
             } catch (e) {
@@ -227,16 +231,19 @@ export default {
 
         if (data.length === 0) data.push(0);
         averageRowData[type + questionId] = jStat.mean(data);
+        medianRowData[type + questionId] = jStat.median(data);
       }
     }
 
     sheet.getRow(2).values = averageRowData;
     sheet.getRow(2).numFmt = "0.00";
+    sheet.getRow(3).values = medianRowData;
+    sheet.getRow(3).numFmt = "0";
 
     sheet.eachRow((row, index) => {
       row.border = BORDERS.allThin;
-      if (index >= 3) {
-        index -= 3;
+      if (index >= 4) {
+        index -= 4;
         index %= FILLS.row.length;
         row.fill = FILLS.row[index];
       }
@@ -252,6 +259,9 @@ export default {
     };
 
     row = sheet.getRow(2);
+    row.fill = FILLS.stats;
+    row.border = BORDERS.allThin;
+    row = sheet.getRow(3);
     row.fill = FILLS.stats;
     row.border = {
       top: BORDER_STYLES.thin,
@@ -322,7 +332,7 @@ export default {
 
     let IDColumn = sheet.getColumn(3);
     IDColumn.eachCell((cell, rowNumber) => {
-      if (rowNumber >= 3) {
+      if (rowNumber >= 4) {
         cell.border = {
           right: BORDER_STYLES.thick,
           left: BORDER_STYLES.thin,
