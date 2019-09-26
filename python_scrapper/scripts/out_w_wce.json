@@ -1,0 +1,3299 @@
+[
+  {
+    "a": {
+      "AB3": {
+        "0": {
+          "POST": null,
+          "PRE": null
+        },
+        "1": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": null
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 3
+        },
+        "5": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "6": {
+          "POST": 2,
+          "PRE": 3
+        },
+        "7": {
+          "POST": 2,
+          "PRE": 3
+        },
+        "8": {
+          "POST": null,
+          "PRE": "NO"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 5
+        },
+        "10": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "11": {
+          "POST": 5,
+          "PRE": 2
+        },
+        "12": {
+          "POST": 5,
+          "PRE": 2
+        },
+        "13": {
+          "POST": 3,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 2,
+          "PRE": null
+        },
+        "15": {
+          "POST": 4,
+          "PRE": null
+        },
+        "16": {
+          "POST": "No hay gran correlación entre problemática y percepción de los ciudadanos",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA, 3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "No hubo competitividad",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "AB7": {
+        "1": {
+          "POST": 3,
+          "PRE": null
+        },
+        "4": {
+          "POST": 4,
+          "PRE": null
+        },
+        "5": {
+          "POST": 6,
+          "PRE": null
+        },
+        "6": {
+          "POST": 4,
+          "PRE": null
+        },
+        "7": {
+          "POST": 4,
+          "PRE": null
+        },
+        "10": {
+          "POST": 4,
+          "PRE": null
+        },
+        "11": {
+          "POST": 5,
+          "PRE": null
+        },
+        "12": {
+          "POST": 5,
+          "PRE": null
+        },
+        "13": {
+          "POST": 5,
+          "PRE": null
+        },
+        "14": {
+          "POST": 2,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "En que todos influyen en el cambio climático. Todos tienen que hacer algo para colaborar",
+          "PRE": null
+        },
+        "17": {
+          "POST": null,
+          "PRE": null
+        },
+        "18": {
+          "POST": "la dinamica",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "AC7": {
+        "1": {
+          "POST": 3,
+          "PRE": null
+        },
+        "4": {
+          "POST": 2,
+          "PRE": null
+        },
+        "5": {
+          "POST": 6,
+          "PRE": null
+        },
+        "6": {
+          "POST": 4,
+          "PRE": null
+        },
+        "7": {
+          "POST": 3,
+          "PRE": null
+        },
+        "10": {
+          "POST": 2,
+          "PRE": null
+        },
+        "11": {
+          "POST": 3,
+          "PRE": null
+        },
+        "12": {
+          "POST": 4,
+          "PRE": null
+        },
+        "13": {
+          "POST": 4,
+          "PRE": null
+        },
+        "14": {
+          "POST": 3,
+          "PRE": null
+        },
+        "15": {
+          "POST": 3,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Tomar dimensión de dónde se puede realizar mayor impacto, y en donde ya se están tomando acciones contra los impactos y causas del cambio climático",
+          "PRE": null
+        },
+        "17": {
+          "POST": "3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "La dinámica que se generó\nEl uso del software de simulación",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 4,
+          "PRE": null
+        }
+      },
+      "AD3": {
+        "0": {
+          "POST": null,
+          "PRE": "Que es provocado por una explotación desmedida de los recursos naturales del planeta atendiendo a un modelo de consumo capitalista, y que sus efectos son prácticamente irreversibles."
+        },
+        "1": {
+          "POST": null,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Que es lamentable, trágico y que el impacto social-cultural-natural que existe no parece ser suficiente para que generemos un cambio cómo humanidad."
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": null,
+          "PRE": 4
+        },
+        "5": {
+          "POST": null,
+          "PRE": 5
+        },
+        "6": {
+          "POST": null,
+          "PRE": 4
+        },
+        "7": {
+          "POST": null,
+          "PRE": 3
+        },
+        "8": {
+          "POST": null,
+          "PRE": "Si la ví, y es dolorosa, nos demuestra de lo que fuimos h somos capaces aún a costa de nuestra propia vida."
+        },
+        "9": {
+          "POST": null,
+          "PRE": 2
+        },
+        "10": {
+          "POST": null,
+          "PRE": 1
+        },
+        "11": {
+          "POST": null,
+          "PRE": 2
+        },
+        "12": {
+          "POST": null,
+          "PRE": 4
+        },
+        "13": {
+          "POST": null,
+          "PRE": 5
+        }
+      },
+      "AE3": {
+        "0": {
+          "POST": null,
+          "PRE": "El cambio climático es una problemática ambiental que no entiende de fronteras, y  su aumento se debe a las malas prácticas del desarrollo productivo de los países mas desarrollados. Por otro lado las políticas vigentes no logran ser eficaces dentro de los órganos que deben   regular las actividades y emisiones perjudiciales para el medio ambiente; son muchas las variables que inciden al cambio climático,  tanto las presentes como la de décadas anteriores.  "
+        },
+        "1": {
+          "POST": null,
+          "PRE": 4
+        },
+        "2": {
+          "POST": null,
+          "PRE": "El cambio climático es un problema  transversal a todas las áreas productivas y al desarrollo humano, principalmente en la salud. La cual ya no basta con intentar mitigar al cambio climatico, es un problema que debe ser abordado por todas las naciones hoy mismo y en lo posible a nivel local/municipal, para que los cambios sean mas notorios y por supuesto regular las actividades industriales ya que son las mas importantes, a simple escala las emisiones de Co2 de automotor de toda una    ciudad no se compara con las de una industria que emite indiscriminadamente todo los días."
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": null,
+          "PRE": 1
+        },
+        "5": {
+          "POST": null,
+          "PRE": 4
+        },
+        "6": {
+          "POST": null,
+          "PRE": 3
+        },
+        "7": {
+          "POST": null,
+          "PRE": 4
+        },
+        "8": {
+          "POST": null,
+          "PRE": "Me gusto mucho, es una película que desde la ciencia nos deja de manera mas expuesta y entendible los cambios y problemas a enfrentar si no se bajan las    emisiones y a su vez si no se cuida y se plantan mas árboles. Es una película para reflexionar desde los moral también."
+        },
+        "9": {
+          "POST": null,
+          "PRE": 2
+        },
+        "10": {
+          "POST": null,
+          "PRE": 3
+        },
+        "11": {
+          "POST": null,
+          "PRE": 5
+        },
+        "12": {
+          "POST": null,
+          "PRE": 4
+        },
+        "13": {
+          "POST": null,
+          "PRE": 3
+        }
+      },
+      "AS12": {
+        "0": {
+          "POST": null,
+          "PRE": "Mucho"
+        },
+        "1": {
+          "POST": 4,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Debemos cambiar nuestras actividades y la sociedad para retrasarlo"
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "6": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "7": {
+          "POST": 2,
+          "PRE": 2
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 4
+        },
+        "10": {
+          "POST": 1,
+          "PRE": 2
+        },
+        "11": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "12": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "13": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 2,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Me di cuenta cuan rápido llegaran los cambios y el desastre si no actuamos urgente",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA, 3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "El simulador del MIT\nLa seriedad y compañerismo, no conocía a nadie y todos nos integraron",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "AT4": {
+        "0": {
+          "POST": null,
+          "PRE": "Nada"
+        },
+        "1": {
+          "POST": 2,
+          "PRE": 2
+        },
+        "2": {
+          "POST": null,
+          "PRE": "En general pienso que debemos tomar conciencia sobre nuestro impacto en la tierra y el uso de los recursos."
+        },
+        "3": {
+          "POST": null,
+          "PRE": 4
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 2
+        },
+        "5": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "6": {
+          "POST": 3,
+          "PRE": 2
+        },
+        "7": {
+          "POST": 5,
+          "PRE": 3
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No me acuerdo nada de la peli, la volveré a ver!"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 5
+        },
+        "10": {
+          "POST": 2,
+          "PRE": 5
+        },
+        "11": {
+          "POST": 2,
+          "PRE": 3
+        },
+        "12": {
+          "POST": 1,
+          "PRE": 5
+        },
+        "13": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 4,
+          "PRE": null
+        },
+        "15": {
+          "POST": 3,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Me parece preocupante, trabajo en otra universidad y vine para conocer el taller así puedo ofrecer allá. Creo en el poder de la difusión",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA",
+          "PRE": null
+        },
+        "18": {
+          "POST": "Me gustó la dinámica, la gestión moderada",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 4,
+          "PRE": null
+        }
+      },
+      "BB3": {
+        "0": {
+          "POST": null,
+          "PRE": "Estoy tratando de interiorizarme"
+        },
+        "1": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": "No somos conscientes"
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 3
+        },
+        "5": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "6": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "7": {
+          "POST": 2,
+          "PRE": 3
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No la vi"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 5
+        },
+        "10": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "11": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "12": {
+          "POST": 5,
+          "PRE": 2
+        },
+        "13": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "14": {
+          "POST": 1,
+          "PRE": null
+        },
+        "15": {
+          "POST": 4,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Ayudar de parte de los países mas ricos a los países más pobres",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA",
+          "PRE": null
+        },
+        "18": {
+          "POST": "La simulación y el debate",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "CB4": {
+        "0": {
+          "POST": null,
+          "PRE": null
+        },
+        "1": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": null
+        },
+        "3": {
+          "POST": null,
+          "PRE": 4
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "6": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "7": {
+          "POST": 3,
+          "PRE": 4
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 4
+        },
+        "10": {
+          "POST": 2,
+          "PRE": 3
+        },
+        "11": {
+          "POST": 4,
+          "PRE": 3
+        },
+        "12": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "13": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "14": {
+          "POST": 4,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Está seriamente en medio de escenario global, y se lo ve como un problema inminente",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA, 3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "La seriedad con la que se encaran las negociaciones",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 3,
+          "PRE": null
+        }
+      },
+      "CP12": {
+        "0": {
+          "POST": null,
+          "PRE": null
+        },
+        "1": {
+          "POST": 4,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": null
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "6": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "7": {
+          "POST": 2,
+          "PRE": 2
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No "
+        },
+        "9": {
+          "POST": null,
+          "PRE": 5
+        },
+        "10": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "11": {
+          "POST": 4,
+          "PRE": 3
+        },
+        "12": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "13": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 2,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "-",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA",
+          "PRE": null
+        },
+        "18": {
+          "POST": "El simulador",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 4,
+          "PRE": null
+        }
+      },
+      "EB10": {
+        "1": {
+          "POST": 3,
+          "PRE": null
+        },
+        "4": {
+          "POST": 4,
+          "PRE": null
+        },
+        "5": {
+          "POST": 5,
+          "PRE": null
+        },
+        "6": {
+          "POST": 5,
+          "PRE": null
+        },
+        "7": {
+          "POST": 5,
+          "PRE": null
+        },
+        "10": {
+          "POST": 1,
+          "PRE": null
+        },
+        "11": {
+          "POST": 4,
+          "PRE": null
+        },
+        "12": {
+          "POST": 5,
+          "PRE": null
+        },
+        "13": {
+          "POST": 5,
+          "PRE": null
+        },
+        "14": {
+          "POST": 2,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "No cambié de opinión, sigo pensando que hay que hacer algo urgente. Sin embargo, si me di cuenta que hay mucho que aprender a hacer",
+          "PRE": null
+        },
+        "17": {
+          "POST": "3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "Didactico. Te llega el impacto muy facilmente y rapido. Divertido",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "EC10": {
+        "0": {
+          "POST": null,
+          "PRE": "Que la temperatura de la tierra esta aumentando rapidamente, y que el efecto invernadero tienen mucho que ver con eso."
+        },
+        "1": {
+          "POST": null,
+          "PRE": 2
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Que es algo que hay que frenar urgente. Ya se ve en los clima drasticos y en la naturaleza, afectados por este cambio."
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": null,
+          "PRE": 3
+        },
+        "5": {
+          "POST": null,
+          "PRE": 3
+        },
+        "6": {
+          "POST": null,
+          "PRE": 4
+        },
+        "7": {
+          "POST": null,
+          "PRE": 4
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 5
+        },
+        "10": {
+          "POST": null,
+          "PRE": 2
+        },
+        "11": {
+          "POST": null,
+          "PRE": 1
+        },
+        "12": {
+          "POST": null,
+          "PRE": 4
+        },
+        "13": {
+          "POST": null,
+          "PRE": 4
+        }
+      },
+      "GB1": {
+        "0": {
+          "POST": null,
+          "PRE": null
+        },
+        "1": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": null
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 3,
+          "PRE": 5
+        },
+        "6": {
+          "POST": 2,
+          "PRE": 4
+        },
+        "7": {
+          "POST": 2,
+          "PRE": 2
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 4
+        },
+        "10": {
+          "POST": 2,
+          "PRE": 3
+        },
+        "11": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "12": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "13": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "14": {
+          "POST": 2,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Ahora entiendo mejor que es necesario un cambio común de parte de todos los países",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA",
+          "PRE": null
+        },
+        "18": {
+          "POST": "Que sea interactivo",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 4,
+          "PRE": null
+        }
+      },
+      "GC4": {
+        "0": {
+          "POST": null,
+          "PRE": "Por interés personal vengo desarrollándome en el tema los últimos 2 años "
+        },
+        "1": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Pienso que debemos acelerar nuestros esfuerzos de mitigación "
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "6": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "7": {
+          "POST": 4,
+          "PRE": 5
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 3
+        },
+        "10": {
+          "POST": 2,
+          "PRE": 2
+        },
+        "11": {
+          "POST": 3,
+          "PRE": 2
+        },
+        "12": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "13": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "14": {
+          "POST": 2,
+          "PRE": null
+        },
+        "15": {
+          "POST": 3,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Ayuda escuchar opiniones diversas de personas con menor y mayor experiencia en el tema para saber como abordarlo",
+          "PRE": null
+        },
+        "17": {
+          "POST": "3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "Ver a bastantes personas que eran fuera del ITBA\nVer el buen nivel de participación de los estudiantes del ITBA",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 4,
+          "PRE": null
+        }
+      },
+      "GS7": {
+        "0": {
+          "POST": null,
+          "PRE": "Que es fundamental para la supervivencia de nuestra especie y muchas otras."
+        },
+        "1": {
+          "POST": 4,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Que mas personas deberian interiorizarse en sus causas y consecuencias."
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "6": {
+          "POST": 4,
+          "PRE": 2
+        },
+        "7": {
+          "POST": 5,
+          "PRE": 1
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No la vi "
+        },
+        "9": {
+          "POST": null,
+          "PRE": 4
+        },
+        "10": {
+          "POST": 1,
+          "PRE": 2
+        },
+        "11": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "12": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "13": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 1,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Sobre el importante rol de los países desarrollados al aportar fondos para impulsar las innovaciones tecnológicas en los menos desarrollados. Sobre la importancia de que todos los países se comprometan por igual y tiren el carro en la misma dirección dejando de lado sus economías internas",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA, 3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "Juego de roles, el video, las exposiciones, negociar, los gráficos. Excelente! Felicitaciones al Equipo Kiri",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "IC3": {
+        "0": {
+          "POST": null,
+          "PRE": null
+        },
+        "1": {
+          "POST": null,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": null
+        },
+        "3": {
+          "POST": null,
+          "PRE": 4
+        },
+        "4": {
+          "POST": null,
+          "PRE": 3
+        },
+        "5": {
+          "POST": null,
+          "PRE": 5
+        },
+        "6": {
+          "POST": null,
+          "PRE": 3
+        },
+        "7": {
+          "POST": null,
+          "PRE": 4
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 4
+        },
+        "10": {
+          "POST": null,
+          "PRE": 3
+        },
+        "11": {
+          "POST": null,
+          "PRE": 3
+        },
+        "12": {
+          "POST": null,
+          "PRE": 4
+        },
+        "13": {
+          "POST": null,
+          "PRE": 4
+        }
+      },
+      "IP3": {
+        "0": {
+          "POST": null,
+          "PRE": null
+        },
+        "1": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": null
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "6": {
+          "POST": 5,
+          "PRE": 3
+        },
+        "7": {
+          "POST": 2,
+          "PRE": 2
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 5
+        },
+        "10": {
+          "POST": 4,
+          "PRE": 2
+        },
+        "11": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "12": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "13": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 2,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Estoy más preocupado que antes, con casi la certeza de que la meta de <2°C no se alcanzará",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA",
+          "PRE": null
+        },
+        "18": {
+          "POST": "La gente está totalmente compenetrada en el taller, buscando aportar lo mejor que tiene",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 4,
+          "PRE": null
+        }
+      },
+      "JB10": {
+        "1": {
+          "POST": 3,
+          "PRE": null
+        },
+        "4": {
+          "POST": 4,
+          "PRE": null
+        },
+        "5": {
+          "POST": 4,
+          "PRE": null
+        },
+        "6": {
+          "POST": 2,
+          "PRE": null
+        },
+        "7": {
+          "POST": 3,
+          "PRE": null
+        },
+        "10": {
+          "POST": 4,
+          "PRE": null
+        },
+        "11": {
+          "POST": 2,
+          "PRE": null
+        },
+        "12": {
+          "POST": 5,
+          "PRE": null
+        },
+        "13": {
+          "POST": 5,
+          "PRE": null
+        },
+        "14": {
+          "POST": 2,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "En que parecería que dependemos de las decisiones de las potencias",
+          "PRE": null
+        },
+        "17": {
+          "POST": "3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "La posibilidad de escuchar gente de mi edad pero también de otras edades hablar del tema de una manera tan seria",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "JB11": {
+        "0": {
+          "POST": null,
+          "PRE": "El cambio climático es una variación del sistema climático, si bien esto siempre ocurrió y es común en nuestro planeta actualmente estamos viviendo una etapa en la que nos afecta a todos a causa de las emisiones de gases de efecto invernadero que generamos (siendo el ser humano el mayor generador de estos gases) y el impacto en el clima."
+        },
+        "1": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Es real y estamos a tiempo de detener un desastre sin retorno para el planeta y la vida por eso debemos actuar mitigando la mayor cantidad de gases de efecto invernadero posible."
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "6": {
+          "POST": 4,
+          "PRE": 3
+        },
+        "7": {
+          "POST": 2,
+          "PRE": 5
+        },
+        "8": {
+          "POST": null,
+          "PRE": "no"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 5
+        },
+        "10": {
+          "POST": 2,
+          "PRE": 3
+        },
+        "11": {
+          "POST": 4,
+          "PRE": 2
+        },
+        "12": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "13": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 3,
+          "PRE": null
+        },
+        "15": {
+          "POST": 3,
+          "PRE": null
+        },
+        "16": {
+          "POST": "-",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA",
+          "PRE": null
+        },
+        "18": {
+          "POST": "La organización y seriedad",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 4,
+          "PRE": null
+        }
+      },
+      "JB5": {
+        "0": {
+          "POST": null,
+          "PRE": "Desde la revolucion industrial es producto en su mayoria de los gases de efecto invernadero, por quema de combustibles fosiles por ejemplo."
+        },
+        "1": {
+          "POST": 3,
+          "PRE": 2
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Es una problematica que se debe tratar de forma urgente."
+        },
+        "3": {
+          "POST": null,
+          "PRE": 4
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "6": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "7": {
+          "POST": 3,
+          "PRE": 4
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 3
+        },
+        "10": {
+          "POST": 4,
+          "PRE": 2
+        },
+        "11": {
+          "POST": 4,
+          "PRE": 3
+        },
+        "12": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "13": {
+          "POST": 4,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 2,
+          "PRE": null
+        },
+        "15": {
+          "POST": 4,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Los cambios tienen que ser más rápidos que lo que opinaba con anterioridad. Se deben tomar medidas de gran impacto",
+          "PRE": null
+        },
+        "17": {
+          "POST": "3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "Es una forma muy entretenida de enseñar los problemas del cambio climático.\nAccesible para cualquiera.",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "JN12": {
+        "0": {
+          "POST": null,
+          "PRE": "Se que el cambio climatico, se debe a miles de factores; y que las personas pueden hacer muchas cosas para mejorarlo. No es necesario ser greenpeace, eco-house, o cualquier ong sobre el cuidado del medio ambiente. Se necesita el apoyo de todo el mundo para mejorarlo, desde las empresas privadas y publicas, hasta la persona físicas. He escuchado mucho de una ONG que se llama ECO-HOUSE que dice \" pequeñas acciones * mucha gente = grandes cambio \". y esa frase es perfecta para este tema. En conclusión ; los cambios pequeños ( como no tirar la colilla de cigarrillo en el piso, empezar a compostar, no tirar papeles en la calle, reciclar, etc) logran grandes cambios en el mundo."
+        },
+        "1": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Es un problema que nos afecta a todos, no importa el pais ni la religion, ni absolutamente nada; pero tambien que no solo a las personas humanas fisicas afecta, tambien afecta a los animales, con esto quiero decir que a TODOS nos compete, y es algo con lo cual si no le damos mayor importancia; en el futuro no muy lejano(ya en la actualidad estamos viendo como nos afecta) lo vamos a padecer MUY gravemente."
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 3,
+          "PRE": 6
+        },
+        "6": {
+          "POST": 2,
+          "PRE": 2
+        },
+        "7": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "8": {
+          "POST": null,
+          "PRE": "no la vi "
+        },
+        "9": {
+          "POST": null,
+          "PRE": 4
+        },
+        "10": {
+          "POST": 5,
+          "PRE": 1
+        },
+        "11": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "12": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "13": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 3,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "No he cambiado lo que pensaba, sí ahora se mucho más de temas que tal vez antes no tenía tanta idea. Me resulto muy útil la actividad",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA, 2.Unión Europea, 3.China, 5. Otros desarrollados",
+          "PRE": null
+        },
+        "18": {
+          "POST": "La dinámica me gustó. Fue muy interactivo",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 4,
+          "PRE": null
+        }
+      },
+      "KM2": {
+        "0": {
+          "POST": null,
+          "PRE": "El cambio climatico se ha dado en el mundo desde siempre, es el efecto de los gases en la atmosfera, del vapor de agua, etc. En la actualidad la contaminacion de combustibles fosiles, agrotoxicos y otros componentes no conocidos estan afectando los gases que se forman de manera natural en la atmosfera, provocando un cambio en el comportamiento del clima."
+        },
+        "1": {
+          "POST": null,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": "En mi opinion es un gran factor de estudio para promover la sustentabilidad en el actual desarrollo de la humanidad"
+        },
+        "3": {
+          "POST": null,
+          "PRE": 4
+        },
+        "4": {
+          "POST": null,
+          "PRE": 2
+        },
+        "5": {
+          "POST": null,
+          "PRE": 5
+        },
+        "6": {
+          "POST": null,
+          "PRE": 3
+        },
+        "7": {
+          "POST": null,
+          "PRE": 2
+        },
+        "8": {
+          "POST": null,
+          "PRE": "no la vi"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 4
+        },
+        "10": {
+          "POST": null,
+          "PRE": 5
+        },
+        "11": {
+          "POST": null,
+          "PRE": 3
+        },
+        "12": {
+          "POST": null,
+          "PRE": 5
+        },
+        "13": {
+          "POST": null,
+          "PRE": 5
+        }
+      },
+      "LC1": {
+        "0": {
+          "POST": null,
+          "PRE": "Conocimientos variados. "
+        },
+        "1": {
+          "POST": null,
+          "PRE": 4
+        },
+        "2": {
+          "POST": null,
+          "PRE": null
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": null,
+          "PRE": 4
+        },
+        "5": {
+          "POST": null,
+          "PRE": 5
+        },
+        "6": {
+          "POST": null,
+          "PRE": 5
+        },
+        "7": {
+          "POST": null,
+          "PRE": 1
+        },
+        "8": {
+          "POST": null,
+          "PRE": "Si. No recuerdo como para hacer una crítica. "
+        },
+        "9": {
+          "POST": null,
+          "PRE": 5
+        },
+        "10": {
+          "POST": null,
+          "PRE": 3
+        },
+        "11": {
+          "POST": null,
+          "PRE": 1
+        },
+        "12": {
+          "POST": null,
+          "PRE": 3
+        },
+        "13": {
+          "POST": null,
+          "PRE": 5
+        }
+      },
+      "MB10": {
+        "1": {
+          "POST": 3,
+          "PRE": null
+        },
+        "4": {
+          "POST": 4,
+          "PRE": null
+        },
+        "5": {
+          "POST": 5,
+          "PRE": null
+        },
+        "6": {
+          "POST": 4,
+          "PRE": null
+        },
+        "7": {
+          "POST": null,
+          "PRE": null
+        },
+        "10": {
+          "POST": 2,
+          "PRE": null
+        },
+        "11": {
+          "POST": 4,
+          "PRE": null
+        },
+        "12": {
+          "POST": 5,
+          "PRE": null
+        },
+        "13": {
+          "POST": 4,
+          "PRE": null
+        },
+        "14": {
+          "POST": 1,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Sigo pensando lo mismo y su gravedad aunque ahora tengo más conocimientos y datos objetivos",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA",
+          "PRE": null
+        },
+        "18": {
+          "POST": "La seriedad y que luchamos todos por la misma causa",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "MB3": {
+        "1": {
+          "POST": 3,
+          "PRE": null
+        },
+        "4": {
+          "POST": 4,
+          "PRE": null
+        },
+        "5": {
+          "POST": 6,
+          "PRE": null
+        },
+        "6": {
+          "POST": 1,
+          "PRE": null
+        },
+        "7": {
+          "POST": 5,
+          "PRE": null
+        },
+        "10": {
+          "POST": 4,
+          "PRE": null
+        },
+        "11": {
+          "POST": 3,
+          "PRE": null
+        },
+        "12": {
+          "POST": 5,
+          "PRE": null
+        },
+        "13": {
+          "POST": 5,
+          "PRE": null
+        },
+        "14": {
+          "POST": 2,
+          "PRE": null
+        },
+        "15": {
+          "POST": null,
+          "PRE": null
+        },
+        "16": {
+          "POST": "-",
+          "PRE": null
+        },
+        "17": {
+          "POST": "3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "-",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 4,
+          "PRE": null
+        }
+      },
+      "MC1": {
+        "0": {
+          "POST": null,
+          "PRE": "Que es el mayor problema que la humanidad va a tener que enfrentar, no solo en el lapso de mi vida, pero en el de toda la historia. Y las acciones que tomamos hoy van a marcar la diferencia de cuanto va a afectar el cambio climatico a la experiecia humana"
+        },
+        "1": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Que es inevitable con la forma occidental que tenemos de ver como deberiamos vivir. Y que la unica forma de solucionarlo es a traves de una colaboracion mundial."
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "6": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "7": {
+          "POST": 3,
+          "PRE": 2
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 4
+        },
+        "10": {
+          "POST": 1,
+          "PRE": 1
+        },
+        "11": {
+          "POST": 5,
+          "PRE": 1
+        },
+        "12": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "13": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 2,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Nada realmente, solo me hizo dar cuenta de la importancia de que los países se pongan de acuerdo para solucionar el problema",
+          "PRE": null
+        },
+        "17": {
+          "POST": "3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "Poder ponerme del lado de las empresas petroleras y hacer argumentos con los que nunca estaría de acuerdo",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "MQ3": {
+        "1": {
+          "POST": 4,
+          "PRE": null
+        },
+        "4": {
+          "POST": 4,
+          "PRE": null
+        },
+        "5": {
+          "POST": 5,
+          "PRE": null
+        },
+        "6": {
+          "POST": 4,
+          "PRE": null
+        },
+        "7": {
+          "POST": 2,
+          "PRE": null
+        },
+        "10": {
+          "POST": 1,
+          "PRE": null
+        },
+        "11": {
+          "POST": 2,
+          "PRE": null
+        },
+        "12": {
+          "POST": 5,
+          "PRE": null
+        },
+        "13": {
+          "POST": 5,
+          "PRE": null
+        },
+        "14": {
+          "POST": 1,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Si bien conozco la complejidad de las negociaciones, el taller deja mayor evidencia de dicha complejidad",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA",
+          "PRE": null
+        },
+        "18": {
+          "POST": "La seriedad  de las reflexiones finales de todos los participantes",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "MS3": {
+        "0": {
+          "POST": null,
+          "PRE": null
+        },
+        "1": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": null
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 2,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "6": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "7": {
+          "POST": 3,
+          "PRE": 4
+        },
+        "8": {
+          "POST": null,
+          "PRE": "no"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 4
+        },
+        "10": {
+          "POST": 3,
+          "PRE": 2
+        },
+        "11": {
+          "POST": 4,
+          "PRE": 2
+        },
+        "12": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "13": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 3,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Es mas inminente de lo que uno suele imaginar",
+          "PRE": null
+        },
+        "17": {
+          "POST": "3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "La actividad de rol",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 4,
+          "PRE": null
+        }
+      },
+      "NC31": {
+        "0": {
+          "POST": null,
+          "PRE": "Brevemente, que se da por la eliminación de GEI a la atmosfera, produciendo asi un desequilibrio a nivel climatico"
+        },
+        "1": {
+          "POST": null,
+          "PRE": 4
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Que tenemos que luchar para que no siga avanzando"
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": null,
+          "PRE": 4
+        },
+        "5": {
+          "POST": null,
+          "PRE": 5
+        },
+        "6": {
+          "POST": null,
+          "PRE": 4
+        },
+        "7": {
+          "POST": null,
+          "PRE": 2
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No vi"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 4
+        },
+        "10": {
+          "POST": null,
+          "PRE": 2
+        },
+        "11": {
+          "POST": null,
+          "PRE": 2
+        },
+        "12": {
+          "POST": null,
+          "PRE": 2
+        },
+        "13": {
+          "POST": null,
+          "PRE": 5
+        }
+      },
+      "NQ9": {
+        "1": {
+          "POST": 2,
+          "PRE": null
+        },
+        "4": {
+          "POST": 4,
+          "PRE": null
+        },
+        "5": {
+          "POST": 5,
+          "PRE": null
+        },
+        "6": {
+          "POST": 4,
+          "PRE": null
+        },
+        "7": {
+          "POST": 4,
+          "PRE": null
+        },
+        "10": {
+          "POST": 2,
+          "PRE": null
+        },
+        "11": {
+          "POST": 5,
+          "PRE": null
+        },
+        "12": {
+          "POST": 5,
+          "PRE": null
+        },
+        "13": {
+          "POST": 5,
+          "PRE": null
+        },
+        "14": {
+          "POST": 2,
+          "PRE": null
+        },
+        "15": {
+          "POST": 2,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Reafirmé lo que creía",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA",
+          "PRE": null
+        },
+        "18": {
+          "POST": "Poder ver resultados cuantificables",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 4,
+          "PRE": null
+        }
+      },
+      "OB4": {
+        "0": {
+          "POST": null,
+          "PRE": "Mi formación es ambiental con lo cual dispongo de las herramientas necesarias para hablar del tema, comprender las problemáticas que lo involucran y poder participar en las posibles acciones a implementar para afrontar la problemática "
+        },
+        "1": {
+          "POST": null,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Que es una problemática que requiere el compromiso de todos los países pero no de igual manera, sino en base al aporte que cada uno hace a la problemática y a las condiciones económicas y financieras de cada uno. "
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": null,
+          "PRE": 4
+        },
+        "5": {
+          "POST": null,
+          "PRE": 5
+        },
+        "6": {
+          "POST": null,
+          "PRE": 3
+        },
+        "7": {
+          "POST": null,
+          "PRE": 5
+        },
+        "8": {
+          "POST": null,
+          "PRE": "no"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 5
+        },
+        "10": {
+          "POST": null,
+          "PRE": 2
+        },
+        "11": {
+          "POST": null,
+          "PRE": 4
+        },
+        "12": {
+          "POST": null,
+          "PRE": 4
+        },
+        "13": {
+          "POST": null,
+          "PRE": 5
+        }
+      },
+      "PC10": {
+        "0": {
+          "POST": null,
+          "PRE": "Es un proceso que se da por el calentamiento global y que cada vez esta ocurriendo con mayor gravedad. Si no se acciona con rapidez para que frene, la temperatura del planeta va a aumentar a un nivel sin retorno, que seria catastrófico para nuestro planeta y supervivencia. "
+        },
+        "1": {
+          "POST": 4,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Es grave y hay que accionar para frenarlo."
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 4,
+          "PRE": 5
+        },
+        "6": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "7": {
+          "POST": 4,
+          "PRE": 5
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No la vi"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 5
+        },
+        "10": {
+          "POST": 2,
+          "PRE": 5
+        },
+        "11": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "12": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "13": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "14": {
+          "POST": 1,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Mi opinión sobre el cambio climático no cambio mucho. Sigo pensando que es un tema de urgencia mundial y me voy dispuesta a seguir contribuyendo desde mi lugar lo que más pueda, y decidida a seguir involucrándome",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA",
+          "PRE": null
+        },
+        "18": {
+          "POST": "La seriedad con la que se trato el tema y el compromiso de todos los participantes. También el poder experimentar como se llevan a cabo las negociaciones y acuerdos en el ámbito real",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "PM3": {
+        "0": {
+          "POST": null,
+          "PRE": null
+        },
+        "1": {
+          "POST": null,
+          "PRE": 2
+        },
+        "2": {
+          "POST": null,
+          "PRE": null
+        },
+        "3": {
+          "POST": null,
+          "PRE": 4
+        },
+        "4": {
+          "POST": null,
+          "PRE": 4
+        },
+        "5": {
+          "POST": null,
+          "PRE": 5
+        },
+        "6": {
+          "POST": null,
+          "PRE": 4
+        },
+        "7": {
+          "POST": null,
+          "PRE": 1
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No la vi"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 4
+        },
+        "10": {
+          "POST": null,
+          "PRE": 5
+        },
+        "11": {
+          "POST": null,
+          "PRE": 2
+        },
+        "12": {
+          "POST": null,
+          "PRE": 4
+        },
+        "13": {
+          "POST": null,
+          "PRE": 2
+        }
+      },
+      "PO5": {
+        "0": {
+          "POST": null,
+          "PRE": "el cambio climatico es un problema determinado por el elevada cantidad de CO2    producida en el ultimo siglo por el humanidad. de hecho se aumenta el peso del efecto invernadero que trae mas arriba la temperatura del mundo."
+        },
+        "1": {
+          "POST": null,
+          "PRE": 4
+        },
+        "2": {
+          "POST": null,
+          "PRE": "yo creo que tenemos que intervenir en una forma mas importante por qué en el lugar donde estamos llegando vamos a extrañar el viejo mundo "
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": null,
+          "PRE": 4
+        },
+        "5": {
+          "POST": null,
+          "PRE": 5
+        },
+        "6": {
+          "POST": null,
+          "PRE": 3
+        },
+        "7": {
+          "POST": null,
+          "PRE": 5
+        },
+        "8": {
+          "POST": null,
+          "PRE": "no "
+        },
+        "9": {
+          "POST": null,
+          "PRE": 5
+        },
+        "10": {
+          "POST": null,
+          "PRE": 1
+        },
+        "11": {
+          "POST": null,
+          "PRE": 1
+        },
+        "12": {
+          "POST": null,
+          "PRE": 4
+        },
+        "13": {
+          "POST": null,
+          "PRE": 5
+        }
+      },
+      "PR11": {
+        "1": {
+          "POST": 4,
+          "PRE": null
+        },
+        "4": {
+          "POST": 4,
+          "PRE": null
+        },
+        "5": {
+          "POST": 5,
+          "PRE": null
+        },
+        "6": {
+          "POST": 4,
+          "PRE": null
+        },
+        "7": {
+          "POST": 2,
+          "PRE": null
+        },
+        "10": {
+          "POST": 2,
+          "PRE": null
+        },
+        "11": {
+          "POST": 4,
+          "PRE": null
+        },
+        "12": {
+          "POST": 5,
+          "PRE": null
+        },
+        "13": {
+          "POST": 5,
+          "PRE": null
+        },
+        "14": {
+          "POST": 2,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Creo que el tema es muy complejo pero hay esperanzas",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA",
+          "PRE": null
+        },
+        "18": {
+          "POST": "Me gusta que se generen debates y la dinámica del mismo.",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 4,
+          "PRE": null
+        }
+      },
+      "PS7": {
+        "0": {
+          "POST": null,
+          "PRE": "Es una consecuencia del aumento de la concentración de gases de efecto invernadero gracias a las emisiones de CO2, entre otros, a la atmósfera "
+        },
+        "1": {
+          "POST": null,
+          "PRE": 4
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Creo que el hombre tiene una fuerte influencia fluecia sobre el cambio climático y que debemos actuar urgentemente para mitigarlo"
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": null,
+          "PRE": 4
+        },
+        "5": {
+          "POST": null,
+          "PRE": 5
+        },
+        "6": {
+          "POST": null,
+          "PRE": 5
+        },
+        "7": {
+          "POST": null,
+          "PRE": 2
+        },
+        "8": {
+          "POST": null,
+          "PRE": "Vi fragmentos del documental"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 5
+        },
+        "10": {
+          "POST": null,
+          "PRE": 2
+        },
+        "11": {
+          "POST": null,
+          "PRE": 4
+        },
+        "12": {
+          "POST": null,
+          "PRE": 4
+        },
+        "13": {
+          "POST": null,
+          "PRE": 5
+        }
+      },
+      "RG7": {
+        "0": {
+          "POST": null,
+          "PRE": "Como esta ocurriendo debido al efecto invernadero producido por gases que generamos los humanos con nuestros avances. "
+        },
+        "1": {
+          "POST": 5,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Es algo que tiene que contrarestarce, y disminuir lo mas posible, ya que en estos momentos va a ser imposible evitarlo"
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 3,
+          "PRE": 4
+        },
+        "6": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "7": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 5
+        },
+        "10": {
+          "POST": 4,
+          "PRE": 5
+        },
+        "11": {
+          "POST": 4,
+          "PRE": 3
+        },
+        "12": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "13": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 1,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "En tener más en cuenta mínimas acciones personales y no pensar solo en como solucionar problemas colectivos.",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA, 3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "Toda la simulación y seriedad",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "SB9": {
+        "1": {
+          "POST": 3,
+          "PRE": null
+        },
+        "4": {
+          "POST": 4,
+          "PRE": null
+        },
+        "5": {
+          "POST": 3,
+          "PRE": null
+        },
+        "6": {
+          "POST": 4,
+          "PRE": null
+        },
+        "7": {
+          "POST": 3,
+          "PRE": null
+        },
+        "10": {
+          "POST": 1,
+          "PRE": null
+        },
+        "11": {
+          "POST": 3,
+          "PRE": null
+        },
+        "12": {
+          "POST": 4,
+          "PRE": null
+        },
+        "13": {
+          "POST": 5,
+          "PRE": null
+        },
+        "14": {
+          "POST": 2,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Mas que cambiar, ratifico que hay que generar un cambio cuanto antes",
+          "PRE": null
+        },
+        "17": {
+          "POST": "3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "Muy interesante ver como funciona el simulador, interactuar, negociar y llegar a acuerdos en conjunto",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "SB9_1": {
+        "1": {
+          "POST": 3,
+          "PRE": null
+        },
+        "4": {
+          "POST": 4,
+          "PRE": null
+        },
+        "5": {
+          "POST": 5,
+          "PRE": null
+        },
+        "6": {
+          "POST": 5,
+          "PRE": null
+        },
+        "7": {
+          "POST": 1,
+          "PRE": null
+        },
+        "10": {
+          "POST": 4,
+          "PRE": null
+        },
+        "11": {
+          "POST": 5,
+          "PRE": null
+        },
+        "12": {
+          "POST": 5,
+          "PRE": null
+        },
+        "13": {
+          "POST": 5,
+          "PRE": null
+        },
+        "14": {
+          "POST": 4,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "-",
+          "PRE": null
+        },
+        "17": {
+          "POST": "3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "La reflexión final",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "SC3": {
+        "0": {
+          "POST": null,
+          "PRE": null
+        },
+        "1": {
+          "POST": null,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": null
+        },
+        "3": {
+          "POST": null,
+          "PRE": 4
+        },
+        "4": {
+          "POST": null,
+          "PRE": 2
+        },
+        "5": {
+          "POST": null,
+          "PRE": 4
+        },
+        "6": {
+          "POST": null,
+          "PRE": 4
+        },
+        "7": {
+          "POST": null,
+          "PRE": 2
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 4
+        },
+        "10": {
+          "POST": null,
+          "PRE": 2
+        },
+        "11": {
+          "POST": null,
+          "PRE": 4
+        },
+        "12": {
+          "POST": null,
+          "PRE": 5
+        },
+        "13": {
+          "POST": null,
+          "PRE": 2
+        }
+      },
+      "SC9": {
+        "0": {
+          "POST": null,
+          "PRE": null
+        },
+        "1": {
+          "POST": null,
+          "PRE": 2
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Opino que no se le está otorgando la importancia que requiere. Que se lo desconoce tanto por ignorancia como por negligencia. Y creo que el primer paso a llevar a cabo siempre debe ser la educación al respecto. Porque se desconoce muchisimo sobre el tema y para lograr que se realicen cambios es necesario primero informar para que se vea la necesidad de realizar dichos cambios."
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": null,
+          "PRE": 4
+        },
+        "5": {
+          "POST": null,
+          "PRE": 5
+        },
+        "6": {
+          "POST": null,
+          "PRE": 5
+        },
+        "7": {
+          "POST": null,
+          "PRE": 1
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No la vi"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 5
+        },
+        "10": {
+          "POST": null,
+          "PRE": 4
+        },
+        "11": {
+          "POST": null,
+          "PRE": 4
+        },
+        "12": {
+          "POST": null,
+          "PRE": 5
+        },
+        "13": {
+          "POST": null,
+          "PRE": 5
+        }
+      },
+      "SP3": {
+        "0": {
+          "POST": null,
+          "PRE": "estoy lejos de ser una experta en el tema pero me preocupa e intento mantenerme informada y tener una conducta ambientalmente responsable."
+        },
+        "1": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": "es una realidad y debemos generar estrategias paliativas para sus efectos de manera urgente."
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "6": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "7": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "8": {
+          "POST": null,
+          "PRE": "no la ví"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 3
+        },
+        "10": {
+          "POST": 1,
+          "PRE": 2
+        },
+        "11": {
+          "POST": 3,
+          "PRE": 2
+        },
+        "12": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "13": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 3,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "No la cambié, la reforcé",
+          "PRE": null
+        },
+        "17": {
+          "POST": "1. USA, 3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "La interacción de la segunda ronda de negociaciones",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "VC11": {
+        "0": {
+          "POST": null,
+          "PRE": "No mucho, me gustaría saber mas. Se que es urgente, que hay que actuar de forma inmediata y tomar distintas medidas. Desde disminuir consumo de petróleo y otros gases, a bajar la contaminación (de todos los ambientes) y gastar menos energía y reciclar."
+        },
+        "1": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": "Me preocupa y molesta que a mucha gente no le importe/no \"crea\". "
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "6": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "7": {
+          "POST": 3,
+          "PRE": 2
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 4
+        },
+        "10": {
+          "POST": 1,
+          "PRE": 2
+        },
+        "11": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "12": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "13": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 4,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Me voy habiéndome propuesto hacer más cosas yo personalmente",
+          "PRE": null
+        },
+        "17": {
+          "POST": "3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "Poder ver en la simulación el impacto y generar redes para ayudar a mitigarlo",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "VP4": {
+        "0": {
+          "POST": null,
+          "PRE": "Es un problema importante de la actualidad ya que si sigue aumentando la temperatura se producirán desbalances en cuanto al ambiente de los cuales pueden derivar serios problemas."
+        },
+        "1": {
+          "POST": 4,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": null
+        },
+        "3": {
+          "POST": null,
+          "PRE": 4
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "6": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "7": {
+          "POST": 4,
+          "PRE": 2
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No."
+        },
+        "9": {
+          "POST": null,
+          "PRE": 5
+        },
+        "10": {
+          "POST": 2,
+          "PRE": 4
+        },
+        "11": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "12": {
+          "POST": 5,
+          "PRE": 3
+        },
+        "13": {
+          "POST": 4,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 1,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Necesidad de actuar antes.\nLa necesidad de divulgarlo.\nLo manipulables que son los encuentros",
+          "PRE": null
+        },
+        "17": {
+          "POST": "3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "La dinamica del juego de roles me pareció excelente, se pudo lograr con mucha seriedad. Las conclusiones finales me parecieron muy acertadas. La introduccion fue muy buena. El trato entre \"coordinadores\" y participantes fue excelente",
+          "PRE": null
+        },
+        "19": {
+          "POST": 5,
+          "PRE": null
+        },
+        "20": {
+          "POST": 5,
+          "PRE": null
+        }
+      },
+      "VP5": {
+        "0": {
+          "POST": null,
+          "PRE": null
+        },
+        "1": {
+          "POST": 3,
+          "PRE": 3
+        },
+        "2": {
+          "POST": null,
+          "PRE": null
+        },
+        "3": {
+          "POST": null,
+          "PRE": 5
+        },
+        "4": {
+          "POST": 4,
+          "PRE": 4
+        },
+        "5": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "6": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "7": {
+          "POST": 3,
+          "PRE": 5
+        },
+        "8": {
+          "POST": null,
+          "PRE": "No"
+        },
+        "9": {
+          "POST": null,
+          "PRE": 4
+        },
+        "10": {
+          "POST": 2,
+          "PRE": 4
+        },
+        "11": {
+          "POST": 4,
+          "PRE": 3
+        },
+        "12": {
+          "POST": 5,
+          "PRE": 4
+        },
+        "13": {
+          "POST": 5,
+          "PRE": 5
+        },
+        "14": {
+          "POST": 4,
+          "PRE": null
+        },
+        "15": {
+          "POST": 5,
+          "PRE": null
+        },
+        "16": {
+          "POST": "Es todavía más importante y los cambios a implementar deben ser más decisivos",
+          "PRE": null
+        },
+        "17": {
+          "POST": "3.China",
+          "PRE": null
+        },
+        "18": {
+          "POST": "La dinámica de las negociaciones",
+          "PRE": null
+        },
+        "19": {
+          "POST": 4,
+          "PRE": null
+        },
+        "20": {
+          "POST": 4,
+          "PRE": null
+        }
+      }
+    },
+    "d": {
+      "d": 10,
+      "m": 5,
+      "y": 2019
+    },
+    "id": 0,
+    "n": "ITBA10-WCE"
+  }
+]
