@@ -101,6 +101,38 @@ const BORDERS = {
   }
 };
 
+function formatAlternatingCells(sheet, rangeRows, fills) {
+  let count = 0;
+  for (let range of rangeRows) {
+    let cell = sheet.getRow(range.from).getCell(1);
+
+    let fillNumber = count;
+    fillNumber %= fills.length;
+    let fillColor = fills[fillNumber];
+
+    cell.border = {
+      top: BORDER_STYLES.thick,
+      left: BORDER_STYLES.thin,
+      bottom: BORDER_STYLES.thin,
+      right: BORDER_STYLES.thick
+    };
+    cell.fill = fillColor;
+
+    for (let i = range.from + 1; i < range.to; i++) {
+      let cell = sheet.getRow(i).getCell(1);
+      cell.border = {
+        top: BORDER_STYLES.thin,
+        left: BORDER_STYLES.thin,
+        bottom: BORDER_STYLES.thin,
+        right: BORDER_STYLES.thick
+      };
+      cell.fill = fillColor;
+    }
+
+    count++;
+  }
+}
+
 export default {
   async exportEndpoints(options, questions, endpoints) {
     if (
@@ -121,7 +153,7 @@ export default {
       await this._exportGraphs(sheet, questions, endpoints);
     }
     if (options.sheets.includes("workshops")) {
-      let sheet = workbook.addWorksheet("All Workshops");
+      let sheet = workbook.addWorksheet("All Data");
       await this._exportAllWorkshops(sheet, questions, endpoints);
     }
 
@@ -145,7 +177,6 @@ export default {
     ];
 
     let savedQuestionIds = [];
-    let questionsData = {};
     for (let question of questions) {
       if (question.t !== "c") continue;
 
@@ -159,7 +190,6 @@ export default {
       });
 
       savedQuestionIds.push(question.id);
-      questionsData[question.id] = { pre_: [], post_: [] };
     }
 
     sheet.columns = columns;
@@ -222,7 +252,8 @@ export default {
         sheet.getColumn(type + questionId).eachCell((cell, rowNumber) => {
           if (rowNumber >= 4) {
             try {
-              data.push(Number(cell.value));
+              let n = Number(cell.value);
+              if (!isNaN(n)) data.push(n);
             } catch (e) {
               console.error(e);
             }
@@ -270,65 +301,8 @@ export default {
       right: BORDER_STYLES.thin
     };
 
-    let endpointCount = 0;
-    for (let endpointRange of endpointRows) {
-      let cell = sheet.getRow(endpointRange.from).getCell(1);
-
-      let fillNumber = endpointCount;
-      fillNumber %= FILLS.endpoints.length;
-      let fillColor = FILLS.endpoints[fillNumber];
-
-      cell.border = {
-        top: BORDER_STYLES.thick,
-        left: BORDER_STYLES.thin,
-        bottom: BORDER_STYLES.thin,
-        right: BORDER_STYLES.thick
-      };
-      cell.fill = fillColor;
-
-      for (let i = endpointRange.from + 1; i < endpointRange.to; i++) {
-        let cell = sheet.getRow(i).getCell(1);
-        cell.border = {
-          top: BORDER_STYLES.thin,
-          left: BORDER_STYLES.thin,
-          bottom: BORDER_STYLES.thin,
-          right: BORDER_STYLES.thick
-        };
-        cell.fill = fillColor;
-      }
-
-      endpointCount++;
-    }
-
-    let workshopCount = 0;
-    for (let workshopRange of workshopRows) {
-      let cell = sheet.getRow(workshopRange.from).getCell(2);
-
-      let fillNumber = workshopCount;
-      fillNumber %= FILLS.workshops.length;
-      let fillColor = FILLS.workshops[fillNumber];
-
-      cell.border = {
-        top: BORDER_STYLES.thick,
-        left: BORDER_STYLES.thick,
-        bottom: BORDER_STYLES.thin,
-        right: BORDER_STYLES.thick
-      };
-      cell.fill = fillColor;
-
-      for (let i = workshopRange.from + 1; i < workshopRange.to; i++) {
-        let cell = sheet.getRow(i).getCell(2);
-        cell.border = {
-          top: BORDER_STYLES.thin,
-          left: BORDER_STYLES.thick,
-          bottom: BORDER_STYLES.thin,
-          right: BORDER_STYLES.thick
-        };
-        cell.fill = fillColor;
-      }
-
-      workshopCount++;
-    }
+    formatAlternatingCells(sheet, endpointRows, FILLS.endpoints);
+    formatAlternatingCells(sheet, workshopRows, FILLS.workshops);
 
     let IDColumn = sheet.getColumn(3);
     IDColumn.eachCell((cell, rowNumber) => {
@@ -343,7 +317,290 @@ export default {
     });
   },
 
-  async _exportGraphs(sheet, questions, endpoints) {},
+  async _exportGraphs(sheet, questions, endpoints) {
+    let firstHeaderValues = ["---", "--- \\ Question"];
+    let secondHeaderValues = ["Endpoint", "Workshop \\ Statistic"];
+    let columns = [{ key: "e" }, { key: "w" }];
 
-  async _exportAllWorkshops(sheet, questions, endpoints) {}
+    let OPERATIONS = [
+      {
+        operation: jStat.mean,
+        name: "Mean",
+        id: "mean"
+      },
+      {
+        operation: jStat.median,
+        name: "Median",
+        id: "median"
+      },
+      {
+        operation: jStat.max,
+        name: "Max",
+        id: "max"
+      },
+      {
+        operation: jStat.min,
+        name: "Min",
+        id: "min"
+      },
+      {
+        operation: jStat.meddev,
+        name: "MAD",
+        id: "mad"
+      }
+    ];
+    let savedQuestionIds = [];
+    let questionsData = {};
+    for (let question of questions) {
+      if (question.t !== "c") continue;
+      firstHeaderValues.push("PRE: " + question.n);
+      for (let i = 1; i < OPERATIONS.length; i++) firstHeaderValues.push("");
+
+      firstHeaderValues.push("POST: " + question.n);
+      for (let i = 1; i < OPERATIONS.length; i++) firstHeaderValues.push("");
+
+      for (let operation of OPERATIONS) {
+        columns.push({
+          key: "pre_" + question.id + operation.id
+        });
+        secondHeaderValues.push(operation.name);
+      }
+      for (let operation of OPERATIONS) {
+        columns.push({
+          key: "post_" + question.id + operation.id
+        });
+        secondHeaderValues.push(operation.name);
+      }
+
+      savedQuestionIds.push(question.id);
+      questionsData["pre_" + question.id] = [];
+      questionsData["post_" + question.id] = [];
+    }
+
+    sheet.getRow(1).values = firstHeaderValues;
+    let startingCell = 3;
+    for (let _ of questions) {
+      sheet.mergeCells(
+        1,
+        startingCell,
+        1,
+        startingCell + OPERATIONS.length - 1
+      );
+      startingCell += OPERATIONS.length;
+    }
+
+    sheet.getRow(2).values = secondHeaderValues;
+    sheet.columns = columns;
+
+    let rows = 2;
+    let endpointRows = [];
+    let workshopRows = [];
+    for (let endpoint of endpoints) {
+      let endpointRowRange = {
+        from: rows + 1
+      };
+
+      for (let workshop of endpoint.workshops) {
+        let workshopRowRange = {
+          from: rows + 1
+        };
+        let row = {
+          e: endpoint.n,
+          w: workshop.n
+        };
+
+        for (let personResponse of workshop.r) {
+          for (let response of personResponse.r) {
+            if (!(response.q in savedQuestionIds)) continue;
+
+            let type = response.t === "PRE" ? "pre_" : "post_";
+            try {
+              let n = Number(response.v);
+              if (!isNaN(n)) questionsData[type + response.q].push(n);
+            } catch (e) {
+              console.error(e);
+            }
+          }
+        }
+
+        for (let questionId of savedQuestionIds) {
+          for (let operation of OPERATIONS) {
+            let preData = questionsData["pre_" + questionId];
+            let postData = questionsData["post_" + questionId];
+
+            if (preData.length === 0) preData.push(0);
+            if (postData.length === 0) postData.push(0);
+
+            row["pre_" + questionId + operation.id] = operation.operation(
+              preData
+            );
+            row["post_" + questionId + operation.id] = operation.operation(
+              postData
+            );
+
+            questionsData["pre_" + questionId] = [];
+            questionsData["post_" + questionId] = [];
+          }
+        }
+
+        sheet.addRow(row);
+        rows++;
+
+        workshopRowRange.to = rows + 1;
+        if (workshopRowRange.to !== workshopRowRange.from)
+          workshopRows.push(workshopRowRange);
+      }
+
+      endpointRowRange.to = rows + 1;
+      if (endpointRowRange.to !== endpointRowRange.from)
+        endpointRows.push(endpointRowRange);
+    }
+
+    // sheet.getRow(2).values = averageRowData;
+    // sheet.getRow(2).numFmt = "0.00";
+    // sheet.getRow(3).values = medianRowData;
+    // sheet.getRow(3).numFmt = "0";
+
+    sheet.eachRow((row, index) => {
+      row.border = BORDERS.allThin;
+      if (index >= 3) {
+        index -= 3;
+        index %= FILLS.row.length;
+        row.fill = FILLS.row[index];
+        row.numFmt = "0.00";
+      }
+    });
+
+    let row = sheet.getRow(1);
+    row.fill = FILLS.header;
+    row.border = {
+      top: BORDER_STYLES.thin,
+      bottom: BORDER_STYLES.thin,
+      left: BORDER_STYLES.thin,
+      right: BORDER_STYLES.thick
+    };
+    row = sheet.getRow(2);
+    row.fill = FILLS.header;
+    row.border = {
+      top: BORDER_STYLES.thin,
+      bottom: BORDER_STYLES.thick,
+      left: BORDER_STYLES.thin,
+      right: BORDER_STYLES.thin
+    };
+    row.eachCell((cell, colNumber) => {
+      if (colNumber < 3 || (colNumber - 2) % 5 === 0) {
+        cell.border = {
+          top: BORDER_STYLES.thin,
+          bottom: BORDER_STYLES.thick,
+          left: BORDER_STYLES.thin,
+          right: BORDER_STYLES.thick
+        };
+      }
+    });
+
+    formatAlternatingCells(sheet, endpointRows, FILLS.endpoints);
+    formatAlternatingCells(sheet, workshopRows, FILLS.workshops);
+  },
+
+  async _exportAllWorkshops(sheet, questions, endpoints) {
+    let columns = [
+      {
+        header: "Endpoint",
+        key: "e"
+      },
+      {
+        header: "Workshop",
+        key: "w"
+      },
+      {
+        header: "ID",
+        key: "id"
+      }
+    ];
+
+    for (let question of questions) {
+      columns.push({
+        header: "PRE: " + question.n,
+        key: "pre_" + question.id
+      });
+      columns.push({
+        header: "POST: " + question.n,
+        key: "post_" + question.id
+      });
+    }
+
+    sheet.columns = columns;
+
+    let rows = 1;
+    let endpointRows = [];
+    let workshopRows = [];
+    for (let endpoint of endpoints) {
+      let endpointRowRange = {
+        from: rows + 1
+      };
+
+      for (let workshop of endpoint.workshops) {
+        let workshopRowRange = {
+          from: rows + 1
+        };
+
+        for (let personResponse of workshop.r) {
+          let row = {
+            e: endpoint.n,
+            w: workshop.n,
+            id: personResponse.p
+          };
+
+          for (let response of personResponse.r) {
+            let type = response.t === "PRE" ? "pre_" : "post_";
+            row[type + response.q] = response.v;
+          }
+
+          sheet.addRow(row);
+          rows++;
+        }
+
+        workshopRowRange.to = rows + 1;
+        if (workshopRowRange.to !== workshopRowRange.from)
+          workshopRows.push(workshopRowRange);
+      }
+
+      endpointRowRange.to = rows + 1;
+      if (endpointRowRange.to !== endpointRowRange.from)
+        endpointRows.push(endpointRowRange);
+    }
+
+    sheet.eachRow((row, index) => {
+      row.border = BORDERS.allThin;
+      if (index >= 2) {
+        index -= 2;
+        index %= FILLS.row.length;
+        row.fill = FILLS.row[index];
+      }
+    });
+
+    let row = sheet.getRow(1);
+    row.fill = FILLS.header;
+    row.border = {
+      top: BORDER_STYLES.thin,
+      bottom: BORDER_STYLES.thick,
+      left: BORDER_STYLES.thin,
+      right: BORDER_STYLES.thin
+    };
+
+    formatAlternatingCells(sheet, endpointRows, FILLS.endpoints);
+    formatAlternatingCells(sheet, workshopRows, FILLS.workshops);
+
+    let IDColumn = sheet.getColumn(3);
+    IDColumn.eachCell((cell, rowNumber) => {
+      if (rowNumber >= 4) {
+        cell.border = {
+          right: BORDER_STYLES.thick,
+          left: BORDER_STYLES.thin,
+          top: BORDER_STYLES.thin,
+          bottom: BORDER_STYLES.thin
+        };
+      }
+    });
+  }
 };
