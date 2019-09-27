@@ -654,7 +654,7 @@ export default {
   //   [this.defaultValue.value]: { required, integer },
   //   [this.defaultValue.description]: { required, minLength: minLength(3), maxLength: maxLength(30) }
   // },
-  async created() {
+  async mounted() {
     this.items = await this.$store.state.dataStore.getQuestions();
   },
   computed: {

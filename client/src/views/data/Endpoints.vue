@@ -120,7 +120,7 @@ export default {
       });
     }
   },
-  async created() {
+  async mounted() {
     this.$store.state.loading = true;
 
     this.items = await this.$store.state.dataStore.getEndpoints();

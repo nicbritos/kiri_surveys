@@ -54,7 +54,7 @@ export default {
       items: []
     };
   },
-  async created() {
+  async mounted() {
     this.$store.state.loading = true;
 
     this.items = await this.$store.state.dataStore.getUsers();

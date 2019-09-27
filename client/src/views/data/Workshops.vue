@@ -80,7 +80,7 @@ export default {
       breadcrumbs: [Object.assign({}, routes.breadcrumbs.endpoints)]
     };
   },
-  async created() {
+  async mounted() {
     this.$store.state.loading = true;
 
     let endpoint = await this.$store.state.dataStore.getEndpointByID(
