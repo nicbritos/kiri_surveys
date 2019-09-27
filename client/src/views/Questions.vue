@@ -255,15 +255,17 @@
     </v-dialog>
 
     <v-dialog v-model="dialogs.selected.delete" max-width="700px">
-      <v-card>
+      <v-card><v-card-title>
+          <span class="headline"
+          >Are you sure you want to delete
+            <span class="red--text">{{ selectedItems.length }}</span>
+            Question{{ selectedItems.length > 1 ? "s" : "" }}?</span
+          >
+      </v-card-title>
         <v-card-text>
-          <v-card-title>
-            <span class="headline"
-              >Are you sure you want to delete
-              <span class="red--text">{{ selectedItems.length }}</span>
-              Question{{ selectedItems.length > 1 ? "s" : ""}}?</span
-            >
-          </v-card-title>
+          <span class="subtitle-1 red--text"
+          >This action cannot be undone.</span
+          >
         </v-card-text>
 
         <v-card-actions>
