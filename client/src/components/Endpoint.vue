@@ -16,6 +16,7 @@
     <v-card-actions>
       <v-checkbox
         color="primary"
+        v-blur
         @change="onChange($event)"
         :input-value="selected"
         hide-details
@@ -24,7 +25,7 @@
       >
       </v-checkbox>
       <v-spacer></v-spacer>
-      <v-btn text color="primary">
+      <v-btn text color="primary" v-blur @click="onEdit()">
         Edit
       </v-btn>
     </v-card-actions>
@@ -35,7 +36,7 @@
 export default {
   name: "Endpoint",
   model: {
-    event: "update"
+    events: ["update", "edit"]
   },
   props: {
     value: {
@@ -62,8 +63,12 @@ export default {
     getRoute() {
       return this.$router.currentRoute.path + "/" + this.endpointId;
     },
+
     onChange(value) {
       this.$emit("update", value);
+    },
+    onEdit() {
+      this.$emit("edit", "");
     }
   }
 };
