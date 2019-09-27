@@ -155,7 +155,7 @@ export default {
     }
 
     this.$store.dispatch("setWindowWidth");
-    this.$store.state.loading = false;
+    this.$store.state.loading = true;
 
     database.onAuthStateChanged(async user => {
       if (user) {
