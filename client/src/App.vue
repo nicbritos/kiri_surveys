@@ -16,29 +16,25 @@
         </v-list-item>
       </v-list>
       <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          router
-          :to="item.to"
-          exact
-          ripple
-        >
-          <v-list-item-action>
-            <v-icon v-html="item.icon" />
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-          <v-spacer />
-          <v-chip
-            disabled
-            color="warning"
-            class="x-small white--text"
-            v-if="item.chip"
-            >{{ item.chip }}</v-chip
-          >
-        </v-list-item>
+        <div v-for="(item, i) in items" :key="i">
+          <v-list-item router :to="item.to" exact ripple>
+            <v-list-item-action>
+              <v-icon v-html="item.icon" />
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title" />
+            </v-list-item-content>
+            <v-spacer />
+            <v-chip
+              disabled
+              color="warning"
+              class="x-small white--text"
+              v-if="item.chip"
+              >{{ item.chip }}</v-chip
+            >
+          </v-list-item>
+          <v-divider></v-divider>
+        </div>
       </v-list>
     </v-navigation-drawer>
 
