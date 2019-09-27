@@ -58,6 +58,7 @@ class DataStore {
 
   async _loadWorkshops(endpointId) {
     // TODO: Handle errors
+    endpointId = String(endpointId);
     await this._loadEndpoints();
     if (this._workshopsLoaded[endpointId] === true) return;
 
@@ -78,6 +79,9 @@ class DataStore {
 
   async _loadResponses(endpointId, workshopId) {
     // TODO: Handle errors
+    endpointId = String(endpointId);
+    workshopId = String(workshopId);
+
     await this._loadEndpoints();
     await this._loadWorkshops(endpointId);
     if (
@@ -107,6 +111,7 @@ class DataStore {
       responsesEndpointWorkshop[personId] = personResponses;
 
       for (let questionId of Object.keys(personResponses)) {
+        questionId = String(questionId);
         let responses = personResponses[questionId];
 
         let outputPre = {
@@ -206,18 +211,18 @@ class DataStore {
 
   async getEndpointByID(endpointId) {
     await this._loadEndpoints();
-    return this._endpointsMap[endpointId];
+    return this._endpointsMap[String(endpointId)];
   }
 
   async getWorkshops(endpointId) {
     await this._loadWorkshops(endpointId);
-    return this._endpointsMap[endpointId].w;
+    return this._endpointsMap[String(endpointId)].w;
   }
 
   async getWorkshopByID(endpointId, workshopId) {
     await this._loadWorkshops(endpointId);
-    let workshopMap = this._workshopsMap[endpointId];
-    return workshopMap != null ? workshopMap[workshopId] : undefined;
+    let workshopMap = this._workshopsMap[String(endpointId)];
+    return workshopMap != null ? workshopMap[String(workshopId)] : undefined;
   }
 
   async getQuestions() {
@@ -225,20 +230,18 @@ class DataStore {
     return this.questions;
   }
 
-  async getQuestionByID(questionId) {
-    await this._loadQuestions();
-    return this._questionsMap[questionId];
+  getQuestionByID(questionId) {
+    return this._questionsMap[String(questionId)];
   }
 
-  async getQuestionValueDescriptionByID(questionId, value) {
-    await this._loadQuestions();
-    let questionValues = this._questionsValueMap[questionId];
+  getQuestionValueDescriptionByID(questionId, value) {
+    let questionValues = this._questionsValueMap[String(questionId)];
     return questionValues != null ? questionValues[value] : undefined;
   }
 
   async getResponses(endpointId, workshopId) {
     await this._loadResponses(endpointId, workshopId);
-    return this._workshopsMap[endpointId][workshopId].r;
+    return this._workshopsMap[String(endpointId)][String(workshopId)].r;
   }
 
   async getUsers() {
@@ -248,7 +251,7 @@ class DataStore {
 
   async getUser(userId) {
     await this._loadUsers();
-    return this._usersMap[userId];
+    return this._usersMap[String(userId)];
   }
 }
 

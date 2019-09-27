@@ -325,15 +325,24 @@
               ></v-checkbox>
             </template>
 
-            <template v-slot:item.v="{ item }"
-              ><v-tooltip left v-if="getQuestion(item.q).t === 'c'">
+            <template v-slot:item.v="{ item }">
+              <div
+                v-if="
+                  item.v == null ||
+                    (typeof item.v === 'string' && item.v.length === 0)
+                "
+                class="text--secondary"
+              >
+                N/A
+              </div>
+              <v-tooltip left v-else-if="getQuestion(item.q).t === 'c'">
                 <template v-slot:activator="{ on }">
                   <div v-on="on">{{ item.v }}</div>
                 </template>
                 <span> {{ getQuestionValueDescription(item.q, item.v) }}</span>
               </v-tooltip>
               <div v-else>
-                {{ item.v == null || item.v.length === 0 ? "N/A" : item.v }}
+                {{ item.v }}
               </div>
             </template>
 
@@ -503,24 +512,25 @@ export default {
       return errors;
     }
   },
-  async created() {
+  async mounted() {
     this.$store.state.loading = true;
 
+    await this.$store.state.dataStore._loadQuestions();
     let endpointId = this.$router.currentRoute.params.eid;
     let endpointBreadcrumb = Object.assign({}, routes.breadcrumbs.sample);
-    endpointBreadcrumb.text = await this.$store.state.dataStore.getEndpointByID(
+    endpointBreadcrumb.text = (await this.$store.state.dataStore.getEndpointByID(
       endpointId
-    ).n;
+    )).n;
     endpointBreadcrumb.disabled = false;
     endpointBreadcrumb.to = routes.router.endpoints.path + "/" + endpointId;
     this.breadcrumbs.push(endpointBreadcrumb);
 
     let workshopId = this.$router.currentRoute.params.wid;
     let workshopBreadcrumb = Object.assign({}, routes.breadcrumbs.sample);
-    workshopBreadcrumb.text = await this.$store.state.dataStore.getWorkshopByID(
+    workshopBreadcrumb.text = (await this.$store.state.dataStore.getWorkshopByID(
       endpointId,
       workshopId
-    ).n;
+    )).n;
     this.breadcrumbs.push(workshopBreadcrumb);
 
     let responses = await this.$store.state.dataStore.getResponses(
@@ -637,11 +647,11 @@ export default {
       if (item[type]) item[type] = false;
     },
 
-    async getQuestion(questionId) {
-      return await this.$store.state.dataStore.getQuestionByID(questionId);
+    getQuestion(questionId) {
+      return this.$store.state.dataStore.getQuestionByID(questionId);
     },
-    async getQuestionValueDescription(questionId, value) {
-      return await this.$store.state.dataStore.getQuestionValueDescriptionByID(
+    getQuestionValueDescription(questionId, value) {
+      return this.$store.state.dataStore.getQuestionValueDescriptionByID(
         questionId,
         value
       );
