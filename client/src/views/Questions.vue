@@ -10,19 +10,20 @@
               </v-col>
             </v-row>
 
-            <v-row>
+            <v-row dense>
               <v-col>
                 <v-text-field
-                  v-model="newItem.name"
+                  v-model="newItem.n"
                   label="Name"
+                  clearable
                   :error-messages="questionNameErrors"
                 ></v-text-field>
               </v-col>
             </v-row>
-            <v-row>
+            <v-row dense>
               <v-col>
                 <v-checkbox
-                  v-model="newItem.measurable"
+                  v-model="newItem.m"
                   label="Measurable"
                   color="primary"
                 ></v-checkbox>
@@ -30,17 +31,8 @@
 
               <v-col>
                 <v-checkbox
-                  v-model="newItem.feedback"
+                  v-model="newItem.f"
                   label="Feedback"
-                  color="primary"
-                ></v-checkbox>
-              </v-col>
-
-              <v-col>
-                <v-checkbox
-                  v-model="newItem.answered"
-                  label="Answered"
-                  :disabled="true"
                   color="primary"
                 ></v-checkbox>
               </v-col>
@@ -75,8 +67,8 @@
             <v-row dense>
               <v-col>
                 <v-subheader class="ma-0 pa-0">
-                  From:
-                  {{ newItem.question != null ? newItem.question.name : "?" }}
+                  To question:
+                  {{ newItem.question != null ? newItem.question.n : "?" }}
                 </v-subheader>
               </v-col>
             </v-row>
@@ -86,14 +78,14 @@
                 <v-text-field
                   type="number"
                   min="1"
-                  v-model="newItem.value"
+                  v-model="newItem.v"
                   label="Value"
                   @input="verifyValueValueInput"
                 ></v-text-field>
               </v-col>
               <v-col>
                 <v-text-field
-                  v-model="newItem.description"
+                  v-model="newItem.d"
                   label="Description"
                   clearable
                 ></v-text-field>
@@ -128,25 +120,25 @@
               </v-col>
             </v-row>
 
-            <v-row>
+            <v-row dense>
               <v-col>
                 <v-text-field
-                  v-model="editedItemCopy.name"
+                  v-model="editedItemCopy.n"
                   label="Name"
                   clearable
                 ></v-text-field>
               </v-col>
             </v-row>
-            <v-row>
+            <v-row dense>
               <v-col>
-                <v-tooltip bottom :open-on-hover="editedItemCopy.answered">
+                <v-tooltip bottom :open-on-hover="editedItemCopy.a">
                   <template v-slot:activator="{ on }">
                     <div v-on="on">
                       <v-checkbox
-                        v-model="editedItemCopy.measurable"
+                        v-model="editedItemCopy.m"
                         label="Measurable"
                         color="primary"
-                        :disabled="editedItemCopy.answered"
+                        :disabled="editedItemCopy.a"
                       ></v-checkbox>
                     </div>
                   </template>
@@ -159,7 +151,7 @@
 
               <v-col>
                 <v-checkbox
-                  v-model="editedItemCopy.feedback"
+                  v-model="editedItemCopy.f"
                   label="Feedback"
                   color="primary"
                 ></v-checkbox>
@@ -167,7 +159,7 @@
 
               <v-col>
                 <v-checkbox
-                  v-model="editedItemCopy.answered"
+                  v-model="editedItemCopy.a"
                   label="Answered"
                   :disabled="true"
                   color="primary"
@@ -204,10 +196,10 @@
             <v-row dense>
               <v-col>
                 <v-subheader class="ma-0 pa-0">
-                  From:
+                  From question:
                   {{
                     editedItemCopy.question != null
-                      ? editedItemCopy.question.name
+                      ? editedItemCopy.question.n
                       : "?"
                   }}
                 </v-subheader>
@@ -216,16 +208,28 @@
 
             <v-row>
               <v-col cols="2">
-                <v-text-field
-                  type="number"
-                  min="1"
-                  v-model="editedItemCopy.value"
-                  label="Value"
-                ></v-text-field>
+                <v-tooltip bottom :open-on-hover="editedItemCopy.question != null && editedItemCopy.question.a">
+                  <template v-slot:activator="{ on }">
+                    <div v-on="on">
+                      <v-text-field
+                              type="number"
+                              min="1"
+                              v-model="editedItemCopy.v"
+                              label="Value"
+                              :disabled="editedItemCopy.question != null && editedItemCopy.question.a"
+                      ></v-text-field>
+                    </div>
+                  </template>
+                  <span
+                  >Cannot change Value if question has already been
+                    answered</span
+                  >
+                </v-tooltip>
+
               </v-col>
               <v-col>
                 <v-text-field
-                  v-model="editedItemCopy.description"
+                  v-model="editedItemCopy.d"
                   label="Description"
                   clearable
                 ></v-text-field>
@@ -257,7 +261,7 @@
             <span class="headline"
               >Are you sure you want to delete
               <span class="red--text">{{ selectedItems.length }}</span>
-              questions?</span
+              Question{{ selectedItems.length > 1 ? "s" : ""}}?</span
             >
           </v-card-title>
         </v-card-text>
