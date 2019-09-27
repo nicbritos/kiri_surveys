@@ -2,6 +2,13 @@
   <v-container grid-list-md>
     <v-dialog v-model="dialogs.items.new" max-width="700px">
       <v-card>
+        <v-img
+          class="white--text"
+          src="@/assets/endpoint_back_blue.png"
+          position="top center"
+          max-height="300"
+        >
+        </v-img>
         <v-card-text>
           <v-container fluid>
             <v-row>
@@ -49,6 +56,14 @@
 
     <v-dialog v-model="dialogs.items.edit" max-width="700px">
       <v-card>
+        <v-img
+          class="white--text"
+          src="@/assets/endpoint_back_blue.png"
+          position="top center"
+          max-height="300"
+        >
+        </v-img>
+
         <v-card-text>
           <v-container fluid>
             <v-row>
@@ -184,6 +199,7 @@
             :selected="selectedItems.includes(item)"
             @update="processSelection(item, $event)"
             @edit="editItemOpen(item)"
+            @share="shareItemOpen(item)"
           ></Endpoint>
         </v-col>
       </v-row>
@@ -202,7 +218,7 @@ export default {
       items: [],
       newItem: {},
       editedItemCopy: {},
-      defaultEndpoint: {
+      defaultItem: {
         name: "",
         description: ""
       },
@@ -235,7 +251,7 @@ export default {
   },
   methods: {
     newItemOpen() {
-      this.newItem = Object.assign({}, this.defaultEndpoint);
+      this.newItem = Object.assign({}, this.defaultItem);
       this.openDialog(this.dialogs.items, "new");
     },
     newItemClose() {
@@ -259,6 +275,9 @@ export default {
       this.selectedItems = [];
       this.closeDialog(this.dialogs.selected, "delete");
     },
+
+    shareItemOpen() {},
+    shareItemClose() {},
 
     openDialog(item, type) {
       if (item == null || type == null || item[type] == null) return;

@@ -25,8 +25,11 @@
       >
       </v-checkbox>
       <v-spacer></v-spacer>
-      <v-btn text color="primary">
-        Edit
+      <v-btn icon color="primary" v-blur @click="onShare()">
+        <v-icon>group</v-icon>
+      </v-btn>
+      <v-btn icon color="primary" v-blur @click="onEdit()">
+        <v-icon>create</v-icon>
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -38,7 +41,7 @@ import moment from "moment";
 export default {
   name: "Workshop",
   model: {
-    event: "update"
+    events: ["update", "edit", "share"]
   },
   props: {
     value: {
@@ -60,7 +63,7 @@ export default {
   },
   computed: {
     dateString() {
-      if (this.date == null) return "No date set";
+      if (this.date == null) return "Date not set";
       // moment.locale("en");
       return moment(new Date(this.date.y, this.date.m, this.date.d)).format(
         "dddd, MMMM Do YYYY"
@@ -74,8 +77,15 @@ export default {
     getRoute() {
       return this.$router.currentRoute.path + "/" + this.workshopId;
     },
+
     onChange(value) {
       this.$emit("update", value);
+    },
+    onEdit() {
+      this.$emit("edit", "");
+    },
+    onShare() {
+      this.$emit("share", "");
     }
   }
 };

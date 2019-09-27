@@ -25,8 +25,11 @@
       >
       </v-checkbox>
       <v-spacer></v-spacer>
-      <v-btn text color="primary" v-blur @click="onEdit()">
-        Edit
+      <v-btn icon color="primary" v-blur @click="onShare()">
+        <v-icon>group</v-icon>
+      </v-btn>
+      <v-btn icon color="primary" v-blur @click="onEdit()">
+        <v-icon>create</v-icon>
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -36,7 +39,7 @@
 export default {
   name: "Endpoint",
   model: {
-    events: ["update", "edit"]
+    events: ["update", "edit", "share"]
   },
   props: {
     value: {
@@ -69,6 +72,9 @@ export default {
     },
     onEdit() {
       this.$emit("edit", "");
+    },
+    onShare() {
+      this.$emit("share", "");
     }
   }
 };
