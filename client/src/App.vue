@@ -16,6 +16,7 @@
         </v-list-item>
       </v-list>
       <v-list>
+        <v-divider></v-divider>
         <div v-for="(item, i) in items" :key="i">
           <v-list-item router :to="item.to" exact ripple>
             <v-list-item-action>
