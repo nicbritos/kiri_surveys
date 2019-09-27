@@ -28,7 +28,7 @@
             </v-row>
             <v-row dense>
               <v-col cols="auto">
-                <v-menu class="mr-4">
+                <v-menu class="mr-4" offset-y offset-overflow>
                   <template v-slot:activator="{ on }">
                     <v-btn
                       class="ma-0 pa-0"
@@ -116,7 +116,7 @@
             </v-row>
             <v-row dense>
               <v-col cols="auto">
-                <v-menu class="mr-4">
+                <v-menu class="mr-4" offset-y offset-overflow>
                   <template v-slot:activator="{ on }">
                     <v-btn
                       class="ma-0 pa-0"
