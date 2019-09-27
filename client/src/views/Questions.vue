@@ -208,24 +208,31 @@
 
             <v-row>
               <v-col cols="2">
-                <v-tooltip bottom :open-on-hover="editedItemCopy.question != null && editedItemCopy.question.a">
+                <v-tooltip
+                  bottom
+                  :open-on-hover="
+                    editedItemCopy.question != null && editedItemCopy.question.a
+                  "
+                >
                   <template v-slot:activator="{ on }">
                     <div v-on="on">
                       <v-text-field
-                              type="number"
-                              min="1"
-                              v-model="editedItemCopy.v"
-                              label="Value"
-                              :disabled="editedItemCopy.question != null && editedItemCopy.question.a"
+                        type="number"
+                        min="1"
+                        v-model="editedItemCopy.v"
+                        label="Value"
+                        :disabled="
+                          editedItemCopy.question != null &&
+                            editedItemCopy.question.a
+                        "
                       ></v-text-field>
                     </div>
                   </template>
                   <span
-                  >Cannot change Value if question has already been
+                    >Cannot change Value if question has already been
                     answered</span
                   >
                 </v-tooltip>
-
               </v-col>
               <v-col>
                 <v-text-field
@@ -255,16 +262,17 @@
     </v-dialog>
 
     <v-dialog v-model="dialogs.selected.delete" max-width="700px">
-      <v-card><v-card-title>
+      <v-card
+        ><v-card-title>
           <span class="headline"
-          >Are you sure you want to delete
+            >Are you sure you want to delete
             <span class="red--text">{{ selectedItems.length }}</span>
             Question{{ selectedItems.length > 1 ? "s" : "" }}?</span
           >
-      </v-card-title>
+        </v-card-title>
         <v-card-text>
           <span class="subtitle-1 red--text"
-          >This action cannot be undone.</span
+            >This action cannot be undone.</span
           >
         </v-card-text>
 
@@ -416,10 +424,18 @@
       </template>
 
       <template v-slot:item.data-table-expand="{ item, isExpanded, expand }">
-        <v-btn @click="expand(true)" icon v-blur v-if="!isExpanded && item.t !== 't'"
+        <v-btn
+          @click="expand(true)"
+          icon
+          v-blur
+          v-if="!isExpanded && item.t !== 't'"
           ><v-icon>expand_more</v-icon></v-btn
         >
-        <v-btn @click="expand(false)" icon v-blur v-if="isExpanded && item.t !== 't'"
+        <v-btn
+          @click="expand(false)"
+          icon
+          v-blur
+          v-if="isExpanded && item.t !== 't'"
           ><v-icon>expand_less</v-icon></v-btn
         >
       </template>
