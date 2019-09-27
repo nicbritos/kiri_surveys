@@ -25,9 +25,38 @@
       >
       </v-checkbox>
       <v-spacer></v-spacer>
-      <v-btn icon color="primary" v-blur @click="onShare()">
-        <v-icon>group</v-icon>
-      </v-btn>
+      <v-menu
+        class="mr-4"
+        :close-on-content-click="false"
+        min-width="400"
+        offset-y
+        offset-overflow
+      >
+        <template v-slot:activator="{ on }">
+          <v-badge overlap class="align-self-center">
+            <template v-slot:badge>
+              <span>2</span>
+            </template>
+            <v-btn icon color="primary" v-on="on" v-blur @click="onShare()">
+              <v-icon>group</v-icon>
+            </v-btn>
+          </v-badge>
+        </template>
+        <v-select
+          class="pa-0 ma-0"
+          dense
+          chips
+          label="Add Users"
+          multiple
+          solo
+          :items="['a', 'b']"
+          clearable
+          deletable-chips
+          full-width
+          @change="chipFilterAdded"
+        >
+        </v-select>
+      </v-menu>
       <v-btn icon color="primary" v-blur @click="onEdit()">
         <v-icon>create</v-icon>
       </v-btn>
