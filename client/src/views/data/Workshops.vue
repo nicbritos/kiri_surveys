@@ -73,6 +73,26 @@
                 </v-btn>
               </v-col>
             </v-row>
+
+            <v-row dense>
+              <v-col>
+                <v-select
+                  class="pa-0 ma-0"
+                  dense
+                  chips
+                  label="Select Users"
+                  multiple
+                  solo
+                  :v-model="[1]"
+                  :items="[1]"
+                  clearable
+                  deletable-chips
+                  full-width
+                  menu-props="offsetY"
+                >
+                </v-select>
+              </v-col>
+            </v-row>
           </v-container>
         </v-card-text>
 
@@ -271,6 +291,8 @@
             :date="item.d"
             :workshopId="item.id"
             :selected="selectedItems.includes(item)"
+            :sharedWithUsers="[1]"
+            :users="[1]"
             @update="processSelection(item, $event)"
             @edit="editItemOpen(item)"
           ></Workshop>

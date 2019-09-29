@@ -245,6 +245,7 @@
             clearable
             deletable-chips
             @change="chipFilterAdded"
+            menu-props="offsetY"
           >
           </v-select>
         </v-col>
