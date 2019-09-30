@@ -32,13 +32,18 @@
             <v-stepper-content step="1">
               <v-row>
                 <v-col>
-                  <v-text-field
-                    v-model="newResponse.name"
-                    label="Name"
+                  <v-combobox
+                    v-model="newResponse.p"
+                    :items="getPersonIds"
+                    label="Person ID"
                     clearable
-                  ></v-text-field>
-                </v-col> </v-row
-              ><v-row>
+                    id="person-id"
+                    menu-props="offsetY, offsetOverflow"
+                    no-data-text="Person Not Found. Add as new"
+                  ></v-combobox>
+                </v-col>
+              </v-row>
+              <v-row>
                 <v-col>
                   <v-spacer></v-spacer>
                 </v-col>
@@ -65,11 +70,17 @@
             <v-stepper-content step="2">
               <v-row>
                 <v-col>
-                  <v-text-field
-                    v-model="newResponse.name"
-                    label="Name"
+                  <v-combobox
+                    v-model="newResponse.q"
+                    :items="questions"
+                    item-value="id"
+                    item-text="n"
+                    label="Question"
                     clearable
-                  ></v-text-field>
+                    id="question-id"
+                    menu-props="offsetY, offsetOverflow"
+                    no-data-text="Person Not Found. Add as new"
+                  ></v-combobox>
                 </v-col> </v-row
               ><v-row>
                 <v-col>
@@ -92,15 +103,15 @@
               editable
               :complete="newResponseStepper > 3"
             >
-              Answer
+              Response
             </v-stepper-step>
 
             <v-stepper-content step="3">
               <v-row>
                 <v-col>
                   <v-text-field
-                    v-model="newResponse.name"
-                    label="Name"
+                    v-model="newResponse.r"
+                    label="Response"
                     clearable
                   ></v-text-field>
                 </v-col>
@@ -459,6 +470,7 @@ export default {
     breadcrumbs: [Object.assign({}, routes.breadcrumbs.endpoints)],
     shown: true,
     items: [],
+    questions: [],
     filters: {
       search: "",
       type: undefined
@@ -518,6 +530,15 @@ export default {
     ]
   }),
   computed: {
+    getPersonIds() {
+      let items = [];
+      for (let person of this.items) {
+        let item = {};
+        item.text = item.value = person.p;
+        items.push(item);
+      }
+      return items;
+    },
     personResponseHeaders() {
       return [
         {
@@ -585,6 +606,7 @@ export default {
     this.$store.state.loading = true;
 
     await this.$store.state.dataStore._loadQuestions();
+    this.questions = await this.$store.state.dataStore.getQuestions();
     let endpointId = this.$router.currentRoute.params.eid;
     let endpointBreadcrumb = Object.assign({}, routes.breadcrumbs.sample);
     endpointBreadcrumb.text = (await this.$store.state.dataStore.getEndpointByID(
