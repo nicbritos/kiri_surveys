@@ -17,44 +17,97 @@
                 <h1 style="color: black">New Response</h1>
               </v-col>
             </v-row>
-
-            <v-row>
-              <v-col>
-                <v-text-field
-                  v-model="newResponse.name"
-                  label="Name"
-                  :error-messages="responseNameErrors"
-                ></v-text-field>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <v-checkbox
-                  v-model="newResponse.measurable"
-                  label="Measurable"
-                  color="primary"
-                ></v-checkbox>
-              </v-col>
-
-              <v-col>
-                <v-checkbox
-                  v-model="newResponse.feedback"
-                  label="Feedback"
-                  color="primary"
-                ></v-checkbox>
-              </v-col>
-
-              <v-col>
-                <v-checkbox
-                  v-model="newResponse.answered"
-                  label="Answered"
-                  :disabled="true"
-                  color="primary"
-                ></v-checkbox>
-              </v-col>
-            </v-row>
           </v-container>
         </v-card-text>
+        <v-stepper vertical class="elevation-0" v-model="newResponseStepper">
+          <template>
+            <v-stepper-step
+              step="1"
+              editable
+              :complete="newResponseStepper > 1"
+            >
+              Select Person
+            </v-stepper-step>
+
+            <v-stepper-content step="1">
+              <v-row>
+                <v-col>
+                  <v-text-field
+                    v-model="newResponse.name"
+                    label="Name"
+                    clearable
+                  ></v-text-field>
+                </v-col> </v-row
+              ><v-row>
+                <v-col>
+                  <v-spacer></v-spacer>
+                </v-col>
+                <v-col cols="auto">
+                  <v-btn
+                    text
+                    v-blur
+                    color="primary"
+                    @click="newResponseStepper = 2"
+                    >Continue</v-btn
+                  >
+                </v-col>
+              </v-row>
+            </v-stepper-content>
+
+            <v-stepper-step
+              step="2"
+              editable
+              :complete="newResponseStepper > 2"
+            >
+              Select Question
+            </v-stepper-step>
+
+            <v-stepper-content step="2">
+              <v-row>
+                <v-col>
+                  <v-text-field
+                    v-model="newResponse.name"
+                    label="Name"
+                    clearable
+                  ></v-text-field>
+                </v-col> </v-row
+              ><v-row>
+                <v-col>
+                  <v-spacer></v-spacer>
+                </v-col>
+                <v-col cols="auto">
+                  <v-btn
+                    text
+                    v-blur
+                    color="primary"
+                    @click="newResponseStepper = 3"
+                    >Continue</v-btn
+                  >
+                </v-col>
+              </v-row>
+            </v-stepper-content>
+
+            <v-stepper-step
+              step="3"
+              editable
+              :complete="newResponseStepper > 3"
+            >
+              Answer
+            </v-stepper-step>
+
+            <v-stepper-content step="3">
+              <v-row>
+                <v-col>
+                  <v-text-field
+                    v-model="newResponse.name"
+                    label="Name"
+                    clearable
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+            </v-stepper-content>
+          </template>
+        </v-stepper>
 
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -421,6 +474,7 @@ export default {
       }
     },
     newResponse: {},
+    newResponseStepper: 0,
     editedResponseCopy: {},
     deletingResponse: {},
     defaultResponse: {
