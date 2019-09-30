@@ -3,10 +3,10 @@
     <v-dialog v-model="dialogs.questions.new" max-width="700px">
       <v-card>
         <v-img
-                class="white--text"
-                src="@/assets/question_blue.png"
-                position="top center"
-                max-height="300"
+          class="white--text"
+          src="@/assets/question_blue.png"
+          position="top center"
+          max-height="300"
         >
         </v-img>
         <v-card-text>
@@ -65,10 +65,10 @@
     <v-dialog v-model="dialogs.values.new" max-width="700px">
       <v-card>
         <v-img
-                class="white--text"
-                src="@/assets/question_values_blue.png"
-                position="top center"
-                max-height="300"
+          class="white--text"
+          src="@/assets/question_values_blue.png"
+          position="top center"
+          max-height="300"
         >
         </v-img>
         <v-card-text>
@@ -127,10 +127,10 @@
     <v-dialog v-model="dialogs.questions.edit" max-width="700px">
       <v-card>
         <v-img
-                class="white--text"
-                src="@/assets/question_blue.png"
-                position="top center"
-                max-height="300"
+          class="white--text"
+          src="@/assets/question_blue.png"
+          position="top center"
+          max-height="300"
         >
         </v-img>
         <v-card-text>
@@ -208,10 +208,10 @@
     <v-dialog v-model="dialogs.values.edit" max-width="700px">
       <v-card>
         <v-img
-                class="white--text"
-                src="@/assets/question_values_blue.png"
-                position="top center"
-                max-height="300"
+          class="white--text"
+          src="@/assets/question_values_blue.png"
+          position="top center"
+          max-height="300"
         >
         </v-img>
         <v-card-text>
