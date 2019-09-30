@@ -1,7 +1,7 @@
 <template>
   <v-container grid-list-md>
     <Breadcrumbs :items="breadcrumbs"></Breadcrumbs>
-    <v-dialog v-model="dialogs.responses.new" max-width="700px">
+    <v-dialog persistent v-model="dialogs.responses.new" max-width="700px">
       <v-card>
         <v-img
           class="white--text"
@@ -19,12 +19,18 @@
             </v-row>
           </v-container>
         </v-card-text>
-        <v-stepper vertical class="elevation-0" v-model="newResponseStepper">
+        <v-stepper
+          vertical
+          class="elevation-0"
+          v-model="newResponseData.stepper"
+        >
           <template>
             <v-stepper-step
               step="1"
-              editable
-              :complete="newResponseStepper > 1"
+              :rules="[
+                () => newResponseData.stepper !== 1 || !newResponseData.error
+              ]"
+              :complete="newResponseData.stepper > 1 && !newResponseData.error"
             >
               Select Person
             </v-stepper-step>
@@ -35,11 +41,20 @@
                   <v-combobox
                     v-model="newResponse.p"
                     :items="getPersonIds"
-                    label="Person ID"
+                    label="Select or write a new Person ID"
+                    item-value="p"
                     clearable
                     id="person-id"
                     menu-props="offsetY, offsetOverflow"
                     no-data-text="Person Not Found. Add as new"
+                    :error="newResponseData.error"
+                    :error-messages="newResponseData.errorMessages"
+                    @input="
+                      () => {
+                        newResponse.p = cleanPersonIdString(newResponse.p);
+                        validatePersonId(newResponse.p);
+                      }
+                    "
                   ></v-combobox>
                 </v-col>
               </v-row>
@@ -52,7 +67,8 @@
                     text
                     v-blur
                     color="primary"
-                    @click="newResponseStepper = 2"
+                    @click="newResponseData.stepper++"
+                    :disabled="newResponseData.error || newResponse.p == null"
                     >Continue</v-btn
                   >
                 </v-col>
@@ -61,8 +77,10 @@
 
             <v-stepper-step
               step="2"
-              editable
-              :complete="newResponseStepper > 2"
+              :rules="[
+                () => newResponseData.stepper !== 2 || !newResponseData.error
+              ]"
+              :complete="newResponseData.stepper > 2 && !newResponseData.error"
             >
               Select Question
             </v-stepper-step>
@@ -70,17 +88,20 @@
             <v-stepper-content step="2">
               <v-row>
                 <v-col>
-                  <v-combobox
+                  <v-autocomplete
                     v-model="newResponse.q"
                     :items="questions"
                     item-value="id"
                     item-text="n"
-                    label="Question"
+                    label="Select a Question"
                     clearable
                     id="question-id"
                     menu-props="offsetY, offsetOverflow"
-                    no-data-text="Person Not Found. Add as new"
-                  ></v-combobox>
+                    no-data-text="No Question found"
+                    :error="newResponseData.error"
+                    :error-messages="newResponseData.errorMessages"
+                    @input="validateQuestion(newResponse.q)"
+                  ></v-autocomplete>
                 </v-col> </v-row
               ><v-row>
                 <v-col>
@@ -91,7 +112,21 @@
                     text
                     v-blur
                     color="primary"
-                    @click="newResponseStepper = 3"
+                    @click="
+                      () => {
+                        newResponseData.stepper--;
+                        newResponseData.error = false;
+                        newResponseData.errorMessages = [];
+                      }
+                    "
+                    >Back</v-btn
+                  >
+                  <v-btn
+                    text
+                    v-blur
+                    color="primary"
+                    @click="newResponseData.stepper++"
+                    :disabled="newResponseData.error || newResponse.q == null"
                     >Continue</v-btn
                   >
                 </v-col>
@@ -100,8 +135,10 @@
 
             <v-stepper-step
               step="3"
-              editable
-              :complete="newResponseStepper > 3"
+              :rules="[
+                () => newResponseData.stepper !== 3 || !newResponseData.error
+              ]"
+              :complete="newResponseData.stepper > 3 && !newResponseData.error"
             >
               Response
             </v-stepper-step>
@@ -109,11 +146,58 @@
             <v-stepper-content step="3">
               <v-row>
                 <v-col>
-                  <v-text-field
+                  <v-combobox
+                    v-if="
+                      () => {
+                        let question = getQuestion(newResponse.q);
+                        return question == null ? false : question.m;
+                      }
+                    "
                     v-model="newResponse.r"
-                    label="Response"
+                    :items="getQuestionValues(newResponse.q)"
+                    item-value="v"
+                    item-text="d"
+                    label="Select a Response"
                     clearable
+                    id="question-id"
+                    menu-props="offsetY, offsetOverflow"
+                    no-data-text="No Question found"
+                    :error="newResponseData.error"
+                    :error-messages="newResponseData.errorMessages"
+                    @input="validateQuestion(newResponse.q)"
+                  >
+                  </v-combobox>
+                  <v-text-field
+                    v-else
+                    v-model="newResponse.r"
+                    label="Write a Response"
+                    clearable
+                    :error="newResponseData.error"
+                    :error-messages="newResponseData.errorMessages"
+                    @change="validateResponse(newResponse.r)"
                   ></v-text-field>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col>
+                  <v-spacer></v-spacer>
+                </v-col>
+                <v-col cols="auto">
+                  <v-btn
+                    text
+                    v-blur
+                    color="primary"
+                    @click="
+                      () => {
+                        newResponseData.stepper--;
+                        newResponse.r = null;
+                        newResponseData.error = false;
+                        newResponseData.errorMessages = [];
+                      }
+                    "
+                    :disabled="newResponseData.error"
+                    >Back</v-btn
+                  >
                 </v-col>
               </v-row>
             </v-stepper-content>
@@ -129,14 +213,23 @@
             v-blur
             >Cancel</v-btn
           >
-          <v-btn color="blue darken-1" text @click="newResponseClose" v-blur
+          <v-btn
+            :disabled="
+              newResponseData.stepper < 3 ||
+                newResponseData.error ||
+                newResponse.r == null
+            "
+            color="blue darken-1"
+            text
+            @click="newResponseClose"
+            v-blur
             >Save</v-btn
           >
         </v-card-actions>
       </v-card>
     </v-dialog>
 
-    <v-dialog v-model="dialogs.responses.edit" max-width="700px">
+    <v-dialog persistent v-model="dialogs.responses.edit" max-width="700px">
       <v-card>
         <v-img
           class="white--text"
@@ -218,7 +311,7 @@
       </v-card>
     </v-dialog>
 
-    <v-dialog v-model="dialogs.selected.delete" max-width="700px">
+    <v-dialog persistent v-model="dialogs.selected.delete" max-width="700px">
       <v-card>
         <v-card-text>
           <v-card-title>
@@ -246,7 +339,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <v-dialog v-model="dialogs.responses.delete" max-width="700px">
+    <v-dialog persistent v-model="dialogs.responses.delete" max-width="700px">
       <v-card>
         <v-card-text>
           <v-card-title>
@@ -486,7 +579,7 @@ export default {
       }
     },
     newResponse: {},
-    newResponseStepper: 0,
+    newResponseData: {},
     editedResponseCopy: {},
     deletingResponse: {},
     defaultResponse: {
@@ -494,6 +587,11 @@ export default {
       measurable: false,
       feedback: false,
       answered: false
+    },
+    defaultResponseData: {
+      stepper: 1,
+      personIdError: false,
+      errorMessages: []
     },
     selectedResponses: [],
     filterChips: [
@@ -534,11 +632,12 @@ export default {
       let items = [];
       for (let person of this.items) {
         let item = {};
-        item.text = item.value = person.p;
+        item.text = item.p = person.p;
         items.push(item);
       }
       return items;
     },
+
     personResponseHeaders() {
       return [
         {
@@ -644,6 +743,7 @@ export default {
   methods: {
     newResponseOpen() {
       this.newResponse = Object.assign({}, this.defaultResponse);
+      this.newResponseData = Object.assign({}, this.defaultResponseData);
       this.openDialog(this.dialogs.responses, "new");
     },
     newResponseClose() {
@@ -741,11 +841,65 @@ export default {
     getQuestion(questionId) {
       return this.$store.state.dataStore.getQuestionByID(questionId);
     },
+    getQuestionValues(questionId) {
+      let question = this.getQuestion(questionId);
+      if (question == null) return null;
+      return question.v;
+    },
     getQuestionValueDescription(questionId, value) {
       return this.$store.state.dataStore.getQuestionValueDescriptionByID(
         questionId,
         value
       );
+    },
+
+    cleanPersonIdString(personId) {
+      if (typeof personId !== "string") return personId;
+      return personId
+        .trim()
+        .replace(/\s\s+/g, " ")
+        .toUpperCase();
+    },
+    validatePersonId(personId) {
+      let messages = [];
+      if (personId == null) {
+        messages.push("No Person ID specified");
+      } else {
+        if (typeof personId !== "string" && typeof personId !== "object") {
+          messages.push("Invalid input type");
+        } else {
+          personId = this.cleanPersonIdString(personId);
+
+          if (personId.length === 0) {
+            messages.push("No Person ID specified");
+          } else {
+            if (!/^[\x20-\x7E]*$/.test(personId))
+              messages.push("There are invalid characters");
+          }
+        }
+      }
+      this.newResponseData.errorMessages = messages;
+      this.newResponseData.error = messages.length > 0;
+    },
+    validateQuestion(question) {
+      let messages = [];
+      if (question == null) {
+        messages.push("Please, select a Question");
+      }
+      this.newResponseData.errorMessages = messages;
+      this.newResponseData.error = messages.length > 0;
+    },
+    validateResponse(response) {
+      let messages = [];
+
+      if (typeof response !== "string")
+        messages.push("Please, write a response");
+
+      response = response.trim().replace(/\s\s+/g, " ");
+      if (response.length === 0) messages.push("Please, write a response");
+
+      this.newResponseData.errorMessages = messages;
+      this.newResponseData.error = messages.length > 0;
     }
   }
 };
