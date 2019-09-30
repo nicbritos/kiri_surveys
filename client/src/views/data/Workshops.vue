@@ -4,7 +4,7 @@
       <v-card>
         <v-img
           class="white--text"
-          src="@/assets/workshop_back_blue.png"
+          src="@/assets/workshop_blue.png"
           position="top center"
           max-height="300"
         >
@@ -116,7 +116,7 @@
       <v-card>
         <v-img
           class="white--text"
-          src="@/assets/workshop_back_blue.png"
+          src="@/assets/workshop_blue.png"
           position="top center"
           max-height="300"
         >

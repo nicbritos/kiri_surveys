@@ -5,7 +5,7 @@
       style="cursor: pointer"
       @click="goToRoute"
       class="white--text"
-      src="@/assets/workshop_back_blue.png"
+      src="@/assets/workshop_blue.png"
     >
       <v-card-title class="align-end fill-height">{{ value }}</v-card-title>
     </v-img>

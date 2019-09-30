@@ -4,7 +4,7 @@
       <v-card>
         <v-img
           class="white--text"
-          src="@/assets/endpoint_back_blue.png"
+          src="@/assets/endpoint_blue.png"
           position="top center"
           max-height="300"
         >
@@ -58,7 +58,7 @@
       <v-card>
         <v-img
           class="white--text"
-          src="@/assets/endpoint_back_blue.png"
+          src="@/assets/endpoint_blue.png"
           position="top center"
           max-height="300"
         >
