@@ -4,10 +4,10 @@
     <v-dialog v-model="dialogs.responses.new" max-width="700px">
       <v-card>
         <v-img
-                class="white--text"
-                src="@/assets/response_blue.png"
-                position="top center"
-                max-height="300"
+          class="white--text"
+          src="@/assets/response_blue.png"
+          position="top center"
+          max-height="300"
         >
         </v-img>
         <v-card-text>
@@ -74,6 +74,13 @@
 
     <v-dialog v-model="dialogs.responses.edit" max-width="700px">
       <v-card>
+        <v-img
+          class="white--text"
+          src="@/assets/response_blue.png"
+          position="top center"
+          max-height="300"
+        >
+        </v-img>
         <v-card-text>
           <v-container fluid>
             <v-row>
