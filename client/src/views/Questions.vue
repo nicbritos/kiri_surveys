@@ -1,6 +1,6 @@
 <template>
   <v-container grid-list-md>
-    <v-dialog v-model="dialogs.questions.new" max-width="700px">
+    <v-dialog persistent v-model="dialogs.questions.new" max-width="700px">
       <v-card>
         <v-img
           class="white--text"
@@ -62,7 +62,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <v-dialog v-model="dialogs.values.new" max-width="700px">
+    <v-dialog persistent v-model="dialogs.values.new" max-width="700px">
       <v-card>
         <v-img
           class="white--text"
@@ -124,7 +124,7 @@
       </v-card>
     </v-dialog>
 
-    <v-dialog v-model="dialogs.questions.edit" max-width="700px">
+    <v-dialog persistent v-model="dialogs.questions.edit" max-width="700px">
       <v-card>
         <v-img
           class="white--text"
@@ -205,7 +205,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <v-dialog v-model="dialogs.values.edit" max-width="700px">
+    <v-dialog persistent v-model="dialogs.values.edit" max-width="700px">
       <v-card>
         <v-img
           class="white--text"
@@ -289,7 +289,7 @@
       </v-card>
     </v-dialog>
 
-    <v-dialog v-model="dialogs.selected.delete" max-width="700px">
+    <v-dialog persistent v-model="dialogs.selected.delete" max-width="700px">
       <v-card
         ><v-card-title>
           <span class="headline"
@@ -320,7 +320,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <v-dialog v-model="dialogs.questions.delete" max-width="700px">
+    <v-dialog persistent v-model="dialogs.questions.delete" max-width="700px">
       <v-card>
         <v-card-text>
           <v-card-title>
@@ -348,7 +348,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <v-dialog v-model="dialogs.values.delete" max-width="700px">
+    <v-dialog persistent v-model="dialogs.values.delete" max-width="700px">
       <v-card>
         <v-card-text>
           <v-card-title>
