@@ -189,7 +189,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-container fluid>
+    <v-layout row wrap fluid>
       <v-row>
         <v-col cols="4" v-for="item in filteredItems" :key="item.id">
           <Endpoint
@@ -203,7 +203,7 @@
           ></Endpoint>
         </v-col>
       </v-row>
-    </v-container> </v-container
+    </v-layout> </v-container
 ></template>
 
 <script>

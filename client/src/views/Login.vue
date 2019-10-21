@@ -91,7 +91,8 @@ export default {
     show: false,
     email: "",
     password: "",
-    loading: false
+    loading: false,
+    invalidCredentials: false
   }),
   validations: {
     email: { required, email },
@@ -102,23 +103,31 @@ export default {
     emailErrors() {
       const errors = [];
       if (!this.$v.email.$dirty) return errors;
+      if (this.invalidCredentials) {
+        errors.push("Invalid email and/or password");
+        return errors;
+      }
       !this.$v.email.required && errors.push("Este campo es obligatorio");
       return errors;
     },
     passwordErrors() {
       const errors = [];
       if (!this.$v.password.$dirty) return errors;
+      if (this.invalidCredentials) {
+        errors.push("Invalid email and/or password");
+        return errors;
+      }
       !this.$v.password.required && errors.push("Este campo es obligatorio");
       return errors;
     }
   },
   methods: {
-    submitForm() {
+    async submitForm() {
       this.$v.$touch();
+      this.invalidCredentials = false;
       if (this.$v.$invalid) return;
 
       this.loading = true;
-
       database
         .signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
@@ -127,7 +136,12 @@ export default {
         })
         .catch(err => {
           this.loading = false;
-          console.log(err);
+          if (err.code === "auth/wrong-password") {
+            this.invalidCredentials = true;
+            this.$v.$touch();
+          } else {
+            console.log(err);
+          }
         });
     }
   }

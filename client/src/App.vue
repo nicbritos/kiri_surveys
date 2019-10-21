@@ -146,7 +146,7 @@ export default {
     }
   },
   created() {
-    localStorage.loggedIn = false; // Always set to false to prevent protected routes from being leaked.
+    localStorage.loggedIn = true; // Always set to false to prevent protected routes from being leaked.
 
     if (!localStorage.userPreferences) {
       localStorage.userPreferences = JSON.stringify({
@@ -164,9 +164,10 @@ export default {
         this.items = this.authItems;
         this.$store.state.loading = false;
       } else {
-        localStorage.loggedIn = false;
+        // localStorage.loggedIn = false;
         await this.$store.dispatch("resetUserData");
-        this.items = this.unAuthItems;
+        // this.items = this.unAuthItems;
+        this.items = this.authItems;
         this.$store.state.loading = false;
       }
     });

@@ -172,7 +172,7 @@ async function loadUsers() {
 
 async function loadQuestions() {
   let file = await fetch("/out_q.json");
-  return await file.json();
+  return (await file.json()).definitions;
   // let reference = db.collection(COLLECTIONS.QUESTIONS.collection);
   // let questions = [];
   // (await reference.get()).forEach(doc => {
@@ -258,7 +258,7 @@ async function loadWorkshops(endpointId) {
   // });
   // return workshops;
   if (endpointId === "abc") {
-    let file = await fetch("/out_w_wce.json");
+    let file = await fetch("/out_w_itba.json");
     let data = await file.json();
     for (let workshop of data) {
       workshop.r = [];
@@ -295,9 +295,11 @@ async function loadResponses(endpointId, workshopId) {
   //   ]
   // };
 
-  if (endpointId === "abc" && workshopId === "0") {
-    let file = await fetch("/out_w_wce.json");
-    return (await file.json())[0].r;
+  if (endpointId === "abc") {
+    let file = await fetch("/out_w_itba.json");
+    console.log(workshopId)
+    console.log(Number.parseInt(workshopId))
+    return (await file.json())[Number.parseInt(workshopId)].r;
   } else {
     return [];
   }

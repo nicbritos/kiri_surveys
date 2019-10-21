@@ -22,7 +22,7 @@ def remove_spaces(s):
     return re.sub(r"\s\s+", " ", str(s)).strip()
 
 
-def process_workshop(workshop_df, answers, questions, question_aliases, survey_type):
+def process_workshop(workshop_df, answers, questions, question_aliases, survey_type, workshop_name=""):
     index = 0
     question_indexes = {}
     for i in workshop_df.head(0):
@@ -30,7 +30,7 @@ def process_workshop(workshop_df, answers, questions, question_aliases, survey_t
         if clean_i in question_aliases:
             question_indexes[index] = questions[question_aliases[clean_i]]
         else:
-            print('Question not found: ' + clean_i)
+            print('Question not found: ' + clean_i + " on '" + workshop_name + "'")
         index += 1
 
     new_people = []
@@ -113,8 +113,9 @@ def main():
 
         for survey_type, filepath in data.items():
             df_w = pandas.read_excel(filepath, sheet_name=0)
-            process_workshop(df_w, responses, questions, question_aliases, survey_type)
-            i += 1
+            process_workshop(df_w, responses, questions, question_aliases, survey_type, workshop_name)
+
+        i += 1
 
     with open('out_w_itba.json', 'w', encoding='utf8') as f:
         json.dump(workshops, f, indent=2, sort_keys=True, ensure_ascii=False)
