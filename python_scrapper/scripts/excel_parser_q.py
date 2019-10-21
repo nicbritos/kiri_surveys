@@ -9,10 +9,11 @@ def remove_spaces(s):
 
 
 def main():
-    df = pandas.read_excel('questions2.xlsx', 'definitions', header=None)
+    xlsx = pandas.ExcelFile('questions2.xlsx')
+    df = pandas.read_excel(xlsx, 'definitions', header=None)
+    df_a = pandas.read_excel(xlsx, 'aliases', header=None)
 
     questions = []
-
     index = 0
     for i in df.iterrows():
         values = i[1].tolist()
@@ -46,8 +47,20 @@ def main():
         index += 1
         questions.append(question)
 
+    aliases = {}
+    for i in df_a.iterrows():
+        values = i[1].tolist()
+        question = remove_spaces(values[0])
+        for j in range(0, len(values)):
+            if not pandas.isna(values[j]) and type(values[j]) == type(str()):
+                aliases[remove_spaces(values[j])] = question
+
+    data = {
+        'definitions': questions,
+        'aliases': aliases
+    }
     with open('out_q.json', 'w', encoding='utf8') as f:
-        json.dump(questions, f, indent=2, sort_keys=True, ensure_ascii=False)
+        json.dump(data, f, indent=2, sort_keys=True, ensure_ascii=False)
 
     print('Done')
 

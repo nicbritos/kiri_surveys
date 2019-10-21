@@ -1,491 +1,1939 @@
-[
-  {
-    "a": true,
-    "f": false,
-    "id": 0,
-    "n": "¿Qué sabe usted sobre el Cambio Climático?",
-    "t": "t",
-    "v": null
+{
+  "aliases": {
+    "1) Luego del taller, por favor responda a la pregunta: ¿Qué otras cosas cree poder hacer usted para resolver la Crisis Climática?”": "Por favor, responda a la pregunta: ¿Qué otras cosas cree poder hacer usted para resolver la Crisis Climática?”",
+    "1) ¿ Ha participado en el Taller World Climate (WCE) o World Energy (WCI) antes?": "¿ Ha participado en el Taller World Climate (WCE) o World Energy (WCI) antes?",
+    "1) ¿ Ha participado en el Taller World Energy antes?": "¿ Ha participado en el Taller World Climate (WCE) o World Energy (WCI) antes?",
+    "1) ¿Cuál es el esfuerzo requerido para encontrar una solución viable dentro de los 2 grados? (Elegir la opción con la que Ud. coincida más)": "¿Cuál es el esfuerzo requerido para encontrar una solución viable dentro de los 2 grados? (Elegir la opción con la que Ud. coincida más)",
+    "1) ¿Cómo valoraría usted su conocimiento personal sobre el proceso de Cambio Climático?": "¿Cómo valoraría usted su conocimiento personal sobre el proceso de Cambio Climático?",
+    "1) ¿En qué grado cree que este taller reproduce con precisión la dinámica real de las negociaciones en la ONU para encontrar una solución para mitigar el Cambio Climático?": "¿En qué grado cree que este taller reproduce con precisión la dinámica real de las negociaciones en la ONU para encontrar una solución para mitigar el Cambio Climático?",
+    "1) ¿Ha participado en el Taller Avanzado “Socios para el Clima” / World Energy antes?": "¿ Ha participado en el Taller World Climate (WCE) o World Energy (WCI) antes?",
+    "1) ¿Participó anteriormente de los simuladores EN-ROADS o C-ROADS?": "¿ Ha participado en el Taller World Climate (WCE) o World Energy (WCI) antes?",
+    "1) ¿Qué sabe usted sobre el Cambio Climático?": "¿Qué sabe usted sobre el Cambio Climático?",
+    "1)¿Ha participado previamente de los juegos de ROles \"World Climate \" (WCE) o \"World Energy\" (WEE) ?": "¿ Ha participado en el Taller World Climate (WCE) o World Energy (WCI) antes?",
+    "10) Describa en qué medida comprende que: “A los niveles actuales de emisión los niveles de CO2 en al atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que se sacan de la atmósfera.”": "Describa en qué medida comprende que: “A los niveles actuales de emisión los niveles de CO2 en al atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que se sacan de la atmósfera.”",
+    "10) Describa en qué medida está de acuerdo en la siguiente afirmación: “La solución al problema del cambio climático sólo depende del esfuerzo de las grandes potencias\"": "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La solución al problema del Cambio Climático solo depende del esfuerzo de las grandes potencias.”",
+    "10) Describa en qué medida está de acuerdo en la siguiente afirmación: “Una intervención de alto apalancamiento es la rápida reducción de las emisiones en los países en desarrollo.”": "Describa en qué medida está de acuerdo en la siguiente afirmación: “Una intervención de alto apalancamiento es la rápida reducción de las emisiones en los países en desarrollo.”",
+    "10) a) ¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a una nueva tecnologia muy prometedora?": "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a una nueva tecnologia muy prometedora?",
+    "10) ¿A quienes le gustaría invitar a la próxima edición de este taller?": "¿A quienes les gustaría invitar a la próxima edición de este taller?",
+    "10) ¿A quienes les gustaría invitar a la próxima edición de este taller?": "¿A quienes les gustaría invitar a la próxima edición de este taller?",
+    "10) ¿Cree usted que disponibilidad de combustibles fósiles tiene algún tipo de restricción o que pueden crecer ilimitada?": "¿Cree usted que disponibilidad de combustibles fósiles tiene algún tipo de restricción o que pueden crecer ilimitada?",
+    "10) ¿Cree usted que las distintas formas de energía renovable compiten entre si o que son aditivas, es decir que se aprovechara el 100% del potencial de cada una de estas fuentes energéticas.": "¿Cree usted que las distintas formas de energía renovable compiten entre si o que son aditivas, es decir que se aprovechara el 100% del potencial de cada una de estas fuentes energéticas.",
+    "10) ¿Cuán entretenido te resultó el taller?": "¿Cuán entretenido resultó el taller?",
+    "11) Describa en qué medida está de acuerdo en la siguiente afirmación: “ La solución al problema del Cambio Climático solo depende del esfuerzo de las grandes potencias.”": "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La solución al problema del Cambio Climático solo depende del esfuerzo de las grandes potencias.”",
+    "11) Evaluación general del taller": "Evaluación general del taller",
+    "11) Indique cuál cree que es el impacto que tiene en el Cambio Climático la forestacion": "Indique cuál cree que es el impacto que tiene en el Cambio Climático la forestacion",
+    "11) Jevons paradox: ¿Cómo cree usted que influye el aumento de los precios sobre la demanda de energía?": "Jevons paradox: ¿Cómo cree usted que influye el aumento de los precios sobre la demanda de energía?",
+    "11) ¿Cree usted que disponibilidad de combustibles fósiles tiene algún tipo de restricción o que pueden crecer ilimitada?": "¿Cree usted que disponibilidad de combustibles fósiles tiene algún tipo de restricción o que pueden crecer ilimitada?",
+    "11) ¿Cree usted que todas las regiones deben contribuir en la mitigación del cambio Climático?": "¿Cree usted que todas las regiones deben contribuir en la mitigación del Cambio Climático?",
+    "11) ¿Cuán entretenido te resultó el taller?": "¿Cuán entretenido resultó el taller?",
+    "11)Describa en qué medida está de acuerdo en la siguiente afirmación: “ La ayuda internacional de los países más desarrollados podría favorecer la rápida disminución de las emisiones en los países menos desarrollados.”": "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La ayuda internacional de los países más desarrollados podría favorecer la rápida disminución de las emisiones en los países menos desarrollados.”",
+    "11)Luego del taller, ¿A qué tasa anual cree usted que es posible disminuir en forma sostenida en las emisiones de gases de efecto invernadero?": "Luego del taller, ¿A qué tasa anual cree usted que es posible disminuir en forma sostenida en las emisiones de gases de efecto invernadero?",
+    "12) Describa en qué medida está de acuerdo en la siguiente afirmación: “Una intervención de alto apalancamiento es la rápida reducción de las emisiones en los países en desarrollo.”": "Describa en qué medida está de acuerdo en la siguiente afirmación: “Una intervención de alto apalancamiento es la rápida reducción de las emisiones en los países en desarrollo.”",
+    "12) Evaluación general del taller": "Evaluación general del taller",
+    "12) Evaluación general del taller :": "Evaluación general del taller",
+    "12) Jevons paradox: ¿Cómo cree usted que influye el aumento de los precios sobre la demanda de energía?": "Jevons paradox: ¿Cómo cree usted que influye el aumento de los precios sobre la demanda de energía?",
+    "12) a) Indique cuál cree que es el impacto de Polìticas REDD+ reduciendo emisiones por la degradación de la tierra, desmontes, quema de bosques, etc.": "Indique cuál cree que es el impacto de Polìticas REDD+ reduciendo emisiones por la degradación de la tierra, desmontes, quema de bosques, etc.",
+    "12) ¿Cuál es la región a la cuál debería haberse influido más para lograr mejores resultados de mitigación?": "¿Cuál es la región a la cuál debería haberse influido más para lograr mejores resultados de mitigación?",
+    "12) ¿Qué porcentaje (%) total de las emisiones de CO2 actuales anuales de todos los países del mundo en su conjunto estima usted que será necesario reducir para que la temperatura media global no supere los 2ºC durante el siglo XXI?": "¿Qué porcentaje (%) total de las emisiones de CO2 actuales anuales de todos los países del mundo en su conjunto estima usted que será necesario reducir para que la temperatura media global no supere los 2ºC durante el siglo XXI?",
+    "12) ¿Qué relación cree usted que tiene el crecimiento del Producto Bruto Mundial y/o de la población mundial sobre la cantidad de emisiones de CO2?": "¿Qué relación cree usted que tiene el crecimiento del Producto Bruto Mundial y/o de la población mundial sobre la cantidad de emisiones de CO2?",
+    "13) Describa en qué medida comprende que: “una intervención de alto apalancamiento es la rápida reducción de las emisiones en los países en desarrollo\"": "Describa en qué medida está de acuerdo en la siguiente afirmación: “Una intervención de alto apalancamiento es la rápida reducción de las emisiones en los países en desarrollo.”",
+    "13) Describa en qué medida está de acuerdo en la siguiente afirmación: “ La ayuda internacional de los países más desarrollados podría favorecer la rápida disminución de las emisiones en los países menos desarrollados.”": "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La ayuda internacional de los países más desarrollados podría favorecer la rápida disminución de las emisiones en los países menos desarrollados.”",
+    "13) a) Indique cuál cree que puede ser el impacto de reducir las emisiones de metano por parte del ganado bovino, fertilizantes sintéticos generando óxido nitroso.": "Indique cuál cree que puede ser el impacto de reducir las emisiones de metano por parte del ganado bovino, fertilizantes sintéticos generando óxido nitroso.",
+    "13) ¿Cree usted que todas las regiones deben contribuir en la mitigación del cambio Climático?": "¿Cree usted que todas las regiones deben contribuir en la mitigación del Cambio Climático?",
+    "13) ¿Cuál cree usted que es el impacto sobre la temperatura de los otros gase de efecto invernadero (Metano, N2O and the f-gases )": "¿Cuál cree usted que es el impacto sobre la temperatura de los otros gase de efecto invernadero (Metano, N2O and the f-gases )",
+    "13) ¿Qué relación cree usted que tiene el crecimiento del Producto Bruto Mundial y/o de la población mundial sobre la cantidad de emisiones de CO2?": "¿Qué relación cree usted que tiene el crecimiento del Producto Bruto Mundial y/o de la población mundial sobre la cantidad de emisiones de CO2?",
+    "14) Describa en qué medida está de acuerdo en la siguiente afirmación: “ La ayuda internacional de los países más desarrollados podría favorecer la rápida disminución de las emisiones en los países menos desarrollados.”": "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La ayuda internacional de los países más desarrollados podría favorecer la rápida disminución de las emisiones en los países menos desarrollados.”",
+    "14) ¿Cree usted que todas las regiones deben contribuir en la mitigación del Cambio Climático?": "¿Cree usted que todas las regiones deben contribuir en la mitigación del Cambio Climático?",
+    "14) ¿Cuál cree usted que es el impacto que tiene una disminución de emisiones de efecto invernadero sobre la temperatura global?": "¿Cuál cree usted que es el impacto que tiene una disminución de emisiones de efecto invernadero sobre la temperatura global?",
+    "14) ¿Cuál cree usted que es el impacto sobre la temperatura de los otros gase de efecto invernadero (Metano, N2O and the f-gases )": "¿Cuál cree usted que es el impacto sobre la temperatura de los otros gase de efecto invernadero (Metano, N2O and the f-gases )",
+    "14) ¿Cuál es la región a la cuál debería haberse influido más para lograr mejores resultados de mitigación?": "¿Cuál es la región a la cuál debería haberse influido más para lograr mejores resultados de mitigación?",
+    "14)a) Indique cuál cree que es el impacto posible de impulsar la concientización masiva e implementación de demostraciones públicas tendientes a apoyar la resolución de la crisis climática.": "Indique cuál cree que es el impacto posible de impulsar la concientización masiva e implementación de demostraciones públicas tendientes a apoyar la resolución de la crisis climática.",
+    "15) Describa en qué medida comprende que: “una intervención de alto apalancamiento es la rápida reducción de las emisiones en los países en desarrollo\"": "Describa en qué medida está de acuerdo en la siguiente afirmación: “Una intervención de alto apalancamiento es la rápida reducción de las emisiones en los países en desarrollo.”",
+    "15) a) Indique cuál cree que es el impacto que tiene en el Cambio Climático las acciones para aumentar la eficiencia energetica del transporte": "Indique cuál cree que es el impacto que tiene en el Cambio Climático las acciones para aumentar la eficiencia energetica del transporte",
+    "15) ¿Cuál cree usted que es el impacto que tiene una disminución de emisiones de efecto invernadero sobre la temperatura global?": "¿Cuál cree usted que es el impacto que tiene una disminución de emisiones de efecto invernadero sobre la temperatura global?",
+    "15) ¿Cómo sugiere usted proceder con aquellas economías que hoy siguen usando carbón como fuente de energía?": "¿Cómo sugiere usted proceder con aquellas economías que hoy siguen usando carbón como fuente de energía?",
+    "15) ¿Qué cosas le gustaron más del workshop?": "¿Qué cosas le gustaron más del workshop?",
+    "16) Describa en qué medida está de acuerdo en la siguiente afirmación: “ La ayuda internacional de los países más desarrollados podría favorecer la rápida disminución de las emisiones en los países menos desarrollados.”": "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La ayuda internacional de los países más desarrollados podría favorecer la rápida disminución de las emisiones en los países menos desarrollados.”",
+    "16) ¿Cuán entretenido resultó el taller?": "¿Cuán entretenido resultó el taller?",
+    "16) ¿Cómo sugiere usted proceder con aquellas economías que hoy siguen usando carbón como fuente de energía?": "¿Cómo sugiere usted proceder con aquellas economías que hoy siguen usando carbón como fuente de energía?",
+    "16)a)¿Cree usted que son necesarias múltiples medidas simultáneas para resolver y aliviar el cambio climático dentro de parámetros habitables?": "¿Cree usted que son necesarias múltiples medidas simultáneas para resolver y aliviar el cambio climático dentro de parámetros habitables?",
+    "16- ¿Acciones para aumentar la eficiencia energética de los edificios y casas, tales como aislaciones térmicas?": "¿Acciones para aumentar la eficiencia energética de los edificios y casas, tales como aislaciones térmicas?",
+    "17) Evaluación general del taller": "Evaluación general del taller",
+    "17) a) ¿Cree usted que con una única acciòn es suficiente para resolver /aliviar el cambio climàtico?": "¿Cree usted que con una única acciòn es suficiente para resolver /aliviar el cambio climàtico?",
+    "17) ¿Qué cosas le gustaron más del workshop?": "¿Qué cosas le gustaron más del workshop?",
+    "17) ¿Qué cosas le sorprendieron?": "¿Qué cosas le sorprendieron?",
+    "18) ¿Cuáles fueron los temas más conflictivos?": "¿Cuáles fueron los temas más conflictivos?",
+    "18) ¿Cuán entretenido resultó el taller?": "¿Cuán entretenido resultó el taller?",
+    "19) Evaluación general del taller": "Evaluación general del taller",
+    "19) ¿Cuáles cosas cambiaría?": "¿Cuáles cosas cambiaría?",
+    "2) Cuáles son las medidas más urgentes que tomaría?": "¿Cuáles son las medidas más urgentes que tomaría?",
+    "2) Describa en qué medida comprende que: \"A los niveles actuales de emisión los niveles de CO2 en la atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que saca de la atmósfera. El nivel de CO2 en la atmósfera varía según esta diferencia entre lo que ingresa y lo que sale y que es necesario actuar entre ambas\"": "Describa en qué medida comprende que: \"A los niveles actuales de emisión los niveles de CO2 en la atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que saca de la atmósfera. El nivel de CO2 en la atmósfera varía según esta diferencia entre lo que ingresa y lo que sale y que es necesario actuar entre ambas\"",
+    "2) En base a los resultados que vió del taller WCE (contestar solo si hicieron WCE la semana anterior), ¿Es posible resolver la crisis climática dentro de la zona de los 2C? En caso afirmativo, explicar por qué": "En base a los resultados que vió del taller WCE (contestar solo si hicieron WCE la semana anterior), ¿Es posible resolver la crisis climática dentro de la zona de los 2C? En caso afirmativo, explicar por qué",
+    "2) Indique cuál cree que es el impacto que tiene en el Cambio Climático un vertiginoso aumento de la población": "Indique cuál cree que es el impacto que tiene en el Cambio Climático un vertiginoso aumento de la población",
+    "2) Por favor, responda a la pregunta: ¿Qué otras cosas cree poder hacer usted para resolver la Crisis Climática?”": "Por favor, responda a la pregunta: ¿Qué otras cosas cree poder hacer usted para resolver la Crisis Climática?”",
+    "2) ¿Cómo valoraría usted la relevancia del Cambio Climático?": "¿Cómo valoraría usted la relevancia del Cambio Climático?",
+    "2) ¿Cómo valoraría usted su conocimiento personal sobre el proceso de Cambio Climático?": "¿Cómo valoraría usted su conocimiento personal sobre el proceso de Cambio Climático?",
+    "2) ¿En que cambió su opinión / pensamiento?": "Luego del taller, ¿En qué puntos cambió usted su opinión sobre el Cambio Climático?",
+    "2.1)¿Qué hace habitualmente para reducir el cambio climático en su hogar?": "¿Qué hace habitualmente para reducir el cambio climático en su hogar?",
+    "2.1)¿Qué nuevas creés que podrás realizar para reducir el cambio climático en tu hogar?": "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en tu hogar?",
+    "2.2)¿Qué hace habitualmente para reducir el cambio climático en el trabajo?": "¿Qué hace habitualmente para reducir el cambio climático en el trabajo?",
+    "2.2)¿Qué nuevas creés que podrás realizar para reducir el cambio climático en tu trabajo?": "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en tu trabajo?",
+    "2.3)¿Qué hace habitualmente para reducir el cambio climático en la universidad?": "¿Qué hace habitualmente para reducir el cambio climático en la universidad?",
+    "2.3)¿Qué nuevas creés que podrás realizar para reducir el cambio climático en la universidad?": "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en la universidad?",
+    "2.4) ¿Qué hace habitualmente para reducir el cambio climático en otras partes?": "¿Qué hace habitualmente para reducir el cambio climático en otras partes?",
+    "2.4)¿Qué nuevas creés que podrás realizar para reducir el cambio climático en otras partes?": "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en otras partes?",
+    "20) ¿Cuáles cosas le gustaron más?": "¿Cuáles cosas le gustaron más?",
+    "21) ¿A quienes les gustaría invitar a la próxima edición de este taller?": "¿A quienes les gustaría invitar a la próxima edición de este taller?",
+    "21) ¿Cuán entretenido te resultó el taller?": "¿Cuán entretenido resultó el taller?",
+    "22) Evaluación General del Taller": "Evaluación general del taller",
+    "22) ¿Cuán entretenido te resultó el taller?": "¿Cuán entretenido resultó el taller?",
+    "23) Comentarios": "Comentarios",
+    "23) Evaluación General del Taller": "Evaluación general del taller",
+    "23. Evaluación General del Taller": "Evaluación general del taller",
+    "24) Comentarios": "Comentarios",
+    "3) Indique cuál cree que es el impacto que tiene en el Cambio Climático un aumento del PBI mundial": "Indique cuál cree que es el impacto que tiene en el Cambio Climático un aumento del PBI mundial",
+    "3) Luego del taller, ¿Cómo valoraría usted su conocimiento personal sobre el proceso de Cambio Climático?": "¿Cómo valoraría usted su conocimiento personal sobre el proceso de Cambio Climático?",
+    "3) Sin considerar las medidas sugeridas por Ud. en la pregunta anterior, cuáles son las medidas que pueden ser implementadas más tarde?": "Sin considerar las medidas sugeridas por Ud. en la pregunta anterior, ¿Cuáles son las medidas que pueden ser implementadas más tarde?",
+    "3) ¿Cree Usted que la humanidad enfrenta un escenario de Vida o Muerte frente al Cambio Climático?": "¿Cree Usted que la humanidad enfrenta un escenario de Vida o Muerte frente al Cambio Climático?",
+    "3) ¿Cuál es el esfuerzo requerido para encontrar una solución viable dentro de los 2 grados? (Elegir la opción con la que Ud. coincida más)": "¿Cuál es el esfuerzo requerido para encontrar una solución viable dentro de los 2 grados? (Elegir la opción con la que Ud. coincida más)",
+    "3) ¿Cuáles son sus expectativas para el taller?": "¿Cuáles son sus expectativas para el taller?",
+    "3) ¿Por qué?": "Explique por que",
+    "3) ¿Qué opina usted sobre el Cambio climático?": "¿Qué opina usted sobre el Cambio climático?",
+    "3) ¿Tiene usted interés en participar de algún proyecto vinculado a la reducción del cambio climático?": "¿Tiene usted interés en participar de algún proyecto vinculado a la reducción del cambio climático?",
+    "3)¿Qué fue lo que más te gustó del taller y que cambiarías?": "¿Qué fue lo que más te gustó del taller y que cambiarías?",
+    "4) Luego del taller, ¿En qué puntos cambió usted su opinión sobre el Cambio Climático?": "Luego del taller, ¿En qué puntos cambió usted su opinión sobre el Cambio Climático?",
+    "4) Qué impacto tendría sobre el sistema climático + energético la aparición de una tecnología novedosa que hoy no esté disponible (Por ejemplo: la fusión nuclear en frio - cold fusion-, la economia del hidrogeno, fision nuclear del torio, etc.)": "¿Qué impacto tendría sobre el sistema climático + energético la aparición de una tecnología novedosa que hoy no esté disponible? (Por ejemplo: la fusión nuclear en frio - cold fusion-, la economía del hidrógeno, fisión nuclear del torio, etc.)",
+    "4) ¿Cuáles son las medidas más urgentes que tomaría?": "¿Cuáles son las medidas más urgentes que tomaría?",
+    "4) ¿Cuánto tiempo cree Usted que queda para mitigar los efectos del Cambio Climático?": "¿Cuánto tiempo cree Usted que queda para mitigar los efectos del Cambio Climático?",
+    "4) ¿Cómo valoraría usted la relevancia del Cambio Climático?": "¿Cómo valoraría usted la relevancia del Cambio Climático?",
+    "4) ¿Decidió usted participar en algún equipo para la competencia MIT Climate CoLab 2017?": "¿Decidió usted participar en algún equipo para la competencia MIT Climate CoLab 2017?",
+    "4) ¿Decidió usted participar en algún equipo para la competencia MIT Climate CoLab 2018?": "¿Decidió usted participar en algún equipo para la competencia MIT Climate CoLab 2017?",
+    "4) ¿Decidió usted participar en algún equipo para la competencia MIT Climate CoLab?": "¿Decidió usted participar en algún equipo para la competencia MIT Climate CoLab 2017?",
+    "4) ¿Qué expectativas tiene usted para el taller?": "¿Cuáles son sus expectativas para el taller?",
+    "4)a) ¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar al uso del carbon como combustible?": "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar al uso del carbon como combustible?",
+    "5) Sin considerar las medidas sugeridas por Ud. en la pregunta anterior, ¿Cuáles son las medidas que pueden ser implementadas más tarde?": "Sin considerar las medidas sugeridas por Ud. en la pregunta anterior, ¿Cuáles son las medidas que pueden ser implementadas más tarde?",
+    "5) ¿Cree Usted que la humanidad enfrenta un escenario de Vida o Muerte frente al Cambio Climático?": "¿Cree Usted que la humanidad enfrenta un escenario de Vida o Muerte frente al Cambio Climático?",
+    "5) ¿Cuál equipo?": "¿En cuál equipo?",
+    "5) ¿Cuánto estima usted que hay que reducir las emisiones de CO2 globales durante todo el siglo XXI?": "¿Cuánto estima usted que hay que reducir las emisiones de CO2 globales durante todo el siglo XXI?",
+    "5) ¿Cómo valoraría usted la relevancia del Cambio Climático?": "¿Cómo valoraría usted la relevancia del Cambio Climático?",
+    "5) ¿En cuál equipo?": "¿En cuál equipo?",
+    "5)a) ¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a la industria del petróleo?": "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a la industria del petróleo?",
+    "6) Luego del taller, ¿Cree usted que la humanidad enfrenta un escenario de vida o muerte frente al Cambio Climático?": "¿Cree Usted que la humanidad enfrenta un escenario de Vida o Muerte frente al Cambio Climático?",
+    "6) ¿Cuáles son las aplicaciones potenciales de la solución que propuso?": "¿Cuáles son las aplicaciones potenciales de la solución que propuso?",
+    "6) ¿Cuánto estima usted que hay que reducir CADA AÑO las emisiones de CO2 globales durante todo el siglo XXI?": "¿Cuánto estima usted que hay que reducir CADA AÑO las emisiones de CO2 globales durante todo el siglo XXI?",
+    "6) ¿Cuánto tiempo cree Usted que queda para mitigar los efectos del Cambio Climático?": "¿Cuánto tiempo cree Usted que queda para mitigar los efectos del Cambio Climático?",
+    "6) ¿Qué cosas le sorprendieron del taller?": "¿Qué cosas le sorprendieron?",
+    "6) ¿Qué cosas le sorprendieron?": "¿Qué cosas le sorprendieron?",
+    "6) ¿Qué impacto tendría sobre el sistema climático + energético la aparición de una tecnología novedosa que hoy no esté disponible? (Por ejemplo: la fusión nuclear en frio - cold fusion-, la economía del hidrógeno, fisión nuclear del torio, etc.)": "¿Qué impacto tendría sobre el sistema climático + energético la aparición de una tecnología novedosa que hoy no esté disponible? (Por ejemplo: la fusión nuclear en frio - cold fusion-, la economía del hidrógeno, fisión nuclear del torio, etc.)",
+    "6)a) Indique cuál cree que es el impacto que tiene en el Cambio Climático subsidiar al gas natural": "Indique cuál cree que es el impacto que tiene en el Cambio Climático subsidiar al gas natural",
+    "7) a) Indique cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a las Energias renovables": "Indique cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a las Energias renovables",
+    "7) ¿Cree usted que los subsidios a las energías renovables eliminarían / reemplazarían a los combustibles fósiles?": "¿Cree usted que los subsidios a las energías renovables eliminarían / reemplazarían a los combustibles fósiles?",
+    "7) ¿Cuáles fueron los temas más conflictivos?": "¿Cuáles fueron los temas más conflictivos?",
+    "7) ¿Cuáles son los distintos beneficios de las distintas formas de distribuir los ingresos de un precio al carbono?": "¿Cuáles son los distintos beneficios de las distintas formas de distribuir los ingresos de un precio al carbono?",
+    "7) ¿Cuánto estima usted que hay que reducir las emisiones de CO2 globales durante todo el siglo XXI?": "¿Cuánto estima usted que hay que reducir las emisiones de CO2 globales durante todo el siglo XXI?",
+    "7) ¿Cuánto tiempo cree usted que queda para mitigar los efectos del Cambio Climático?": "¿Cuánto tiempo cree Usted que queda para mitigar los efectos del Cambio Climático?",
+    "7) ¿Vió Usted la película de Al Gore, \"An Inconvenient Truth\" / \"Una verdad incómoda\"? En caso afirmativo, que le pareció?": "¿Vió Usted la película de Al Gore, \"An Inconvenient Truth\" / \"Una verdad incómoda\"? En caso afirmativo, ¿Qué le pareció?",
+    "8) Describa en qué medida comprende que: “A los niveles actuales de emisión los niveles de CO2 en al atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que se sacan de la atmósfera.”": "Describa en qué medida comprende que: “A los niveles actuales de emisión los niveles de CO2 en al atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que se sacan de la atmósfera.”",
+    "8) a) ¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a los Biocombustibles?": "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a los Biocombustibles?",
+    "8) ¿Cree usted que la disminución del precio de las renovables puede disparar un crecimiento virtuoso sostenido de la inversión en energía renovable?": "¿Cree usted que la disminución del precio de las renovables puede disparar un crecimiento virtuoso sostenido de la inversión en energía renovable?",
+    "8) ¿Cree usted que los subsidios a las energías renovables eliminarían / reemplazarían a los combustibles fósiles?": "¿Cree usted que los subsidios a las energías renovables eliminarían / reemplazarían a los combustibles fósiles?",
+    "8) ¿Cuáles cosas cambiaría?": "¿Cuáles cosas cambiaría?",
+    "8) ¿Cuánto estima usted que hay que reducir CADA AÑO las emisiones de CO2 globales durante todo el siglo XXI?": "¿Cuánto estima usted que hay que reducir CADA AÑO las emisiones de CO2 globales durante todo el siglo XXI?",
+    "8) ¿Cuánto estima usted que hay que reducir las emisiones de CO2 globales durante todo el siglo XXI?": "¿Cuánto estima usted que hay que reducir las emisiones de CO2 globales durante todo el siglo XXI?",
+    "8) ¿Qué cosas cambiaría del taller?": "¿Cuáles cosas cambiaría?",
+    "9) Describa en qué medida está de acuerdo en la siguiente afirmación: “ La solución al problema del Cambio Climático solo depende del esfuerzo de las grandes potencias.”": "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La solución al problema del Cambio Climático solo depende del esfuerzo de las grandes potencias.”",
+    "9) a) Indique cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a la Energia Nuclear": "Indique cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a la Energia Nuclear",
+    "9) ¿Cree usted que la disminución del precio de las renovables puede disparar un crecimiento virtuoso sostenido de la inversión en energía renovable?": "¿Cree usted que la disminución del precio de las renovables puede disparar un crecimiento virtuoso sostenido de la inversión en energía renovable?",
+    "9) ¿Cree usted que las distintas formas de energía renovable compiten entre si o que son aditivas, es decir que se aprovechara el 100% del potencial de cada una de estas fuentes energéticas.": "¿Cree usted que las distintas formas de energía renovable compiten entre si o que son aditivas, es decir que se aprovechara el 100% del potencial de cada una de estas fuentes energéticas.",
+    "9) ¿Cuáles cosas le gustaron más?": "¿Cuáles cosas le gustaron más?",
+    "9) ¿Cuánto estima usted que hay que reducir CADA AÑO las emisiones de CO2 globales durante todo el siglo XXI?": "¿Cuánto estima usted que hay que reducir CADA AÑO las emisiones de CO2 globales durante todo el siglo XXI?",
+    "9) ¿Qué cosas le gustaron más?": "¿Cuáles cosas le gustaron más?",
+    "9) ¿Vió Usted la película de Al Gore, \"An Inconvenient Truth\" / \"Una verdad incómoda\"? En caso afirmativo, ¿Qué le pareció?": "¿Vió Usted la película de Al Gore, \"An Inconvenient Truth\" / \"Una verdad incómoda\"? En caso afirmativo, ¿Qué le pareció?",
+    "A) Hogar": "¿Qué hace habitualmente para reducir el cambio climático en su hogar?",
+    "B) Trabajo": "¿Qué hace habitualmente para reducir el cambio climático en el trabajo?",
+    "C) Universidad": "¿Qué hace habitualmente para reducir el cambio climático en la universidad?",
+    "Comentarios": "Comentarios",
+    "D) Otras Partes": "¿Qué hace habitualmente para reducir el cambio climático en otras partes?",
+    "Describa en qué medida comprende que: \"A los niveles actuales de emisión los niveles de CO2 en la atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que saca de la atmósfera. El nivel de CO2 en la atmósfera varía según esta diferencia entre lo que ingresa y lo que sale y que es necesario actuar entre ambas\"": "Describa en qué medida comprende que: \"A los niveles actuales de emisión los niveles de CO2 en la atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que saca de la atmósfera. El nivel de CO2 en la atmósfera varía según esta diferencia entre lo que ingresa y lo que sale y que es necesario actuar entre ambas\"",
+    "Describa en qué medida comprende que: “A los niveles actuales de emisión los niveles de CO2 en al atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que se sacan de la atmósfera.”": "Describa en qué medida comprende que: “A los niveles actuales de emisión los niveles de CO2 en al atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que se sacan de la atmósfera.”",
+    "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La ayuda internacional de los países más desarrollados podría favorecer la rápida disminución de las emisiones en los países menos desarrollados.”": "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La ayuda internacional de los países más desarrollados podría favorecer la rápida disminución de las emisiones en los países menos desarrollados.”",
+    "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La solución al problema del Cambio Climático solo depende del esfuerzo de las grandes potencias.”": "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La solución al problema del Cambio Climático solo depende del esfuerzo de las grandes potencias.”",
+    "Describa en qué medida está de acuerdo en la siguiente afirmación: “Una intervención de alto apalancamiento es la rápida reducción de las emisiones en los países en desarrollo.”": "Describa en qué medida está de acuerdo en la siguiente afirmación: “Una intervención de alto apalancamiento es la rápida reducción de las emisiones en los países en desarrollo.”",
+    "En base a los resultados que vió del taller WCE (contestar solo si hicieron WCE la semana anterior), ¿Es posible resolver la crisis climática dentro de la zona de los 2C? En caso afirmativo, explicar por qué": "En base a los resultados que vió del taller WCE (contestar solo si hicieron WCE la semana anterior), ¿Es posible resolver la crisis climática dentro de la zona de los 2C? En caso afirmativo, explicar por qué",
+    "Evaluación general del taller": "Evaluación general del taller",
+    "Explique por que": "Explique por que",
+    "Indique cuál cree que es el impacto de Polìticas REDD+ reduciendo emisiones por la degradación de la tierra, desmontes, quema de bosques, etc.": "Indique cuál cree que es el impacto de Polìticas REDD+ reduciendo emisiones por la degradación de la tierra, desmontes, quema de bosques, etc.",
+    "Indique cuál cree que es el impacto posible de impulsar la concientización masiva e implementación de demostraciones públicas tendientes a apoyar la resolución de la crisis climática.": "Indique cuál cree que es el impacto posible de impulsar la concientización masiva e implementación de demostraciones públicas tendientes a apoyar la resolución de la crisis climática.",
+    "Indique cuál cree que es el impacto que tiene en el Cambio Climático la forestacion": "Indique cuál cree que es el impacto que tiene en el Cambio Climático la forestacion",
+    "Indique cuál cree que es el impacto que tiene en el Cambio Climático las acciones para aumentar la eficiencia energetica del transporte": "Indique cuál cree que es el impacto que tiene en el Cambio Climático las acciones para aumentar la eficiencia energetica del transporte",
+    "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuesto a la industria del petróleo": "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuesto a la industria del petróleo",
+    "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos a la Energia Nuclear": "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos a la Energia Nuclear",
+    "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos a las Energias renovables": "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos a las Energias renovables",
+    "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos a los Biocombustibles": "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos a los Biocombustibles",
+    "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos al gas natural": "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos al gas natural",
+    "Indique cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a la Energia Nuclear": "Indique cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a la Energia Nuclear",
+    "Indique cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a las Energias renovables": "Indique cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a las Energias renovables",
+    "Indique cuál cree que es el impacto que tiene en el Cambio Climático subsidiar al gas natural": "Indique cuál cree que es el impacto que tiene en el Cambio Climático subsidiar al gas natural",
+    "Indique cuál cree que es el impacto que tiene en el Cambio Climático un aumento del PBI mundial": "Indique cuál cree que es el impacto que tiene en el Cambio Climático un aumento del PBI mundial",
+    "Indique cuál cree que es el impacto que tiene en el Cambio Climático un vertiginoso aumento de la población": "Indique cuál cree que es el impacto que tiene en el Cambio Climático un vertiginoso aumento de la población",
+    "Indique cuál cree que puede ser el impacto de reducir las emisiones de metano por parte del ganado bovino, fertilizantes sintéticos generando óxido nitroso.": "Indique cuál cree que puede ser el impacto de reducir las emisiones de metano por parte del ganado bovino, fertilizantes sintéticos generando óxido nitroso.",
+    "Jevons paradox: ¿Cómo cree usted que influye el aumento de los precios sobre la demanda de energía?": "Jevons paradox: ¿Cómo cree usted que influye el aumento de los precios sobre la demanda de energía?",
+    "Luego del taller, ¿A qué tasa anual cree usted que es posible disminuir en forma sostenida en las emisiones de gases de efecto invernadero?": "Luego del taller, ¿A qué tasa anual cree usted que es posible disminuir en forma sostenida en las emisiones de gases de efecto invernadero?",
+    "Luego del taller, ¿En qué puntos cambió usted su opinión sobre el Cambio Climático?": "Luego del taller, ¿En qué puntos cambió usted su opinión sobre el Cambio Climático?",
+    "Por favor, responda a la pregunta: ¿Qué otras cosas cree poder hacer usted para resolver la Crisis Climática?”": "Por favor, responda a la pregunta: ¿Qué otras cosas cree poder hacer usted para resolver la Crisis Climática?”",
+    "Sin considerar las medidas sugeridas por Ud. en la pregunta anterior, ¿Cuáles son las medidas que pueden ser implementadas más tarde?": "Sin considerar las medidas sugeridas por Ud. en la pregunta anterior, ¿Cuáles son las medidas que pueden ser implementadas más tarde?",
+    "b) Explique el por qué": "Explique por que",
+    "b) Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuesto a la industria del petróleo": "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuesto a la industria del petróleo",
+    "b) Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos a la Energia Nuclear": "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos a la Energia Nuclear",
+    "b) Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos a las Energias renovables": "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos a las Energias renovables",
+    "b) Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos a los Biocombustibles": "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos a los Biocombustibles",
+    "b) ¿Cuál cree que es el impacto que tiene en el Cambio Climático poner un impuesto a una nueva tecnologia muy prometedora?": "¿Cuál cree que es el impacto que tiene en el Cambio Climático poner un impuesto a una nueva tecnologia muy prometedora?",
+    "b) ¿Por qué?": "Explique por que",
+    "b) ¿cuál cree que es el impacto que tiene en el Cambio Climático poner un impuesto al uso del carbon como combustible?": "¿cuál cree que es el impacto que tiene en el Cambio Climático poner un impuesto al uso del carbon como combustible?",
+    "b)Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos al gas natural": "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos al gas natural",
+    "c)Explique el por qué": "Explique por que",
+    "c)Explique por qué": "Explique por que",
+    "¿ Ha participado en el Taller World Climate (WCE) o World Energy (WCI) antes?": "¿ Ha participado en el Taller World Climate (WCE) o World Energy (WCI) antes?",
+    "¿A quienes les gustaría invitar a la próxima edición de este taller?": "¿A quienes les gustaría invitar a la próxima edición de este taller?",
+    "¿Acciones para aumentar la eficiencia energética de los edificios y casas, tales como aislaciones térmicas?": "¿Acciones para aumentar la eficiencia energética de los edificios y casas, tales como aislaciones térmicas?",
+    "¿Cree Usted que la humanidad enfrenta un escenario de Vida o Muerte frente al Cambio Climático?": "¿Cree Usted que la humanidad enfrenta un escenario de Vida o Muerte frente al Cambio Climático?",
+    "¿Cree usted que con una única acciòn es suficiente para resolver /aliviar el cambio climàtico?": "¿Cree usted que con una única acciòn es suficiente para resolver /aliviar el cambio climàtico?",
+    "¿Cree usted que disponibilidad de combustibles fósiles tiene algún tipo de restricción o que pueden crecer ilimitada?": "¿Cree usted que disponibilidad de combustibles fósiles tiene algún tipo de restricción o que pueden crecer ilimitada?",
+    "¿Cree usted que la disminución del precio de las renovables puede disparar un crecimiento virtuoso sostenido de la inversión en energía renovable?": "¿Cree usted que la disminución del precio de las renovables puede disparar un crecimiento virtuoso sostenido de la inversión en energía renovable?",
+    "¿Cree usted que las distintas formas de energía renovable compiten entre si o que son aditivas, es decir que se aprovechara el 100% del potencial de cada una de estas fuentes energéticas.": "¿Cree usted que las distintas formas de energía renovable compiten entre si o que son aditivas, es decir que se aprovechara el 100% del potencial de cada una de estas fuentes energéticas.",
+    "¿Cree usted que los subsidios a las energías renovables eliminarían / reemplazarían a los combustibles fósiles?": "¿Cree usted que los subsidios a las energías renovables eliminarían / reemplazarían a los combustibles fósiles?",
+    "¿Cree usted que son necesarias múltiples medidas simultáneas para resolver y aliviar el cambio climático dentro de parámetros habitables?": "¿Cree usted que son necesarias múltiples medidas simultáneas para resolver y aliviar el cambio climático dentro de parámetros habitables?",
+    "¿Cree usted que todas las regiones deben contribuir en la mitigación del Cambio Climático?": "¿Cree usted que todas las regiones deben contribuir en la mitigación del Cambio Climático?",
+    "¿Cuál cree que es el impacto que tiene en el Cambio Climático poner un impuesto a una nueva tecnologia muy prometedora?": "¿Cuál cree que es el impacto que tiene en el Cambio Climático poner un impuesto a una nueva tecnologia muy prometedora?",
+    "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a la industria del petróleo?": "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a la industria del petróleo?",
+    "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a los Biocombustibles?": "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a los Biocombustibles?",
+    "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a una nueva tecnologia muy prometedora?": "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a una nueva tecnologia muy prometedora?",
+    "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar al uso del carbon como combustible?": "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar al uso del carbon como combustible?",
+    "¿Cuál cree usted que es el impacto que tiene una disminución de emisiones de efecto invernadero sobre la temperatura global?": "¿Cuál cree usted que es el impacto que tiene una disminución de emisiones de efecto invernadero sobre la temperatura global?",
+    "¿Cuál cree usted que es el impacto sobre la temperatura de los otros gase de efecto invernadero (Metano, N2O and the f-gases )": "¿Cuál cree usted que es el impacto sobre la temperatura de los otros gase de efecto invernadero (Metano, N2O and the f-gases )",
+    "¿Cuál es el esfuerzo requerido para encontrar una solución viable dentro de los 2 grados? (Elegir la opción con la que Ud. coincida más)": "¿Cuál es el esfuerzo requerido para encontrar una solución viable dentro de los 2 grados? (Elegir la opción con la que Ud. coincida más)",
+    "¿Cuál es la región a la cuál debería haberse influido más para lograr mejores resultados de mitigación?": "¿Cuál es la región a la cuál debería haberse influido más para lograr mejores resultados de mitigación?",
+    "¿Cuáles cosas cambiaría?": "¿Cuáles cosas cambiaría?",
+    "¿Cuáles cosas le gustaron más?": "¿Cuáles cosas le gustaron más?",
+    "¿Cuáles fueron los temas más conflictivos?": "¿Cuáles fueron los temas más conflictivos?",
+    "¿Cuáles son las aplicaciones potenciales de la solución que propuso?": "¿Cuáles son las aplicaciones potenciales de la solución que propuso?",
+    "¿Cuáles son las medidas más urgentes que tomaría?": "¿Cuáles son las medidas más urgentes que tomaría?",
+    "¿Cuáles son los distintos beneficios de las distintas formas de distribuir los ingresos de un precio al carbono?": "¿Cuáles son los distintos beneficios de las distintas formas de distribuir los ingresos de un precio al carbono?",
+    "¿Cuáles son sus expectativas para el taller?": "¿Cuáles son sus expectativas para el taller?",
+    "¿Cuán entretenido resultó el taller?": "¿Cuán entretenido resultó el taller?",
+    "¿Cuánto estima usted que hay que reducir CADA AÑO las emisiones de CO2 globales durante todo el siglo XXI?": "¿Cuánto estima usted que hay que reducir CADA AÑO las emisiones de CO2 globales durante todo el siglo XXI?",
+    "¿Cuánto estima usted que hay que reducir las emisiones de CO2 globales durante todo el siglo XXI?": "¿Cuánto estima usted que hay que reducir las emisiones de CO2 globales durante todo el siglo XXI?",
+    "¿Cuánto tiempo cree Usted que queda para mitigar los efectos del Cambio Climático?": "¿Cuánto tiempo cree Usted que queda para mitigar los efectos del Cambio Climático?",
+    "¿Cómo sugiere usted proceder con aquellas economías que hoy siguen usando carbón como fuente de energía?": "¿Cómo sugiere usted proceder con aquellas economías que hoy siguen usando carbón como fuente de energía?",
+    "¿Cómo valoraría usted la relevancia del Cambio Climático?": "¿Cómo valoraría usted la relevancia del Cambio Climático?",
+    "¿Cómo valoraría usted su conocimiento personal sobre el proceso de Cambio Climático?": "¿Cómo valoraría usted su conocimiento personal sobre el proceso de Cambio Climático?",
+    "¿Decidió usted participar en algún equipo para la competencia MIT Climate CoLab 2017?": "¿Decidió usted participar en algún equipo para la competencia MIT Climate CoLab 2017?",
+    "¿En cuál equipo?": "¿En cuál equipo?",
+    "¿En qué grado cree que este taller reproduce con precisión la dinámica real de las negociaciones en la ONU para encontrar una solución para mitigar el Cambio Climático?": "¿En qué grado cree que este taller reproduce con precisión la dinámica real de las negociaciones en la ONU para encontrar una solución para mitigar el Cambio Climático?",
+    "¿Qué cosas le gustaron más del workshop?": "¿Qué cosas le gustaron más del workshop?",
+    "¿Qué cosas le sorprendieron?": "¿Qué cosas le sorprendieron?",
+    "¿Qué fue lo que más te gustó del taller y que cambiarías?": "¿Qué fue lo que más te gustó del taller y que cambiarías?",
+    "¿Qué hace habitualmente para reducir el cambio climático en el trabajo?": "¿Qué hace habitualmente para reducir el cambio climático en el trabajo?",
+    "¿Qué hace habitualmente para reducir el cambio climático en la universidad?": "¿Qué hace habitualmente para reducir el cambio climático en la universidad?",
+    "¿Qué hace habitualmente para reducir el cambio climático en otras partes?": "¿Qué hace habitualmente para reducir el cambio climático en otras partes?",
+    "¿Qué hace habitualmente para reducir el cambio climático en su hogar?": "¿Qué hace habitualmente para reducir el cambio climático en su hogar?",
+    "¿Qué impacto tendría sobre el sistema climático + energético la aparición de una tecnología novedosa que hoy no esté disponible? (Por ejemplo: la fusión nuclear en frio - cold fusion-, la economía del hidrógeno, fisión nuclear del torio, etc.)": "¿Qué impacto tendría sobre el sistema climático + energético la aparición de una tecnología novedosa que hoy no esté disponible? (Por ejemplo: la fusión nuclear en frio - cold fusion-, la economía del hidrógeno, fisión nuclear del torio, etc.)",
+    "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en la universidad?": "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en la universidad?",
+    "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en otras partes?": "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en otras partes?",
+    "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en tu hogar?": "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en tu hogar?",
+    "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en tu trabajo?": "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en tu trabajo?",
+    "¿Qué opina usted sobre el Cambio climático?": "¿Qué opina usted sobre el Cambio climático?",
+    "¿Qué porcentaje (%) total de las emisiones de CO2 actuales anuales de todos los países del mundo en su conjunto estima usted que será necesario reducir para que la temperatura media global no supere los 2ºC durante el siglo XXI?": "¿Qué porcentaje (%) total de las emisiones de CO2 actuales anuales de todos los países del mundo en su conjunto estima usted que será necesario reducir para que la temperatura media global no supere los 2ºC durante el siglo XXI?",
+    "¿Qué relación cree usted que tiene el crecimiento del Producto Bruto Mundial y/o de la población mundial sobre la cantidad de emisiones de CO2?": "¿Qué relación cree usted que tiene el crecimiento del Producto Bruto Mundial y/o de la población mundial sobre la cantidad de emisiones de CO2?",
+    "¿Qué sabe usted sobre el Cambio Climático?": "¿Qué sabe usted sobre el Cambio Climático?",
+    "¿Tiene usted interés en participar de algún proyecto vinculado a la reducción del cambio climático?": "¿Tiene usted interés en participar de algún proyecto vinculado a la reducción del cambio climático?",
+    "¿Vió Usted la película de Al Gore, \"An Inconvenient Truth\" / \"Una verdad incómoda\"? En caso afirmativo, ¿Qué le pareció?": "¿Vió Usted la película de Al Gore, \"An Inconvenient Truth\" / \"Una verdad incómoda\"? En caso afirmativo, ¿Qué le pareció?",
+    "¿cuál cree que es el impacto que tiene en el Cambio Climático poner un impuesto al uso del carbon como combustible?": "¿cuál cree que es el impacto que tiene en el Cambio Climático poner un impuesto al uso del carbon como combustible?"
   },
-  {
-    "a": true,
-    "f": false,
-    "id": 1,
-    "n": "¿Cómo valoraría usted su conocimiento personal sobre el proceso de Cambio Climático?",
-    "t": "c",
-    "v": [
-      {
-        "d": "1. Desconoce.",
-        "v": 1
-      },
-      {
-        "d": "2. Pobre. Algunas referencias en medios.",
-        "v": 2
-      },
-      {
-        "d": "3. Medio. Conoce el tema y ha leído algún artículo sobre el tema",
-        "v": 3
-      },
-      {
-        "d": "4. Avanzado. Ha leído libros y estudiado el tema.",
-        "v": 4
-      },
-      {
-        "d": "5. Muy avanzado. Experto en el tema.",
-        "v": 5
-      }
-    ]
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 2,
-    "n": "¿Qué opina usted sobre el Cambio climático?",
-    "t": "t",
-    "v": null
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 3,
-    "n": "¿Cómo valoraría usted la relevancia del Cambio Climático?",
-    "t": "c",
-    "v": [
-      {
-        "d": "1. Es irrelevante, no tiene impacto alguno.",
-        "v": 1
-      },
-      {
-        "d": "2. Algún impacto mínimo",
-        "v": 2
-      },
-      {
-        "d": "3. Impacto Mediano",
-        "v": 3
-      },
-      {
-        "d": "4. Importante impacto.",
-        "v": 4
-      },
-      {
-        "d": "5. Impacto muy importante",
-        "v": 5
-      }
-    ]
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 4,
-    "n": "¿Cree Usted que la humanidad enfrenta un escenario de Vida o Muerte frente al Cambio Climático?",
-    "t": "c",
-    "v": [
-      {
-        "d": "1. No, la humanidad puede seguir como hasta ahora en forma indefinida.",
-        "v": 1
-      },
-      {
-        "d": "2. No lo sé.",
-        "v": 2
-      },
-      {
-        "d": "3. Tengo mis dudas, pero todo parece que está bien.",
-        "v": 3
-      },
-      {
-        "d": "4. Sí, la humanidad enfrenta un desafío de \"vida o muerte\".",
-        "v": 4
-      }
-    ]
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 5,
-    "n": "¿Cuánto tiempo cree Usted que queda para mitigar los efectos del Cambio Climático?",
-    "t": "c",
-    "v": [
-      {
-        "d": "1. No es necesario mitigar el cambio climático.",
-        "v": 1
-      },
-      {
-        "d": "2. 200 años, o hasta que se termine de consumir todo el gas y el petróleo.",
-        "v": 2
-      },
-      {
-        "d": "3. 100 años, más o menos.",
-        "v": 3
-      },
-      {
-        "d": "4. 30 a 50 años, aproximadamente.",
-        "v": 4
-      },
-      {
-        "d": "5. 5 a 25 años.",
-        "v": 5
-      },
-      {
-        "d": "6. No lo sé.",
-        "v": 6
-      }
-    ]
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 6,
-    "n": "¿Cuánto estima usted que hay que reducir las emisiones de CO2 globales durante todo el siglo XXI?",
-    "t": "c",
-    "v": [
-      {
-        "d": "1. Haber reducido del 0 al 20 % de las emisiones de CO2 actuales",
-        "v": 1
-      },
-      {
-        "d": "2. Haber reducido del 21 al 40 % de las emisiones de CO2 actuales",
-        "v": 2
-      },
-      {
-        "d": "3. Haber reducido del 41 al 60 % de las emisiones de CO2 actuales",
-        "v": 3
-      },
-      {
-        "d": "4. Haber reducido del 61 al 80 % de las emisiones de CO2 actuales",
-        "v": 4
-      },
-      {
-        "d": "5. Haber reducido del 81 al 100% de las emisiones de CO2 actuales",
-        "v": 5
-      }
-    ]
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 7,
-    "n": "¿Cuánto estima usted que hay que reducir CADA AÑO las emisiones de CO2 globales durante todo el siglo XXI?",
-    "t": "c",
-    "v": [
-      {
-        "d": "1. Reduciendo 60 al 90 % de las emisiones de CO2 año a año hasta el 2050",
-        "v": 1
-      },
-      {
-        "d": "2. Reduciendo 30 al 50 % de las emisiones de CO2 año a año hasta el 2050",
-        "v": 2
-      },
-      {
-        "d": "3. Reduciendo 20 al 30 % de las emisiones de CO2 año a año hasta el 2050",
-        "v": 3
-      },
-      {
-        "d": "4. Reduciendo 10 % de las emisiones de CO2 año a año hasta el 2050",
-        "v": 4
-      },
-      {
-        "d": "5. Reduciendo 1 al 5 % de las emisiones de CO2 año a año hasta el 2050",
-        "v": 5
-      }
-    ]
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 8,
-    "n": "¿Vió Usted la película de Al Gore, \"An Inconvenient Truth\" / \"Una verdad incómoda\"? En caso afirmativo, ¿Qué le pareció?",
-    "t": "t",
-    "v": null
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 9,
-    "n": "Describa en qué medida comprende que: “A los niveles actuales de emisión los niveles de CO2 en al atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que se sacan de la atmósfera.”",
-    "t": "c",
-    "v": [
-      {
-        "d": "1.Totalmente incomprensible.",
-        "v": 1
-      },
-      {
-        "d": "2. Algo comprensible.",
-        "v": 2
-      },
-      {
-        "d": "3. Comprensible.",
-        "v": 3
-      },
-      {
-        "d": "4. Muy comprensible.",
-        "v": 4
-      },
-      {
-        "d": "5. Evidente.",
-        "v": 5
-      }
-    ]
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 10,
-    "n": "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La solución al problema del Cambio Climático solo depende del esfuerzo de las grandes potencias.”",
-    "t": "c",
-    "v": [
-      {
-        "d": "1. Totalmente en desacuerdo.",
-        "v": 1
-      },
-      {
-        "d": "2. Algo en desacuerdo.",
-        "v": 2
-      },
-      {
-        "d": "3. Ni de acuerdo ni en desacuerdo.",
-        "v": 3
-      },
-      {
-        "d": "4. De acuerdo.",
-        "v": 4
-      },
-      {
-        "d": "5. Totalmente de acuerdo.",
-        "v": 5
-      }
-    ]
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 11,
-    "n": "Describa en qué medida está de acuerdo en la siguiente afirmación: “Una intervención de alto apalancamiento es la rápida reducción de las emisiones en los países en desarrollo.”",
-    "t": "c",
-    "v": [
-      {
-        "d": "1. Totalmente en desacuerdo.",
-        "v": 1
-      },
-      {
-        "d": "2. Algo en desacuerdo.",
-        "v": 2
-      },
-      {
-        "d": "3. Ni de acuerdo ni en desacuerdo.",
-        "v": 3
-      },
-      {
-        "d": "4. De acuerdo.",
-        "v": 4
-      },
-      {
-        "d": "5. Totalmente de acuerdo.",
-        "v": 5
-      }
-    ]
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 12,
-    "n": "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La ayuda internacional de los países más desarrollados podría favorecer la rápida disminución de las emisiones en los países menos desarrollados.”",
-    "t": "c",
-    "v": [
-      {
-        "d": "1. Totalmente en desacuerdo.",
-        "v": 1
-      },
-      {
-        "d": "2. Algo en desacuerdo.",
-        "v": 2
-      },
-      {
-        "d": "3. Ni de acuerdo ni en desacuerdo.",
-        "v": 3
-      },
-      {
-        "d": "4. De acuerdo.",
-        "v": 4
-      },
-      {
-        "d": "5. Totalmente de acuerdo.",
-        "v": 5
-      }
-    ]
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 13,
-    "n": "¿Cree usted que todas las regiones deben contribuir en la mitigación del Cambio Climático?",
-    "t": "c",
-    "v": [
-      {
-        "d": "1. Totalmente en desacuerdo.",
-        "v": 1
-      },
-      {
-        "d": "2. Algo en desacuerdo.",
-        "v": 2
-      },
-      {
-        "d": "3. Ni de acuerdo ni en desacuerdo.",
-        "v": 3
-      },
-      {
-        "d": "4. De acuerdo.",
-        "v": 4
-      },
-      {
-        "d": "5. Totalmente de acuerdo.",
-        "v": 5
-      }
-    ]
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 14,
-    "n": "¿En qué grado cree que este taller reproduce con precisión la dinámica real de las negociaciones en la ONU para encontrar una solución para mitigar el Cambio Climático?",
-    "t": "c",
-    "v": [
-      {
-        "d": "1. Totalmente de acuerdo",
-        "v": 1
-      },
-      {
-        "d": "2. De acuerdo.",
-        "v": 2
-      },
-      {
-        "d": "3. Ni de acuerdo ni en desacuerdo.",
-        "v": 3
-      },
-      {
-        "d": "4. Algo en desacuerdo.",
-        "v": 4
-      },
-      {
-        "d": "5. Totalmente en desacuerdo.",
-        "v": 5
-      }
-    ]
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 15,
-    "n": "Describa en qué medida comprende que: \"A los niveles actuales de emisión los niveles de CO2 en la atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que saca de la atmósfera. El nivel de CO2 en la atmósfera varía según esta diferencia entre lo que ingresa y lo que sale y que es necesario actuar entre ambas\"",
-    "t": "c",
-    "v": [
-      {
-        "d": "1. Totalmente incomprensible",
-        "v": 1
-      },
-      {
-        "d": "2. Algo comprensible",
-        "v": 2
-      },
-      {
-        "d": "3. Comprensible",
-        "v": 3
-      },
-      {
-        "d": "4. Muy comprensible",
-        "v": 4
-      },
-      {
-        "d": "5. Es evidente",
-        "v": 5
-      }
-    ]
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 16,
-    "n": "Luego del taller, ¿En qué puntos cambió usted su opinión sobre el Cambio Climático?",
-    "t": "t",
-    "v": null
-  },
-  {
-    "a": true,
-    "f": false,
-    "id": 17,
-    "n": "¿Cuál es la región a la cuál debería haberse influido más para lograr mejores resultados de mitigación?",
-    "t": [
-      "m"
-    ],
-    "v": [
-      "1. USA",
-      "2.Unión Europea",
-      "3.China",
-      "4. India",
-      "5. Otros desarrollados",
-      "6. Otros en desarrollo",
-      "7. No sé"
-    ]
-  },
-  {
-    "a": true,
-    "f": true,
-    "id": 18,
-    "n": "¿Qué cosas le gustaron más del workshop?",
-    "t": "t",
-    "v": null
-  },
-  {
-    "a": true,
-    "f": true,
-    "id": 19,
-    "n": "¿Cuán entretenido resultó el taller?",
-    "t": "c",
-    "v": [
-      {
-        "d": "1. Bastante aburrido",
-        "v": 1
-      },
-      {
-        "d": "2. Aburrido",
-        "v": 2
-      },
-      {
-        "d": "3. Bueno",
-        "v": 3
-      },
-      {
-        "d": "4. Muy bueno",
-        "v": 4
-      },
-      {
-        "d": "5. Excelente",
-        "v": 5
-      }
-    ]
-  },
-  {
-    "a": true,
-    "f": true,
-    "id": 20,
-    "n": "Evaluación general del taller",
-    "t": "c",
-    "v": [
-      {
-        "d": "1. Malo",
-        "v": 1
-      },
-      {
-        "d": "2. Regular",
-        "v": 2
-      },
-      {
-        "d": "3. Bueno",
-        "v": 3
-      },
-      {
-        "d": "5. Excelente",
-        "v": 5
-      }
-    ]
-  }
-]
+  "definitions": [
+    {
+      "a": true,
+      "f": false,
+      "id": 0,
+      "n": "¿Qué sabe usted sobre el Cambio Climático?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 1,
+      "n": "¿Cómo valoraría usted su conocimiento personal sobre el proceso de Cambio Climático?",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. Desconoce.",
+          "v": 1
+        },
+        {
+          "d": "2. Pobre. Algunas referencias en medios.",
+          "v": 2
+        },
+        {
+          "d": "3. Medio. Conoce el tema y ha leído algún artículo sobre el tema",
+          "v": 3
+        },
+        {
+          "d": "4. Avanzado. Ha leído libros y estudiado el tema.",
+          "v": 4
+        },
+        {
+          "d": "5. Muy avanzado. Experto en el tema.",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 2,
+      "n": "¿Qué opina usted sobre el Cambio climático?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 3,
+      "n": "¿Cómo valoraría usted la relevancia del Cambio Climático?",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. Es irrelevante, no tiene impacto alguno.",
+          "v": 1
+        },
+        {
+          "d": "2. Algún impacto mínimo",
+          "v": 2
+        },
+        {
+          "d": "3. Impacto Mediano",
+          "v": 3
+        },
+        {
+          "d": "4. Importante impacto.",
+          "v": 4
+        },
+        {
+          "d": "5. Impacto muy importante",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 4,
+      "n": "¿Cree Usted que la humanidad enfrenta un escenario de Vida o Muerte frente al Cambio Climático?",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. No, la humanidad puede seguir como hasta ahora en forma indefinida.",
+          "v": 1
+        },
+        {
+          "d": "2. No lo sé.",
+          "v": 2
+        },
+        {
+          "d": "3. Tengo mis dudas, pero todo parece que está bien.",
+          "v": 3
+        },
+        {
+          "d": "4. Sí, la humanidad enfrenta un desafío de \"vida o muerte\".",
+          "v": 4
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 5,
+      "n": "¿Cuánto tiempo cree Usted que queda para mitigar los efectos del Cambio Climático?",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. No es necesario mitigar el cambio climático.",
+          "v": 1
+        },
+        {
+          "d": "2. 200 años, o hasta que se termine de consumir todo el gas y el petróleo.",
+          "v": 2
+        },
+        {
+          "d": "3. 100 años, más o menos.",
+          "v": 3
+        },
+        {
+          "d": "4. 30 a 50 años, aproximadamente.",
+          "v": 4
+        },
+        {
+          "d": "5. 5 a 25 años.",
+          "v": 5
+        },
+        {
+          "d": "6. No lo sé.",
+          "v": 6
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 6,
+      "n": "¿Cuánto estima usted que hay que reducir las emisiones de CO2 globales durante todo el siglo XXI?",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. Haber reducido del 0 al 20 % de las emisiones de CO2 actuales",
+          "v": 1
+        },
+        {
+          "d": "2. Haber reducido del 21 al 40 % de las emisiones de CO2 actuales",
+          "v": 2
+        },
+        {
+          "d": "3. Haber reducido del 41 al 60 % de las emisiones de CO2 actuales",
+          "v": 3
+        },
+        {
+          "d": "4. Haber reducido del 61 al 80 % de las emisiones de CO2 actuales",
+          "v": 4
+        },
+        {
+          "d": "5. Haber reducido del 81 al 100% de las emisiones de CO2 actuales",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 7,
+      "n": "¿Cuánto estima usted que hay que reducir CADA AÑO las emisiones de CO2 globales durante todo el siglo XXI?",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. Reduciendo 60 al 90 % de las emisiones de CO2 año a año hasta el 2050",
+          "v": 1
+        },
+        {
+          "d": "2. Reduciendo 30 al 50 % de las emisiones de CO2 año a año hasta el 2050",
+          "v": 2
+        },
+        {
+          "d": "3. Reduciendo 20 al 30 % de las emisiones de CO2 año a año hasta el 2050",
+          "v": 3
+        },
+        {
+          "d": "4. Reduciendo 10 % de las emisiones de CO2 año a año hasta el 2050",
+          "v": 4
+        },
+        {
+          "d": "5. Reduciendo 1 al 5 % de las emisiones de CO2 año a año hasta el 2050",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 8,
+      "n": "¿Vió Usted la película de Al Gore, \"An Inconvenient Truth\" / \"Una verdad incómoda\"? En caso afirmativo, ¿Qué le pareció?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 9,
+      "n": "Describa en qué medida comprende que: “A los niveles actuales de emisión los niveles de CO2 en al atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que se sacan de la atmósfera.”",
+      "t": "c",
+      "v": [
+        {
+          "d": "1.Totalmente incomprensible.",
+          "v": 1
+        },
+        {
+          "d": "2. Algo comprensible.",
+          "v": 2
+        },
+        {
+          "d": "3. Comprensible.",
+          "v": 3
+        },
+        {
+          "d": "4. Muy comprensible.",
+          "v": 4
+        },
+        {
+          "d": "5. Evidente.",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 10,
+      "n": "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La solución al problema del Cambio Climático solo depende del esfuerzo de las grandes potencias.”",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. Totalmente en desacuerdo.",
+          "v": 1
+        },
+        {
+          "d": "2. Algo en desacuerdo.",
+          "v": 2
+        },
+        {
+          "d": "3. Ni de acuerdo ni en desacuerdo.",
+          "v": 3
+        },
+        {
+          "d": "4. De acuerdo.",
+          "v": 4
+        },
+        {
+          "d": "5. Totalmente de acuerdo.",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 11,
+      "n": "Describa en qué medida está de acuerdo en la siguiente afirmación: “Una intervención de alto apalancamiento es la rápida reducción de las emisiones en los países en desarrollo.”",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. Totalmente en desacuerdo.",
+          "v": 1
+        },
+        {
+          "d": "2. Algo en desacuerdo.",
+          "v": 2
+        },
+        {
+          "d": "3. Ni de acuerdo ni en desacuerdo.",
+          "v": 3
+        },
+        {
+          "d": "4. De acuerdo.",
+          "v": 4
+        },
+        {
+          "d": "5. Totalmente de acuerdo.",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 12,
+      "n": "Describa en qué medida está de acuerdo en la siguiente afirmación: “ La ayuda internacional de los países más desarrollados podría favorecer la rápida disminución de las emisiones en los países menos desarrollados.”",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. Totalmente en desacuerdo.",
+          "v": 1
+        },
+        {
+          "d": "2. Algo en desacuerdo.",
+          "v": 2
+        },
+        {
+          "d": "3. Ni de acuerdo ni en desacuerdo.",
+          "v": 3
+        },
+        {
+          "d": "4. De acuerdo.",
+          "v": 4
+        },
+        {
+          "d": "5. Totalmente de acuerdo.",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 13,
+      "n": "¿Cree usted que todas las regiones deben contribuir en la mitigación del Cambio Climático?",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. Totalmente en desacuerdo.",
+          "v": 1
+        },
+        {
+          "d": "2. Algo en desacuerdo.",
+          "v": 2
+        },
+        {
+          "d": "3. Ni de acuerdo ni en desacuerdo.",
+          "v": 3
+        },
+        {
+          "d": "4. De acuerdo.",
+          "v": 4
+        },
+        {
+          "d": "5. Totalmente de acuerdo.",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 14,
+      "n": "¿En qué grado cree que este taller reproduce con precisión la dinámica real de las negociaciones en la ONU para encontrar una solución para mitigar el Cambio Climático?",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. Totalmente de acuerdo",
+          "v": 1
+        },
+        {
+          "d": "2. De acuerdo.",
+          "v": 2
+        },
+        {
+          "d": "3. Ni de acuerdo ni en desacuerdo.",
+          "v": 3
+        },
+        {
+          "d": "4. Algo en desacuerdo.",
+          "v": 4
+        },
+        {
+          "d": "5. Totalmente en desacuerdo.",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 15,
+      "n": "Describa en qué medida comprende que: \"A los niveles actuales de emisión los niveles de CO2 en la atmósfera seguirán creciendo, ya que las emisiones son mayores que la cantidad de CO2 que saca de la atmósfera. El nivel de CO2 en la atmósfera varía según esta diferencia entre lo que ingresa y lo que sale y que es necesario actuar entre ambas\"",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. Totalmente incomprensible",
+          "v": 1
+        },
+        {
+          "d": "2. Algo comprensible",
+          "v": 2
+        },
+        {
+          "d": "3. Comprensible",
+          "v": 3
+        },
+        {
+          "d": "4. Muy comprensible",
+          "v": 4
+        },
+        {
+          "d": "5. Es evidente",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 16,
+      "n": "Luego del taller, ¿En qué puntos cambió usted su opinión sobre el Cambio Climático?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 17,
+      "n": "¿Cuál es la región a la cuál debería haberse influido más para lograr mejores resultados de mitigación?",
+      "t": [
+        "m"
+      ],
+      "v": [
+        "1. USA",
+        "2.Unión Europea",
+        "3.China",
+        "4. India",
+        "5. Otros desarrollados",
+        "6. Otros en desarrollo",
+        "7. No sé"
+      ]
+    },
+    {
+      "a": true,
+      "f": true,
+      "id": 18,
+      "n": "¿Qué cosas le gustaron más del workshop?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": true,
+      "id": 19,
+      "n": "¿Cuán entretenido resultó el taller?",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. Bastante aburrido",
+          "v": 1
+        },
+        {
+          "d": "2. Aburrido",
+          "v": 2
+        },
+        {
+          "d": "3. Bueno",
+          "v": 3
+        },
+        {
+          "d": "4. Muy bueno",
+          "v": 4
+        },
+        {
+          "d": "5. Excelente",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": true,
+      "id": 20,
+      "n": "Evaluación general del taller",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. Malo",
+          "v": 1
+        },
+        {
+          "d": "2. Regular",
+          "v": 2
+        },
+        {
+          "d": "3. Bueno",
+          "v": 3
+        },
+        {
+          "d": "5. Excelente",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 21,
+      "n": "¿ Ha participado en el Taller World Climate (WCE) o World Energy (WCI) antes?",
+      "t": "c",
+      "v": [
+        {
+          "d": "SI",
+          "v": 1
+        },
+        {
+          "d": "NO",
+          "v": 2
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 22,
+      "n": "En base a los resultados que vió del taller WCE (contestar solo si hicieron WCE la semana anterior), ¿Es posible resolver la crisis climática dentro de la zona de los 2C? En caso afirmativo, explicar por qué",
+      "t": "c",
+      "v": [
+        {
+          "d": "No",
+          "v": 1
+        },
+        {
+          "d": "Si",
+          "v": 2
+        },
+        {
+          "d": "No hizo WCE antes.",
+          "v": 3
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 23,
+      "n": "¿Cuál es el esfuerzo requerido para encontrar una solución viable dentro de los 2 grados? (Elegir la opción con la que Ud. coincida más)",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. No es necesario realizar ningún esfuerzo, el mercado encontrara la solucion por si solo.",
+          "v": 1
+        },
+        {
+          "d": "2. Alcanza con una única medida (Enfoque “silver bullet”, ejemplo impuestos a los combustibles fósiles)",
+          "v": 2
+        },
+        {
+          "d": "3. Alcanza con actuar sobre dos frentes al mismo tiempo (Por ejemplo: impuestos a combustibles fósiles + subsidios a las energías renovables)",
+          "v": 3
+        },
+        {
+          "d": "4. Alcanza con actuar sobre varios frentes simultáneos (Por ejemplo: ahorro energético en transporte y domiciliario + impuestos a combustibles fósiles + etc.)",
+          "v": 4
+        },
+        {
+          "d": "5. Es necesario actuar sobre todos los frentes posibles. (Enfoque Buckshot)",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 24,
+      "n": "¿Cuáles son las medidas más urgentes que tomaría?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 25,
+      "n": "Sin considerar las medidas sugeridas por Ud. en la pregunta anterior, ¿Cuáles son las medidas que pueden ser implementadas más tarde?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 26,
+      "n": "¿Qué impacto tendría sobre el sistema climático + energético la aparición de una tecnología novedosa que hoy no esté disponible? (Por ejemplo: la fusión nuclear en frio - cold fusion-, la economía del hidrógeno, fisión nuclear del torio, etc.)",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningún impacto (Llegaría tarde)",
+          "v": 1
+        },
+        {
+          "d": "Algún impacto",
+          "v": 2
+        },
+        {
+          "d": "Alto impacto",
+          "v": 3
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 27,
+      "n": "¿Cree usted que los subsidios a las energías renovables eliminarían / reemplazarían a los combustibles fósiles?",
+      "t": "c",
+      "v": [
+        {
+          "d": "No",
+          "v": 1
+        },
+        {
+          "d": "Si",
+          "v": 2
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 28,
+      "n": "¿Cree usted que la disminución del precio de las renovables puede disparar un crecimiento virtuoso sostenido de la inversión en energía renovable?",
+      "t": "c",
+      "v": [
+        {
+          "d": "No",
+          "v": 1
+        },
+        {
+          "d": "Si",
+          "v": 2
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 29,
+      "n": "¿Cree usted que las distintas formas de energía renovable compiten entre si o que son aditivas, es decir que se aprovechara el 100% del potencial de cada una de estas fuentes energéticas.",
+      "t": "c",
+      "v": [
+        {
+          "d": "No sé",
+          "v": 1
+        },
+        {
+          "d": "Aditiva",
+          "v": 2
+        },
+        {
+          "d": "Competitiva",
+          "v": 3
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 30,
+      "n": "¿Cree usted que disponibilidad de combustibles fósiles tiene algún tipo de restricción o que pueden crecer ilimitada?",
+      "t": "c",
+      "v": [
+        {
+          "d": "Crecimiento acotado",
+          "v": 1
+        },
+        {
+          "d": "Crecimiento ilimitado",
+          "v": 2
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 31,
+      "n": "Jevons paradox: ¿Cómo cree usted que influye el aumento de los precios sobre la demanda de energía?",
+      "t": "c",
+      "v": [
+        {
+          "d": "Disminuye demanda energía",
+          "v": 1
+        },
+        {
+          "d": "No influye",
+          "v": 2
+        },
+        {
+          "d": "Aumenta demanda energía",
+          "v": 3
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 32,
+      "n": "¿Qué relación cree usted que tiene el crecimiento del Producto Bruto Mundial y/o de la población mundial sobre la cantidad de emisiones de CO2?",
+      "t": "c",
+      "v": [
+        {
+          "d": "No están relacionados",
+          "v": 1
+        },
+        {
+          "d": "Poca relación",
+          "v": 2
+        },
+        {
+          "d": "Mucha relación",
+          "v": 3
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 33,
+      "n": "¿Cuál cree usted que es el impacto sobre la temperatura de los otros gase de efecto invernadero (Metano, N2O and the f-gases )",
+      "t": "c",
+      "v": [
+        {
+          "d": "Sin impacto alguno",
+          "v": 1
+        },
+        {
+          "d": "Impacto menor",
+          "v": 2
+        },
+        {
+          "d": "Gran impacto",
+          "v": 3
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 34,
+      "n": "¿Cuál cree usted que es el impacto que tiene una disminución de emisiones de efecto invernadero sobre la temperatura global?",
+      "t": "c",
+      "v": [
+        {
+          "d": "Sin impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Gran impacto",
+          "v": 3
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 35,
+      "n": "¿Cómo sugiere usted proceder con aquellas economías que hoy siguen usando carbón como fuente de energía?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 36,
+      "n": "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en tu hogar?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 37,
+      "n": "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en tu trabajo?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 38,
+      "n": "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en la universidad?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 39,
+      "n": "¿Qué nuevas creés que podrás realizar para reducir el cambio climático en otras partes?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": true,
+      "id": 40,
+      "n": "¿Qué fue lo que más te gustó del taller y que cambiarías?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 41,
+      "n": "¿Qué hace habitualmente para reducir el cambio climático en su hogar?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 42,
+      "n": "¿Qué hace habitualmente para reducir el cambio climático en el trabajo?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 43,
+      "n": "¿Qué hace habitualmente para reducir el cambio climático en la universidad?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 44,
+      "n": "¿Qué hace habitualmente para reducir el cambio climático en otras partes?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 45,
+      "n": "¿Cuáles son sus expectativas para el taller?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 46,
+      "n": "Indique cuál cree que es el impacto que tiene en el Cambio Climático un vertiginoso aumento de la población",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 47,
+      "n": "Indique cuál cree que es el impacto que tiene en el Cambio Climático un aumento del PBI mundial",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 48,
+      "n": "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar al uso del carbon como combustible?",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 49,
+      "n": "¿cuál cree que es el impacto que tiene en el Cambio Climático poner un impuesto al uso del carbon como combustible?",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 50,
+      "n": "Explique por que",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 51,
+      "n": "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a la industria del petróleo?",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 52,
+      "n": "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuesto a la industria del petróleo",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 53,
+      "n": "Indique cuál cree que es el impacto que tiene en el Cambio Climático subsidiar al gas natural",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 54,
+      "n": "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos al gas natural",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 55,
+      "n": "Indique cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a las Energias renovables",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 56,
+      "n": "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos a las Energias renovables",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 57,
+      "n": "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a los Biocombustibles?",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 58,
+      "n": "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos a los Biocombustibles",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 59,
+      "n": "Indique cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a la Energia Nuclear",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 60,
+      "n": "Indique cuál cree que es el impacto que tiene en el Cambio Climático poner impuestos a la Energia Nuclear",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 61,
+      "n": "¿Cuál cree que es el impacto que tiene en el Cambio Climático subsidiar a una nueva tecnologia muy prometedora?",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 62,
+      "n": "¿Cuál cree que es el impacto que tiene en el Cambio Climático poner un impuesto a una nueva tecnologia muy prometedora?",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 63,
+      "n": "Indique cuál cree que es el impacto que tiene en el Cambio Climático la forestacion",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 64,
+      "n": "Indique cuál cree que es el impacto de Polìticas REDD+ reduciendo emisiones por la degradación de la tierra, desmontes, quema de bosques, etc.",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 65,
+      "n": "Indique cuál cree que puede ser el impacto de reducir las emisiones de metano por parte del ganado bovino, fertilizantes sintéticos generando óxido nitroso.",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 66,
+      "n": "Indique cuál cree que es el impacto posible de impulsar la concientización masiva e implementación de demostraciones públicas tendientes a apoyar la resolución de la crisis climática.",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 67,
+      "n": "Indique cuál cree que es el impacto que tiene en el Cambio Climático las acciones para aumentar la eficiencia energetica del transporte",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 68,
+      "n": "¿Acciones para aumentar la eficiencia energética de los edificios y casas, tales como aislaciones térmicas?",
+      "t": "c",
+      "v": [
+        {
+          "d": "Ningun impacto",
+          "v": 1
+        },
+        {
+          "d": "Poco impacto",
+          "v": 2
+        },
+        {
+          "d": "Algo de impacto",
+          "v": 3
+        },
+        {
+          "d": "Mucho impacto",
+          "v": 4
+        },
+        {
+          "d": "Extraordinario impacto",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 69,
+      "n": "¿Cree usted que con una única acciòn es suficiente para resolver /aliviar el cambio climàtico?",
+      "t": "c",
+      "v": [
+        {
+          "d": "Si",
+          "v": 1
+        },
+        {
+          "d": "No",
+          "v": 2
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 70,
+      "n": "¿Cree usted que son necesarias múltiples medidas simultáneas para resolver y aliviar el cambio climático dentro de parámetros habitables?",
+      "t": "c",
+      "v": [
+        {
+          "d": "SI",
+          "v": 1
+        },
+        {
+          "d": "NO",
+          "v": 1
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 71,
+      "n": "¿Cuáles son las aplicaciones potenciales de la solución que propuso?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 72,
+      "n": "¿Cuáles son los distintos beneficios de las distintas formas de distribuir los ingresos de un precio al carbono?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": true,
+      "id": 73,
+      "n": "¿Qué cosas le sorprendieron?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": true,
+      "id": 74,
+      "n": "¿Cuáles fueron los temas más conflictivos?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": true,
+      "id": 75,
+      "n": "¿Cuáles cosas cambiaría?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": true,
+      "id": 76,
+      "n": "¿Cuáles cosas le gustaron más?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": true,
+      "id": 77,
+      "n": "¿A quienes les gustaría invitar a la próxima edición de este taller?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 78,
+      "n": "Luego del taller, ¿A qué tasa anual cree usted que es posible disminuir en forma sostenida en las emisiones de gases de efecto invernadero?",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. 60 al 90%",
+          "v": 1
+        },
+        {
+          "d": "2. 30 al 50%",
+          "v": 2
+        },
+        {
+          "d": "3. del 41 al 60%",
+          "v": 3
+        },
+        {
+          "d": "4. del 61 al 80%",
+          "v": 4
+        },
+        {
+          "d": "5. del 81 al 100%",
+          "v": 5
+        },
+        {
+          "d": "No contesto",
+          "v": 6
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 79,
+      "n": "¿Qué porcentaje (%) total de las emisiones de CO2 actuales anuales de todos los países del mundo en su conjunto estima usted que será necesario reducir para que la temperatura media global no supere los 2ºC durante el siglo XXI?",
+      "t": "c",
+      "v": [
+        {
+          "d": "1. Del 0 al 20%",
+          "v": 1
+        },
+        {
+          "d": "2. Del 21 al 40%",
+          "v": 2
+        },
+        {
+          "d": "3. Del 41 al 60%",
+          "v": 3
+        },
+        {
+          "d": "4. Del 61 al 80%",
+          "v": 4
+        },
+        {
+          "d": "5. Del 81 al 100%",
+          "v": 5
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 80,
+      "n": "Por favor, responda a la pregunta: ¿Qué otras cosas cree poder hacer usted para resolver la Crisis Climática?”",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 81,
+      "n": "¿Tiene usted interés en participar de algún proyecto vinculado a la reducción del cambio climático?",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 82,
+      "n": "¿Decidió usted participar en algún equipo para la competencia MIT Climate CoLab 2017?",
+      "t": "c",
+      "v": [
+        {
+          "d": "Si",
+          "v": 1
+        },
+        {
+          "d": "No",
+          "v": 2
+        }
+      ]
+    },
+    {
+      "a": true,
+      "f": true,
+      "id": 83,
+      "n": "Comentarios",
+      "t": "t",
+      "v": null
+    },
+    {
+      "a": true,
+      "f": false,
+      "id": 84,
+      "n": "¿En cuál equipo?",
+      "t": "t",
+      "v": null
+    }
+  ]
+}

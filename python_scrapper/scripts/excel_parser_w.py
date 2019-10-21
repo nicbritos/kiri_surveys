@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from datetime import date
+import os
 import pandas
 import json
 import re
@@ -14,14 +14,15 @@ import re
 #     return final_answer
 
 def parse_int(s):
-    return int(re.search(r'\d+', s).group())
+    result = re.search(r'\d+', s)
+    return int(result.group()) if result is not None else None
 
 
 def remove_spaces(s):
     return re.sub(r"\s\s+", " ", str(s)).strip()
 
 
-def process_workshop(workshop_df, answers, questions, question_aliases, type):
+def process_workshop(workshop_df, answers, questions, question_aliases, survey_type):
     index = 0
     question_indexes = {}
     for i in workshop_df.head(0):
@@ -62,49 +63,61 @@ def process_workshop(workshop_df, answers, questions, question_aliases, type):
                     }
                 if not pandas.isna(values[j]):
                     if question['t'] == 'c':
-                        answer[question['id']][type] = parse_int(values[j])
+                        answer[question['id']][survey_type] = parse_int(values[j])
                     elif question['t'] == 'm':
                         pass
                         # answer[question['id']][type] = get_multiple_choices(question, values[j])
                     else:
-                        answer[question['id']][type] = str(values[j])
+                        answer[question['id']][survey_type] = str(values[j])
+
+
+def get_workshops():
+    path = 'C:\\Users\\Nico\\Documents\\ITBA\\Beca\\Cambio Climatico\\Data\\scripts\\workshops'
+    workshops = {}
+    # r=root, d=directories, f = files
+    for r, d, f in os.walk(path):
+        for filename in f:
+            separator_index = filename.index("_")
+            workshop_name = filename[:separator_index]
+            survey_type = filename[separator_index + 1:filename.index(".")]
+
+            if workshop_name not in workshops:
+                workshops[workshop_name] = {}
+
+            workshops[workshop_name][survey_type] = os.path.join(r, filename)
+
+    return workshops
 
 
 def main():
-    df_q = pandas.read_excel('questions2.xlsx', 'aliases', header=None)
-    df_w_pre = pandas.read_excel('WCE_pre.xlsx', 'responses')
-    df_w_post = pandas.read_excel('WCE_post.xlsx', 'responses')
-
     questions = {}
-    workshop = {
-        'n': 'ITBA10-WCE',
-        'id': 0,
-        'd': {
-            'y': 2019,
-            'm': 5,
-            'd': 10
-        }
-    }
-    responses = workshop['r'] = {}
-
-    with open('out_q.json', 'r', encoding='utf8') as f:
-        json_questions = json.load(f, )
-        for question in json_questions:
-            questions[question['n']] = question
-
     question_aliases = {}
-    for i in df_q.iterrows():
-        values = i[1].tolist()
-        question = remove_spaces(values[0])
-        for j in range(0, len(values)):
-            if not pandas.isna(values[j]) and type(values[j]) == type(str()):
-                question_aliases[remove_spaces(values[j])] = question
+    with open('out_q.json', 'r', encoding='utf8') as f:
+        json_questions = json.load(f)
+        for question in json_questions['definitions']:
+            questions[question['n']] = question
+        question_aliases = json_questions['aliases']
 
-    process_workshop(df_w_pre, responses, questions, question_aliases, 'PRE')
-    process_workshop(df_w_post, responses, questions, question_aliases, 'POST')
+    workshop_files = get_workshops()
 
-    with open('out_w_wce.json', 'w', encoding='utf8') as f:
-        json.dump([workshop], f, indent=2, sort_keys=True, ensure_ascii=False)
+    i = 0
+    workshops = []
+    for workshop_name, data in workshop_files.items():
+        workshop = {
+            'n': workshop_name,
+            'id': i,
+            'd': None
+        }
+        responses = workshop['r'] = {}
+        workshops.append(workshop)
+
+        for survey_type, filepath in data.items():
+            df_w = pandas.read_excel(filepath, sheet_name=0)
+            process_workshop(df_w, responses, questions, question_aliases, survey_type)
+            i += 1
+
+    with open('out_w_itba.json', 'w', encoding='utf8') as f:
+        json.dump(workshops, f, indent=2, sort_keys=True, ensure_ascii=False)
 
     print('Done')
 
